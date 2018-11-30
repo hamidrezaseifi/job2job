@@ -7,7 +7,7 @@
 	padding-top: 50px;
 	padding-bottom: 70px;
 	font-size: 18px;
-	width: 1200px;
+	width: 1060px;
     margin: 0 auto;
 }
 
@@ -354,5 +354,31 @@
   transform: rotate(90deg);
   width: 6px;
   z-index: 999999;
+}
+
+.highestJobsuche {
+  height: 315px !important;
+}
+
+.highestJobsuche > ul {
+  display: table;
+  width: 100%;
+  color: #f4f4f4;
+  min-height: 140px;
+  list-style-type: none;
+}
+.highestJobsuche > ul {
+  margin-bottom: 15px;
+}
+.highestJobsuche > ul li {
+  font-family: AvenirLTPro-Book;
+  font-size: 15px;
+  font-weight: normal;
+  min-height: 20px;
+}
+
+.buttons-founded-jobs a:hover, .buttons-founded-jobs a:focus {
+    color: #fff !important;
+    text-decoration: none !important;
 }
 

@@ -53,7 +53,8 @@ return [
 						'rules' => [
 								'<controller>/dashboard/<ac:\w+>' => '<controller>/dashboard',
 								'<controller>/personalmediation/<type:\w+>' => '<controller>/personalmediation',
-								'site/branchview/<b:\w+>' => 'site/branchview'
+						        'site/branchview/<b:\w+>' => 'site/branchview',
+								'site/jobview/<id:\w+>' => 'site/jobview'
 						]
 				],
 				'assetManager' => [

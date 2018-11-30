@@ -1,12 +1,10 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $jobModel common\lib\JobpositionBase */
-/* @var $favModel common\lib\CandidatefavoriteBase */
-/* @var $applyModel common\lib\CandidatejobapplyBase */
+/* @var $isFavorite boolean */
+/* @var $isApplied boolean */
 /* @var $id integer */
 
-use yii\helpers\Html;
-use common\helper\BrainStaticList;
 use yii\bootstrap\ActiveForm;
 
 $this->registerCssFile("@web/web/css/jobview.css", [], 'css-jobview');
@@ -18,7 +16,7 @@ Yii::$app->formatter->locale = 'de-DE';
 $startmonths =  Yii::$app->formatter->asDate($jobModel->jobstartdate, 'php:F');;
 $startyear =  Yii::$app->formatter->asDate($jobModel->jobstartdate, 'php:Y');;
 
-$faveimage = $favModel ? 'favorite_full.png' : 'favorite_empty.png';
+$faveimage = $isFavorite ? 'favorite_full.png' : 'favorite_empty.png';
 
 $userid = 0;
 $usertel = '';
@@ -65,18 +63,18 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
     </div>
     
     <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate()) {?> 	
-    <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($applyModel ? ' disabled-link' : '') ?>"><?php echo $applyModel ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
+    <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($isApplied ? ' disabled-link' : '') ?>"><?php echo $isApplied ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
 	<?php } else {?>
     <div style="height: 20px;"></div>
 	
 	<?php } ?>
     
    	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Arbeitszeitmodel') . ':</b> ' . BrainStaticList::workTypeList()[$jobModel->worktype]; ?>
+    	<?php echo '<b>' . Yii::t('app', 'Arbeitszeitmodel') . ':</b> '; ?>
     </div>
     
    	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Vakanz') . ':</b> ' . BrainStaticList::vacancyList()[$jobModel->vacancy]; ?>
+    	<?php echo '<b>' . Yii::t('app', 'Vakanz') . ':</b> '; ?>
     </div>
     
    	<div class="jobview-detail ">
@@ -84,14 +82,14 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
     </div>
     
    	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Hauptkategorie') . ':</b> ' . BrainStaticList::jobTypeList()[$jobModel->jobtype]; ?>
+    	<?php echo '<b>' . Yii::t('app', 'Hauptkategorie') . ':</b> '; ?>
     </div>
     
    	<div class="jobview-comments ">
     	<?php echo nl2br($jobModel->comments); ?>
     </div>
     <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate()) {?>
-    <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($applyModel ? ' disabled-link' : '') ?>"><?php echo $applyModel ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
+    <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($isApplied ? ' disabled-link' : '') ?>"><?php echo $isApplied ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
     <?php } ?>
 </div>
 <div class="jobview-rightpanel j2jgreenback">

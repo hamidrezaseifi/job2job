@@ -831,24 +831,6 @@ right: 230px;
     color: #fff;background:url('https://aristo-group.com/wp-content/uploads/2017/09/Hinweis_box_mobile2.png');background-size: cover;"
 }
 
-
-.highestJobsuche > ul {
-  display: table;
-  width: 100%;
-  color: #f4f4f4;
-  min-height: 140px;
-}
-.highestJobsuche > ul {
-  margin-bottom: 15px;
-}
-.highestJobsuche > ul li {
-  font-family: AvenirLTPro-Book;
-  font-size: 15px;
-  font-weight: normal;
-  margin-bottom: 13px;
-  min-height: 30px;
-}
-
 .two-boxes-aktuelle {
   background: #f1f1f1 none repeat scroll 0 0;
   border-bottom: 1px solid #bababa;
@@ -3674,7 +3656,7 @@ div.wpcf7-response-output {
   margin: 10px 0.7%;
   min-height: 342px;
   padding: 22px 12px 15px;
-  width: 23.6%;
+  width: 250px;
   transition: all 200ms ease-out;
 }
 .box-founded-jobs:hover {
@@ -5168,11 +5150,6 @@ body div h2 {
   top: 7px;
   width: 11px;
 }
-
-.highestJobsuche {
-  height: 315px !important;
-}
-
 .row-warum-eachimage {
   display: table;
   width: 100%;
@@ -5828,7 +5805,6 @@ body .boxes-aktuelle.boxesnumber3 {
     .background-post {width: 100%;height: 400px !important;}
 
     .slider-description > p {font-size: 15px;line-height: 21px;}
-    .highestJobsuche {height: 220px !important;}
 
     .jobsuchesearch {width: 540px;}
     .dropdown-jobsuche {width: 195px;}
@@ -8069,4 +8045,12 @@ div.mainlogin {
 .hiddenj2j
 {
 	display: none;
+}
+
+a:hover, a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+a:active, a:hover {
+    outline: inherit !important;
 }

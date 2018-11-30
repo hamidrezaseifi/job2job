@@ -98,6 +98,21 @@ class JobpositionBase extends \common\models\Jobposition
     }
     
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSkillsAsStringList()
+    {
+        $skillModels = JobpositionskillBase::findAll(['jobid' => $this->id]);
+        $skills = [];
+        
+        foreach ($skillModels as $skillModel) {
+            $skills[] = $skillModel->skill;
+        }
+        
+        return $skills;
+    }
+    
+    /**
      * @inheritdoc
      * @return JobpositionQueryBase the active query used by this AR class.
      */

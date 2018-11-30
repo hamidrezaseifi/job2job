@@ -20,7 +20,7 @@ class CandidatejobapplyBase extends \common\models\Candidatejobapply
 {
     /**
      * @inheritdoc
-     * @return CandidatejobapplyQuery the active query used by this AR class.
+     * @return CandidatejobapplyQueryBase the active query used by this AR class.
      */
 	
 	private $user = false;
@@ -66,6 +66,14 @@ class CandidatejobapplyBase extends \common\models\Candidatejobapply
     		$this->candidate = $this->hasOne(CandidateBase::className(), ['userid' => 'userid'])->one();
     	}
     	return $this->candidate;
+    }
+    
+    
+    public static function isApplied ($userid, $jobid)
+    {
+        $model = CandidatejobapplyBase::findOne(['userid' => $userid, 'jobposid' => $jobid]);
+        
+        return $model && isset($model->createdate);
     }
     
 }

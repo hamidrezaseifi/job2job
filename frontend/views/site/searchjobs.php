@@ -20,6 +20,10 @@ use yii\bootstrap\ActiveForm;
 // $this->registerCssFile("@web/web/css/jobadv.css", [], 'css-jobadv');
 $this->registerJsFile("@web/web/js/searchjob.js", [], 'js-jobsearch');
 $this->registerCssFile("@web/web/css/searchjob.css", [], 'css-search-job');
+
+$user = Yii::$app->user;
+$identity = $user->identity;
+$isCandidate = $identity ? $identity->isCandidate() : false;
 ?>
 
 <div class="site-search-job" ng-controller="JobSearchController">
@@ -120,7 +124,7 @@ $this->registerCssFile("@web/web/css/searchjob.css", [], 'css-search-job');
 
     <div class="section-title-founded-jobs">
         <div class="title-founded-jobs">
-        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">203</span>Treffer</span>
+        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{jobsFilterCount}}</span>Treffer</span>
         </div>
         
         <div class="div-select-jobsuche">
@@ -135,12 +139,32 @@ $this->registerCssFile("@web/web/css/searchjob.css", [], 'css-search-job');
         </div>	
     </div>
 
+	<div>
+		<div ng-repeat="job in foundJobs" class="box-founded-jobs">
+			<a href="<?php echo Yii::getAlias("@web");?>/site/jobview/{{job.id}}">
+                <div class="highestJobsuche">
+                    <div class="title">{{job.title}}</div>
+                    <ul>
+                		<li ng-repeat="skill in job.skills | limitTo:3" >{{skill}}</li>
+                    </ul>
+                    		
+                    <span class="location">{{job.country}} {{job.city}}</span>
+                </div>
+			</a>
+			<div class="buttons-founded-jobs">
+				<a class="button1-founded-jobs" href="<?php echo Yii::getAlias("@web");?>/site/jobview/{{job.id}}">DETAILS</a>
+				<a class="button2-founded-jobs" <?php if($isCandidate){?>ng-click="markJob(job.id)"<?php } ?>>MERKEN</a>
+			</div>			
+		</div>
+		<div class="clear"></div>
+	</div>
 
 
 <div>{{test}}</div>
 </div>
 <script type="text/javascript">
 var jobscounturl = "<?php echo Yii::getAlias("@web") . "/site/jobcount"; ?>";
+var jobssearchturl = "<?php echo Yii::getAlias("@web") . "/site/dosearchjobs"; ?>";
 var regions = {
 		<?php foreach ($regins as $country => $cities){?>
 		'<?php echo $country;?>' : { 'self' : false,

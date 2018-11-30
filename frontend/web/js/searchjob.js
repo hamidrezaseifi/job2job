@@ -13,6 +13,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.branches = branches;
 	$scope.vacancies = vacancies;
 	$scope.jobscounturl = jobscounturl;
+	$scope.jobssearchturl = jobssearchturl;
 	
 	$scope.jobsFilterCount = false;
 	$scope.foundJobs = [];
@@ -158,15 +159,29 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 
 	$scope.searchJobs = function (){
 		
+		//alert(JSON.stringify($scope.query)); 
+		$scope.closeDropdown();
+		$http({
+	        method : "POST",
+	        headers: {
+	        	'Content-type': 'application/json; charset=UTF-8',
+	        },
+	        url : $scope.jobssearchturl,
+	        data : $scope.query
+	    }).then(function mySuccess(response) {
+	    	$scope.foundJobs = response.data.data;
+	    	$scope.jobsFilterCount = response.data.count;
+	        //$scope.test = response.data;
+	    }, function myError(response) {
+	        alert(response.statusText);
+	        $scope.test = response.data;
+	    });
+		
 	}
 
 	$scope.getJobCount = function(){
 		
-		//alert(JSON.stringify($scope.query)); application/json
-		var pData = {
-				'email' : 1234,
-	            'password' : 5678
-	    };
+		//alert(JSON.stringify($scope.query)); 
 		
 		$http({
 	        method : "POST",
@@ -177,6 +192,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        data : $scope.query
 	    }).then(function mySuccess(response) {
 	    	$scope.jobsFilterCount = response.data.count;
+	    	
 	        //$scope.test = response.data;
 	    }, function myError(response) {
 	        alert(response.statusText);

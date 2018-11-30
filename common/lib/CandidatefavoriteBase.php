@@ -18,10 +18,17 @@ class CandidatefavoriteBase extends \common\models\Candidatefavorite
 {
     /**
      * @inheritdoc
-     * @return CandidatefavoriteQuery the active query used by this AR class.
+     * @return CandidatefavoriteQueryBase the active query used by this AR class.
      */
     public static function find()
     {
         return new CandidatefavoriteQueryBase(get_called_class());
+    }
+    
+    public static function isFavorite ($userid, $jobid)
+    {
+        $model = CandidatefavoriteBase::findOne(['userid' => $userid, 'jobposid' => $jobid]);
+        
+        return $model && isset($model->createdate);
     }
 }

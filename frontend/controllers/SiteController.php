@@ -12,7 +12,6 @@ use common\lib\UsersBase;
 use common\lib\JobpositionBaseSearch;
 use common\lib\PostcodeBase;
 use common\lib\CityBase;
-use common\helper\BrainStaticList;
 use common\helper\BrainHelper;
 use common\lib\WorktimemodelBase;
 use common\lib\CandidateBase;
@@ -22,7 +21,8 @@ use common\lib\PersonaldecisionmakerBase;
 use common\lib\BranchBase;
 use common\lib\JobpositionBase;
 use common\lib\VacancyBase;
-use yii\filters\AjaxFilter;
+use common\lib\CandidatefavoriteBase;
+use common\lib\CandidatejobapplyBase;
 
 /**
  * Site controller
@@ -512,22 +512,11 @@ class SiteController extends Controller
     
     public function actionJobcount()
     {
-        
         $params = Yii::$app->getRequest()->getBodyParams();
         
-        $query = $this->createSearchQuery($params, true);
-        //echo $query->createCommand()->sql;
+        $search = new JobpositionBaseSearch();
+        $out = $search->searchCount($params);
         
-        $result = $query->all();
-        
-        $out = ['count' => 0, 'err' => false];
-        
-        if($result && is_array($result) && count($result) > 0){
-            //echo $result->jobCount;
-            
-            $out['count'] = $result[0]->jobCount;
-            //print_r($result[0]->jobCount);
-        }
         
         $this->layout=false;
         header('Content-type: application/json');
@@ -541,25 +530,31 @@ class SiteController extends Controller
         
         $params = Yii::$app->getRequest()->getBodyParams();
         
-        $query = $this->createSearchQuery($params, false);
-        //echo $query->createCommand()->sql;
+        $search = new JobpositionBaseSearch();
+        $results = $search->searchInPage($params);
         
-        $result = $query->all();
-        
-        $out = ['count' => 0, 'err' => false];
-        
-        if($result && is_array($result) && count($result) > 0){
-            //echo $result->jobCount;
-            
-            $out['count'] = $result[0]->jobCount;
-            //print_r($result[0]->jobCount);
-        }
+        //print_r($results);
         
         $this->layout=false;
         header('Content-type: application/json');
-        echo json_encode($out);
+        echo json_encode($results);
         \Yii::$app->end();
         exit();
+    }
+    
+    public function actionJobview($id)
+    {
+        $job = JobpositionBase::findOne(['id' => $id]);
+        $isFavorite = (isset(Yii::$app->user->identity))? CandidatefavoriteBase::isFavorite(Yii::$app->user->identity->id, $id) : false;
+        $isApplied = (isset(Yii::$app->user->identity))? CandidatejobapplyBase::isApplied(Yii::$app->user->identity->id, $id) : false;
+        
+        
+        return $this->render('jobview', [
+            'jobModel' => $job,
+            'isFavorite' => $isFavorite,
+            'isApplied' => $isApplied,
+            
+        ]);
     }
     
     public function actionTest()
