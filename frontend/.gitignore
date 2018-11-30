@@ -1,1 +1,5 @@
 /runtime/
+
+assets/*
+!assets/AppAsset.php
+
