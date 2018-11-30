@@ -36,8 +36,8 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 	$db = [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=job2job',
-			'username' => 'root',
-			'password' => 'Elec7342',
+			'username' => 'job2job',
+			'password' => 'job2job',
 			'charset' => 'utf8',
 			'tablePrefix' => 'j2j_',
 		];
