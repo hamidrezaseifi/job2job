@@ -139,7 +139,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
         </div>	
     </div>
 
-	<div>
+	<div class="box-founded-jobs-container">
 		<div ng-repeat="job in foundJobs" class="box-founded-jobs">
 			<a href="<?php echo Yii::getAlias("@web");?>/site/jobview/{{job.id}}">
                 <div class="highestJobsuche">
@@ -158,6 +158,8 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 		</div>
 		<div class="clear"></div>
 	</div>
+	
+	<div class="weitere-laden-btn" ng-if="isMoreJobs">Weitere Stellenangebote laden...</div>
 
 
 <div>{{test}}</div>

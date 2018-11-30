@@ -531,9 +531,14 @@ class SiteController extends Controller
         $params = Yii::$app->getRequest()->getBodyParams();
         
         $search = new JobpositionBaseSearch();
-        $results = $search->searchInPage($params);
+        $results = $search->searchInPage($params, $params["selectedSortOption"]);
         
-        //print_r($results);
+        $count = count($results);
+        
+        $results = array_slice($results, 0, 15); 
+        
+        $results = ['data' => $results, 'count' => $count, 'isMoreJobs' => count($results) < $count];
+        
         
         $this->layout=false;
         header('Content-type: application/json');

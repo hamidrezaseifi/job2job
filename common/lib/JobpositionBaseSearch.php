@@ -359,8 +359,21 @@ class JobpositionBaseSearch extends JobpositionBase {
 	    return $out;
 	}
 	
-	public function searchInPage($params) {
+	public function searchInPage($params, $sortType) {
+	    
+	    $order = false;
+	    switch ($sortType){
+	        case "new": $order = ["createdate" => SORT_ASC]; break;
+	        case "title": $order = ["title" => SORT_ASC]; break;
+	        case "vacancy": $order = ["vacancy" => SORT_ASC]; break;
+	        case "startdate": $order = ["jobstartdate" => SORT_ASC]; break;
+	        case "branch": $order = ["branch" => SORT_ASC]; break;
+	    }
+	    
 	    $query = $this->createSearchQuery($params, ['j2j_jobposition.id', 'j2j_jobposition.title', 'j2j_jobposition.city', 'j2j_jobposition.country', 'j2j_jobposition.postcode']);
+	    if($order){
+	        $query->orderBy($order);
+	    }
 	    $models = $query->all();
 	    
 	    $results = [];
@@ -376,8 +389,6 @@ class JobpositionBaseSearch extends JobpositionBase {
 	            
 	        ];
 	    }
-	    
-	    $results = ['data' => $results, 'count' => count($results)];
 	    
 	    return $results;
 	}

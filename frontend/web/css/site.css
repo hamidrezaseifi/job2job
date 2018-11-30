@@ -8054,3 +8054,8 @@ a:hover, a:focus {
 a:active, a:hover {
     outline: inherit !important;
 }
+
+.box-founded-jobs-container
+{
+	margin-bottom: 30px;
+}

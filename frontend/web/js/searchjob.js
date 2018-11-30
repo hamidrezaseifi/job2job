@@ -9,12 +9,14 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.query["vacancies"] = [];
 	$scope.query["branches"] = [];
 	$scope.query["searchText"] = "";
+	$scope.query.selectedSortOption = "new";
 
 	$scope.branches = branches;
 	$scope.vacancies = vacancies;
 	$scope.jobscounturl = jobscounturl;
 	$scope.jobssearchturl = jobssearchturl;
 	
+	$scope.isMoreJobs = false;
 	$scope.jobsFilterCount = false;
 	$scope.foundJobs = [];
 	
@@ -23,11 +25,11 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.loadingSearchShow = false;
 	
 	$scope.showSOrtList = false;
-	$scope.selectedSortOption = "new";
+	
 	$scope.sortOptionList = [
-		{value:"nosort", label:"Ohne Sortierung"},
+		{value:"title", label:"Bezeichnung"},
 		{value:"new", label:"Neuestes Angebot"},
-		{value:"vacancy", label:"Beschäftigungsform"},
+		{value:"vacancy", label:"Vakanz"},
 		{value:"startdate", label:"Startdatum"},
 		{value:"branch", label:"Branche"},
 	];
@@ -37,13 +39,13 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	}
 	
 	$scope.selectSortOption = function (item){
-		$scope.selectedSortOption = item.value;
+		$scope.query.selectedSortOption = item.value;
 		$scope.showSOrtList = false;
 	}
 	
 	$scope.getSelectedSortOption = function (){
 		for(index in $scope.sortOptionList){
-			if($scope.sortOptionList[index].value == $scope.selectedSortOption){
+			if($scope.sortOptionList[index].value == $scope.query.selectedSortOption){
 				return $scope.sortOptionList[index];
 			}
 		}	
@@ -171,6 +173,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	    }).then(function mySuccess(response) {
 	    	$scope.foundJobs = response.data.data;
 	    	$scope.jobsFilterCount = response.data.count;
+	    	$scope.isMoreJobs = response.data.isMoreJobs;
 	        //$scope.test = response.data;
 	    }, function myError(response) {
 	        alert(response.statusText);
@@ -273,7 +276,9 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	
     
 	
-    
+
+	$scope.searchJobs();
+
 	
 	
     
