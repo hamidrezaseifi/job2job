@@ -1,0 +1,117 @@
+
+.allbranches-title
+{
+	margin-top: 60px;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: center;
+    font-family: Tahoma;
+}
+
+
+.allbranches-part-4
+{
+	margin-top: 60px;
+	margin-bottom: 100px;
+	
+}
+
+.allbranches-part-4-in
+{
+	width: 360px;
+	height: 380px;
+	background-color:#ffffff;
+	box-shadow: 10px 10px 25px #888888;
+	border: 1px solid lightgray;
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+    animation: fadeAnim 1s 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+
+.allbranches-part-4-in-1, 
+{
+	animation-delay: 0s;
+}
+
+.allbranches-part-4-in-2
+{
+	animation-delay: 0.3s;
+}
+
+.allbranches-part-4-in-3
+{
+	animation-delay: 0.6s;
+}
+
+.allbranches-part-4-in-4 
+{
+	animation-delay: 0.9s;
+}
+
+.allbranches-part-4-in-5
+{
+	animation-delay: 1.2s;
+}
+
+.allbranches-part-4-in-6
+{
+	animation-delay: 1.5s;
+}
+
+.allbranches-part-4-in-1, .allbranches-part-4-in-4
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.allbranches-part-4-in-2, .allbranches-part-4-in-5
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.allbranches-part-4-in-3, .allbranches-part-4-in-6
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.allbranches-part-4-in-title
+{
+    margin-top: 10px;	
+    margin-bottom: 10px;	
+    padding-left: 10px;
+	font-size: 20px;
+	text-align: left;
+	font-weight: bold;
+    font-family: Tahoma;
+	
+}
+
+.allbranches-part-4-in-image
+{
+	width:300px; 
+	height: 180px; 
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.allbranches-part-4-in-text
+{
+    margin-top: 8px;	
+	text-align: left;
+	padding-left: 35px;
+	padding-right: 35px;
+	font-weight: bold;
+	font-size: 12px;
+    font-family: Tahoma;
+	line-height: 14px;
+}
+

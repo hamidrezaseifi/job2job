@@ -1,0 +1,74 @@
+@CHARSET "ISO-8859-1";
+
+a.browspdt, a.browssv
+{
+	float: left; 
+	margin-left: -20px; 
+	margin-top: 7px;
+}
+
+a.removepdt, a.removesv
+{
+	float: left; 
+	margin-left: -37px; 
+	margin-top: 7px;
+	
+}
+
+.text-container
+{
+	margin-top: 5px; 
+	margin-bottom: 15px; 
+	padding: 0;
+}
+
+.listcontainer
+{
+	height: calc(100% - 80px) !important;
+}
+
+.listcontainer .list .ui-selecting 
+{ 
+	background: #FE4040; 
+}
+
+.listcontainer .list .ui-selected 
+{ 
+	background: #F39814; 
+	color: white; 
+}
+
+.listcontainer .list 
+{ 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+	width: 99%; 
+	overflow-y: auto;
+    height: calc(100% - 5px);
+}
+
+.listcontainer .list li 
+{ 
+	margin: 3px; 
+	padding: 0.4em; 
+	font-size: 12px; 
+	height: 26px; 
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.listcontainer .list li:hover
+{ 
+	background: #F3d8a4; 
+}
+  
+.loading
+{
+	position: absolute;
+    left: 70px;
+    top: 120px;
+    width: 150px;
+    display: none;
+}
+  

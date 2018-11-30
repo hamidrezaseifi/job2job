@@ -1,0 +1,188 @@
+
+.dashbaord-left-panel
+{
+	position: fixed;
+	left: 0;
+	top: 105px; 
+	width: 220px; 
+	height: 70vh; 
+	background-color: rgba(230,235,230,0.5);
+}
+
+.dashbaord-left-panel div.dashbaord-link
+{
+	text-align: center;
+    margin-bottom: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    color: #222222;
+	box-sizing: content-box;
+}
+
+.dashbaord-left-panel .dashbaord-link:hover
+{
+	background-color: #e7fc92;
+}
+
+
+.personal-info
+{
+	padding: 15px;	
+	padding-top: 15px;	
+	height: 80px;
+	margin-bottom: 60px;
+}
+
+img.personalphoto2 {
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    float: left;
+    margin-top: 0px;
+    display: inline-block;
+	position: relative;
+	border-radius: 50%;
+}
+
+img.personalphoto3 {
+    border: none;
+    width: 80px;
+    height: 80px;
+    margin-top: 25px;
+    float: left;
+    margin-top: 0px;
+    display: inline-block;
+	position: relative;
+}
+
+img.notapproved
+{
+	opacity: 0.2;
+    filter: alpha(opacity=20); /* For IE8 and earlier */
+    z-index: 1;
+}
+
+.notapprovedparent:after {
+    content: "nicht bestätigt";
+    color: red;
+    z-index: 100;
+    margin-left: -85px;
+    line-height: 60px;
+    font-family: "Palatino Linotype";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.dashbaord-left-panel div.personal-name
+{
+    font-family: "Palatino Linotype";
+    font-size: 14px;
+    line-height: 20px;
+    color: #222222;
+    float: right;
+    margin-top: 5px;
+    text-align: left;
+    width: 130px;
+    height: 20px;
+}
+
+.dashbaord-left-panel div a:hover
+{
+	text-decoration: none;
+}
+
+.candidate_dashboard_parent
+{
+	float: left; 
+	width: calc(100vw - 240px); 
+	height: 70vh; 
+}
+
+#progressbar
+{
+	margin: 0;	
+	margin-top: 5px;	
+	height: 20px;
+}
+
+
+.ui-progressbar 
+{
+	position: relative;
+	
+}
+
+.progress-label 
+{
+	position: absolute;
+	left: 50%;
+	top: 4px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #fff;
+	height: 20px;
+	line-height: 20px;
+	margin-top: -5px;
+}
+  
+#showprofilemsg
+{
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    line-height: 22px;
+	text-align: center; 
+	position:fixed; 
+	left:0; 
+	top:0; 
+	width: 100vw; 
+	height: 100vh; 
+	background-color: rgba(200, 200, 200, 0.7);
+	z-index: 11030;
+}
+  
+#showprofilemsg div.text-msg
+{
+	text-align: center; 
+	width: 500px; 
+	height: 205px; 
+	background-color: white; 
+	margin-left: calc((100vw - 500px )  / 2); 
+	margin-top: calc((100vh - 260px) / 2); 
+	padding: 10px; 
+    border-radius: 8px;
+  
+}
+
+#showprofilemsg div.text-msg a
+{
+	color: gray;
+    text-decoration: none;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 20px;
+    line-height: 50px;
+    border: transparent 1px solid;
+    border-radius: 7px;
+}
+
+#showprofilemsg div.text-msg a.j2jgreenback
+{
+	color: white;
+}
+
+#showprofilemsg div.text-msg a:hover
+{
+	border: #a9cb14 1px solid;
+}
+
+.verify-ok
+{
+	text-align: center; 
+	width: 600px;
+	margin-left: 220px;
+}
+

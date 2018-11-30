@@ -1,0 +1,178 @@
+
+
+.site-tempwork1-content
+{
+	background-image: url(../images/tempwork2.jpg);
+	background-position: left -5px;
+	background-color: transparent;
+	background-repeat: no-repeat;	
+	
+	max-width: 1000px;
+	min-width: 350px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100vw - 100px);
+	padding: 5px;
+	padding-bottom: 0px;
+	
+}
+
+
+.site-tempwork1-content .black
+{
+	color: black;	
+}
+
+.site-tempwork1-content .box1
+{
+	width: 90%;	
+	margin-left: 40px;
+}
+
+.site-tempwork1-content .box2
+{
+	background-image: url(../images/tempwork3.png);
+	background-position: left top;
+	background-color: transparent;
+	background-repeat: no-repeat;	
+	padding-bottom: 20px;
+}
+
+.site-tempwork1-content .box3
+{
+	margin: auto;
+	min-width: 405px;
+	width: 60%;	
+	margin-top: 20px;
+}
+
+.site-tempwork1-content .box4
+{
+	margin-left: 40px;
+	margin-top: 40px;
+}
+
+.site-tempwork1-content .box5
+{
+	background-image: url(../images/tempwork4.png);
+	background-position: left top;
+	background-color: transparent;
+	background-repeat: no-repeat;	
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.site-tempwork1-content .box5-1
+{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.site-tempwork1-content .box5-2
+{
+	margin-top: 35px;
+	float: left;
+	width:35%;
+}
+
+.site-tempwork1-content .box5-3
+{
+	float: left;
+	width: 28%;
+}
+
+.site-tempwork1-content .box5-3 img
+{
+	width: 90%;
+}
+
+.site-tempwork1-content .box5-4
+{
+	margin-top: 35px;
+	float: right;
+	width:35%;
+}
+
+.site-tempwork1-content .box5-5
+{
+	margin-top: 20px;
+	clear: both;
+	font-size: 20px;
+	text-align: center;
+}
+
+.site-tempwork1-content .box2 img
+{
+	width: 100%;
+}
+
+.site-tempwork1-content .box6
+{
+	background-image: url(../images/tempwork4.png);
+	background-position: left top;
+	background-color: transparent;
+	background-repeat: no-repeat;	
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 50px;
+}
+
+
+
+
+.site-tempwork1-content p, .site-tempwork1-content2 p, .site-tempwork1-content ul li
+{
+	font-family: 'Arial'; 
+	font-size: 16px;
+}
+
+.site-tempwork1-content ul li
+{
+	line-height: 30px;
+}
+
+
+@media(max-width:768px) {
+	.site-tempwork1-content, .site-tempwork1-content2
+	{
+		width: 700px;
+	}
+}
+
+@media(max-width:500px) {
+	.site-tempwork1-content, .site-tempwork1-content2
+	{
+		width: 400px;
+	}
+}
+
+@media(max-width:350px) {
+	.site-tempwork1-content, .site-tempwork1-content2
+	{
+		width: 300px;
+	}
+}
+
+.job2jobtitle
+{
+	font-family: 'Arial Black'; 
+	font-weight: bold;
+}
+
+.site-tempwork1-content .blue, .site-tempwork1-content2 .blue
+{
+	color: rgb(0, 0, 112);
+}
+
+
+.site-tempwork1-content2
+{
+	margin-top: 20px;	
+	background-color: rgb(102, 102 ,102);
+	color: #cccccc;
+	min-width: 350px;
+	padding: 30px;
+	text-align: center;
+}

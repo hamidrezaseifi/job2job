@@ -1,0 +1,531 @@
+
+.register-bewerbung
+{
+	width: 1030px;
+	margin: auto;
+	border: 2px solid #aaaaaa;
+	padding-bottom: 20px;
+}
+
+.register-bewerbung-teil
+{
+	margin-top: 10px;
+	border-bottom: 2px solid #a9cb14;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.register-bewerbung-title
+{
+	margin-top: 20px;
+	font-size: 30px;
+	font-weight: bold;
+	height: 70px;
+	line-height: 70px;
+	vertical-align: middle;	
+	width: 800px;
+	padding-left: 70px;
+}
+
+.register-bewerbung-logo
+{
+	margin-top: 30px;
+	border-bottom: 2px solid #a9cb14;
+	height: 100px;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.register-bewerbung-logo div
+{
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.register-bewerbung-logo div:first-child
+{
+	width: 165px;;
+}
+
+.register-bewerbung-logo div:last-child
+{
+	padding-left: 20px;
+	line-height: 30px;
+	font-family : Arial;
+}
+
+.pflichtfeld-sep
+{
+	font-size: 20px;
+	font-weight: 900;
+}
+
+.register-bewerbung-personamgabe-teil
+{
+	height: 130px;	
+}
+
+.register-bewerbung-teil-title
+{
+	float: left;
+	font-size: 15px;
+	width: 185px;
+}
+
+.register-bewerbung-teil-items-container
+{
+	float: left;
+	font-size: 13px;
+	font-family : Arial;
+	margin-left: 20px;
+}
+
+.register-bewerbung-teil-items-container .item-title
+{
+	width: 80px;
+	text-align: right;
+	float:left;
+	margin-top:10px;
+	margin-right:10px;
+
+	height: 25px;
+	line-height: 25px;
+}
+
+.register-bewerbung-teil-items-container .item
+{
+	
+	text-align: left;
+	float:left;
+	margin-top:10px;
+	height: 25px;
+}
+
+.register-bewerbung-kontakt-teil
+{
+	height: 398px;
+	
+}
+
+.register-bewerbung-teil-items-container .item input[type="text"]
+, .register-bewerbung-teil-items-container .item input[type="email"]
+, .register-bewerbung-teil-items-container .item input[type="password"]
+{
+	width: 330px;
+	height: 27px;	
+}
+
+.register-bewerbung-teil-items-container .item select
+{
+	width: 330px;	
+	height: 27px;	
+	padding-left: 6px;
+}
+
+.requireditem li:first-child , .requireditem input[type="text"]:first-child 
+, .requireditem input[type="email"]:first-child
+{
+	border-left: 3px solid #a9cb14;	
+}
+
+.register-bewerbung-teil-items-container .item input[type="button"],
+.register-bewerbung-teil-items-container .item input[type="file1"]
+{
+	width: 160px;	
+	border: 1px solid #888888;	
+	background-color: #eeeeee;	
+	color: #222255;	
+	height: 27px;
+}
+
+.fileContainer {
+    overflow: hidden;
+    position: relative;
+    width: 160px;	
+	border: 1px solid #888888;	
+	background-color: #eeeeee;	
+	color: #222255;	
+	height: 27px;
+	text-align:center;
+	font-weight: normal;
+	height: 27px;
+	line-height: 27px;
+	float: left;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    
+}
+
+.file_title
+{
+	float: left;
+	margin-left: 8px;
+	padding-top: 5px;
+	width: 270px;
+	overflow: hidden;	
+	height: 27px;
+	line-height: 27px;
+}
+
+.register-bewerbung-teil-items-container .item input[name="tel1"] , .register-bewerbung-teil-items-container .item input[name="ctel1"]
+{
+	width: 80px;	
+}
+
+.register-bewerbung-teil-items-container .item input[name="CandidateBase[pcode]"]
+{
+	width: 80px;	
+}
+
+.register-bewerbung-teil-items-container .item input[name="tel2"] , .register-bewerbung-teil-items-container .item input[name="ctel2"]
+{
+	width: 80px;	
+	margin-left: 3px;	
+}
+
+.register-bewerbung-teil-items-container .item input[name="tel3"] , .register-bewerbung-teil-items-container .item input[name="ctel3"]
+{
+	margin-left: 3px;	
+	width: 166px;	
+}
+
+.register-bewerbung-teil-items-container .item input[name="CandidateBase[city]"]
+{
+	margin-left: 3px;	
+	width: 247px;	
+}
+
+.register-bewerbung-aktuellberuff-teil
+{
+	height: 240px;
+}
+
+#skills
+{
+	width:430px; 
+	height: 80px; 
+	border:1px solid rgb(150,100,100); 
+	background-color:rgba(200,200,200,0.5);
+	overflow-y: scroll;
+	display:inline-block;
+	padding-right:18px;
+}
+
+#skills .brows-button
+{
+	cursor: pointer;
+	height: 14px;
+	width: 14px;
+	float: right;
+	margin-top: 3px;
+	margin-right: -15px;
+	background-image: url(../images/folder_add2.png);
+	background-size: 14px 14px;
+}
+
+.register-bewerbung-teil-items-container .item input[name="CandidateBase[availablefrom]"]
+{
+	width: 72px;	
+	border:2px solid #aaaaaa; 
+	border-right:none; 
+	margin-left: 2px;
+	padding-left:3px;
+}
+
+#availability_date_li
+{
+	color: #222222;	
+}
+
+#availability_date_li .brows_date
+{
+	cursor: pointer;
+	height: 28px;
+	width: 25px;
+	float: right;
+	background-image: url(../images/calendar.png);
+	background-size: 25px 25px;
+	margin-right: 9px;
+	margin-left: -5px;
+	padding-left: 0px;
+	border:2px solid #aaaaaa; 
+	border-left:none; 	
+}
+
+.register-bewerbung-beruffvorstellung-teil
+{
+	height: 170px;	
+	
+}
+
+.register-bewerbung-teil-items-container .item input[name="CandidateBase[desiredjobpcode]"]
+{
+	width: 80px;	
+}
+
+.register-bewerbung-teil-items-container .item input[name="CandidateBase[desiredjobcity]"]
+{
+	margin-left: 3px;	
+	width: 247px;	
+}
+
+.register-bewerbung-anschreiben-teil
+{
+	height: 240px;
+}
+
+.register-bewerbung-anschreiben-teil .item textarea[name="CandidateBase[coverletter]"]
+{
+	width: 410px;	
+	height: 130px;	
+}
+
+.anlagen-notiz  
+{
+	margin-top:20px;
+	font-family: Arial; 
+	font-size: 12px;
+}
+
+input.checkboxstyleone[type=checkbox]{
+	position: absolute;
+	visibility: hidden;
+}
+
+input.checkboxstyleone[type=checkbox] ~ label{
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 0px;
+	margin-left: 30px;
+	margin-right: 15px;
+	height: 30px;
+	min-width: 40px;
+	line-height: 30px;
+	z-index: 9;
+	cursor: pointer;
+	color: #AAAAAA;
+}
+
+.checkone{
+	display: block;
+	border: 2px solid #AAAAAA;
+	border-radius: 1%;
+	height: 22px;
+	width: 22px;
+	cursor: pointer;
+	z-index: 5;
+	margin-top: -20px;
+}
+
+.checkone:hover
+{
+	border: 2px solid #222222;
+}
+
+input.checkboxstyleone[type=checkbox]:checked ~ .checkone {
+	border: 2px solid #222222;
+	
+}
+
+input.checkboxstyleone[type=checkbox]:checked ~ .checkone{
+	/*background: #222222;*/
+	 background-image: url(../images/check_mark.png);
+	 background-size: 19px 19px;
+	 background-position: 0px 0px;
+	 background-repeat:no-repeat !important:
+}
+
+input.checkboxstyleone[type=checkbox]:checked ~ label{
+	color: #222222;
+	
+}
+	
+.register-bewerbung-condition-teil
+{
+	height:260px;
+	border:none;
+}
+
+.register-bewerbung-senden
+{
+	margin-top: 60px;
+	font-size: 18px;
+	font-weight: bold;
+	height: 70px;
+	line-height: 70px;
+	vertical-align: middle;	
+
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.register-bewerbung-abbrechen
+{
+	margin-top: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;	
+
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+#clearskillbrows
+{
+	width:16px;
+	height: 16px;
+	border: none; 
+	background: transparent; 
+	background-image: url(../images/Cross_Cricle.png);
+	background-size: 16px 16px;
+	margin-top: -25px;
+	float: right;
+	margin-right: 6px;
+}
+	
+#skillbrowstext
+{
+	padding-left:6px; 
+	padding-right: 6px; 
+	width:100%; 
+	height:30px; 
+	font-size: 16px; 
+	
+	float: left;
+	outline: none;
+	border:1px solid #bbbbbb;
+	border-right: none;
+	border-left: none;
+	
+}
+
+.skillbrowstitle
+{
+	height:40px; 
+	font-size:22px; 
+	text-align: left; 
+	line-height: 40px; 
+	padding-left: 20px;	
+	float: left;
+}
+
+.skillbrowspannel
+{
+	left: 200px; 
+	top:300px; 
+	width: 400px; 
+	height: 400px; 
+	background-color:white; 
+	margin:auto; 
+	text-align: left;	
+}
+
+#skillbrowser
+{
+	position: absolute; 
+	left: 0; 
+	top:0; 
+	width: 100%; 
+	height: 100%; 
+	background-color: rgba(190, 190, 190, 0.7); 
+	z-index: 100; 
+	text-align: center; 
+	vertical-align: middle;
+	display:flex;
+	font-family : Arial;
+}
+
+#closeskillbrows
+{
+	width: 20px;
+	height: 20px;
+	border: none; 
+	background: transparent; 
+	background-image: url(../images/close_menu.png);
+	background-size: 20px 20px;
+	
+	margin-top: 10px;
+	float: right;
+	margin-right: 6px;
+}
+
+.skillbrowsbottom
+{
+	height: 40px;
+	margin-top: 290px;
+	border-top:1px solid #bbbbbb;
+	vertical-align: middle;
+}
+
+#addskill
+{
+	width: 90px;
+	height: 30px;
+	border: none; 
+	background-color: #a9cb14;
+	float: right;
+	font-family : Arial;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: auto;
+}
+
+#addskill:disabled
+{
+	color: #dddddd;
+	background-color: #ebff99;
+}
+
+.skillitem
+{
+	height:20px; 
+	border:1px solid black; 
+	margin-bottom: 3px; 
+	float:left; 
+	margin-left:3px;
+	cursor: default;	
+}
+
+.skillitemtext
+{
+	float: left;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 2px;
+}
+.removeskill
+{
+	float: right;
+    border-left: 1px solid gray;
+    margin-left: 3px;
+    padding-left: 2px;
+    width: 14px;
+    height: 20px;
+    background: transparent;
+    background-image: url(../images/close_menu.png);
+    background-size: 14px 14px;
+    background-position: 0px 4px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-top: -2px;
+}
+

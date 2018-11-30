@@ -1,0 +1,108 @@
+
+
+.site-wahtwedo-content
+{
+	max-width: 80%;
+	min-width: 350px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100vw - 100px);
+	padding: 5px;
+	padding-bottom: 0px;
+	
+}
+
+.site-wahtwedo-content .title1
+{
+	font-family: 'Arial'; 
+	font-size: 30px; 
+	font-weight: bold; 
+	margin-bottom: 40px;	
+}
+
+.site-wahtwedo-content .black
+{
+	color: black;	
+}
+
+.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
+{
+	float: left;
+	width: 75%;	
+	
+}
+
+.site-wahtwedo-content .box2
+{
+	background-image: url(../images/whatwedo2.jpg);
+	background-size: 100% 100%;
+}
+
+
+.site-wahtwedo-content .box4
+{
+	background-image: url(../images/whatwedo3.jpg);
+	background-size: 100% 100%;
+}
+
+
+.site-wahtwedo-content p, .site-wahtwedo-content2 p
+{
+	font-family: 'Arial'; 
+	font-size: 16px;
+}
+
+
+
+@media (min-width:701px) {
+	
+	.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
+	{
+		float: left;
+		width: calc(100% - 240px);	
+		
+	}
+	.site-wahtwedo-content .box2, .site-wahtwedo-content .box4
+	{
+		float: right;
+		width: 200px;	
+		height: 250px;	
+		margin-top: 80px;
+	}
+}
+
+@media (min-width:360px) and (max-width:700px) {
+	
+	.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
+	{
+		float: left;
+		width: 90%;	
+		
+	}
+	.site-wahtwedo-content .box2, .site-wahtwedo-content .box4
+	{
+		float: left;
+		width: 300px;	
+		height: 375px;	
+		margin-top: 40px;
+	}
+}
+
+@media (min-width:100px) and (max-width:359px) {
+	
+	.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
+	{
+		float: left;
+		width: 95%;	
+		
+	}
+	.site-wahtwedo-content .box2, .site-wahtwedo-content .box4
+	{
+		float: left;
+		width: 250px;	
+		height: 312px;	
+		margin-top: 30px;
+	}
+}
+

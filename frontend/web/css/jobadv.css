@@ -1,0 +1,404 @@
+
+.top-wizard-nave
+{
+	height: 60px; 
+	margin-top: 10px; 
+	margin-left: 30px;
+}
+
+.top-wizard-nave .nav-item
+{
+	float: left; 
+	margin-right: 10px; 
+	padding: 5px;
+}
+
+.top-wizard-nave .nav-item .title
+{
+	font-size:16px
+}
+
+.top-wizard-nave .nav-item .desc
+{
+	font-size:10px
+}
+
+.top-wizard-nave .nav-item-sep
+{
+	float: left; 
+	width: 36px; 
+	height: 36px; 
+	margin-right: 10px; 
+	margin-top: 10px; 
+	padding: 5px; 
+	background-image: url(../images/nav-right-2.png); 
+	background-size: 36px 36px; 
+	background-repeat: no-repeat; 
+}
+
+.job-adv-wizard-container
+{
+	margin: 10px; 
+	padding: 5px;
+}
+
+.job-adv-wizard-item .item-title
+{
+	font-size: 20px;
+	border-bottom: 2px solid #dcdcdc;
+	padding: 5px;
+	margin-bottom: 10px; 
+}
+
+.job-adv-wizard-item .content
+{
+	background-color: #eeeeee;
+	padding: 20px;
+	padding-top: 5px;
+	min-height: 540px;
+}
+
+.job-adv-wizard-item .content .title
+{
+	font-weight: bold;
+	margin-top: 10px; 
+}
+
+.job-adv-wizard-item .content .item input, .job-adv-wizard-item .content .item select, .job-adv-wizard-item .content .item textarea
+{
+	width: 90%;
+}
+
+.job-adv-wizard-item .content .item textarea
+{
+	border-radius: 2px;
+}
+
+.placefinder
+{
+	padding: 5px;
+	margin-top: 5px;
+	border: 2px solid #dcdcdc;
+	border-radius: 5px;
+	background: white;
+	width: 90%;
+}
+
+.job-comment textarea
+{
+	height: 180px;
+}
+
+.nav-button-set
+{
+	margin-top: 20px;
+	height: 30px;
+	
+}
+
+.nav-button-set .button
+{
+	border: 2px solid #dcdcdc;
+	border-radius: 2px;
+	background-image: url(../images/nav-circle-right.png); 
+	background-size: 14px 14px; 
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	cursor: pointer;
+	width: 78px;
+	padding: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: right;
+}
+
+.nav-button-set .next
+{
+	float: right;
+}
+
+.nav-button-set .prev
+{
+	float: left;
+}
+
+.nav-button-set .cancel
+{
+	float: left;
+	width: 103px;
+}
+
+.nav-button-set .button:hover
+{
+	border: 2px solid #dfccbd;
+}
+
+.nav-button-set .buttonapply
+{
+	border: 2px solid #a9cb14;
+	background-color: #a9cb14;
+	color: white;
+	border-radius: 2px;
+	cursor: pointer;
+	width: 300px;
+	padding: 3px;
+	text-align: center;
+	float: right;	
+}
+
+.nav-button-set .apply-condition
+{
+	border-left: 3px solid #a9cb14; 
+	height: 55px;
+	padding-left:5px; 
+	font-size:12px; 
+	width: 425px;
+	margin-left: calc(50% - 263px);	
+	margin-right: calc(50% - 162px);	
+	
+}
+
+#addskillbutton
+{
+	border: 2px solid #a9cb14;
+	background-color: #a9cb14;
+	color: white;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 113px;
+	font-family: Arial;
+	line-height:22px;
+	height: 30px;
+	margin-left: -4px;;
+}
+
+#skilltext
+{
+	width: calc(90% - 113px);
+	height: 30px;
+	margin-right: 0;
+}
+
+.skillholder
+{
+	padding: 5px;
+	margin-top: 5px;
+	border: 2px solid #dcdcdc;
+	border-radius: 5px;
+	background: white;
+	width: 90%;
+	height: 100px;
+	overflow-y: auto;
+}
+
+.skillholder .item
+{
+	border: 1px solid gray;
+	border-radius: 2px;
+	height: 22px;
+	float: left;
+	margin-left: 3px;
+}
+
+.skillholder .item .text
+{
+	border-right: 1px solid gray;
+	border-radius: 2px;
+	height: 22px;
+	line-height: 20px;
+	float: left;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.skillholder .item .closebox
+{
+	width: 18px;
+	height: 20px;
+	border: none; 
+	background: transparent; 
+	background-image: url(../images/close_menu.png);
+	background-size: 20px 20px;
+	cursor: pointer;
+	float: right;
+}
+
+.new-adv , .new-adv:visited
+{
+	border: 2px solid #a9cb14;
+	background-color: #a9cb14;
+	color: white;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 113px;
+	font-family: Arial;
+	line-height:30px;
+	height: 30px;
+	margin-left: 4px;;
+	padding: 5px;
+}
+
+.new-adv:hover
+{
+	color: #ffffaf;
+	text-decoration: none;
+	
+}
+
+.job-adv-toolbar
+{
+	margin-left: 2%; 
+	margin-top: 30px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #dcdcdc;
+	width: 96%;
+	
+}
+
+.job-adv-list
+{
+	border: 2px solid #dcdcdc;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-left: 2%; 
+	width: 96%;
+	padding: 10px;; 
+	padding-bottom: 20px;; 
+}
+
+.job-adv-list-item
+{
+	border-bottom: 2px solid #dcdcdc;
+	height: 30px;
+	width: 96%;
+	
+	padding: 5px;
+}
+
+.job-adv-list-item:hover
+{
+	background-color: #ffffcc;
+	
+}
+
+.job-adv-list-item:last-child
+{
+	margin-bottom: 10px;
+	
+}
+
+.job-adv-list-item div
+{
+	float: right;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.job-adv-list-item div.title
+{
+	width: 320px;
+	float: left;
+}
+
+.job-adv-list-item div.place
+{
+	width: 180px;
+}
+
+.job-adv-list-item div.status
+{
+	float: right;
+	margin-left: 20px;
+	width: 102px;
+}
+
+.job-adv-list-item-notapp
+{
+	color: #cc3300;
+	
+}
+
+.job-adv-list-item div.edit {
+    height: 26px;
+    width: 26px;
+	margin-right: 2px;
+}
+
+.job-adv-list-item div.edit a.edit {
+    height: 24px;
+    width: 24px;
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+	background-image: url(../images/Actions-document-edit-icon.png);
+	display: inline-block;
+    cursor: pointer;	
+}
+
+.job-adv-list-item div.delete {
+    height: 26px;
+    width: 26px;
+	margin-right: 2px;
+}
+
+.job-adv-list-item div.delete a.delete {
+    height: 24px;
+    width: 24px;
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+	background-image: url(../images/Actions-edit-delete-icon.png);
+	display: inline-block;
+    cursor: pointer;	
+}
+
+.deletejob
+{
+	border: 2px solid #e62e00;
+	background-color: #e62e00;
+	color: white;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 113px;
+	font-family: Arial;
+	font-weight: bold;
+	line-height:22px;
+	height: 30px;
+	margin-left: 4px;
+	float: right;
+}
+
+.deletejobcancel
+{
+	border: 2px solid #a9cb14;
+	background-color: #a9cb14;
+	color: white;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 153px;
+	font-family: Arial;
+	font-weight: bold;
+	line-height:22px;
+	height: 30px;
+	margin-left: 4px;
+	text-align: center;
+	float: left;
+}
+
+.deletejobcancel:hover
+{
+	color: #ffffaa;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+

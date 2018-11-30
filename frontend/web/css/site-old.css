@@ -1,0 +1,1217 @@
+html,
+body div h1 h2 h3 h4{
+    font-family : "Palatino Linotype";
+    font-size : 14px;
+}
+
+body {
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+    font-family : "Palatino Linotype";
+    padding-top: 110px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+
+
+@media(max-width:768px) {
+	
+}
+
+
+.brandarkbluetext
+{
+	color: rgb(36 , 70, 94);	
+}
+
+div.rightnav
+{
+	position: fixed;
+	left: calc(100vw - 57px);
+	width: 22px;
+	top: 45%;
+	z-index: 1000;
+	margin-top:auto;
+	margin-bottom:auto;
+	
+}
+
+div.rightnav img 
+{
+	
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+div.topmenu
+{
+	background-color: rgba(230,235,230,0.5);
+	height: 100px;
+	position : fixed;
+	top : 0;
+	left : 0;
+	width : 100%;
+	font-family : "Palatino Linotype";
+	z-index: 100;
+}
+
+div.topmenulogo
+{
+	width : 180px;
+	margin-left : 90px;
+	margin-top: 3px;
+	text-align:center;
+}
+
+img.topmenuflag
+{
+	width : 30px;
+	height : 25px;
+	margin-left : 4px;
+	margin-right : 4px;
+	margin-top : 2px;
+}
+
+div.topmenumiddlemenu
+{
+	width : 600px;
+	margin : auto;
+	margin-top:5px;
+	height : 45px;
+	text-align:center;
+	vertical-align: bottom;
+	
+}
+
+div.topmenumiddlemenu a
+{
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	color: #222222;
+	padding-left: 10px;
+}
+
+div.topmenumiddlemenu a:first-child
+{
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	border-right: 2px solid #a9cb14;
+	padding-right: 20px;
+}
+
+img.menu_three_line
+{
+	width : 60px;
+	
+	
+}
+
+.scroll_circle_button_full
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/cricle_full.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+}
+
+.scroll_circle_button_empty
+{
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/cricle_empty.png);
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+}
+
+div.fullmenu
+{
+	position: fixed;
+	left : 0;
+	top : 0;
+	background-color: rgba(234,234,234,0.9);
+	width: 100%;
+	height: 100%;	
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	color: #222222;
+	vertical-align: middle;
+	text-align: center;
+	display:flex;
+	z-index: 11000;
+}
+
+div.fullmenu a
+{
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+    font-weight: bold;
+	color: #222222;
+	line-height: 75px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+div.dienstleistungenmenu
+{
+	position: fixed;
+	left : 0;
+	top : 0;
+	background-color: rgba(234,234,234,0.8);
+	width: 430;
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	color: #222222;
+	vertical-align: middle;
+	text-align: center;
+	display:flex;
+	z-index: 11000;
+}
+
+div.dienstleistungenmenu a
+{
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+    font-weight: bold;
+	color: #222222;
+	line-height: 75px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+div.menuline
+{
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	color: #222222;
+	margin: auto;
+	margin-bottom: 15px;
+	border-bottom: 3px solid #222222;
+	width: 300px;
+}
+
+.menutitle
+{
+	font-size : 38px !important;
+}
+
+.fullmenuunternehmer
+{
+	vertical-align: middle;
+}
+
+.fullmenubewerber
+{
+	padding-top: 4%;
+	
+}
+
+#unternehmensubmenu
+{
+	margin : auto;
+	height: 660px;
+}
+
+#bewerbersubmenu
+{
+	margin : auto;
+	height: 805px;
+}
+
+#bewerbersubmenu a
+{
+	line-height: 60px;
+}
+
+#mainsubmenu
+{
+	margin : auto;
+	height: 500px;
+}
+
+.index-jobsearch-title1
+{
+	font-family : "Arial Black";
+    font-size : 32px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(0, 0, 102);
+	margin-bottom: 20px;
+}
+
+.index-jobsearch-title2
+{
+	font-family : "Arial Black";
+    font-size : 27px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.index-jobsearch-title
+{
+	font-family : "Palatino Linotype";
+    font-size : 44px;
+	text-align: center;
+}
+
+.index-jobsearch-box
+{
+
+}
+
+.index-jobsearch-box-in
+{
+	background-color: #ffffff;
+	box-shadow: 10px 10px 25px #888888;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+	overflow: hidden;
+	padding: 20px;
+}
+
+.index-jobsearch-box-in input[type=text], .index-jobsearch-box-in select
+{
+	
+	margin-left: 10px;
+	border: 4px solid #a9cb14;
+	width: 320px;
+	height: 50px;
+	font-family : "Palatino Linotype";
+    font-size : 18px;
+    
+}
+
+.index-jobsearch-box-in select
+{
+	margin-top: 30px;
+}
+
+.index-jobsearch-box-in select:last-child
+{
+	width: 260px;
+	margin-right: 0px;
+}
+
+.index-jobsearch-box-in input[type=text]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #777777;
+	padding-left: 20px;
+	font-size : 24px;
+}
+.index-jobsearch-box-in input[type=text]::-moz-placeholder { /* Firefox 19+ */
+	color: #777777;
+	padding-left: 20px;
+	font-size : 24px;
+}
+.index-jobsearch-box-in input[type=text]:-ms-input-placeholder { /* IE 10+ */
+	color: #777777;
+	padding-left: 20px;
+	font-size : 24px;
+}
+.index-jobsearch-box-in input[type=text]:-moz-placeholder { /* Firefox 18- */
+ 	color: #777777;
+	padding-left: 20px;
+	font-size : 24px;
+}
+
+.index-jobsearch-box-in input[type=text]:first-child
+{
+	margin-left: 25px;
+}
+
+.index-jobsearch-box-in #searchbutton 
+{
+	
+	margin-right: 5px;
+	margin-left: 10px;
+	border: 4px solid #a9cb14;
+	width: 260px;
+	height: 50px;
+	background-color: #ffffff;
+	font-family : "Palatino Linotype";
+    font-size : 22px;
+    text-align: right;
+    background-image: url(../images/Border_Arrow_Right.png);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: 10px 0px;
+    
+}
+
+.index-jobsearch-box-in #advancedbutton
+{
+	margin-left: 0 !important;
+    margin-right: 0px;
+    margin-top: 24px;
+    border: 4px solid #a9cb14;
+    width: 60px;
+    height: 25px;
+    line-height: 18px;
+    background-color: #ffffff;
+    font-family: "Palatino Linotype";
+    font-size: 11px;
+    text-align: right;
+    background-size: 34px 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    float: right;
+    cursor: pointer;
+}
+
+.index-jobsearch-box-in #advancedbutton.down
+{
+    background-image: url(../images/Border_Arrow_down.png);
+}
+
+.index-jobsearch-box-in #advancedbutton.up
+{
+    background-image: url(../images/Border_Arrow_up.png);
+}
+
+.index-part-1
+{
+	height: 670px;
+	padding-top: 30px;
+}
+
+.index-werbung-box-parent-parent
+{
+	margin-top: 60px;
+	display: flex;
+	text-align: center;
+}
+
+.index-werbung-box-parent
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 100px;
+	display: flex;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.index-werbung-box
+{
+	width: 310px;
+	height: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family : "Palatino Linotype";
+    font-size : 22px;
+    line-height : 26px;
+    animation: fadeAnim 1.3s 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    
+}
+
+
+.index-werbung-box-parent .box1 { 
+    animation-delay: 0s;
+}
+
+.index-werbung-box-parent .box2 { 
+    animation-delay: .4s;
+}
+
+.index-werbung-box-parent .box3 { 
+    animation-delay: .8s;
+}
+
+
+.index-werbung-box:last-child
+{
+	width: 310px;
+}
+
+.index-werbung-box div
+{
+	text-align: left;
+	float: right; 
+	width:220px;
+}
+
+.index-werbung-box img
+{
+	float:left; 
+	margin-right: 15px; 
+	width:60px;
+	
+}
+
+
+
+.index-werbung-box p
+{
+	text-align: left;
+	font-size: 20px;
+}
+
+#toploginlink
+{
+	font-family: "Palatino Linotype";
+    font-size: 26px;
+    color: #222222;
+}
+
+#topuserlink
+{
+	font-family: "Palatino Linotype";
+    font-size: 16px;
+    color: #222222;
+}
+
+.site-contact-parent
+{
+	margin-top: 30px;
+	display: flex;
+	tex-align: center;	
+}
+
+.site-contact
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+}
+
+.site-contact-title
+{
+	font-size: 44px;
+	line-height: 48px;	
+	font-weight: bold;
+}
+
+.site-contact-text
+{
+	font-size: 16px;
+	line-height: 20px;	
+	font-family: Arial;
+}
+
+.site-contact-address
+{
+	font-size: 20px;
+	line-height: 28px;	
+	font-weight: bold;
+}
+
+#map 
+{
+    height: 400px;
+    width: 700px;
+}
+
+.contect-name , .contect-email
+{
+	font-size: 20px;
+	width: 190px;
+	height: 30px;
+	margin-right: 20px;
+	border:none;
+	border-bottom: 1px solid gray;
+}
+
+.contect-title 
+{
+	margin-top: 10px;
+	font-size: 20px;
+	width: 350px;
+	height: 30px;
+	border:none;
+	border-bottom: 1px solid gray;
+}
+
+.contect-text 
+{
+	margin-top: 10px;
+	font-size: 20px;
+	width: 350px;
+	height: 130px;
+	border:none;
+	border-bottom: 1px solid gray;
+	
+}
+
+.contect-send
+{
+		
+}
+
+.index-gray-part
+{
+	background-color: transparent;
+	height: 10px;
+	margin-top: 30px;
+	margin-bottom: 105px;
+	
+}
+
+.index-gray-part div
+{
+	text-align: center;
+	color: #cccccc;
+	font-size: 20px;
+	width: 80%;
+	margin: auto;
+}
+	
+.index-gray-part div:first-child
+{
+	
+}
+
+.index-gray-part div:last-child
+{
+	font-size: 12px;
+}
+
+.j2jgreentext
+{
+	color: #a9cb14;
+}
+
+.j2jgreentext:active
+{
+	color: #a9cb14;
+}
+
+.j2jgreentext:visited
+{
+	color: #a9cb14;
+}
+
+.j2jgreentext:link
+{
+	color: #a9cb14;
+}
+
+.j2jgreenback
+{
+	background-color: #a9cb14;
+}
+
+.j2jgreentextforce
+{
+	color: #a9cb14 !important;
+}
+
+.index-part-2
+{
+	margin-top: 80px;
+	margin-bottom: 40px;
+	display: flex;
+	min-height: 620px;
+}
+
+.index-part-2-in
+{
+	width: 1200px; 
+	 
+	margin: auto;
+	border: 5px #a9cb14 solid;
+}
+
+.index-part-2-title
+{
+    margin-top: 30px;	
+	font-size: 35px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.index-part-2-title a
+{
+	font-size: 35px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.index-part-2-title a:hover
+{
+	font-size: 35px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #666666;
+}
+
+.index-part-2-job_title
+{
+    margin-top: 65px;	
+    margin-left: 70px;	
+	font-size: 22px;
+	text-align: left;
+	font-weight: bold;
+	float: left;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	width: 54%;
+	border-bottom: 2px #a9cb14 solid;
+}
+
+.index-part-2-ort_title
+{
+    margin-top: 65px;	
+    margin-left: 20px;	
+	font-size: 20px;
+	text-align: left;
+	font-weight: bold;
+	float: left;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	width: 30%;
+	border-bottom: 2px #a9cb14 solid;
+}
+
+.index-part-2-job_item
+{
+    margin-top: 35px;	
+    margin-left: 70px;	
+	font-size: 18px;
+	text-align: left;
+	float: left;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	width: 54%;
+	border-bottom: 2px #a9cb14 solid;
+	color: #333;
+	cursor: pointer;
+}
+
+.index-part-2-ort_item
+{
+    margin-top: 35px;	
+    margin-left: 20px;	
+	font-size: 18px;
+	text-align: left;
+	float: left;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	width: 30%;
+	border-bottom: 2px #a9cb14 solid;
+	cursor: pointer;
+	color: #333;
+}
+
+.index-title-3
+{
+	margin-top: 60px;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.index-part-3
+{
+	margin-top: 80px;
+	margin-bottom: 100px;
+	display: flex;
+	
+}
+
+.index-part-3-in
+{
+	width: 300px;
+	height: 300px;
+	background-color:#ffffff;
+	box-shadow: 10px 10px 25px #888888;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid lightgray;
+	animation: fadeAnim 1s 1;
+    animation-direction: normal;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+}
+
+.index-part-3-in-1
+{
+	margin-left: auto;
+	margin-right: 20px;
+	animation-delay: 0s;
+}
+
+.index-part-3-in-2
+{
+	margin-left: 20px;
+	margin-right: 20px;
+	animation-delay: 0.5s;
+}
+
+.index-part-3-in-3
+{
+	margin-left: 20px;
+	margin-right: auto;
+	animation-delay: 1s;
+}
+
+
+
+
+
+
+
+
+
+.index-part-4
+{
+	margin-top: 60px;
+	margin-bottom: 100px;
+	display: flex;
+	
+}
+
+.index-part-4-in
+{
+	width: 360px;
+	height: 380px;
+	background-color:#ffffff;
+	box-shadow: 10px 10px 25px #888888;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid lightgray;
+}
+
+.index-part-4-in-1
+{
+	margin-left: auto;
+	margin-right: 20px;
+}
+
+.index-part-4-in-2
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.index-part-4-in-3
+{
+	margin-left: 20px;
+	margin-right: auto;
+}
+
+.index-part-4-in-title
+{
+    margin-top: 10px;	
+    margin-bottom: 10px;	
+    padding-left: 10px;
+	font-size: 20px;
+	text-align: left;
+	font-weight: bold;
+	
+}
+
+.index-part-4-in-image
+{
+	width:300px; 
+	height: 180px; 
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.index-part-4-in-text
+{
+    margin-top: 8px;	
+	font-size: 16px;
+	text-align: left;
+	padding-left: 35px;
+	padding-right: 35px;
+	font-weight: bold;
+	
+}
+
+
+.circle-white
+{
+	background-color: rgb(255, 255 ,255);
+	border: 1px solid lightgray;
+	width:50px;
+	height:50px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	line-height: 50px;
+	-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    margin-top: -25px;	
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.index-part-3-in-image
+{
+	width:70px; 
+	height: 70px; 
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.flex
+{
+	display: flex;
+}
+
+.index-part-3-in-title-1
+{
+    margin-top: 10px;	
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.index-part-3-in-title-2
+{
+    margin-top: 2px;	
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.index-part-3-in-text
+{
+    margin-top: 15px;	
+	font-size: 16px;
+	text-align: left;
+	padding-left: 35px;
+	padding-right: 35px;
+	font-weight: bold;
+	
+}
+
+.index-part-3-in-text1
+{
+    margin-top: 15px;	
+	font-size: 16px;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
+	
+}
+
+.pointer
+{
+	cursor: pointer;
+}
+
+#loginbox
+{
+	position: absolute;
+	left : 0;
+	top : 0;
+	background-color: #edf7ff;
+	border:1px solid #003e68;
+	width: 270px;
+	height: 120px;	
+    font-family : "Palatino Linotype";
+    font-size : 14px;
+	color: #222222;
+	vertical-align: middle;
+	z-index: 11011;
+	padding: 5px;
+}
+
+#loginbox div
+{
+	margin-bottom: 7px;
+}
+
+#loginbox div div
+{
+	float: left;
+	width: 85px;
+	clear: both;
+}
+
+#loginbox div div.rememberme
+{
+	width: 145px;
+}
+
+#loginbox div div.passforgot
+{
+	float: left;
+	width: 95px;
+	
+}
+
+#loginbox div div a
+{
+	font-size : 11px;
+	color: #663333;
+}
+
+#loginbox input[type="text"] , #loginbox input[type="password"]
+{
+	height: 20px;
+	width: 170px;
+}
+
+#loginbox input[type="button"]
+{
+	height: 25px;
+	width: 70px;
+	float: right;
+	padding : 0;
+	margin-right: 5px;
+}
+
+#registerchoose
+{
+	position: absolute;
+	left : 0;
+	top : 0;
+	width: 500px;
+	height: 40px;	
+	text-align: center;
+    font-family : "Palatino Linotype";
+    font-size : 26px;
+	color: #222222;
+	vertical-align: middle;
+	z-index: 11010;
+}
+	
+#mainlogo
+{
+	width: 165px;
+	height: 66px;	
+}	
+
+#mainlogotop
+{
+	position: fixed;
+	left : 0;
+	top : 0;
+	z-index: 11030;
+}
+
+.nodisplay
+{
+	display: none;
+}
+
+.top-margin-15
+{
+	margin-top: 15px !important;
+}
+
+.top-margin-18
+{
+	margin-top: 18px !important;
+}
+
+.top-margin-20
+{
+	margin-top: 20px !important;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.calender-icon
+{
+	background-image: url(../images/calendar.png);
+	background-size: 22px 22px;
+	background-position: right center;
+	background-repeat:no-repeat !important;
+}
+
+.personalphoto
+{
+	border: none;
+	width: 50px;
+	height: 50px;
+	margin-top: 25px;
+	border-radius: 50%;
+}
+
+#personalmenu
+{
+	position: absolute;
+	width:250px;
+	min-height: 170px;
+	border: 2px solid #a9cb14;
+	background-color: white;
+	padding: 7px;
+}	
+
+#personalmenu div
+{
+	text-align: center; 
+	margin-bottom: 5px;
+    font-family : "Palatino Linotype";
+    font-size : 20px;
+	color: #222222;
+	
+}	
+
+#personalmenu div a
+{
+    font-family : "Palatino Linotype";
+    font-size : 20px;
+	color: #222222;
+	
+}	
+
+#personalmenu div.personal-name
+{
+	text-align: center; 
+	margin-bottom: 20px;
+	border-bottom: 1px solid #a9cb14;
+}	
+
+.error_text
+{
+	color: rgb(189, 63, 77);
+    font-family : "Palatino Linotype";
+    font-size : 16px;
+		
+}
+
+.message1
+{
+    font-family : "Palatino Linotype";
+    font-size : 20px; 
+	height:24px;
+}
+
+.general-pagetitle
+{
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 70px;
+    vertical-align: middle;
+    width: 65%;
+    padding-left: 70px;
+    margin-left: 155px;
+    
+}
+
+.disabled-link {
+   pointer-events: none;
+   cursor: default;
+   color: gray;
+}
+
+.staticpage-desc
+{
+	width: 70%;
+	margin: auto;	
+	margin-top: 40px;
+}
+
+.branch-container .desc ul
+{
+	list-style: none;
+}
+
+.branch-header
+{
+	margin: 0;
+	margin-top: -105px;
+	width: 100%;
+}
+
+.branch-image-title {
+    display: inline-block;
+    position: absolute;
+    left: calc(50vw - 150px);
+    width: 300px;
+    border: 3px white ridge;
+}
+
+.branch-container .branch-image-title {
+    top: 310px;
+    width: 500px;
+}
+
+.branch-image-title .text
+{
+	background-color: rgba(40, 39, 39, 0.5); 
+	padding: 30px; 
+	color: #fff; 
+	line-height: 40px; 
+	font-size: 32px;
+	text-align: center;
+}
+  
+.loading-full
+{
+	background-color:rgba(200, 200, 200, 0.5); 
+	position: absolute; 
+	left:0; 
+	top: 0; width: 100%; 
+	height: calc(100%);
+	background-image: url(../images/loading.gif);
+	background-position: center center ;
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+}
+
+.job2jobgmbhtitle
+{
+	color: rgb(0, 0, 112);
+	font-family: 'Arial Black';
+    font-weight: bold;
+}
+
+.bluecircle
+{
+	width: 4px; 
+	height: 4px; 
+	background: darkblue;
+	border-radius: 50%; 
+	display: inline-block; 
+	margin-bottom: 5px;
+}
+
+.footer
+{
+	height: 45px; 
+	background-color:gray; 
+	font-size: 20px; 
+	font-family: Arial; 
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	padding: 5px;
+	width: 100%;
+}
+
+@keyframes fadeAnim {
+    from  {opacity: 0;}
+    to  {opacity: 1.0;}
+    
+}
+
+@-webkit-keyframes fadeAnim {
+    from  {opacity: 0;}
+    to  {opacity: 1.0;}
+}
+
+

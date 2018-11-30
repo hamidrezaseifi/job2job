@@ -1,0 +1,55 @@
+/* Circle Counter Module */
+.et_pb_circle_counter,
+.et_pb_number_counter {
+	position: relative;
+	margin: 0 auto 30px;
+	text-align: center;
+}
+ 
+.et_pb_circle_counter {
+	max-width: 225px;
+}
+ 
+.et_pb_circle_counter canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+ 
+.et_pb_circle_counter .percent {
+	word-wrap: initial;
+}
+ 
+.et_pb_circle_counter .percent,
+.et_pb_number_counter .percent {
+	position: relative;
+	z-index: 2;
+}
+ 
+.et_pb_circle_counter .percent p,
+.et_pb_number_counter .percent p {
+	visibility: hidden;
+}
+ 
+.et_pb_circle_counter .percent p,
+.et_pb_slide_content .et_pb_circle_counter .percent p:last-of-type {
+	position: relative;
+	padding: 49% 0;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 0.1em;
+}
+ 
+.et_pb_circle_counter h3,
+.et_pb_number_counter h3 {
+	position: relative;
+	padding: 20px 0 0 0;
+	font-size: 18px;
+}
+
+.et_pb_circle_counter .percent p {
+font-size: 40px;
+font-weight: 500;
+line-height: 225px;
+}
+

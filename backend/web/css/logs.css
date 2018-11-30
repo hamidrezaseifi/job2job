@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+
+.logdiv
+{
+	border: 1px solid lightgray; 
+	border-radius: 4px; 
+	margin-top: 4px; 
+	margin-bottom: 4px; 
+	padding: 5px; 
+	min-height: 30px;
+	width: 100%;
+	background-color: #eeeeee;
+}
+
+.lastlog
+{
+	min-height: 20px;
+	padding-left: 20px; 
+}

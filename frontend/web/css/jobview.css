@@ -1,0 +1,230 @@
+
+.jobview-jobpanel {
+	width: calc(100vw - 390px);
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    border: 2px solid #aaaaaa;
+    padding-bottom: 20px;
+    float: left;
+}
+
+.jobview-rightpanel {
+	position: fixed;
+	right: 40px;
+	width: 270px;
+    margin-bottom: 30px;
+    border: 1px solid #aaaaaa;
+    padding: 15px;
+    min-height: calc(100vh - 130px);
+}
+
+.jobview-rightpanel div.desc {
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+}
+
+.jobview-rightpanel div.desc a.email {
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+	text-decoration: underline;
+}
+
+.jobview-rightpanel div.desc a.tel {
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+	text-decoration: none;
+}
+
+.jobview-rightpanel div.desc {
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+}
+
+.jobview-rightpanel div.desc2 {
+	font-size: 16px;
+	color: rgb(24, 32, 100);
+}
+
+.jobview-rightpanel div.call-request {
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+	margin-top: 135px;
+	margin-bottom: 20px;
+	margin-left: 18px;
+	border: 2px solid rgb(24, 32, 100);
+	height: 60px;
+	line-height: 50px;
+	width: 200px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.jobview-rightpanel div.job-print, .jobview-rightpanel div.job-sendemail {
+	font-size: 14px;
+	font-weight: bold;
+	color: rgb(24, 32, 100);
+	margin-top: 2px;
+	text-align: right;
+	cursor: pointer;	
+}
+
+
+.jobview-pagetitle {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 70px;
+    vertical-align: middle;
+    width: 85%;
+    padding-left: 70px;
+    float: left;
+}
+
+.jobview-favstar {
+    margin-top: 20px;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 20px;
+    float: right;
+}
+
+.jobview-title
+{
+	font-size: 20px;
+	margin-top: 25px;
+	margin-left: 20px;
+	width: 90%
+}
+
+.jobview-ort
+{
+	font-size: 16px;
+	margin-top: 25px;
+	
+	width: 90%;
+	padding-left: 70px;
+	color: #909090;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.jobview-jobtitle
+{
+	font-size: 16px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	
+	width: 90%;
+	padding-left: 70px;
+	color: #222b62;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.jobview-detail
+{
+	font-size: 16px;
+	margin-top: 25px;
+	
+	width: 90%;
+	padding-left: 70px;
+}
+
+.jobview-comments
+{
+	font-size: 16px;
+	margin-top: 25px;
+	
+	width: 90%;
+	padding-left: 70px;
+}
+
+.buttonbewerben {
+    border: 2px solid #a9cb14;
+    background-color: #a9cb14;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 200px;
+    padding: 3px;
+    text-align: center;
+    font-size: 18px;
+    height: 50px;
+    line-height: 40px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.buttonbewerben:hover {
+    color: #ffffaa;
+    text-decoration: none;
+}
+
+#callpannel
+{
+	padding: 10px;
+	padding-top: 30px;
+}
+
+#callpannel .title2
+{
+	font-size: 22px;
+	font-weight: normal;	
+	margin-bottom: 20px;
+}
+
+#callpannel .desc
+{
+	font-size: 14px;
+	font-weight: normal;	
+	color: #888888;
+}
+
+#callpannel .desc2
+{
+	font-size: 12px;
+	font-weight: normal;	
+	margin-top: 10px;
+	color: #888888;
+}
+
+#callpannel .j2jgreentext
+{
+	font-size: 14px;
+	font-weight: normal;	
+	margin-top: 10px;
+}
+
+#callpannel .data input[type="text"]
+{
+	width: 95%;
+}
+
+#callpannel .data textarea
+{
+	width: 95%;
+	height: 100px;
+}
+
+#callpannel .sendbutton
+{
+	width: 160px;
+	height: 50px;
+	margin-left: 130px;
+	margin-top: 20px;
+	text-align: center;
+	line-height: 45px;
+	font-size: 26px;
+	cursor: pointer;
+}
+
+
+
+

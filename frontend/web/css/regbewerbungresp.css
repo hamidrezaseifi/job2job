@@ -1,0 +1,121 @@
+
+.register-bewerbung-response
+{
+	height: 380px;
+	background-image: url(../images/graystoneback.png);
+	border-bottom: 2px solid gray;
+	
+	margin-top: -130px;
+}
+
+.register-bewerbung-response img.topbanner
+{
+	margin-left: 200px;
+	margin-top: 11px;
+	float: left;
+	height: 367px;
+}
+
+.title-text
+{
+	font-size: 48px;
+	font-weight: bold;
+	float: left;
+	margin-top: 151px;
+	text-align: center;
+}
+
+.title-text-3
+{
+	font-size: 32px;
+	
+}
+
+.register-bewerbung-response-content
+{
+	padding-top: 40px;
+	padding-left: 100px;
+	padding-right: 100px;
+	 
+}
+
+.register-bewerbung-response-title1
+{
+	font-family: Arial;
+	font-weight: 900;
+	font-size: 22px;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	
+}
+
+.register-bewerbung-response-title2
+{
+	font-family: Arial;
+	font-weight: 900;
+	font-size: 16px;
+}
+
+.register-bewerbung-response-text1
+{
+	font-family: Arial;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.register-bewerbung-response-down-container
+{
+		
+	margin-bottom: 30px;
+}
+
+.register-bewerbung-response-down-item
+{
+	float: left;
+	width: 260px;
+	height: 165px;
+	text-align: center;
+	
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 40px;
+}
+
+.register-bewerbung-response-down-item img
+{
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 78px;
+	height: 67px;
+	
+}
+
+.down-title-text
+{
+	font-family: Arial;
+	font-weight: 900;
+	font-size: 16px;
+	width: 100%;
+	height: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+.down-text
+{
+	font-family: Arial;
+	font-size: 12px;
+	width: 100%;
+	height: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+

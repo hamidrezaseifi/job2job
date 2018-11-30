@@ -1,0 +1,83 @@
+Pflichtenheft – Job2Job
+
+menu oben fix background - x% alpha 
+
+danebene dots als scroll
+
+bewerber & unternemen & haupt menu background weiß & x% alpha
+
+nachdem anmelden wird da staat unrelevant menu mein profile  sein(für bewerber staat unternehmer & für unternehmer staat bewerber)
+
+erste items vorstelen auf seite mit animation wei (http://www.websitebutler.de/)
+
+bei Registrierungsformular Bewerber soll die rote items addiert werden.
+
+bei Registrierungsformular Bewerber soll am ende bevor letzte checkbox ein andere rubrik addiert werden da wurde zei fragen befragt.
+
+
+Folgende Ausführungsdetails werden für die Website vereinbart:
+Im Folgenden wird die Website in Frontend und Backend unterteilt:
+
+Das Frontend beinhaltet allgemein ein modernes Design, welches simpel und übersichtlich strukturiert und mit diversen Animationen geschmückt wird. Bei den Animationen kommen je nach Bedarf HTML 5 oder Javascript zur Verwendung.
+
+Texte und Bilder werden entweder von der alten Website übernommen oder bis zu einem vereinbarten Datum an die Agentur übergeben.
+
+Das Menü wurde soweit besprochen. Es können jedoch Änderungen in den Subpages stattfinden, die noch geklärt werden müssen.
+
+Die Website wird in 3 Sprachen auf der jetzigen Domain: www.job2job-gmbh.de veröffentlicht(FR,DE,EN). Hierbei ist Deutsch die Basissprache. Die Texte werden von der Kundin an die Agentur überreicht. Falls an einer Stelle Textübersetzungen fehlen sollten, wird dort weiterhin die Basissprache benutzt.
+
+Es wird eine Suchleiste mit einer wildcard Funktion für Jobs eingebaut, bei dem ein Stichwort und ein Ort(PLZ) eingegeben werden muss, um Stellenanzeigen angezeigt zu bekommen. Die Stellenanzeigen werden für nicht registrierte Nutzer nur teilweise lesbar sein. Um die komplette Stellenanzeige lesen zu können, muss eine Registrierung getätigt werden. 
+
+Es besteht die Möglichkeit sich als Bewerber oder Unternehmer auf der Website zu registrieren.
+
+Dabei wird jeweils ein Formular ausgefüllt, dessen Inhalt besprochen worden ist. Ein Entwurf liegt dem Vertrag bei. Das Formular beinhaltet mehrere Fragen, die unter anderem als Checkboxen beantwortet werden können.
+
+Jeder registrierte Kunde erhält ein Profil auf der Website, welches für andere Mitglieder jedoch nur anonymisiert zu sehen ist. Es werden nur einige der angegebenen Daten aus der Registrierung angezeigt. Jeder registrierte User kann unter seinem Profil seine Kontaktdaten, Fähigkeiten oder unter anderem seinen Status verändern.
+
+Die Unternehmen haben die Möglichkeit nach einer Registrierung Stellenanzeigen zu schalten, die vom Websitebetreiber überprüft und genehmigt werden müssen, bevor sie online sichtbar werden.
+
+Jeder User(unabhängig davon ob Bewerber oder Unternehmen) kann verschiedene Status annehmen(wie z.B.: auf Arbeitssuche oder auch Stellenanzeige löschen für Unternehmen). Dies kann unter den eigenen Profilen umgestellt werden.
+
+Zudem befindet sich bei jedem User ein Interessebutton. Bei Klick auf den Button wird das jeweilige Profil gemerkt und unter einer Rubrik im eigenen Profil sichtbar(Im backend für Admin auch sichtbar machen als neue Rubrik)
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+Im Backend werden mehrere Funktionen eingebaut, die für den Admin und Nutzer mit Adminrechten der Website sichtbar sind.
+
+Es wird ein Verwaltungssystem erstellt, bei dem sich der Websitebetreiber alle Bewerber und Unternehmen kategorisiert anzeigen lassen kann. Dieses System wird anhand einer Such- und Filterfunktion erstellt, so dass nach Alter, Name oder Kategorie gefiltert werden kann. Es besteht die Möglichkeit eine komplette Liste als PDF oder Excel-Datei zu exportieren. Zudem kann auf das Profil des einzelnen Kunden zugegriffen werden, um Felder manuell zu bearbeiten oder Dateien anzuhängen.
+
+Es wird ein Matchmaking System erstellt, welches automatisiert dem Websitebetreiber anhand der Bewerbungen, Vorschläge für Vermittlungen anzeigt. Hier wird ebenfalls eine Filterfunktion erstellt, so dass der Websitebetreiber explizit für ein Unternehmen/Bewerber oder einer Stellenanzeige Matches angezeigt bekommt.
+
+Es wird eine Rubrik für Rundmails erstellt, bei dem Rundmails bearbeitet oder auch neue Rundmails erstellt werden können.
+Es werden automatisch vom System Rundmails, wie z.B. Bestätigungsmail bei der Registrierung, versendet. Weiterhin werden dem Kunden weitere Rundmails zugesendet, falls dieser die Rundmails während seines Registrierungsvorgangs gemäß Double-Opt In bestätigt hat. Falls ein User Rundmails akzeptiert hat, bekommt dieser eine Informationsmail, wie z.B.: Ihre Anzeige(oder Profil) wurde X-mal besucht. Sollte der User die Rundmails nicht akzeptieren, so bekommt er nur die Bestätigungsmail der Registrierung.
+Sämtliche Rundmails werden über einen externen Server versendet, der noch zu klären ist. Sofern der jetzige externe Mailserver von user2000 eine Schnittstelle bietet und sich diese ohne weitere Probleme auf die neue Website integrieren lässt, wird weiterhin der externe Server von user2000 benutzt. 
+
+Der Websitebetreiber hat die Möglichkeit aus dem Backend die Stellenanzeigen der Unternehmen zu überprüfen und ebenfalls neue Stellenanzeigen zu erstellen. Hier wird ebenfalls eine Art Formular erstellt, so dass der Websitebetreiber mehrere Felder (Titel, Beschreibung etc.) auszufüllen hat. 
+
+Es wird eine Rubrik für Statistiken erstellt, beidem der Admin die Möglichkeit hat, sich verschiedene Statistiken (z.B. Seitenaufrufe pro Zeit etc.) anzeigen zu lassen.
+
+Es wird eine Planningfunktion samt einem Kalender erstellt, sodass Meldungen, Deadlines oder Termine hinzugefügt werden können.
+
+Es wird eine Rubrik erstellt, bei dem alle aktuellen Aktionen der Website (z.B. neue Registrierungen) angezeigt werden.
+
+Es wird eine Rubrik erstellt, bei denen die Steuer-ID's, die bei der Registrierung der Unternehmen abgefragt werden, aufgelistet werden, um Sie manuell zu kontrollieren.
+
+Es wird eine Rubrik erstellt, für die Interesse Klicks seitens der User.
+
+Der Admin kann im Backend statischen Content, wie Stellenanzeigen oder Profildaten, bearbeiten. Restliche Contenänderungen können nur durch die Html-Dateien durchgeführt werden.
+
+Das Backend in der mobilen Version beinhaltet: Notifications samt Kalender und Terminen, neueste Meldungen, jedoch kein Matchmaking- oder Verwaltungssystem.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+Allgemeines:
+
+Die Bewerber und die Stellenanzeigen werden vom System automatisch durch das Ausfüllen des Formulars während der Registrierung oder das Ausfüllen des Formulars für die Stellenanzeigen in eine oder mehrere Rubriken unterteilt, damit das Matchmaking System ordnungsgemäß funktionieren kann.
+
+Weiterhin kann jeder User der Website während der Registrierung neue Checkboxen erstellen, die jedoch vom Admin überprüft werden müssen, bevor sie ins System eingepflegt werden.
+
+Jedes Profil kann durch den Admin auf verschiedene Status umgestellt werden(z.B.: Aktiv, deaktivieren, Login nicht erlauben etc.).
+
+Ob der jetzige Webserver den Funktionen, die zu erstellen sind entspricht und genügt, muss getestet werden. Falls ein neuer Webserver benötigt wird, ist dieser vom Kunden zu stellen.
+
+Quelltext und Datenbank werden industrieüblich gegen Fremdzugriffe geschützt. Es kann jedoch nicht für Eingriffe oder Downtimes seitens des Servers garantiert werden.
+
+Die zwischenzeitlichen Testings seitens des Kunden finden auf einer Subdomain des Webservers vom Kunden statt. Es wird die bis dahin fertiggestellte Website für das Testing online gestellt.
