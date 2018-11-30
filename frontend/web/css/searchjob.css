@@ -245,13 +245,20 @@
 }
 
 .section-title-founded-jobs {
-    border-bottom: 1px solid #1a3156;
-    display: table;
-    margin-top: 30px;
-    margin-bottom: 60px;
-    padding-bottom: 15px;
-    width: 100%;
+  border-bottom: 1px solid #1a3156;
+  display: table;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  width: 100%;
+  margin-top: 30px;
 }
+
+.section-title-founded-jobs.down-founded {
+  border-top: 1px solid #1a3156;
+  border-bottom: none;
+  margin-top: 50px;
+}
+
 .div-select-jobsuche .jqselect {
 	display: table;
 	padding: 12px 0 12px 18px;

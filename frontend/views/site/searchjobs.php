@@ -124,7 +124,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 
     <div class="section-title-founded-jobs">
         <div class="title-founded-jobs">
-        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{jobsFilterCount}}</span>Treffer</span>
+        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{foundJobs.length}} von {{jobsFilterCount}}</span>Treffer</span>
         </div>
         
         <div class="div-select-jobsuche">
@@ -159,7 +159,14 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 		<div class="clear"></div>
 	</div>
 	
-	<div class="weitere-laden-btn" ng-if="isMoreJobs">Weitere Stellenangebote laden...</div>
+	<div class="weitere-laden-btn" ng-if="isMoreJobs" ng-click="loadMoreJob()">Weitere Stellenangebote laden...</div>
+
+    <div class="section-title-founded-jobs down-founded">
+        <div class="title-founded-jobs">
+        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{foundJobs.length}} von {{jobsFilterCount}}</span>Treffer</span>
+        </div>
+
+    </div>
 
 
 <div>{{test}}</div>

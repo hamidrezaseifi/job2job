@@ -10,6 +10,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.query["branches"] = [];
 	$scope.query["searchText"] = "";
 	$scope.query.selectedSortOption = "new";
+	$scope.query.loadedCount = 0;
 
 	$scope.branches = branches;
 	$scope.vacancies = vacancies;
@@ -41,6 +42,10 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.selectSortOption = function (item){
 		$scope.query.selectedSortOption = item.value;
 		$scope.showSOrtList = false;
+		
+		$scope.query.loadedCount = 0;
+		$scope.searchJobs();
+		$scope.foundJobs = [];
 	}
 	
 	$scope.getSelectedSortOption = function (){
@@ -171,13 +176,17 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        url : $scope.jobssearchturl,
 	        data : $scope.query
 	    }).then(function mySuccess(response) {
-	    	$scope.foundJobs = response.data.data;
+	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
+	    	
+	    	//$scope.foundJobs = response.data.data;
 	    	$scope.jobsFilterCount = response.data.count;
 	    	$scope.isMoreJobs = response.data.isMoreJobs;
+	    	
+	    	$scope.query.loadedCount += response.data.data.length;
 	        //$scope.test = response.data;
 	    }, function myError(response) {
 	        alert(response.statusText);
-	        $scope.test = response.data;
+	        //$scope.test = response.data;
 	    });
 		
 	}
@@ -199,7 +208,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        //$scope.test = response.data;
 	    }, function myError(response) {
 	        alert(response.statusText);
-	        $scope.test = response.data;
+	        //$scope.test = response.data;
 	    });
 	}
 	
@@ -272,6 +281,13 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		createTags();
 	}
 
+	$scope.loadMoreJob = function (){
+		$scope.searchJobs();
+	}
+
+	$scope.markJob = function (id){
+		alert("markJob " + id + " !!!!!");
+	}
 	
 	
     

@@ -533,11 +533,13 @@ class SiteController extends Controller
         $search = new JobpositionBaseSearch();
         $results = $search->searchInPage($params, $params["selectedSortOption"]);
         
+        $totalLoaded = $params["loadedCount"];
+        
         $count = count($results);
         
-        $results = array_slice($results, 0, 15); 
+        $results = array_slice($results, $totalLoaded, 8); 
         
-        $results = ['data' => $results, 'count' => $count, 'isMoreJobs' => count($results) < $count];
+        $results = ['data' => $results, 'count' => $count, 'isMoreJobs' => $totalLoaded + count($results) < $count];
         
         
         $this->layout=false;
