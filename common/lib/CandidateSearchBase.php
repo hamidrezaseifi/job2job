@@ -19,7 +19,7 @@ class CandidateSearchBase extends CandidateBase
     public function rules()
     {
         return [
-            [['userid', 'employment', 'jobtype', 'desiredjobregion', 'desiredjobtimetype'], 'integer'],
+            [['userid', 'employment', 'jobtype', 'desiredjobregion'], 'integer'],
             [['title', 'title2', 'nationality', 'photo', 'email', 'pcode', 'city', 'country', 'address', 'cellphone', 'tel', 'reachability', 'contacttime', 'availability', 'availablefrom', 'desiredjobpcode', 'desiredjobcity', 'desiredjobcountry', 'coverletter', 'createdate', 'updatedate'], 'safe'],
         ];
     }
@@ -65,7 +65,6 @@ class CandidateSearchBase extends CandidateBase
     			'jobtype' => $this->jobtype,
     			'availablefrom' => $this->availablefrom,
     			'desiredjobregion' => $this->desiredjobregion,
-    			'desiredjobtimetype' => $this->desiredjobtimetype,
     			'createdate' => $this->createdate,
     			'updatedate' => $this->updatedate,
     	]);

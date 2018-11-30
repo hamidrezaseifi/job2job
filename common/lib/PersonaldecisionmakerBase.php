@@ -53,7 +53,7 @@ class PersonaldecisionmakerBase extends \common\models\Personaldecisionmaker
 
     /**
      * @inheritdoc
-     * @return PersonaldecisionmakerQuery the active query used by this AR class.
+     * @return PersonaldecisionmakerQueryBase the active query used by this AR class.
      */
     public static function find()
     {

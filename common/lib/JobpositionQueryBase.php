@@ -3,11 +3,11 @@
 namespace common\lib;
 
 /**
- * This is the ActiveQuery class for [[Callrequest]].
+ * This is the ActiveQuery class for [[Jobposition]].
  *
- * @see Callrequest
+ * @see Jobposition
  */
-class CallrequestQueryBase extends \yii\db\ActiveQuery
+class JobpositionQueryBase extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class CallrequestQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return CallrequestBase[]|array
+     * @return JobpositionBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CallrequestQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return CallrequestBase|array|null
+     * @return JobpositionBase|array|null
      */
     public function one($db = null)
     {

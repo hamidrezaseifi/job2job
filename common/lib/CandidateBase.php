@@ -1,5 +1,4 @@
 <?php
-
 namespace common\lib;
 
 use Yii;
@@ -29,95 +28,109 @@ use Yii;
  * @property string $desiredjobcity
  * @property string $desiredjobcountry
  * @property integer $desiredjobregion
- * @property integer $desiredjobtimetype
  * @property string $coverletter
  * @property string $createdate
  * @property string $updatedate
  */
 class CandidateBase extends \common\models\Candidate
 {
-	protected $_user = false;
-	protected $_jobtype = false;
-	
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-				'userid' => Yii::t('app', 'Userid'),
-				'title' => Yii::t('app', 'Anrede'),
-				'title2' => Yii::t('app', 'Titel'),
-				'nationality' => Yii::t('app', 'Staatsangehörigkeit'),
-				'photo' => Yii::t('app', 'Bewerbungsfoto'),
-				'email' => Yii::t('app', 'E-Mail'),
-				'pcode' => Yii::t('app', 'Postleitzahl'),
-				'city' => Yii::t('app', 'Stadt'),
-				'country' => Yii::t('app', 'Land'),
-				'address' => Yii::t('app', 'Straße,Hausnummer'),
-				'cellphone' => Yii::t('app', 'Mobiltelefon'),
-				'tel' => Yii::t('app', 'Festnetznummer'),
-				'reachability' => Yii::t('app', 'Erreichbarkeit'),
-				'contacttime' => Yii::t('app', 'Wann dürfen wir Sie kontaktieren?'),
-				'employment' => Yii::t('app', 'Beschäftigung'),
-				'availability' => Yii::t('app', 'Verfügbarkeit'),
-				'jobtype' => Yii::t('app', 'Job-Sorte'),
-				'availablefrom' => Yii::t('app', 'Verfügbar ab.'),
-				'desiredjobpcode' => Yii::t('app', 'gewünschte Postleitzahl'),
-				'desiredjobcity' => Yii::t('app', 'gewünschte Stadt'),
-				'desiredjobcountry' => Yii::t('app', 'gewünschtes Land'),
-				'desiredjobregion' => Yii::t('app', 'gewünschter Umkreis'),
-				'desiredjobtimetype' => Yii::t('app', 'gewünschtes Arbeitszeitmodel'),
-				'coverletter' => Yii::t('app', 'Anschreiben'),
-				'createdate' => Yii::t('app', 'Created At'),
-				'updatedate' => Yii::t('app', 'Updated At'),
-		];
-	}
-	
-	public static function find()
-	{
-		return new CandidateQueryBase(get_called_class());
-	}
 
-	public function user()
-	{
-		if(!$this->_user)
-		{
-			$this->_user = UsersBase::findOne(['id' => $this->userid]);
-		}
-	
-		return $this->_user;
-	}
+    protected $_user = false;
 
-	public function fullname()
-	{
-		if(!$this->_user)
-		{
-			$this->_user = UsersBase::findOne(['id' => $this->userid]);
-		}
-		$name = $this->title;
-		$name .= strlen($name) > 0 ? ' ' : '';
-		$name .= $this->_user->fullname();
-		return $name;
-	}
-	
-	public function getJobtype()
-	{
-		if(!$this->_jobtype)
-		{
-			$this->_jobtype = JobtypeBase::findOne(['id' => $this->jobtype]);
-		}
-	
-		return $this->_jobtype;
-	}
-	
-	public function getDesiredjobtimetype()
-	{
-		if($this->desiredjobtimetype > 0)
-		{
-			return WorktimemodelBase::findOne(['id' => $this->desiredjobtimetype])->title;
-		}
-		
-		return '';
-	}
+    protected $_jobtype = false;
+
+    protected $_branch = false;
+
+    /**
+     *
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'userid' => Yii::t('app', 'Userid'),
+            'title' => Yii::t('app', 'Title'),
+            'title2' => Yii::t('app', 'Title2'),
+            'nationality' => Yii::t('app', 'Nationality'),
+            'photo' => Yii::t('app', 'Photo'),
+            'email' => Yii::t('app', 'Email'),
+            'homenumber' => Yii::t('app', 'Homenumber'),
+            'street' => Yii::t('app', 'Street'),
+            'pcode' => Yii::t('app', 'Pcode'),
+            'city' => Yii::t('app', 'City'),
+            'country' => Yii::t('app', 'Country'),
+            'address1' => Yii::t('app', 'Address1'),
+            'cellphone' => Yii::t('app', 'Cellphone'),
+            'tel' => Yii::t('app', 'Tel'),
+            'reachability' => Yii::t('app', 'Reachability'),
+            'contacttime' => Yii::t('app', 'Contacttime'),
+            'employment' => Yii::t('app', 'Employment'),
+            'availability' => Yii::t('app', 'Availability'),
+            'branch' => Yii::t('app', 'Branch'),
+            'jobtype' => Yii::t('app', 'Jobtype'),
+            'availablefrom' => Yii::t('app', 'Availablefrom'),
+            'desiredjobpcode' => Yii::t('app', 'Desiredjobpcode'),
+            'desiredjobcity' => Yii::t('app', 'Desiredjobcity'),
+            'desiredjobcountry' => Yii::t('app', 'Desiredjobcountry'),
+            'desiredjobregion' => Yii::t('app', 'Desiredjobregion'),
+            'coverletter' => Yii::t('app', 'Coverletter'),
+            'createdate' => Yii::t('app', 'Createdate'),
+            'updatedate' => Yii::t('app', 'Updatedate')
+        ];
+    }
+
+    public static function find()
+    {
+        return new CandidateQueryBase(get_called_class());
+    }
+
+    public function user()
+    {
+        if (! $this->_user) {
+            $this->_user = UsersBase::findOne(
+                [
+                    'id' => $this->userid
+                ]);
+        }
+
+        return $this->_user;
+    }
+
+    public function fullname()
+    {
+        if (! $this->_user) {
+            $this->_user = UsersBase::findOne(
+                [
+                    'id' => $this->userid
+                ]);
+        }
+        $name = $this->title;
+        $name .= strlen($name) > 0 ? ' ' : '';
+        $name .= $this->_user->fullname();
+        return $name;
+    }
+
+    public function getJobtype()
+    {
+        if (! $this->_jobtype) {
+            $this->_jobtype = JobtypeBase::findOne(
+                [
+                    'id' => $this->jobtype
+                ]);
+        }
+
+        return $this->_jobtype;
+    }
+
+    public function getBranch()
+    {
+        if (! $this->$_branch) {
+            $this->$_branch = BranchBase::findOne(
+                [
+                    'id' => $this->branch
+                ]);
+        }
+
+        return $this->$_branch;
+    }
 }

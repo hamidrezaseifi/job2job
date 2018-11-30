@@ -11,7 +11,11 @@ use Yii;
  * @property string $companyname
  * @property integer $companytype
  * @property string $founddate
- * @property string $adress
+ * @property string $homenumber
+ * @property string $street
+ * @property string $city
+ * @property string $pcode
+ * @property string $adress1
  * @property string $taxid
  * @property string $homepage
  * @property string $logo
@@ -40,13 +44,14 @@ class Company extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['companyname', 'createdate'], 'required'],
+            [['companyname'], 'required'],
             [['companytype', 'employeecountindex', 'isjob2job', 'status'], 'integer'],
             [['founddate', 'createdate', 'updatedate'], 'safe'],
-            [['adress'], 'string'],
             [['companyname'], 'string', 'max' => 80],
+            [['homenumber', 'pcode'], 'string', 'max' => 15],
+            [['street', 'city'], 'string', 'max' => 45],
+            [['adress1', 'homepage', 'logo'], 'string', 'max' => 200],
             [['taxid'], 'string', 'max' => 50],
-            [['homepage', 'logo'], 'string', 'max' => 200],
         ];
     }
 
@@ -60,7 +65,11 @@ class Company extends \yii\db\ActiveRecord
             'companyname' => Yii::t('app', 'Companyname'),
             'companytype' => Yii::t('app', 'Companytype'),
             'founddate' => Yii::t('app', 'Founddate'),
-            'adress' => Yii::t('app', 'Adress'),
+            'homenumber' => Yii::t('app', 'Homenumber'),
+            'street' => Yii::t('app', 'Street'),
+            'city' => Yii::t('app', 'City'),
+            'pcode' => Yii::t('app', 'Pcode'),
+            'adress1' => Yii::t('app', 'Adress1'),
             'taxid' => Yii::t('app', 'Taxid'),
             'homepage' => Yii::t('app', 'Homepage'),
             'logo' => Yii::t('app', 'Logo'),

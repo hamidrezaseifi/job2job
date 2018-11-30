@@ -20,18 +20,29 @@ use Yii;
  * @property integer $extends
  * @property string $showdate
  * @property string $expiredate
- * @property integer $jobtype
+ * @property integer $branch
+ * @property integer $vacancy
+ * @property integer $worktype
+ * @property integer $userid
  * @property integer $status
  * @property string $createdate
  * @property string $updatedate
  *
+ * @property Candidatefavorite[] $candidatefavorites
+ * @property Users[] $users
+ * @property Candidatejobapply[] $candidatejobapplies
+ * @property Users[] $users0
  * @property Company $company
+ * @property Branch $branch0
+ * @property Users $user
+ * @property Vacancy $vacancy0
+ * @property Jobpositionseen[] $jobpositionseens
  * @property Jobpositionskill[] $jobpositionskills
- * @property Skills[] $skills
  */
 class JobpositionBase extends \common\models\Jobposition
 {
 	public $allskill;
+	public $jobCount;
 	
     /**
      * @inheritdoc
@@ -52,7 +63,7 @@ class JobpositionBase extends \common\models\Jobposition
             'extends' => Yii::t('app', 'Verlängerung möglich'),
             'showdate' => Yii::t('app', 'Showdate'),
             'expiredate' => Yii::t('app', 'Gültigkeit'),
-            'jobtype' => Yii::t('app', 'Hauptkategorie'),
+            'branch' => Yii::t('app', 'Branch'),
             'vacancy' => Yii::t('app', 'Vakanz'),
             'worktype' => Yii::t('app', 'Arbeitszeitmodel'),
             'status' => Yii::t('app', 'Status'),
@@ -86,5 +97,28 @@ class JobpositionBase extends \common\models\Jobposition
     	return JobpositionskillBase::findAll(['jobid' => $this->id]);
     }
     
+    /**
+     * @inheritdoc
+     * @return JobpositionQueryBase the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new JobpositionQueryBase(get_called_class());
+    }
     
+    public static function allRegions()
+    {
+         $models = JobpositionBase::find()->select(['city', 'country'])->distinct()->orderBy(['country' => SORT_ASC, 'city' => SORT_ASC])->all();
+        
+         $regions = [];
+         
+         foreach ($models as $model){
+             if(!isset($regions[$model->country])){
+                 $regions[$model->country] = [];
+             }
+             $regions[$model->country][] = $model->city;
+         }
+         
+         return $regions;
+    }
 }

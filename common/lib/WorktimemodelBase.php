@@ -27,10 +27,21 @@ class WorktimemodelBase extends \common\models\Worktimemodel
 
     /**
      * @inheritdoc
-     * @return WorktimemodelQuery the active query used by this AR class.
+     * @return WorktimemodelQueryBase the active query used by this AR class.
      */
     public static function find()
     {
         return new WorktimemodelQueryBase(get_called_class());
+    }
+    
+    /**
+     * @inheritdoc
+     * @return BranchQueryBase the active branches.
+     */
+    public static function allActive()
+    {
+        $worktimemodelQuery = WorktimemodelBase::findAll(['status' => 1]);
+                
+        return $worktimemodelQuery;
     }
 }

@@ -20,7 +20,7 @@ use Yii;
  * @property integer $extends
  * @property string $showdate
  * @property string $expiredate
- * @property integer $jobtype
+ * @property integer $branch
  * @property integer $vacancy
  * @property integer $worktype
  * @property integer $userid
@@ -28,9 +28,15 @@ use Yii;
  * @property string $createdate
  * @property string $updatedate
  *
+ * @property Candidatefavorite[] $candidatefavorites
+ * @property Users[] $users
+ * @property Candidatejobapply[] $candidatejobapplies
+ * @property Users[] $users0
  * @property Company $company
+ * @property Branch $branch0
  * @property Users $user
  * @property Vacancy $vacancy0
+ * @property Jobpositionseen[] $jobpositionseens
  * @property Jobpositionskill[] $jobpositionskills
  */
 class Jobposition extends \yii\db\ActiveRecord
@@ -49,14 +55,15 @@ class Jobposition extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['companyid', 'title', 'subtitle', 'postcode', 'city', 'country', 'jobstartdate', 'showdate', 'expiredate', 'createdate', 'updatedate'], 'required'],
-            [['companyid', 'duration', 'extends', 'jobtype', 'vacancy', 'worktype', 'userid', 'status'], 'integer'],
+            [['companyid', 'title', 'subtitle', 'postcode', 'city', 'country', 'jobstartdate', 'showdate', 'expiredate', 'branch'], 'required'],
+            [['companyid', 'duration', 'extends', 'branch', 'vacancy', 'worktype', 'userid', 'status'], 'integer'],
             [['comments'], 'string'],
             [['jobstartdate', 'showdate', 'expiredate', 'createdate', 'updatedate'], 'safe'],
             [['title', 'city', 'country'], 'string', 'max' => 80],
             [['subtitle'], 'string', 'max' => 500],
             [['postcode'], 'string', 'max' => 20],
             [['companyid'], 'exist', 'skipOnError' => true, 'targetClass' => Company::className(), 'targetAttribute' => ['companyid' => 'id']],
+            [['branch'], 'exist', 'skipOnError' => true, 'targetClass' => Branch::className(), 'targetAttribute' => ['branch' => 'id']],
             [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['userid' => 'id']],
             [['vacancy'], 'exist', 'skipOnError' => true, 'targetClass' => Vacancy::className(), 'targetAttribute' => ['vacancy' => 'id']],
         ];
@@ -81,7 +88,7 @@ class Jobposition extends \yii\db\ActiveRecord
             'extends' => Yii::t('app', 'Extends'),
             'showdate' => Yii::t('app', 'Showdate'),
             'expiredate' => Yii::t('app', 'Expiredate'),
-            'jobtype' => Yii::t('app', 'Jobtype'),
+            'branch' => Yii::t('app', 'Branch'),
             'vacancy' => Yii::t('app', 'Vacancy'),
             'worktype' => Yii::t('app', 'Worktype'),
             'userid' => Yii::t('app', 'Userid'),
@@ -94,9 +101,49 @@ class Jobposition extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getCandidatefavorites()
+    {
+        return $this->hasMany(Candidatefavorite::className(), ['jobposid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(Users::className(), ['id' => 'userid'])->viaTable('j2j_candidatefavorite', ['jobposid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCandidatejobapplies()
+    {
+        return $this->hasMany(Candidatejobapply::className(), ['jobposid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers0()
+    {
+        return $this->hasMany(Users::className(), ['id' => 'userid'])->viaTable('j2j_candidatejobapply', ['jobposid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getCompany()
     {
         return $this->hasOne(Company::className(), ['id' => 'companyid']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBranch0()
+    {
+        return $this->hasOne(Branch::className(), ['id' => 'branch']);
     }
 
     /**
@@ -118,17 +165,16 @@ class Jobposition extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getJobpositionskills()
+    public function getJobpositionseens()
     {
-        return $this->hasMany(Jobpositionskill::className(), ['jobid' => 'id']);
+        return $this->hasMany(Jobpositionseen::className(), ['jobpos' => 'id']);
     }
 
     /**
-     * @inheritdoc
-     * @return JobpositionQuery the active query used by this AR class.
+     * @return \yii\db\ActiveQuery
      */
-    public static function find()
+    public function getJobpositionskills()
     {
-        return new JobpositionQuery(get_called_class());
+        return $this->hasMany(Jobpositionskill::className(), ['jobid' => 'id']);
     }
 }
