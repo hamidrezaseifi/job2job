@@ -59,8 +59,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'desiredjobregion') ?>
 
-    <?php // echo $form->field($model, 'desiredjobtimetype') ?>
-
     <?php // echo $form->field($model, 'coverletter') ?>
 
     <?php // echo $form->field($model, 'createdate') ?>

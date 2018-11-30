@@ -77,8 +77,6 @@ $userModel->bdate = BrainHelper::dateEnglishToGerman($userModel->bdate);
 
     <?= $form->field($candidateModel, 'desiredjobregion')->dropDownList($distanceList) ?>
 
-    <?= $form->field($candidateModel, 'desiredjobtimetype')->dropDownList($worktypeList) ?>
-
     <?= $form->field($userModel, 'status')->radioList([0 => Yii::t('app', 'Inaktiv'), 1 => Yii::t('app', 'Aktiv')], ['class' => 'form-control', ]) ?>
 
     <?= $form->field($candidateModel, 'coverletter')->textarea(['rows' => 6]) ?>

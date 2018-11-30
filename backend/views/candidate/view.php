@@ -82,11 +82,6 @@ $formatter = \Yii::$app->formatter;
         		'label' => Yii::t('app', 'gewünschter Umkreis'),
         		'value' => $model->desiredjobregion > 0 ? $model->desiredjobregion . ' km' : '',
         	],
-        	//'desiredjobtimetype',
-        	[
-        		'label' => Yii::t('app', 'gewünschtes Arbeitszeitmodel'),
-        		'value' => $model->desiredjobregion > 0 ? $model->getDesiredjobtimetype() : '',
-        	],
         	'coverletter:ntext',
             //'createdate',
             //'updatedate',
