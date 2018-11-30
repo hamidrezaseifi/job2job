@@ -566,12 +566,17 @@ class SiteController extends Controller
     {
         return $this->render('testshape', []);
     }
-
+    
     public function actionRegisterresponse()
     {
         return $this->render('register_resp', []);
     }
-
+    
+    public function actionOurcommitment()
+    {
+        return $this->render('ourcommitment', []);
+    }
+    
     /**
      * Logs out the current user.
      *
