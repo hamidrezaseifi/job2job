@@ -6,17 +6,18 @@ use yii\helpers\Html;
 
 $this->registerJsFile("@web/web/js/about.js", [], 'js-about');
 $this->registerCssFile("@web/web/css/carrier.css", [], 'css-carrier');
+$this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 ?>
 <div class="site-carrier">
 
-	<div class="carrier-header">
-			<div class="branch-image-title">
-				<div class="text">
-						<?php echo Yii::t('app', 'Karriere Intern'); ?>
-				</div>
-			</div>
-	</div>
+    <div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web') ?>/web/images/Gesundheitswesen.jpg);">
+    
+    		<div class="anim-image-title">
+    			<?php echo Yii::t('app', 'Karriere Intern'); ?>
+    		</div>
+    </div>
+
 	<br>
 	
 	<div class="staticpage-desc boxcontainer boxcontainer2">	

@@ -219,10 +219,6 @@ text/plain, application/pdf, image/*, application/vnd.openxmlformats-officedocum
 	    	<div class="item">
 	    		<?=Html::dropDownList('CandidateBase[desiredjobregion]', $candidateModel->desiredjobregion, $distances) ?>
 	    	</div>
-	    	<div class="item-title"><?php echo Yii::t('app', 'Arbeitszeitmodel'); ?></div>
-	    	<div class="item">
-	    		<?=Html::dropDownList('CandidateBase[desiredjobtimetype]', $candidateModel->desiredjobtimetype, $worktypes) ?>
-	    	</div>
 	    	
 	 	
 	 	</div>

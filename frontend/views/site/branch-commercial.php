@@ -1,58 +1,75 @@
 <?php
 
 /* @var $this yii\web\View */
-
 use yii\helpers\Html;
 
+$this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
+$this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 ?>
 
 <div class="branch-container">
 
-	<div class="branch-header">
-			<img src="<?=Yii::getAlias('@web') ?>/web/images/KV.jpg" alt="" width="100%">
-			<div class="branch-image-title" style="width: 500px">
-				<div class="text">
-						Lass dich von deinem flexiblen
-						Office Job finden
-				</div>
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/gesundheitswesen-gray.jpg);">
+
+			<div class="anim-image-title">
+				Arbeiten im kaufmännischen Sektor:<br>
+				ohne Bewerbungsstress
+
 			</div>
 	</div>
-	
-	<div class="staticpage-desc">
-	    <p><b>Immer mehr innovative Unternehmen suchen über die Job2Job Plattform nach administrativer und kaufmännischer Unterstützung. Job2Job verbindet Sie auf direktem Weg mit tollen Brands und interessanten Einsatzmöglichkeiten.</b></p>
-		<p>Egal, ob gelernter Kaufmann, Sekretärin oder Menschen ohne kaufmännische Ausbildung, die gerne mal Büroluft schnuppern möchten – wenn Sie sich für Office-Jobs interessieren, sind Sie hier richtig. Registrieren Sie sich jetzt kostenlos und lassen Sie sich über Job2Job finden. Erhalten Sie automatisch Jobanfragen und entscheiden Sie selber wo, wann und wie viel Sie arbeiten gehen!</p>
-		
+
+	<div class="branch-content">
+	    <p><b>Im kaufmännischen Sektor stehen Ihre Chancen auf einen Arbeitsplatz gut. Doch die Suche nach der geeigneten Stelle ist mühsam. Job2Job nimmt Sie Ihnen ab!</b></p>
+		<p>Sie sind gelernter Bürokaufmann/-kauffrau, Sachbearbeiter/in oder arbeiten in einem anderen Beruf im kaufmännischen Bereich? Herzlichen Glückwunsch. Sie haben prinzipiell die Möglichkeit in nahezu jedem deutschen Unternehmen zu arbeiten. Doch eine große Auswahl macht auch den Bewerbungsprozess mühsam. Zumal auf attraktive Stellen in renommierten Unternehmen ein regelrechter Run herrscht.</p>
+		<p>Diesen Bewerbungsstress möchten Sie sich am liebsten vom Hals halten? Dann beauftragen Sie Job2Job damit – und lehnen Sie sich entspannt zurück. Wir finden den Arbeitgeber, bei dem Sie glücklich werden – auch in finanzieller Hinsicht. Ganz egal, ob Sie eine Festanstellung suchen oder für flexible Einsätze offen sind.</p>
+
 		<ul>
-			<li><b>Job2Job - ler:</b> Riesige Auswahl und minimaler Aufwand – Ihr Job findet Sie</li>
-			<li><b>Faire Löhne:</b> Einhaltung aller Mindestlöhne und gesetzeskonforme Abrechnungen </li>
-			<li><b>Flexibel 1-100% arbeiten:</b> Gestalte dein Leben individuell und selbstbestimmt</li>
+			<li><b>Jobe von Job2Job :</b> Riesige Auswahl, minimaler Aufwand – Ihr Job findet Sie.</li>
+			<li><b>Faire Löhne:</b> Verkaufen Sie sich nicht unter Wert. Die Einhaltung aller Mindestlöhne und zusätzlichen Vergütungen hat für uns oberste Priorität. </li>
+			<li><b>Flexibel 1-100% arbeiten:</b> Leben und Arbeiten Sie nach Ihren Regeln – individuell und selbstbestimmt. </li>
 		</ul>
-	
+
 		<br><br><br>
 		<div>
 			<div style="float: left;">
-			
+				<?php
+
+if (count($jobModels) > 0) {
+        ?>
 				<p><b>Verfügbare Jobprofile bei Job2Job </b></p>
-				<ul>	
-					<li>Administration</li>
-					<li>Kundendienst</li> 
-					<li>Rechnungswesen</li> 
-					<li>Finanzwesen </li>
-					<li>Sekretariat</li> 
-					<li>Assistenz</li> 
+				<ul>
+					<?php
+
+foreach ($jobModels as $jobModel) {
+            ?>
+					<li><?php
+
+echo $jobModel->title;
+            ?> </li>
+					<?php
+
+}
+        ?>
 					<li><a href="javascript:void()">Und mehr</a></li>
-				</ul>			
+				</ul>
+				<?php
+
+} else {
+        ?>
+				<p><b>Zurzeot gibt keine verfügbare Jobprofile bei Job2Job im kaufmännischen Sektor </b></p>
+				<?php
+
+}
+    ?>
 			</div>
-			<img style="float: right;" src="<?=Yii::getAlias('@web') ?>/web/images/branch-com-2.jpg" width="360" alt="">
 			<div class="clear"></div>
-		</div>	
+		</div>
 		<br><br><br>
-		
-	
+
+
 	</div>
 
-	
+
 
 </div>
-

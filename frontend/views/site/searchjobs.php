@@ -14,85 +14,153 @@
 /* @var $vacancies array */
 /* @var $skills array */
 /* @var $itemstitle string */
-
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-//$this->registerCssFile("@web/web/css/jobadv.css", [], 'css-jobadv');
-$this->registerJsFile("@web/web/js/jobsearch.js", [], 'js-jobsearch');
-
+// $this->registerCssFile("@web/web/css/jobadv.css", [], 'css-jobadv');
+$this->registerJsFile("@web/web/js/searchjob.js", [], 'js-jobsearch');
+$this->registerCssFile("@web/web/css/searchjob.css", [], 'css-search-job');
 ?>
-<?=Html::hiddenInput('lastqs', $_SERVER["QUERY_STRING"], ['id' => 'lastquery']) ?>
 
-
-<div class="index-part-1" style="padding-top: 5px !important;" ng-controller="JobSearchController">
-    <div class="jobsearch-top-title">
-    	<div class="index-jobsearch-title1"><?php echo Yii::t('app', 'Wir bringen Menschen passgenau zusammen - fachkompetent und zielsicher.');?></div>
-    	<div class="index-jobsearch-title2 j2jgreentext"><?php echo Yii::t('app', 'Einfach registrieren, Suchmaschine anklicken und Personal oder Job finden!');?></div>
-    	<div class="index-jobsearch-title"><?php echo Yii::t('app', 'Jetzt Top Jobs in Ihrer Nähe finden');?></div>
-    </div>
-
-	<div class="index-jobsearch-box">
-		<?php ActiveForm::begin(['action' => Yii::getAlias('@web') . '/site/searchjobitems', 'id' => 'searchform', 'method' => 'get'])?>
-		<div class="index-jobsearch-box-in" style="height:<?php echo $advanced ? '180': '100'; ?>px;">
-			<input type="text" id="searchtext" name="st" value="<?php echo $text;?>" placeholder="<?php echo Yii::t('app', 'Beruf, Job, Qualifikation'); ?>" />
-			<input type="text" id="searchort" name="so" value="<?php echo $ort; ?>" placeholder="<?php echo Yii::t('app', 'Ort, PLZ'); ?>" />
-			<input type="button" id="searchbutton" ng-click="startSearch()" style="width:200px; margin-right: 0 !important;" value="<?php echo Yii::t('app', 'Suche starten'); ?>" />
-			<div id="advancedbutton" title="Erweiterte Suche" tools="Erweiterte Suche" data-adv="<?php echo $advanced ? 'adv': 'noadv'; ?>" data-advtitle="<?php echo Yii::t('app', 'Erweitert'); ?>" data-noadvtitle="<?php echo Yii::t('app', 'Einfach'); ?>"  ng-click="toggleAdvanced()"><?php echo $advanced ? Yii::t('app', 'Einfach'): Yii::t('app', 'Erweitert'); ?></div>
-			<?=Html::dropDownList('vk', $vacancy, $vacancies, ['style' => 'margin-left: 25px;', 'class' =>'clear adv']) ?>
-			<?=Html::dropDownList('wt', $worktype, $worktypes, ['class' =>'adv']) ?>
-			<?=Html::dropDownList('jt', $jobtype, $jobypes, ['class' =>'adv']) ?>
-			<?=Html::hiddenInput("dosearch", 1) ?>
-		</div>
-		<?php ActiveForm::end()?>
+<div class="site-search-job" ng-controller="JobSearchController">
+	<div class="search-job-title">
+		JOB<strong>SUCHE</strong><br>
+		<span class="search-job-title2">Geben Sie Ihre Kriterien ein!</span>
 	</div>
-	
-	<div class="index-part-2 jobsearch-top-items-container" id="index-part-2" style="margin-top: 30px !important;" ng-show="showItemsContainer">
-		<div class="index-part-2-in" style="margin-top: 0 !important;">
-				
-			<div class="jobsearch-top-items-title" style="margin-top: 20px;font-size: 22px;font-weight: bold; margin-left: 70px;" ng-bind-html="itemsTitle"></div>
-						
-			<a ng-repeat="x in itemsList" href="<?=Yii::getAlias('@web') ?>/site/jobview?id={{x.id}}">
-        		<div class="index-part-2-job_item" data-index=" {{x.index}}"> {{x.title}} </div>
-        		<div class="index-part-2-ort_item"> {{x.country + " / " + x.city}} </div>
-    		</a>
-			
-			<div style="height: 50px; clear: both;" id="afterlastjobpos"></div>
-			
-			<div class="index-part-2-title" id="nextjoblinkcontainer" ng-show="showNextItems">
-				<a href="#" onclick="nextAdvJob(); return false;"><?php echo Yii::t('app', 'weitere ...'); ?></a> 
-				<img src="<?php echo Yii::getAlias('@web')?>/web/images//loading.gif" width="70" id="nextjobloading" />
-			</div>
-			
-					
-		</div>
+
+	<div class="search-job-searchtext">
+		<input placeholder="z.B. Deutschland, Pharma, Festanstellung..." ng-model="query['searchText']" ng-blur="getJobCount()">
+		<button ng-click="searchJobs()"><i class="material-icons">arrow_forward_ios</i></button>
 		<div class="clear"></div>
 	</div>
-	<div ng-show="loadingSearchShow" class="fade-in-out loading-full"></div>
+
+	<div class="search-job-searchlists">
+		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'region'}">
+    		<div class="searchlist-item" ng-click="toggleDropdown('region')">
+    			<span>REGION</span>
+    			<i class="material-icons" ng-if="currentDropdown != 'region'">expand_more</i>
+     			<i class="material-icons" ng-if="currentDropdown == 'region'">expand_less</i>
+    		</div>	
+    		<div class="list-dropdown-jobsuche" ng-show="currentDropdown == 'region'">   
+    			<ul>
+    				<?php foreach ($regins as $country => $cities){?>
+    				<li ng-class="{'active': isRegionSelected('<?php echo $country;?>', 'self')}" ng-click="toggleRegion('<?php echo $country;?>', 'self', $event)"><?php echo $country;?>
+    					<ul>
+ 							<?php foreach ($cities as $city){?>
+    						<li ng-class="{'active': isRegionSelected('<?php echo $country;?>', '<?php echo $city;?>')}" ng-click="toggleRegion('<?php echo $country;?>', '<?php echo $city;?>', $event)"><?php echo $city;?></li>
+    						<?php } ?>   						
+    					</ul>
+    				</li>
+    				<?php } ?>
+    			</ul>
+    			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('region')">SCHLIEßEN</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('region')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    		</div>	
+		</div>
 		
+		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'branch'}">
+    		<div class="searchlist-item" ng-click="toggleDropdown('branch')">
+    			<span>BRANCHE</span>
+    			<i class="material-icons" ng-if="currentDropdown != 'branch'">expand_more</i>
+     			<i class="material-icons" ng-if="currentDropdown == 'branch'">expand_less</i>
+    		</div>		
+    		<div class="list-dropdown-jobsuche branches" ng-show="currentDropdown == 'branch'">    	
+    			<ul>  
+    				<?php foreach ($branches as $branch){?>
+    				<li ng-class="{'active': isBranchSelected(<?php echo $branch->id;?>)}" ng-click="toggleBranch(<?php echo $branch->id;?>, $event)"><?php echo $branch->title;?></li>
+    				<?php } ?>
+    			</ul>
+    			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('branch')">SCHLIEßEN</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('branch')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    		</div>	
+		</div>
+		
+		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'vacancy'}">
+    		<div class="searchlist-item" ng-click="toggleDropdown('vacancy')">
+    			<span>VAKANZ</span>
+    			<i class="material-icons" ng-if="currentDropdown != 'vacancy'">expand_more</i>
+     			<i class="material-icons" ng-if="currentDropdown == 'vacancy'">expand_less</i>
+    		</div>		
+    		<div class="list-dropdown-jobsuche vacancy" ng-show="currentDropdown == 'vacancy'">   
+    			<ul>  
+    				<?php foreach ($vacances as $vacancy){?>
+    				<li ng-class="{'active': isVacancySelected(<?php echo $vacancy->id;?>)}" ng-click="toggleVacancy(<?php echo $vacancy->id;?>, $event)"><?php echo $vacancy->title;?></li>
+    				<?php } ?>
+    			</ul>
+    			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('vacancy')">SCHLIEßEN</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('vacancy')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    		</div>	
+		</div>
+		
+		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'skills'}">
+    		<div class="searchlist-item" ng-click="toggleDropdown('skills')">
+    			<span>SKILLS</span>
+    			<i class="material-icons" ng-if="currentDropdown != 'skills'">expand_more</i>
+     			<i class="material-icons" ng-if="currentDropdown == 'skills'">expand_less</i>
+    		</div>		
+    		<div class="list-dropdown-jobsuche skills" ng-show="currentDropdown == 'skills'"> 
+    			<ul>  
+    				<?php foreach ($skills as $skill){?>
+    				<li ng-class="{'active': isSkillSelected('<?php echo $skill;?>')}" ng-click="toggleSkill('<?php echo $skill;?>', $event)"><?php echo $skill;?></li>
+    				<?php } ?>
+    			</ul>
+    			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('skill')">SCHLIEßEN</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('skill')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    		</div>	
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+
+	<div class="search-job-selectedtags" ng-show="hasTags()"> 
+		<span class="taglabel">Meine Auswahl:</span> 
+		<div class="search-job-selectedtags-tags"> </div>
+		<div class="clear"></div>
+	</div>
+
+    <div class="section-title-founded-jobs">
+        <div class="title-founded-jobs">
+        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">203</span>Treffer</span>
+        </div>
+        
+        <div class="div-select-jobsuche">
+        	<div class="jqselect-wrap">
+        		<div class="jqselect-box">
+        			<div class="jqselect" ng-click="showSortList()">{{getSelectedSortOption().label}}</div>
+        			<div class="jqoption-box" ng-show="showSOrtList">
+        				<div class="jqoption" ng-repeat="item in sortOptionList" ng-click="selectSortOption(item)">{{item.label}}</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>	
+    </div>
+
+
+
+<div>{{test}}</div>
 </div>
-
 <script type="text/javascript">
+var jobscounturl = "<?php echo Yii::getAlias("@web") . "/site/jobcount"; ?>";
+var regions = {
+		<?php foreach ($regins as $country => $cities){?>
+		'<?php echo $country;?>' : { 'self' : false,
+			<?php foreach ($cities as $city){?>
+			'<?php echo $city;?>' : false,
+			<?php } ?>
+			}
+		<?php } ?>	
+	};
 
-var nextjoburl = "<?php echo Yii::getAlias('@web')?>/site/nextjob";
-var part_2_showed = false;
-var nextjobcount = 5;
+var branches = {
+		<?php foreach ($branches as $branch){?>
+		<?php echo $branch->id;?>:'<?php echo $branch->title;?>',
+		<?php } ?>	
+	};
 
-
-var places = new Array();
-<?php foreach ($places as $place){?>
-places.push("<?php echo $place;?>");
-<?php }?>
-
-var skills = new Array();
-<?php foreach ($skills as $skill){?>
-skills.push("<?php echo $skill;?>");
-<?php }?>
-
-$(document).ready(function(){
-
-
-});
+var vacancies = {
+		<?php foreach ($vacances as $vacancy){?>
+		<?php echo $vacancy->id;?>:'<?php echo $vacancy->title;?>',
+		<?php } ?>	
+	};
 
 </script>

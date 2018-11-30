@@ -1,0 +1,358 @@
+
+
+
+.site-search-job
+{
+	font-family: AvenirLTPro-Light !important;; 
+	padding-top: 50px;
+	padding-bottom: 70px;
+	font-size: 18px;
+	width: 1200px;
+    margin: 0 auto;
+}
+
+.site-search-job .search-job-title
+{
+	font-family: AvenirLTPro-Book !important;; 
+	margin-bottom: 20px;
+	font-size: 25px;
+	text-align: center;
+	color: #1a3156 !important;
+}
+
+.site-search-job .search-job-title .search-job-title2
+{
+	font-size: 18px;
+}
+
+.site-search-job .search-job-searchtext
+{
+	border: 2px solid #1a3156;
+	padding: 3px;
+	width: 700px;
+	margin: 0 auto;
+	height: 40px;
+}
+
+.site-search-job .search-job-searchtext input
+{
+	font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    width: calc(100% - 50px);
+    border: none;
+    padding-left: 10px;
+    float: left;
+}
+
+.site-search-job .search-job-searchtext input,
+.site-search-job .search-job-searchtext input:focus,
+.site-search-job .search-job-searchtext input:active
+.site-search-job .search-job-searchtext button,
+.site-search-job .search-job-searchtext button:focus,
+.site-search-job .search-job-searchtext button:active
+{
+	outline: none;
+}
+
+.site-search-job .search-job-searchtext button 
+{
+    width: 40px;
+    height: 30px;
+    border: none;
+    background: none;
+    border-left: 1px solid #1a3156;
+    float: right;
+    padding-top: 2px;
+}
+
+.site-search-job .search-job-searchlists
+{
+	border: none;
+	padding: 20px;
+	width: 1060px;
+	margin: 0 auto;
+	
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche {
+    color: #1a3156;
+    display: table;
+    float: left;
+    font-size: 13px;
+    margin: 0 10px;
+    position: relative;
+    width: 235px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .searchlist-item
+{
+	background: #f6f6f6 none repeat scroll 0 0;
+    border: 1px solid #dadada;
+    display: table;
+    padding: 0 10px 0 20px;
+    text-transform: uppercase;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    z-index: 99;
+	
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche.active .searchlist-item 
+{
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #fff;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .searchlist-item > span {
+    display: table;
+    float: left;
+    line-height: 36px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .searchlist-item > i {
+    display: table;
+    float: right;
+    font-size: 36px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #dadada;
+    margin-top: -1px;
+    max-height: 283px;
+    padding: 20px 20px 15px;
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    z-index: 99999;
+    -webkit-transition:all linear 0.4s;
+  	transition:all linear 0.4s;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche ul {
+    -webkit-transition:all linear 0.4s;
+  	transition:all linear 0.4s;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.skills {
+    height: 300px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.branches {
+    height: 240px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.vacancy {
+    height: 170px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.ng-hide {
+    opacity: 0;
+    height: 0;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.ng-hide ul {
+    opacity: 0;
+    height: 0;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche.ng-hide .jobsuche-ajax-btn {
+    opacity: 0;
+    height: 0;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche .jobsuche-ajax-btn {
+    position: absolute;
+    bottom: 15px;
+    /* left: auto; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche li.active::before {
+    background: #1a3156;
+}
+
+.site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche li::before {
+    border: 1px solid #1a3156;
+    content: "";
+    height: 12px;
+    left: 0;
+    position: absolute;
+    top: 4px;
+    width: 12px;
+}
+
+.dropdown-icon-checked .iconchecke {
+  opacity: 1;
+}
+
+.dropdown-jobsuche .list-dropdown-jobsuche::before {
+  border-bottom: 10px solid #fff;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: -5px;
+  width: 233px;
+}
+
+.dropdown-jobsuche ul {
+  display: block;
+  max-height: 195px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.list-dropdown-jobsuche li {
+  color: #13395e;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  padding-left: 22px;
+  position: relative;
+  word-wrap:break-word;
+}
+
+.list-dropdown-jobsuche li::before {
+  border: 1px solid #1a3156;
+  content: "";
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+}
+
+.search-job-selectedtags {
+    width: 1200px;
+    
+    margin: 10px auto;
+    
+}
+
+.search-job-selectedtags span.taglabel {
+    color: #13395e;
+    display: table;
+    float: left;
+    font-family: AvenirLTPro-Book;
+    font-size: 15px;
+    margin-right: 5px;
+    margin-top: 4px;
+}
+
+.section-title-founded-jobs {
+    border-bottom: 1px solid #1a3156;
+    display: table;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+.div-select-jobsuche .jqselect {
+	display: table;
+	padding: 12px 0 12px 18px;
+	border: 1px solid #dadada;
+	width: 170px;
+	cursor: pointer;
+	position: relative;
+}
+.div-select-jobsuche .jqselect-wrap {
+  color: #1a3156;
+  display: table;
+  float: right;
+  font-size: 12px;
+  margin-top: -8px;
+  position: relative;
+}
+.div-select-jobsuche .jqoption-box {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #dadada;
+  margin-top: -1px;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  z-index: 99999;
+}
+.div-select-jobsuche .jqoption:hover {
+  background: #f6f6f6;
+}
+.div-select-jobsuche .jqoption {
+  padding: 12px 0 12px 18px;
+}
+.div-select-jobsuche .jqselect::after {
+  background-color: transparent;
+  background-image: url("img/sprite.png");
+  background-position: -28px -19px;
+  background-repeat: no-repeat;
+  background-size: 346.5px auto;
+  border: medium none;
+  content: "";
+  cursor: pointer;
+  display: table;
+  font-size: 0;
+  height: 18px;
+  position: absolute;
+  right: 15px;
+  top: 9px;
+  transform: rotate(90deg);
+  width: 10px;
+  z-index: 99;
+}
+.list-dropdown-jobsuche input {
+  display: none;
+}
+.subdropdown-jobsuche {
+  color: #13395e;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 21px;
+  padding-left: 22px;
+  position: relative;
+}
+.title-subbdropdown-jobsuche::before {
+  border: 1px solid #1a3156;
+  content: "";
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+}
+.title-subbdropdown-jobsuche.active::before{
+  background: #1a3156;
+}
+.title-subbdropdown-jobsuche.beforecolor::before {
+  background: #1a3156 none repeat scroll 0 0;
+}
+.subdropdown-content {
+  display: none;
+  width: 100%;
+}
+.title-subbdropdown-jobsuche > span {
+  background-color: transparent;
+  background-image: url("img/sprite.png");
+  background-position: -31px -19px;
+  background-repeat: no-repeat;
+  background-size: 346.5px auto;
+  border: medium none;
+  content: "";
+  cursor: pointer;
+  display: table;
+  font-size: 0;
+  height: 18px;
+  left: 165px;
+  margin-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 14px;
+  padding-top: 14px;
+  position: absolute;
+  top: 0;
+  transform: rotate(90deg);
+  width: 6px;
+  z-index: 999999;
+}
+

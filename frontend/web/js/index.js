@@ -13,6 +13,20 @@ brainApp.controller('IndexController', function ($scope, $http, $sce, $element, 
 	
 	$scope.Math = window.Math;
 
+	$scope.customerCommentsCount = 3;
+	$scope.currentCustomerComments = 1;
+
+	setInterval(function(){ 
+		
+		$scope.currentCustomerComments ++;
+		if($scope.currentCustomerComments > $scope.customerCommentsCount){
+			$scope.currentCustomerComments = 1;
+		}
+
+		$scope.showPaginationContent($scope.currentCustomerComments , null);
+	}, 7000);
+	
+	
 	checkAnimation();
 	
 	$(window).scroll(function(){
@@ -23,7 +37,15 @@ brainApp.controller('IndexController', function ($scope, $http, $sce, $element, 
 		//window.document.title = $(window).width();
 	});
 
-
+	$scope.showPaginationContent = function(index){
+		
+		$(".pagination2 a.selected").removeClass("selected");
+		$('#link' + index).addClass("selected");
+		
+		$(".pagination-content div.in").removeClass("in");
+		$('#item' + index).addClass("in");
+	}
+	
 	function checkAnimation(){
 		
 		$("div.slice:not(.start)").each(function(index, item){

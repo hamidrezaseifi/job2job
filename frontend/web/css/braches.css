@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+
+
+
+.branch-content
+{
+	max-width: 1024px;
+	min-width: 350px;
+	margin: 20px auto 0 auto;
+	width: 1024px;
+	padding: 5px;
+}
+
+.site-wahtwedo-content
+{
+	max-width: 1024px;
+	min-width: 350px;
+	margin: 20px auto 0 auto;
+	width: 1024px;
+	padding: 5px;
+	
+}
+
+ul
+{
+	list-style-type: disc !important;
+	list-style-position: inside !important;
+	margin-left: 30px !important;
+}

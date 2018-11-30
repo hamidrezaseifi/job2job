@@ -4,10 +4,18 @@
 
 use yii\helpers\Html;
 
+$this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 ?>
 
-<div class="site-about">
+<div class="site-freelance">
 	
-	<h1>Zeitarbeit</h1>
+    <div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web') ?>/web/images/Gesundheitswesen.jpg);">
+    
+    		<div class="anim-image-title">
+    			<?php echo Yii::t('app', 'Zeitarbeit'); ?>
+    		</div>
+    </div>
+
+	<h1><?php echo Yii::t('app', 'Zeitarbeit'); ?></h1>
 </div>

@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+
+
+.anim-image-header
+{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	width: 100vw;
+	height: calc(100vw * 0.33);
+    padding-top: calc(100vw * 0.15);
+	margin-bottom: 60px;
+}
+
+.anim-image-header .anim-image-title
+{
+	background: #fff none repeat scroll 0 0;
+    color: #202871;
+    font-family: AvenirLTPro-Book;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: 10vw;
+    opacity: 0;
+
+    -webkit-animation-name: header_crall; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.9s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    
+    animation-name: header_crall;
+    animation-duration: 0.9s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    
+    overflow: hidden;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes header_crall {
+    from {
+    	width: 10vw;
+    	padding: 38px 40px 38px 0;
+    	opacity: 0;
+    }
+    to {
+    	width: 36vw;
+    	padding: 38px 40px 38px 10%;
+    	opacity: 1;
+    }
+}
+
+@keyframes header_crall {
+    from {
+    	width: 10vw;
+    	padding: 38px 40px 38px 0;
+    	opacity: 0;
+    }
+    to {
+    	width: 36vw;
+    	padding: 38px 40px 38px 10%;
+    	opacity: 1;
+    }
+}
+

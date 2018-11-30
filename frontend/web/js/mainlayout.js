@@ -3,7 +3,7 @@ var current_top_menu = null;
 var current_sub_menu = null;
 var register_choose_show = false;
 
-var brainApp = angular.module('brainApp', ['ngAnimate', 'ngMaterial', 'angular-click-outside']);
+var brainApp = angular.module('brainApp', ['ngAnimate', 'ngMaterial', 'angular-click-outside', 'ngCookies']);
 
 brainApp.directive('fileModel', ['$parse', function ($parse) {
     return {
@@ -21,20 +21,30 @@ brainApp.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
+brainApp.config(appconfig);
+function appconfig($httpProvider){
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
+}
 
+brainApp.controller('BodyController', function ($scope, $http, $sce, $element, $mdSidenav, $cookies) {
 
-brainApp.controller('BodyController', function ($scope, $http, $sce, $element, $mdSidenav) {
-
-	$scope.branchs = [
-		{label: "Gesundheitswesen", url: "site/branchview?b=med", image: "/web/images/branch-med.jpg", jobs:[], },
-		{label: "Kaufmännischer Sektor", url: "site/branchview?b=commercial", image: "/web/images/branch-buss.jpg", jobs:[], },
-		{label: "Industrie und Handwerk", url: "site/branchview?b=industry", image: "/web/images/branch-industry.png", jobs:[], },
-		{label: "Ingenieurwesen und Technik", url: "site/branchview?b=engineering", image: "/web/images/branch-eng.png", jobs:[], },
-		{label: "Lager und Logistik", url: "site/branchview?b=logistic", image: "/web/images/branch-logistic.png", jobs:[], },
-		{label: "Produktion und Gewerbe", url: "site/branchview?b=production", image: "/web/images/branch-production.png", jobs:[], },
-	];
+	$scope.branchs = pageBranches;
 	
 	$scope.loginIsVisible = false;
+	
+	//$cookies.remove("accept-cookie-usage");
+	
+	$scope.acceptUsageCookieVisible = function(){ 
+		return $cookies.get("accept-cookie-usage") == undefined || $cookies.get("accept-cookie-usage") == false ;
+	}
+	
+	$scope.acceptUsageCookie = function(){ 
+		var now = new Date();
+		var expireDate = new Date(now.getFullYear() + 10, now.getMonth(), now.getDate());
+		$cookies.put("accept-cookie-usage", new Date(), {'expires': expireDate}); //$cookies->get("accept-cookie-usage");
+	}
+	//'accept-cookie-usage'
 	
 	$("nav li.ubermenu-item").mouseover(function() { 
 		$(this).addClass("ubermenu-active");
@@ -67,6 +77,10 @@ brainApp.controller('BodyController', function ($scope, $http, $sce, $element, $
 		
 		var loginlink = angular.element("#loginlink");
 		loginlink.css("background" , "transparent");
+	};
+	
+	$scope.submitLogin = function(){
+		$("#loginmodule").submit();
 	};
 	
 	

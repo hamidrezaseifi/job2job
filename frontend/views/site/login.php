@@ -2,70 +2,76 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/* @var $model \frontend\models\LoginForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->registerCssFile("@web/web/css/login.css", [], 'css-login');
+$this->registerJsFile("@web/web/js/login.js", [], 'js-login');
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="login">
+<div class="site-login" ng-controller="LoginController">
     
-    <div class="login-title j2jgreenback">
-    	<?php echo Yii::t('app', 'Anmelden'); ?>
-    </div>
-    
-    <div class="login-logo">
-    	<div><img id="mainlogo" alt="" src="<?=Yii::getAlias('@web') ?>/web/images/logo.png"></div>
-    	<div><?php echo Yii::t('app', 'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jgreenback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!'); ?></div>
-    </div>
-    
-    <div style="clear:both;"></div>
-    
-    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-    <div class="login-teil login-personamgabe-teil">
-	    
-	    <div class="login-teil-items-container">
-<?php if(false){?>
-	    	<div class=""><?php echo Yii::t('app', 'Email-Adresse'); ?></div>
-	    	<div class="requireditem input-container">
-	    		<?=Html::textInput('UsersBase[fname]', $model->username  , ['type' => 'email' , 'title' => 'Bitte geben Sie ihre Vorname an!' . PHP_EOL . 'Vorname darf nur Buchstaben und mindestens 4 Buchstaben enthalten . Z.B. John']) ?>
-	    	</div>
-<?php } ?>	  
-			<div class=""><?php echo Yii::t('app', 'Email-Adresse'); ?></div>  	
-	    	<?= $form->field($model, 'username')->textInput(['autofocus' => true , 'type' => 'email' , 'class' => 'requireditem'
-	    	])->label(false)->hint(false) ?>
-	    	
-	    	<div class=""><?php echo Yii::t('app', 'Passwort'); ?></div>
-	    	<?=Html::passwordInput('LoginForm[password]', $model->password, ['class' => 'requireditem', 'id' => 'loginform-password']) ?>
-			<p class="help-block help-block-error" style="color: #f94442;"><?php echo Yii::t('app', 'Benutzername oder Passwort fehlerhaft!'); ?></p>
+ 
+    <div class="content-center">
+    			<div class="left-side-merkliste">
+    				<div class="title-icon-seen" ><span class="vertical-align">IHRE VORTEILE MIT MEIN JOB2JOB</span></div>
+    <p>Jetzt anmelden und Benachrichtigungen über neue Jobs erhalten, die Ihren Wunschkriterien entsprechen</p>
 
-	    </div>
-    	
-    	<div style="clear:both;"></div>
-    </div>
-  
-  
-    
-	<div class="login-teil login-condition-teil">
-		<div class="login-teil-title">
-			<?php echo Yii::t('app', 'Sie haben noch kein Konto?'); ?> <br> 
-			<a href="#" class="j2jgreentext" onclick="show_choose_register(this); return false;"> <?php echo Yii::t('app', 'Jetzt registrieren'); ?></a>
-	    </div>
-	 	<div class="login-teil-items-container"  style=" float: right; width: 50%;">
-			
-			<button type="submit" class="login-senden j2jgreenback"><?php echo Yii::t('app', 'Anmelden'); ?></button>
-    		
-    		<div class="login-abbrechen j2jgreenback" onclick="" style=" clear:both; width:100%;">
-    				<?php echo Yii::t('app', 'Passwort vergessen'); ?>
-    		</div>
+		<ul class="ul-iconseen-merkliste">
+								
+		     <li><span>Erhalten Sie regelmäßig Informationen zu den neuesten Jobangeboten in unserem Jobticker</span></li>
+		     	
+		 						
+		     <li><span>Reichen Sie Ihren CV ein und nehmen Sie selbst Einfluss auf Ihr Bewerbungsverfahren</span></li>
+		     	
+		 						
+		     <li><span>In Kürze: Erstellen Sie Ihren eigenen Lebenslauf mit unserem "CV Tool"</span></li>
+		     	
+		 						
+		     <li><span>Erstellen Sie Ihre persönliche Merkliste mit für Sie interessanten Jobangeboten</span></li>
+		     	
+		 		</ul>
+	
 
-	 	</div>
- 	</div>   
- 	    
-    <?php ActiveForm::end() ?>
+					
+		</div>
+		
+		<div class="right-side-merkliste">
+			<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+				<div class="response-errors">
+					<div class="errormsg">Bitte füllen Sie alle gekennzeichneten Felder aus!</div>
+					<div class="donemsg">Vielen Dank für Ihre Registrierung! Schauen Sie in Ihr Email Konto für die Bestätigung!</div>
+					<div class="errorpassword">Passwort und/oder Nutzername falsch!</div>
+				
+				</div>	
+	
+				<div class="title">
+										BEI MEIN JOB2JOB ANMELDEN
+									</div>
+				
+				<div class="inputform">
+					<label>E-Mail:</label>
+					<?=$form->field($model, 'username')->textInput(['type' => 'email' , 'title' => 'Bitte geben Sie ihre Vorname an!' . PHP_EOL . 'Vorname darf nur Buchstaben und mindestens 4 Buchstaben enthalten . Z.B. John'])->label(false);   ?>
+				</div>
+				
+				<div class="inputform">
+					<label>Passwort:</label>
+					<?=$form->field($model, 'password')->passwordInput(['class' => 'requiredfield', 'id' => 'loginform-password'])->label(false) ?>
+				</div>
+				
+				<div class="register-div">
+					Neu bei Job2job? <a href="<?=Yii::getAlias('@web') ?>/site/register"> JETZT REGISTRIEREN</a>
+					<a class="passreset-open">Passwort vergessen?</a>
+				</div>
+				
+				<div class="button-form float-left button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>
+			<?php ActiveForm::end() ?>
+		</div>		
+	</div>    
+
 </div>
 

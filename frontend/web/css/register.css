@@ -1,0 +1,173 @@
+
+.site-register
+{
+	margin-top: 30px;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+md-checkbox.accept-checkbox .md-container.md-ink-ripple
+{
+	top: 10px;
+}
+
+md-checkbox.accept-checkbox .md-label
+{
+	margin-left: 0;
+}
+
+md-checkbox.accept-checkbox.md-default-theme.md-checked .md-icon, 
+md-checkbox.accept-checkbox.md-checked .md-icon {
+    background-color: rgba(76, 68, 71, 0.87);
+}
+
+
+.customfields-registration {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    width: 100%;
+}
+.extrafields-registration {		
+  float: left;		
+  width: 270px;		
+}		
+.accept-check-container {		
+  display: table;		
+  float: right;		
+  margin: 0 auto 25px;		
+  max-width: 40.5%;		
+  padding-top: 18px;		
+}		
+.accept-check-container .contactcontainer {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.customfields-registration .each-radio-input:first-child {		
+  margin-bottom: 20px;		
+}		
+.extrafields-registration .jqselect-wrap {		
+  margin-top: 0;		
+  width: 100%;		
+}		
+.extrafields-registration .jqselect, .registereditselect.extrafields-registration{		
+  width: 100%;		
+}		
+.extrafields-registration .jqselect {		
+  height: 38px;		
+  color:#818181;		
+}		
+.extrafields-registration .jqselect::after {		
+	opacity:0.6;		
+	top:11px;		
+}		
+.extrafields-registration .jqselect::before {		
+  background-color: #dcdcdc;		
+  content: "";		
+  height: 80%;		
+  position: absolute;		
+  right: 39px;		
+  top: 10%;		
+  width: 1px;		
+}		
+.extrafields-registration {
+    float: left;
+    width: 270px;
+    margin-left: 270px;
+}		
+.registereditselect .inputform {		
+  float: left;		
+  width: 270px;		
+  margin-left: 18px;		
+  margin-right: 18px;		
+}
+@media (max-width:640px){
+	.two-radio-inputs{max-width:unset;}
+	.extrafields-registration .div-select-jobsuche{width:100%;}
+	#create_profile.button-form::after { top: 8px;}
+	.content-formpage { padding: 25px 0 40px;}
+}
+
+.form2-registration
+{
+	padding-bottom: 30px;	
+}
+
+.registerbranche
+{
+	margin-top: 20px;
+}
+
+.registerbranche md-select, .registerasstellungart md-select
+{
+	margin: 0;
+	border: rgba(0,0,0,0.12) 1px solid;
+	padding: 4px;
+}
+
+.invalid-data
+{
+	border: 1px solid #bf0000 !important;	
+	background: #ffd5d5;	
+}
+
+.not-accept-button
+{
+	background: #e1e6ec !important;
+    cursor: default !important;
+}
+
+.mr-mrs {
+  display: table;
+  width: 100%;
+}
+
+.register-type-container {
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.register-type {
+  display: table;
+  width: 400px;
+  margin: 2px auto 10px auto;
+}
+
+.gender {
+  border: 1px solid #dadada;
+  color: #818181;
+  display: table;
+  float: left;
+  font-size: 13px;
+  margin-right: 10px;
+  padding: 6px 40px;
+  cursor:pointer;
+}
+
+.gender.active {
+  border: 1px solid #1a3156;
+  color: #fff;
+  background: #1a3156;
+}
+
+.register-type-item {
+  border: 1px solid #dadada;
+  color: #818181;
+  display: table;
+  float: left;
+  font-size: 13px;
+  margin-right: 10px;
+  padding: 6px 40px;
+  cursor:pointer;
+}
+
+.register-type-item.active {
+  border: 1px solid #1a3156;
+  color: #fff;
+  background: #1a3156;
+}
+
+
+

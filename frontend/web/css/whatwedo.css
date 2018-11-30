@@ -1,15 +1,16 @@
 
+.site-wahtwedo
+{
+	padding-bottom: 50px;
+}
 
 .site-wahtwedo-content
 {
-	max-width: 80%;
+	max-width: 1024px;
 	min-width: 350px;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	width: calc(100vw - 100px);
+	margin: 20px auto 0 auto;
+	width: 1024px;
 	padding: 5px;
-	padding-bottom: 0px;
 	
 }
 

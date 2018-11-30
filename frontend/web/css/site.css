@@ -13,7 +13,7 @@ input[type=search] {
 
 
 
- @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700');
 @font-face {
     font-family: Avenir Roman;
     src: url('fonts/AvenirLTStd-Roman.otf'),url('fonts/AvenirLTStd-Roman.eot');
@@ -148,7 +148,6 @@ input, select {
 * {
   margin: 0;
   padding: 0;
-  list-style: none;
   text-decoration: none;
   -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
@@ -348,13 +347,13 @@ footer .width33:last-child {
   margin: 0 10px;
 }
 .facebook {
-  background-position: -2px -126px;
+  background-position: -1.2px -74.7px;
 }
 .linkedin {
   background-position: -54px -127px;
 }
 .k {
-  background-position: -107px -127px;
+  background-position: -62px -74.7px;
 }
 .instagram {
   background-position: -292px -164px;
@@ -368,13 +367,13 @@ footer .width33:last-child {
 }
 .footer-social {
   display: block;
-  height: 51px;
-  width: 51px;
+  height: 30px;
+  width: 30px;
 }
 .sprite{
   background-image: url("img/sprite.png");
   background-repeat: no-repeat;
-  background-size: 346.5px auto;
+  background-size: 204px auto;
 }
 h6 {
   font-family: AvenirLTPro-Book;
@@ -418,19 +417,70 @@ footer .contact-footer > p, footer .contact-footer a {
 }
 .bottom-footer {
   background: #19213c none repeat scroll 0 0;
-  padding: 23px 0 40px;
+  padding: 5px 40px;
   width: 100%;
-  max-height: 50px;
-}
-.bottom-footer > div {
-  display: table;
-  margin: 0 auto;
+  height: 100px;
+  color: white;
+  font-size: 10px;
 }
 .bottom-footer > div li {
   display: table;
   float: left;
   margin: 0 38px;
 }
+.footer-child
+{
+	width:220px;
+	margin: 20px 20px;
+}
+.footer-last
+{
+	margin-left: 80px;
+}
+
+.cookieusage
+{
+	position: fixed;
+    bottom: 20px;
+    background-color: rgba(238,238,238,0.8);
+    height: 60px;
+    width: 100vw;
+    z-index: 99999;
+    padding: 10px 100px;
+    line-height: 30px;
+}
+
+.cookieusage .cookie-text
+{
+	float: left;
+}
+
+.cookieusage .cookie-button
+{
+	display: table;
+    float: right;
+    margin-left: 115px;
+}
+
+.cookieusage .cookie-button a {
+    background: #1a3156 none repeat scroll 0 0;
+    color: #fff;
+    display: table;
+    font-family: AvenirLTPro-Book;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 auto;
+    padding: 10px 38px 9px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cookieusage .cookie-button a:hover ,
+.cookieusage .cookie-button a:visited 
+{
+    text-decoration: none;
+}
+
 .bottom-footer > div li a {
   color: #fff;
   font-family: AvenirLTPro-Light;
@@ -549,7 +599,7 @@ h5 {
 }
 .was_wir_machen {
   display: table;
-  padding: 45px 0 45px 0;
+  padding: 45px 0 65px 0;
   width: 100%;
   background-color: #f6f6f6;
 }
@@ -695,6 +745,7 @@ h2 strong {
     transition: all 200ms ease-out;
     border: 1.2px solid rgba(244, 244, 244, 1);
     cursor:pointer;
+    height: 390px;
 }
 
 .box-aktuelle:hover {
@@ -711,22 +762,15 @@ h2 strong {
   padding-right:0 !important; 
 }
 .box-aktuelle h4 {
-  /*
-  font-family: AvenirLTPro-Black;
-  font-size: 16px;
-  font-weight: normal;
-  margin-bottom: 22px;
-  line-height:20px;
-  */
     color: #f4f4f4;
   font-family: AvenirLTPro-Black;
   font-size: 16px;
   line-height: 22px;
-  margin-bottom: 5px;
-  min-height: 70px;
+  margin-bottom: 10px;
   overflow-wrap: break-word;
   font-weight:normal;
-    /* word-break: break-all; */
+  max-height: 50px;
+  overflow-y: hidden;
 }
 .box-aktuelle > ul {
   display: table;
@@ -1707,6 +1751,11 @@ body .das_sagen_kunden {
   margin: 0 auto;
   width: 1180px;
 }
+.content-center960 {
+  display: table;
+  margin: 0 auto;
+  width: 960px;
+}
 .anstellungsarten h2 {
   color: #fff;
   margin-bottom: 90px;
@@ -1762,6 +1811,11 @@ body .das_sagen_kunden {
 }
 .box-aktuelle:hover {
   background: #3871a1;
+}
+
+.box-aktuelle div ul li, .box-aktuelle div h6, .box-aktuelle div
+{
+	color: #bebebe;	
 }
 
 .boxes-branchen h5 em {
@@ -2113,7 +2167,7 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
   display: table;
   font-size: 15px;
   line-height: 24px;
-  margin: 60px auto 100px;
+  margin: 60px auto 30px;
   text-align: center;
   width: 68%;
 }
@@ -2147,7 +2201,6 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
   display: table;
   font-size: 13px;
   margin-bottom: 8px;
-  width: 100%;
   font-family: AvenirLTPro-Book;
 }
 .inputform input,.inputform textarea {
@@ -2162,25 +2215,6 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
    -moz-appearance: none;
    appearance: none;
    border-radius: 0 !important;
-}
-.mr-mrs {
-  display: table;
-  width: 100%;
-}
-.gender {
-  border: 1px solid #dadada;
-  color: #818181;
-  display: table;
-  float: left;
-  font-size: 13px;
-  margin-right: 10px;
-  padding: 6px 40px;
-  cursor:pointer;
-}
-.gender.active {
-  border: 1px solid #1a3156;
-  color: #fff;
-  background: #1a3156;
 }
 .two-radio-inputs {
   display: table;
@@ -2413,6 +2447,9 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
   margin-bottom: 25px;
   padding-left: 60px;
   width: 300px;
+  background-image:url(../images/checked.png);
+  background-size: 50px;
+  background-position-y: 0;
 }
 .left-side-merkliste > p {
   color: #1a3156;
@@ -2438,10 +2475,10 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
   width: 100%;
 }
 .ul-iconseen-merkliste > li::before {
-  background-image: url("img/sprite.png");
-  background-position: -1px -48px;
+  background-image:url(../images/checked.png);
+  background-position: 0 ;
   background-repeat: no-repeat;
-  background-size: 346.5px auto;
+  background-size: 25px auto;
   content: "";
   display: table;
   height: 27px;
@@ -3589,17 +3626,7 @@ div.wpcf7-response-output {
   display: table;
   margin: 0 auto 20px;
 }
-.dropdown-jobsuche .list-dropdown-jobsuche {
-  background: #fff none repeat scroll 0 0;
-  border: 1px solid #dadada;
-  display: none;
-  margin-top: -1px;
-  max-height: 283px;
-  padding: 20px 20px 15px;
-  position: absolute;
-  width: 250px;
-  z-index: 99999;
-}
+
 .title-dropdown-jobsuche > span {
   display: table;
   float: left;
@@ -3616,42 +3643,7 @@ div.wpcf7-response-output {
   z-index: 999;
   opacity: 0;
 }
-.dropdown-icon-checked .iconchecke {
-  opacity: 1;
-}
-.dropdown-jobsuche .list-dropdown-jobsuche::before {
-  border-bottom: 10px solid #fff;
-  content: "";
-  height: 1px;
-  left: 0;
-  position: absolute;
-  top: -5px;
-  width: 233px;
-}
-.dropdown-jobsuche ul {
-  display: block;
-  max-height: 195px;
-  overflow-y: auto;
-  width: 100%;
-}
-.list-dropdown-jobsuche li {
-  color: #13395e;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 21px;
-  padding-left: 22px;
-  position: relative;
-  word-wrap:break-word;
-}
-.list-dropdown-jobsuche li::before {
-  border: 1px solid #1a3156;
-  content: "";
-  height: 10px;
-  left: 0;
-  position: absolute;
-  top: 4px;
-  width: 10px;
-}
+
 .jobsuche-ajax-btn {
   background: #f6f6f6 none repeat scroll 0 0;
   border: 1px solid #dadada;
@@ -3837,6 +3829,7 @@ div.wpcf7-response-output {
   padding: 4px 40px 4px 20px;
   position: relative;
 }
+
 .each-criteria > span {
   background-color: transparent;
   background-image: url("img/sprite.png");
@@ -3855,113 +3848,11 @@ div.wpcf7-response-output {
   width: 14px;
   z-index: 99;
 }
-.div-select-jobsuche .jqselect {
-  display: table;
-  padding: 12px 0 12px 18px;
-  border: 1px solid #dadada;
-  width: 170px;
-  cursor: pointer;
-  position: relative;
-}
-.div-select-jobsuche .jqselect-wrap {
-  color: #1a3156;
-  display: table;
-  float: right;
-  font-size: 12px;
-  margin-top: -8px;
-  position: relative;
-}
-.div-select-jobsuche .jqoption-box {
-  background: #fff none repeat scroll 0 0;
-  border: 1px solid #dadada;
-  margin-top: -1px;
-  position: absolute;
-  width: 100%;
-  cursor: pointer;
-  z-index: 99999;
-  display: none;
-}
-.div-select-jobsuche .jqoption:hover {
-  background: #f6f6f6;
-}
-.div-select-jobsuche .jqoption {
-  padding: 12px 0 12px 18px;
-}
-.div-select-jobsuche .jqselect::after {
-  background-color: transparent;
-  background-image: url("img/sprite.png");
-  background-position: -28px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  border: medium none;
-  content: "";
-  cursor: pointer;
-  display: table;
-  font-size: 0;
-  height: 18px;
-  position: absolute;
-  right: 15px;
-  top: 9px;
-  transform: rotate(90deg);
-  width: 10px;
-  z-index: 99;
-}
-.list-dropdown-jobsuche input {
-  display: none;
-}
+
 .each-criteria em {
   font-style: normal;
 }
-.subdropdown-jobsuche {
-  color: #13395e;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 21px;
-  padding-left: 22px;
-  position: relative;
-}
-.title-subbdropdown-jobsuche::before {
-  border: 1px solid #1a3156;
-  content: "";
-  height: 10px;
-  left: 0;
-  position: absolute;
-  top: 4px;
-  width: 10px;
-}
-.title-subbdropdown-jobsuche.active::before{
-  background: #1a3156;
-}
-.title-subbdropdown-jobsuche.beforecolor::before {
-  background: #1a3156 none repeat scroll 0 0;
-}
-.subdropdown-content {
-  display: none;
-  width: 100%;
-}
-.title-subbdropdown-jobsuche > span {
-  background-color: transparent;
-  background-image: url("img/sprite.png");
-  background-position: -31px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  border: medium none;
-  content: "";
-  cursor: pointer;
-  display: table;
-  font-size: 0;
-  height: 18px;
-  left: 165px;
-  margin-top: 2px;
-  padding-bottom: 3px;
-  padding-left: 14px;
-  padding-top: 14px;
-  position: absolute;
-  top: 0;
-  transform: rotate(90deg);
-  width: 6px;
-  z-index: 999999;
-}
+
 .page-id-1116 .was_wir_machen h2,.page-id-1137 .was_wir_machen h2 {
   line-height: 37px;
   margin-bottom: 55px;
@@ -4001,7 +3892,6 @@ div.wpcf7-response-output {
  /*  background: #3871a1; */
 }
 .form1-registration {
-  display: none;
   margin: 0 auto;
   width: 270px;
 }
@@ -4134,22 +4024,21 @@ div.wpcf7-response-output {
   position: relative;
   text-align: center;
   z-index: 9999;
+  width: 100%;
 }
 .option1{ 
-  margin-left: 10px;
-  margin-right: 10px;
-  max-width: 400px;  
+  margin: 5px 10px;
+  width: 300px;
+  max-width: 300px;  
   position:relative;  
   float: left;
-  background-color: #143258;
+  background-color: rgb(20,50,88, 0.6);
+  cursor: pointer;
 }
-.option1 .eachbox:hover{
+.option1:hover{
   background: #3871a1;
 }
 
-.option1 .eachbox{
-  background-color:#143258;
-}
 .chooseoptions {
   display: table;
   margin-bottom: 60px;
@@ -4254,7 +4143,7 @@ div.wpcf7-response-output {
 }
 .verticalmiddle {
   display: table-cell;
-  padding: 25px 36px;
+  padding: 10px 10px;
   vertical-align: middle;
 }
 .weiter2, .skip3{
@@ -5479,7 +5368,7 @@ body .boxes-aktuelle.boxesnumber3 {
   .content-center1104 {width: 97%;}
 
   /*Kandidaten RULES*/
-  .content-center1180 {width: 97%;}
+  .content-center1180, .content-center960 {width: 97%;}
 
   /*Kandidaten-engineering RULES*/
   .each-team-member {margin: 0.25%;width: 24.5%;}
@@ -5580,8 +5469,8 @@ body .boxes-aktuelle.boxesnumber3 {
 @media(max-width: 959px){
   /*HOMEPAGE RULES*/
   .box-aktuelle:hover { background-color: transparent!important;}
-  .eachbox:hover{background-color: transparent!important;}
-  .option1 .eachbox:hover{background-color: #143258 !important;}
+  .option1:hover{background-color: transparent!important;}
+  .option1:hover{background-color: #143258 !important;}
   .option1.active .eachbox:hover{background-color: #3871a1 !important;}
   .anstellungsarten-box:hover {background-color: rgba(25, 50, 87, 0.9)!important;}
   .bottom-footer > div li a:hover {background-color: transparent!important;}
@@ -7381,68 +7270,6 @@ left: 34%;
 }
 
 /*registration page new fields*/		
-.customfields-registration {		
-  display: table;		
-  margin-left: auto;		
-  margin-right: auto;		
-  max-width: 620px;		
-  padding-top: 40px;		
-  width: 100%;		
-}		
-.extrafields-registration {		
-  float: left;		
-  width: 270px;		
-}		
-.two-radio-inputs {		
-  display: table;		
-  float: right;		
-  margin: 0 auto 115px;		
-  max-width: 200px;		
-  padding-top: 18px;		
-}		
-.customfields-registration .each-radio-input:first-child {		
-  margin-bottom: 20px;		
-}		
-.extrafields-registration .jqselect-wrap {		
-  margin-top: 0;		
-  width: 100%;		
-}		
-.extrafields-registration .jqselect, .registereditselect.extrafields-registration{		
-  width: 100%;		
-}		
-.extrafields-registration .jqselect {		
-  height: 38px;		
-  color:#818181;		
-}		
-.extrafields-registration .jqselect::after {		
-	opacity:0.6;		
-	top:11px;		
-}		
-.extrafields-registration .jqselect::before {		
-  background-color: #dcdcdc;		
-  content: "";		
-  height: 80%;		
-  position: absolute;		
-  right: 39px;		
-  top: 10%;		
-  width: 1px;		
-}		
-.registereditselect .inputform {		
-  width: 270px;		
-  float: left;		
-}		
-.registereditselect .inputform {		
-  float: left;		
-  width: 270px;		
-  margin-left: 18px;		
-  margin-right: 18px;		
-}
-@media (max-width:640px){
-	.two-radio-inputs{max-width:unset;}
-	.extrafields-registration .div-select-jobsuche{width:100%;}
-	#create_profile.button-form::after { top: 8px;}
-	.content-formpage { padding: 25px 0 40px;}
-}
 
 /* new ansprechpartnerfunf box */
 .eachteamcontainer {
@@ -7895,7 +7722,7 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
 
 .home-box-1
 {
-	background-image:url('../images/home-banner-1.jpg');
+	background-image:url('../images/home-banner-2.jpg');
 }
 
 div.slice {
@@ -7920,6 +7747,7 @@ div.slice {
 .main_circle div.slice-1 {
   background: #1a3156;
   -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  -moz-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   
 }
@@ -7928,16 +7756,19 @@ div.slice {
   background: #3a74a3;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  -moz-clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
 }
 .main_circle div.slice-3 {
   background: #1a3156;
   -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  -moz-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
 }
 .main_circle div.slice-4 {
   background: #3a74a3;
   -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  -moz-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
   clear:both;
   margin-top:10px;
 }
@@ -7945,12 +7776,14 @@ div.slice {
   background: #1a3156;
   -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  -moz-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   margin-top:10px;
 }
 .main_circle div.slice-6 {
   background: #3a74a3;
   -webkit-clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  -moz-clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
   
 }
 
@@ -8147,4 +7980,93 @@ md-sidenav
 	margin-right: 25px; 
 }
 
+.contactcontainer {
+    display: block;
+	font-family: AvenirLTPro-Book;
+	color:#818181;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
 
+.contactcontainer a{
+	font-family: AvenirLTPro-Book;
+	color:#818181;
+	cursor: pointer;
+    font-size: 13px;
+}
+
+/* Hide the browser's default checkbox */
+.contactcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+div.mainlogin {
+    background: #f1f1f1 none repeat scroll 0 0;
+    display: table;
+    padding: 45px 0 30px;
+    width: 100%;
+}
+
+.mainlogin form {
+    display: table;
+    margin: 0 auto;
+    width: 215px;
+}
+
+.mainlogin form input {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #c1c1c1;
+    color: #c1c1c1;
+    display: table;
+    font-size: 12px;
+    margin-top: -1px;
+    padding: 8px 13px;
+    width: 100%;
+}
+
+.button-form-login {
+    background: #1a3156 none repeat scroll 0 0;
+    color: #fff;
+    cursor: pointer;
+    display: table;
+    font-family: AvenirLTPro-Book;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 15px auto 6px;
+    padding: 10px 0 9px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.mainlogin a {
+    color: #c1c1c1;
+    font-size: 11px;
+}
+
+.text-center
+{
+	text-align: center;
+}
+
+.text-over-image
+{
+	background: rgba(200,200,200,0.7);
+	text-align: center;
+	padding: 10px;
+}
+
+.hiddenj2j
+{
+	display: none;
+}
