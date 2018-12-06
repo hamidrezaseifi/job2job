@@ -1,57 +1,41 @@
 <?php
 
 /* @var $this yii\web\View */
-
 use yii\helpers\Html;
 
-$this->registerJsFile("@web/web/js/about.js", [], 'js-about');
-$this->registerCssFile("@web/web/css/about.css", [], 'css-about');
-
+$this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
 $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 ?>
 
-<div class="whoweare-container">
+<div class="branch-container">
 
-	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web') ?>/web/images/Gesundheitswesen.jpg);">
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/gesundheitswesen-gray.jpg);">
 
 			<div class="anim-image-title">
 				Wer wir sind
-	
 			</div>
 	</div>
-	
-	<div class="site-about-container">
 
-    	<div class="about-header">Wer wir sind</div>
-    	
-    	<p>Job2Job GmbH ist immer der richtige Ansprechpartner:</p>
-    	<p>Für Kleinunternehmen genauso wie für den Mittelstand und Großunternehmen denn bei uns sind zuverlässige Bewerber ohne Ausbildung genauso willkommen, wie ausgebildete Spezialisten und Akademiker.</p>
-    	<div class="site-about-middle" >
-        	<div class="site-about-photo content" >
-        		<img alt="" src="<?php echo Yii::getAlias('@web/web/images/j2j_11.jpg'); ?>">
-        	</div>
-        	<div class="site-about-list content" >
-                Nutzen Sie unser Potenzial mit folgenden Schwerpunkten:
-                <br><br><br>
-                <ul>
-                	<li class="anim-1">strategische Personalberatung</li>
-                	<li class="anim-2">flexible Arbeitnehmerüberlassung</li>
-                	<li class="anim-3">individuelle Direktsuche</li>
-                	<li class="anim-4">direkte Personalvermittlung</li>
-                </ul>         	
-        	</div>
-        	<div class="clear"></div>
-    	</div>
-    	<div class="site-about-bottom">
-    		<p>Seit vielen Jahren zeichnet sich unser erfahrenes Experten-Team aus durch Sachkompetenz, gute Netzwerke und Leidenschaft für die Sache:</p>
+	<div class="branch-content">
+	    <p>Woher bekomme ich <strong>schnell und unbürokratisch zusätzliches Personal</strong> für Auftragsspitzen? Wo finde ich <strong>qualifiziertes Fachpersonal</strong>, das mein Unternehmen langfristig auf die Überholspur bringt? Wie komme ich temporär an echtes <strong>Experten-Know-how</strong> für ein einmaliges Projekt? Wo finde ich neue berufliche Herausforderungen? Wie kann ich mir als Arbeitnehmer größtmögliche Flexibilität sichern? </p>
+		<p>Fünf Fragen, eine Antwort. Job2Job. </p>
+		<p>Als langjähriger <strong>Personaldienstleister mit verzweigtem Netzwerk</strong> bringen wir motivierte Mitarbeiter und Unternehmen zusammen. Schnell, unkompliziert und zielorientiert. Das gilt für kleine Betriebe ebenso wie für Mittelstandsunternehmen und Großkonzerne.</p>
+		<p>Aus Erfahrung wissen Sie, dass sich Aushilfskräfte in kritischen Momenten gerne ebenso rar machen wie ausgebildete Spezialisten und Akademiker? Dann sprechen Sie uns an und nutzen Sie unser Potenzial mit den Schwerpunkten:</p>
+		
+		<ul>
+            <li>strategische Personalberatung,</li> 
+            <li>flexible Arbeitnehmerüberlassung, </li>
+            <li>individuelle Direktsuche </li> 
+            <li>direkte Personalvermittlung.</li> 
+		</ul>
 
-			<p class="j2jgreentext">Denn wir bringen zielorientiert die geeigneten Menschen zusammen! Schnell und unkompliziert.</p>
-    	</div>
-	
-	
+		<p><strong>Die Job2Job GmbH hat die Lösung für Ihre Personalengpässe. </strong></p>
+		<br><br><br>
+
+
 	</div>
 
-	
+
 
 </div>

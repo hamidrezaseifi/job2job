@@ -1,104 +1,41 @@
 <?php
 
 /* @var $this yii\web\View */
-
 use yii\helpers\Html;
 
-$this->registerCssFile("@web/web/css/temporarywork.css", [], 'css-temporarywork');
+$this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
+$this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 ?>
-<div class="site-tempwork1">
-	<div class="site-tempwork1-content">
-		<div class="box1">
-			<p><b>Wissenswertes über Zeitarbeit</b></p>
-			<br>
-			<p>Als Mitglied des Interessenverbands Deutscher Zeitarbeitsunternehmen (IGZ) halten wir uns an einen verbindlichen Ethik-Kodex, der sanktionsbewehrt von der unabhängigen Kontakt- und Schlichtungsstelle überwacht wird.</p> 
-			<p><span class="job2jobgmbhtitle">Job<span class="2 j2jgreentext">2</span>Job GmbH</span> besitzt die <b>unbefristete Erlaubnis zur Arbeitnehmerübernehmerüberlassung von der Bundesversicherungsanstalt für Angestellte (BfA). => LINK</b></p>
-			<br>
-			<p><b>Wie funktioniert Zeitarbeit</b></p>
-			<br>
-			<p>Zeitarbeit funktioniert in einem Dreiecksverhältnis mit dem Zeitarbeitnehmer, dem Zeitarbeitgeber und dem Einsatzbetrieb (auch: Kundenbetrieb). => LINK</p>
-		</div>
-		<div class="box2">
-			<div class="box3">
-				<img src="<?=Yii::getAlias('@web/web/images/tempwork1.jpg') ?>"  />
-			</div>
-		</div>
-		<div class="box4"><p><b>Ist Zeitarbeit das Richtige für Sie?</b></p></div>
-		<div class="box5">
-			
-			<div class="box5-2">
-				<p>
-					<ul>						
-						<li>Personal kurzfristig aufstocken</li>
-						<li>Passgenaue Fachkräfte einsetzen</li>
-						<li>flexibel auf Auftragslagen reagieren</li>
-						<li>Fehlzeiten kompensieren</li>
-					</ul>
-						
-				</p> 
-			</div>
-			<div class="box5-3">
-				<div class="box5-1"><p>Als <b>Unternehmer</b> wollen Sie</p></div>
-				<img alt="" src="<?=Yii::getAlias('@web/web/images/tempwork6.jpg') ?>" >
-			</div>
-			<div class="box5-4">
-				<p>
-					<ul>						
-						<li>keinen Rekrutierungsaufwand </li>
-						<li>Personalkosten senken</li>
-						<li>Budgetsicherheit </li>
-						<li>keine Fehlzeiten bezahlen</li>
-					</ul>
-						
-				</p> 
-			</div>
-			
-			<div class="clear"></div>
-			<div class="box5-5"><p style="font-size: 18px;"><b>Dann sind wir Ihr verlässlicher Partner – und wir sollten uns kennenlernen.</b></p></div>
-		</div>
-		
-		<div class="box6">
-			
-			<div class="box5-2">
-				<p>
-					<ul>						
-						<li>sich beruflich verändern</li>
-						<li>sich persönlich weiterentwickeln</li>
-						<li>Ihre Talente besser einsetzen</li>
-						<li>mehr Flexibilität</li>
 
-					</ul>
-						
-				</p> 
-			</div>
-			<div class="box5-3">
-				<div class="box5-1"><p>Als <b>Arbeitnehmer</b> wollen Sie</p></div>
-				<img alt="" src="<?=Yii::getAlias('@web/web/images/tempwork5.jpg') ?>" >
-			</div>
-			<div class="box5-4">
-				<p>
-					<ul>						
-						<li>den Bewerbungsaufwand minimieren</li>
-						<li>bessere Einstiegschancen</li>
-						<li>eine feste Anstellung</li>
-						<li>faire Konditionen</li>
+<div class="branch-container">
 
-					</ul>
-						
-				</p> 
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/gesundheitswesen-gray.jpg);">
+
+			<div class="anim-image-title">
+				Arbeitnehmerüberlassung:<br> Schnell, unkompliziert, zielorientiert
 			</div>
-			
-			<div class="clear"></div>
-			<div class="box5-5"><p style="font-size: 18px;"><b>Dann kommen Sie zu uns – wir unterstützen Sie zuverlässig bei Ihrer Zielerreichung</b></p></div>
-		</div>
-		
-		 
 	</div>
-	
-	
+
+	<div class="branch-content">
+	    <p><strong>Sie suchen dringend neue Mitarbeiter auf Zeit? Wir fackeln nicht lange. Job2Job vermittelt Ihnen schnell das benötigte Personal – ganz unbürokratisch. </strong></p>
+		<p>Auftragsspitzen treiben Sie und Ihre Mitarbeiter regelmäßig an die Belastungsgrenze? Temporäre Personalengpässe ruinieren Ihnen die Jahresbilanz? Ihr schärfster Konkurrent schnappt Ihnen ein lukratives Projekt vor der Nase weg – weil es Ihnen am nötigen Know-how fehlt? </p>
+		<p>Das muss nicht sein. Mit Job2Job sind Personalengpässe und Know-how-Mangel passé. So profitieren Sie von der Arbeitnehmerüberlassung: </p>
+
+		<ul>
+            <li>Die kostspielige Personalsuche gehört der Vergangenheit an.</li> 
+            <li>Sie verlieren keine Zeit mit der langwierigen Bewerbersuche und -auswahl.</li>
+            <li>Ihre hochqualifizierten Mitarbeiter müssen keine Überstunden mit Aushilfstätigkeiten aufbauen – und fokussieren sich ganz auf Ihr Kerngeschäft.</li> 
+            <li>Dank der vorübergehenden Einbindung externer Experten in Ihre Prozesse, qualifizieren Sie sich auch für innovative Projekte Ihrer Kunden.</li>
+            <li>Sie sind mit der Leistung der vermittelten Arbeitnehmer rundum zufrieden? Eine Personalübernahme ist prinzipiell möglich. </li>
+		</ul>
+
+		<p>Sprechen Sie uns an. Gemeinsam ermitteln wir Ihren konkreten Personalbedarf – und halten Ihren Aufwand dabei so gering wie möglich. </p>
+		<br><br><br>
+
+
+	</div>
+
+
+
 </div>
-
-
-
-

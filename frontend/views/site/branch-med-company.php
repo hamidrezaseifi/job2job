@@ -34,41 +34,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 		</ul>
 		<br>
 		<p>Es liegt an Ihnen. Durchbrechen Sie diesen Teufelskreis, bevor es zu spät ist. Mit der Hilfe von Job2Job! Aus unserem riesigen Netzwerk an qualifiziertem Pflegepersonal vermitteln wir Ihnen, die Arbeitskräfte die Sie so händeringend suchen. Bauen Sie auf unser top ausgebildetes Personal – und machen Sie dem Warten auf Godot ein Ende. </p>
-		
-		<div>
-			<div style="float: left;">
-				<?php
 
-if (count($jobModels) > 0) {
-        ?>
-				<p><strong>Verfügbare Jobprofile bei Job2Job </strong></p>
-				<ul>
-					<?php
-
-foreach ($jobModels as $jobModel) {
-            ?>
-					<li><?php
-
-echo $jobModel->title;
-            ?> </li>
-					<?php
-
-}
-        ?>
-					<li><a href="javascript:void()">Und mehr</a></li>
-				</ul>
-				<?php
-
-} else {
-        ?>
-				<p><b>Zurzeot gibt keine verfügbare Jobprofile bei Job2Job im Gesundheitswesen </b></p>
-				<?php
-
-}
-    ?>
-			</div>
-			<div class="clear"></div>
-		</div>
 		<br><br><br>
 
 

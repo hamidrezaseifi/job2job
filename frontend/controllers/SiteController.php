@@ -103,7 +103,7 @@ class SiteController extends Controller
     {
         $isfinished = false;
         $total = 0;
-        $jobModels = $this->lastNJob(- 1, 5, $isfinished, $total);
+        $jobModels = $this->lastNJob(- 1, 4, $isfinished, $total);
 
         return $this->render('index', [
             "jobModels" => $jobModels
@@ -120,7 +120,7 @@ class SiteController extends Controller
     {
         $isfinished = false;
         $total = 0;
-        $jobModels = $this->lastNJob(- 1, 5, $isfinished, $total);
+        $jobModels = $this->lastNJob(- 1, 4, $isfinished, $total);
 
         return $this->render('candidate', [
             "jobModels" => $jobModels
@@ -245,7 +245,7 @@ class SiteController extends Controller
         $searchModel = new JobpositionBaseSearch();
         $searchModel->status = 1;
 
-        $jobModels = $searchModel->searchBranches($branchModel->id);
+        $jobModels = $t == 'candidate' ? $searchModel->searchBranches($branchModel->id) : false;
         
         return $this->render('branch-' . $b . '-' . $t, [
             "jobModels" => $jobModels
@@ -321,7 +321,12 @@ class SiteController extends Controller
     {
         return $this->render('personalrecruitment');
     }
-
+    
+    public function actionTemporarywork()
+    {
+        return $this->render('temporarywork');
+    }
+    
     /**
      * Displays Whoweare.
      *

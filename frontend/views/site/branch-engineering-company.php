@@ -22,41 +22,6 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 		<p>„Digitale Transformation“. „Industrie 4.0“. „Big Data“. In den Chefetagen surren die Schlagwörter geradezu durch die Luft. Doch ohne technische Experten bleiben sie leere Worthülsen. Das beste Digitalkonzept verläuft sich im Sande, wenn es an qualifizierten Ingenieuren und Technikern mangelt, die die ambitionierten Pläne umsetzen können. Das weiß Ihre Konkurrenz ebenso gut wie Sie. </p>
 		<p>Aber Sie haben im Kampf um die besten Techniker und Ingenieure einen Joker in der Hinterhand: Job2Job! Dank unserem weit verzweigten Experten-Netzwerk machen wir die passenden Mitarbeiter im Bereich Ingenieurwesen und Technik für Sie ausfindig. Kontaktieren Sie uns – und wir verraten Ihnen, wie! </p>
 
-		<br>
-		<div>
-			<div style="float: left;">
-				<?php
-
-if (count($jobModels) > 0) {
-        ?>
-				<p><b>Verfügbare Jobprofile bei Job2Job </b></p>
-				<ul>
-					<?php
-
-foreach ($jobModels as $jobModel) {
-            ?>
-					<li><?php
-
-echo $jobModel->title;
-            ?> </li>
-					<?php
-
-}
-        ?>
-					<li><a href="javascript:void()">Und mehr</a></li>
-				</ul>
-				<?php
-
-} else {
-        ?>
-				<p><b>Zurzeot gibt keine verfügbare Jobprofile bei Job2Job im Ingenieurwesen und Technik </b></p>
-				<?php
-
-}
-    ?>
-			</div>
-			<div class="clear"></div>
-		</div>
 		<br><br><br>
 
 
