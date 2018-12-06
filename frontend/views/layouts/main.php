@@ -150,7 +150,7 @@ $this->beginBody ()?>
                     									</a>
                     								</li>
                     								<li ng-repeat="branch in branchs " class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2570 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/branchview/{{branch.shortcut}}">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/branchview/candidate/{{branch.shortcut}}">
                     										<span class="ubermenu-target-title ubermenu-target-text">{{branch.label}}</span>
                     									</a>
                     								</li>
@@ -214,8 +214,8 @@ $this->beginBody ()?>
                     										<span class="ubermenu-target-title ubermenu-target-text">BRANCHEN</span>
                     									</a>
                     								</li>
-                    								<li ng-repeat="branch in branchs " class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2570 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/{{branch.url}}">
+                    								<li ng-repeat="branch in branchs" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2570 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/branchview/company/{{branch.shortcut}}">
                     										<span class="ubermenu-target-title ubermenu-target-text">{{branch.label}}</span>
                     									</a>
                     								</li>
@@ -229,22 +229,22 @@ $this->beginBody ()?>
                     									</a>
                     								</li>
                     								<li id="menu-item-2576" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2576 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalmediation/permanent">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/temporarywork">
                     										<span class="ubermenu-target-title ubermenu-target-text">ARBEITNEHMERÜBERLASSUNG</span>
                     									</a>
                     								</li>
                     								<li id="menu-item-2577" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2577 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalmediation/freelance">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personaladoption">
                     										<span class="ubermenu-target-title ubermenu-target-text">PERSONALÜBERNAHME</span>
                     									</a>
                     								</li>
                     								<li id="menu-item-2577" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2577 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalmediation/recruitment">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalrecruitment">
                     										<span class="ubermenu-target-title ubermenu-target-text">PERSONALREKRUTIERUNG</span>
                     									</a>
                     								</li>
                     								<li id="menu-item-2577" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2577 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalmediation/medical">
+                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/medical">
                     										<span class="ubermenu-target-title ubermenu-target-text">MEDICAL</span>
                     									</a>
                     								</li>

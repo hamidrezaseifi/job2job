@@ -238,7 +238,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionBranchview($b)
+    public function actionBranchview($t, $b)
     {
         $branchModel = BranchBase::findFromShortcut($b);
 
@@ -246,8 +246,8 @@ class SiteController extends Controller
         $searchModel->status = 1;
 
         $jobModels = $searchModel->searchBranches($branchModel->id);
-
-        return $this->render('branch-' . $b, [
+        
+        return $this->render('branch-' . $b . '-' . $t, [
             "jobModels" => $jobModels
 
         ]);
@@ -312,12 +312,14 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionPersonalmediation($type)
+    public function actionPersonaladoption()
     {
-        // $type = isset($_GET['type']) ? $_GET['type'] : 'no-type';
-        return $this->render('personalmediation-' . $type, [
-            'type' => $type
-        ]);
+        return $this->render('personaladoption');
+    }
+    
+    public function actionPersonalrecruitment()
+    {
+        return $this->render('personalrecruitment');
     }
 
     /**

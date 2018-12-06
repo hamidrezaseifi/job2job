@@ -52,9 +52,9 @@ return [
 						'showScriptName' => false,
 						'rules' => [
 								'<controller>/dashboard/<ac:\w+>' => '<controller>/dashboard',
-								'<controller>/personalmediation/<type:\w+>' => '<controller>/personalmediation',
-						        'site/branchview/<b:\w+>' => 'site/branchview',
-								'site/jobview/<id:\w+>' => 'site/jobview'
+    						    'site/branchview/<b:\w+>' => 'site/branchview',
+    						    'site/branchview/<t:\w+>/<b:\w+>' => 'site/branchview',
+    						    'site/jobview/<id:\w+>' => 'site/jobview'
 						]
 				],
 				'assetManager' => [

@@ -26,7 +26,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
         				<h2 class="light-and-bold text-over-image" ><span>Welche Art von <strong>Beschäftigung </strong> suchen Sie?</span></h2>
         				<div class="chooseoptions">
         					<div class="option1" ng-repeat="branch in branchs ">
-        						<a href="<?=Yii::getAlias('@web') ?>/{{branch.url}}">
+        						<a href="<?=Yii::getAlias('@web') ?>/site/branchview/candidate/{{branch.shortcut}}">
             						<div class="eachbox eachboxheight">							
             							<div class="verticalmiddle">
             								<h4>{{branch.label}}</h4>
