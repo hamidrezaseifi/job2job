@@ -82,23 +82,20 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 						
 				        <div class="box-karriere">
 							<img src="<?=Yii::getAlias('@web/web') ?>/images/envelope1.png">
-							<div class="title-karriere">IHR PERSÖNLICHER JOB TICKER</div>
-							<div class="text-karriere">Jetzt anmelden und Benachrichtigungen über neue Jobs erhalten, die Ihren Wunschkriterien entsprechen.</div>
-							<a href="javascript:void(0)">Mehr erfahren</a>						
+							<div class="title-karriere">ZUM JOB-TICKER ANMELDEN</div>
+							<div class="text-karriere">Anmelden. Wunschkriterien definieren. Zurücklehnen. Wir versorgen Sie mit interessanten Jobangeboten. Noch nie war es leichter, den persönlichen Traumjob zu finden.</div>
 						</div>		
 				 		
 				        <div class="box-karriere">
 							<img src="<?=Yii::getAlias('@web/web') ?>/images/bird-env.png">
-							<div class="title-karriere">JETZT LEBENSLAUF EINREICHEN</div>
-							<div class="text-karriere">Sie sind auf der Suche nach einer neuen beruflichen Herausforderung? Reichen Sie Ihren Lebenslauf ein und erhalten Sie auf Sie zugeschnittene Stellenangebote.</div>
-							<a href="javascript:void(0)">Mehr erfahren</a>						
+							<div class="title-karriere">LEBENSLAUF EINREICHEN</div>
+							<div class="text-karriere">Berufliche Perspektive gesucht? Schicken Sie uns noch heute Ihren Lebenslauf und wir melden uns mit einer beruflichen Herausforderung, die nur auf Sie zugeschnitten ist! </div>
 						</div>		
 				 		
 				        <div class="box-karriere">
 							<img src="<?=Yii::getAlias('@web/web') ?>/images/edit-note.png">
-							<div class="title-karriere">IHRE PERSÖNLICHE MERKLISTE</div>
-							<div class="text-karriere">Fügen Sie Stellenanzeigen zu Ihrer persönlichen Merkliste hinzu und haben Sie stets Übersicht über Ihre favorisierten Jobangebote.</div>
-							<a href="javascript:void(0)">Mehr erfahren</a>						
+							<div class="title-karriere">INDIVIDUELLE MERKLISTE ANLEGEN</div>
+							<div class="text-karriere">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
 						</div>		
 				 			</div>
 					</div>
@@ -111,63 +108,48 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     <div class="was_wir_machen">
 		<div class="content-center">
     		<div class="width50">
-				<h2>UNSER RECRUITING PROZESS<br><strong>FÜR KANDIDATEN</strong></h2>
+				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR BEWERBER</strong></h2>
 
                 <div class="recruitment_hidden">
-                    <p>Job2Job zeichnet sich durch das 360° Modell aus.<br>
-                        Dabei werden Sie umfassend und nachhaltig von einem Ansprechpartner während des gesamten Prozesses betreut.</p>
-                    <p>    
-                        Diese Form der Vermittlung garantiert Ihnen hohe Qualitätsstandards sowie Zugriff auf hochspezialisierte Projekte und Positionen.
-                    </p>
+                    <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
                 </div>
       
                 <div class="recruitment_content">
                             
                     <div class="hiddenj2j content_seg1" style="display: block;">
-                      <p>1. Kandidaten-Qualifikation<br>
-                        Wir verschaffen Ihnen einen realistischen Marktüberblick und definieren gemeinsam mit Ihnen Ihren idealen Job abhängig von u.a.:</p>
-                        <p>• Persönlichen Qualifikationen und Berufserfahrung<br>
-                        • Gewünschter Position<br>
-                        • Gehaltsvorstellung<br>
-                        • Entwicklungszielen</p>
+                      <div class="text-title-bewerber">1. Qualifikation und Chancen</div><br>
+                      <p>  Gemeinsam mit Ihnen entwerfen wir das Gerüst für Ihren perfekten Job. Auf Basis Ihrer beruflichen Ziele, Gehaltsvorstellungen, Qualifikationen und Co. geben wir Ihnen eine realistische Einschätzung Ihrer Job-Chancen. 
+                      </p>
                     </div>  
                  
                     <div class="hiddenj2j content_seg2" style="display: none;">
-                      <p>2. Präsentation von möglichen Vakanzen<br>
-                        Wir stellen Ihnen die aktuell bestmöglichen Positionen vor.</p>
-                        <p>• Vorstellen des Anforderungsprofils des Kunden<br>
-                        • Liefern von Informationen zu Unternehmensumfeld und Team<br>
-                        • Präsentieren vorhandener Benefits</p>
+                      <div class="text-title-bewerber">2. Vorstellung passender Stellen</div><br>
+                       <p> Was wünscht der Kunde von künftigen Mitarbeitern? Wie arbeitet es sich im entsprechenden Unternehmen? Gibt es Bonuszahlungen? Bekomme ich einen Firmenwagen? Wir stellen Ihnen nicht nur auf Sie zugeschnittene Positionen vor, sondern beantworten Ihnen alle wichtigen Fragen zur möglichen Stelle. 
+                        </p>
                     </div>  
                  
                     <div class="hiddenj2j content_seg3" style="display: none;">
-                      <p>3. Vorstellung Ihres Profils<br>
-                        Wir stellen Ihr Profil beim entsprechenden Entscheidungsträger vor und verschaffen Ihnen somit einen Wettbewerbsvorteil.</p>
-                        <p>• Optimierung von Bewerbungsunterlagen<br>
-                        • Aushändigung der Unterlagen an den Kunden<br>
-                        • Übermittlung von Feedback der Entscheidungsträger</p>
+                      <div class="text-title-bewerber">3. Präsentation beim Arbeitgeber </div><br>
+                       <p> Sobald wir die passende Stelle für Sie gefunden haben, optimieren wir Ihre Bewerbungsunterlagen und stellen Sie beim Kunden vor. Unsere qualifizierte Vermittlung verschafft Ihnen einen entscheidenden Wettbewerbsvorteil gegenüber Ihren Mitbewerbern. 
+                        </p>
                     </div>  
                  
                     <div class="hiddenj2j content_seg4" style="display: none;">
-                      <p>4. Interviewprozess<br>
-                        Wir begleiten Sie während des gesamten Interviewprozesses.</p>
-                        <p>• Koordination der Interviews<br>
-                        • Interviewvorbereitung sowie -nachbereitung mit<br>
-                        <span style="margin-left: 13px;">Ihnen und dem Kunden</span></p>
+                      <div class="text-title-bewerber">4. Interviews</div><br>
+                       <p> Als aussichtsreicher Kandidat werden Sie zum Interview bei Ihrem potenziellen Arbeitgeber geladen. Wir sorgen dafür, dass Sie bestmöglich auf das Gespräch vorbereitet sind. Im Anschluss analysieren wir das Interview und geben Ihnen Tipps für künftige Gespräche mit auf den Weg. 
+                        </p>
                     </div>  
                  
                     <div class="hiddenj2j content_seg5" style="display: none;">
-                      <p>5. Vertragsabwicklung</p>
-                        <p>• Führen von Vertragsverhandlungen mit Ihnen und dem Kunden<br>
-                        • Unterbreiten des Angebots des Kunden<br>
-                        • Sicherstellen eines Abschlusses zu Ihrer Zufriedenheit</p>
+                      <div class="text-title-bewerber">5. Vertrag</div><br>
+                      <p>  Auch bei den Vertragsverhandlungen stehen wir Ihnen zur Seite. Wir führen die Verhandlungen und unterbreiten Ihnen das Angebot des Kunden. Zu einem Abschluss kommt es nur, wenn Sie rundum zufrieden sind. 
+                        </p>
                     </div>  
                  
                     <div class="hiddenj2j content_seg6" style="display: none;">
-                      <p>6. Nachhaltige Betreuung<br>
-                        Wir begleiten Sie während des Prozesses und darüber hinaus.</p>
-                        <p>• Organisation möglicher Projektverlängerungen (Freelance)<br>
-                        • Einholen von Feedback hinsichtlich Ihrer Zufriedenheit</p>
+                      <div class="text-title-bewerber">6. Betreuung</div><br>
+                       <p> Eine ganzheitliche und nachhaltige Betreuung steht bei uns an oberster Stelle. Wir weichen Ihnen während des gesamten Recruitment-Prozesses nicht von der Seite und begleiten Sie auch darüber hinaus. 
+                        </p>
                     </div>  
                 </div>
 
@@ -180,47 +162,35 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
                             <div class="segmentwrapper segment1 fade-in2 one start" id="seg1">
                                 <div class="segment">
                                   <div class="inner" id="seg1">
-                                  	<p class="circle2_text txt1-2">
-	                       				<?php echo Yii::t('app', '1.Kandidaten-Qualifikation'); ?>									
- 									</p>
+                                  	<p class="circle2_text txt1-2">1. Qualifikation und Chancen</p>
                                   </div>
                                 </div>
                             </div>
                             <div class="segmentwrapper segment2 fade-in2 two start" id="seg2">
                                 <div class="segment">
                                 	<div class="inner" id="seg2">
-                                		<p class="circle2_text txt2-2" style="max-width: 120px;">
-                                           	<?php echo Yii::t('app', '2. Präsentation von möglichen Vakanzen'); ?><br>
- 										</p>
+                                		<p class="circle2_text txt2-2" style="max-width: 120px;">2. Vorstellung passender Stellen</p>
                             		</div>
                             	</div>
                             </div>
                             <div class="segmentwrapper segment3 fade-in2 three start" id="seg3">
                                 <div class="segment"><div class="inner" id="seg3">
-                        		<p class="circle2_text txt3-2">
-                                	<?php echo Yii::t('app', '3. Vorstellung Ihres Profils'); ?>
-								</p>
+                        		<p class="circle2_text txt3-2">3. Präsentation beim Arbeitgeber</p>
                             </div></div>
                             </div>
                             <div class="segmentwrapper segment4 fade-in2 four start" id="seg4">
                                 <div class="segment"><div class="inner" id="seg4">
-                        		<p class="circle2_text txt4-2">
-                                	<?php echo Yii::t('app', '4. Interviewprozess'); ?><br>
-    							</p>
+                        		<p class="circle2_text txt4-2">4. Interviews</p>
                             </div></div>
                             </div>
                             <div class="segmentwrapper segment5 fade-in2 five start" id="seg5">
                                 <div class="segment"><div class="inner" id="seg5">
-                        		<p class="circle2_text txt5-2">
-                                	<?php echo Yii::t('app', '5. Vertragsabwicklung'); ?><br>
-								</p>
+                        		<p class="circle2_text txt5-2">5. Vertrag</p>
                             </div></div>
                             </div>
                             <div class="segmentwrapper segment6 fade-in2 six start" id="seg6">
                                 <div class="segment"><div class="inner" id="seg6">
-                        		<p class="circle2_text txt6-2">
-                                	<?php echo Yii::t('app', '6. Nachhaltige Betreuung'); ?><br>
-								</p>
+                        		<p class="circle2_text txt6-2">6. Be-treuung</p>
                             </div></div>
                             </div>
                              <div class="cutout3"><p class="fade-in five circle_text5 start"></p></div>
