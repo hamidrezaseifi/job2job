@@ -34,7 +34,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 
 	<div class="search-job-searchtext">
 		<input placeholder="z.B. Deutschland, Pharma, Festanstellung..." ng-model="query['searchText']" ng-blur="getJobCount()">
-		<button ng-click="searchJobs()"><i class="material-icons">arrow_forward_ios</i></button>
+		<button ng-click="searchJobs(true)"><i class="material-icons">arrow_forward_ios</i></button>
 		<div class="clear"></div>
 	</div>
 
@@ -58,7 +58,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('region')">SCHLIEßEN</div> 			
-    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('region')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs(true)" ng-if="hasTags('region')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
     		</div>	
 		</div>
 		
@@ -75,7 +75,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('branch')">SCHLIEßEN</div> 			
-    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('branch')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs(true)" ng-if="hasTags('branch')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
     		</div>	
 		</div>
 		
@@ -92,7 +92,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('vacancy')">SCHLIEßEN</div> 			
-    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('vacancy')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs(true)" ng-if="hasTags('vacancy')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
     		</div>	
 		</div>
 		
@@ -109,7 +109,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('skill')">SCHLIEßEN</div> 			
-    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs()" ng-if="hasTags('skill')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
+    			<div class="jobsuche-ajax-btn changed-btn" ng-click="searchJobs(true)" ng-if="hasTags('skill')">JOB ANZEIGEN ({{jobsFilterCount}})</div> 			
     		</div>	
 		</div>
 		
@@ -124,7 +124,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 
     <div class="section-title-founded-jobs">
         <div class="title-founded-jobs">
-        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{foundJobs.length}} von {{jobsFilterCount}}</span>Treffer</span>
+        	MEINE <strong>SUCHERGEBNISSE</strong><span ng-if="foundJobs.length > 0"><span id="foundedjobsnr">{{foundJobs.length}} von {{jobsSearchCount}}</span>Treffer</span>
         </div>
         
         <div class="div-select-jobsuche">

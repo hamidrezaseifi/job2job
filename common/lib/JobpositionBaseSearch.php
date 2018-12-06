@@ -369,11 +369,13 @@ class JobpositionBaseSearch extends JobpositionBase {
 	        case "startdate": $order = ["jobstartdate" => SORT_ASC]; break;
 	        case "branch": $order = ["branch" => SORT_ASC]; break;
 	    }
-	    
+
 	    $query = $this->createSearchQuery($params, ['j2j_jobposition.id', 'j2j_jobposition.title', 'j2j_jobposition.city', 'j2j_jobposition.country', 'j2j_jobposition.postcode']);
+	    
 	    if($order){
 	        $query->orderBy($order);
 	    }
+
 	    $models = $query->all();
 	    
 	    $results = [];
@@ -395,9 +397,11 @@ class JobpositionBaseSearch extends JobpositionBase {
 	
 	private function createSearchQuery($params, $columnSelect){
 	    
+	    $searchTextList = array_filter(explode(" ", $params["searchText"]), function($value) {
+	        return $value !== "";
+	    });
 	    
-	    $searchTextList = array_filter(explode(" ", $params["searchText"]), create_function('$value', 'return $value !== "";'));
-	    	    
+
 	    $countries = array_keys($params["region"]);
 	    
 	    $query = JobpositionBase::find()->distinct(['id'])
@@ -405,7 +409,7 @@ class JobpositionBaseSearch extends JobpositionBase {
 	    ->leftJoin('j2j_jobpositionskill', 'j2j_jobpositionskill.jobid = j2j_jobposition.id')
 	    ->Where(['status' => 1]);
 	    $textFilterArray = false;
-	    
+
 	    foreach ($searchTextList as $searchText){
 	        $orItem = ['or', ['like', 'title' , trim($searchText)], ['like', 'subtitle' , trim($searchText)]];
 	        if($textFilterArray){

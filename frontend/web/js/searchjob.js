@@ -19,6 +19,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	
 	$scope.isMoreJobs = false;
 	$scope.jobsFilterCount = false;
+	$scope.jobsSearchCount = false;
 	$scope.foundJobs = [];
 	
 	$scope.nextjobloading = false;
@@ -164,10 +165,15 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		return false;
 	}
 
-	$scope.searchJobs = function (){
+	$scope.searchJobs = function (clear){
 		
 		//alert(JSON.stringify($scope.query)); 
 		$scope.closeDropdown();
+		if(clear){
+			$scope.query.loadedCount = 0;
+			$scope.foundJobs = [];
+		}
+		
 		$http({
 	        method : "POST",
 	        headers: {
@@ -177,9 +183,9 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        data : $scope.query
 	    }).then(function mySuccess(response) {
 	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
-	    	
+
 	    	//$scope.foundJobs = response.data.data;
-	    	$scope.jobsFilterCount = response.data.count;
+	    	$scope.jobsSearchCount = response.data.count;
 	    	$scope.isMoreJobs = response.data.isMoreJobs;
 	    	
 	    	$scope.query.loadedCount += response.data.data.length;

@@ -537,8 +537,11 @@ class SiteController extends Controller
         
         $params = Yii::$app->getRequest()->getBodyParams();
         
+        
         $search = new JobpositionBaseSearch();
+        
         $results = $search->searchInPage($params, $params["selectedSortOption"]);
+        
         
         $totalLoaded = $params["loadedCount"];
         
