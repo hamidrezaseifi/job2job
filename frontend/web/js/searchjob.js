@@ -8,7 +8,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.query["skills"] = [];
 	$scope.query["vacancies"] = [];
 	$scope.query["branches"] = [];
-	$scope.query["searchText"] = "";
+	$scope.query["searchText"] = searchText;
 	$scope.query.selectedSortOption = "new";
 	$scope.query.loadedCount = 0;
 

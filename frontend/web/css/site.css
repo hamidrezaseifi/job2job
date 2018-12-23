@@ -156,7 +156,7 @@ input, select {
 
 
 body{
-  font-family:AvenirLTPro-Light;
+  font-family:AvenirLTPro-Light !important;
   overflow-x: hidden;
 }
 .top-header {
@@ -8053,3 +8053,80 @@ a:active, a:hover {
 {
 	margin-bottom: 30px;
 }
+
+.light-and-bold
+{
+	color: #fafafa !important;
+	font-weight: bold;
+}
+
+.text-up-left
+{
+	position: absolute;
+	left: 100px;
+	top: 100px;	
+	padding-left: 20px;
+	padding-right: 20px;
+	min-width: 200px;
+	font-size: 24px;
+}
+
+.text-up-right
+{
+	position: absolute;
+	right: 100px;
+	top: 100px;	
+	padding-left: 20px;
+	padding-right: 20px;
+	min-width: 200px;
+	font-size: 24px;
+}
+
+.search-container-over-image
+{
+	position: absolute;
+	width: 300px;
+	left: calc(50vw - 175px);
+	background: white;
+	height: 50px;
+	top: 400px;
+}
+
+.search-container-over-image input[type="text"]
+{
+	height: 30px;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 250px;
+	color: #706d78;
+    font-weight: bold;
+    border: none;
+    float:left;
+}
+
+.search-container-over-image input[type="text"]::placeholder 
+{
+  color: #cac9ce;
+  padding-left: 5px;
+}
+
+.search-container-over-image input[type="text"]:focus, 
+.search-container-over-image button:focus 
+{
+  outline: none;
+}
+
+.search-container-over-image button
+{
+	border: none;
+	background: transparent;
+    float:right;
+    margin-right: 10px;
+    margin-top: 14px;
+}
+
+.search-container-over-image button:after
+{
+    clear: both;
+}
+

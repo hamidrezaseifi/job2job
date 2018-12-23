@@ -24,6 +24,7 @@ $this->registerCssFile("@web/web/css/searchjob.css", [], 'css-search-job');
 $user = Yii::$app->user;
 $identity = $user->identity;
 $isCandidate = $identity ? $identity->isCandidate() : false;
+
 ?>
 
 <div class="site-search-job" ng-controller="JobSearchController">
@@ -33,7 +34,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 	</div>
 
 	<div class="search-job-searchtext">
-		<input placeholder="z.B. Deutschland, Pharma, Festanstellung..." ng-model="query['searchText']" ng-blur="getJobCount()">
+		<input placeholder="z.B. Deutschland, Pharma, Festanstellung..." ng-model="query['searchText']" value="<?php echo $searchText; ?>" ng-blur="getJobCount()">
 		<button ng-click="searchJobs(true)"><i class="material-icons">arrow_forward_ios</i></button>
 		<div class="clear"></div>
 	</div>
@@ -195,5 +196,6 @@ var vacancies = {
 		<?php echo $vacancy->id;?>:'<?php echo $vacancy->title;?>',
 		<?php } ?>	
 	};
+var searchText = "<?php echo $searchText; ?>";
 
 </script>

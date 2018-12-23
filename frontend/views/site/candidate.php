@@ -20,6 +20,9 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 	<div class="home candidate-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
 
+			<?php echo $this->render('topbanner');?>
+			
+			<?php  if(false){?>
         	<div class="content-center960">
         		<div class="steps">
         			<div class="step1 eachstep">
@@ -42,11 +45,11 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
         			</div> 
         		</div>
         	</div>
-        	
+        	<?php } ?>
         </div>		
 	</div>
 	
-    
+    <?php  if(false){?>
     <div class="blue-section-aktuelle ">
     	<div class="content-center">
     		<h2>AKTUELLE STELLENANGEBOTE<br>
@@ -73,35 +76,41 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     		</div>
     	</div>
     </div>
+    <?php } ?>
 
-<div class="wir-fordern-ihre-karriere">
+	<div class="wir-fordern-ihre-karriere">
 		<div class="content-center">
 			<h3 class="light-and-bold">WIR ERMÖGLICHEN IHNEN <strong> EINE NACHHALTIGE KARRIERE</strong></h3>
 		
-						<div class="all-boxes-karriere">
-						
-				        <div class="box-karriere">
-							<img src="<?=Yii::getAlias('@web/web') ?>/images/envelope1.png">
-							<div class="title-karriere">ZUM JOB-TICKER ANMELDEN</div>
-							<div class="text-karriere">Anmelden. Wunschkriterien definieren. Zurücklehnen. Wir versorgen Sie mit interessanten Jobangeboten. Noch nie war es leichter, den persönlichen Traumjob zu finden.</div>
-						</div>		
-				 		
-				        <div class="box-karriere">
-							<img src="<?=Yii::getAlias('@web/web') ?>/images/bird-env.png">
-							<div class="title-karriere">LEBENSLAUF EINREICHEN</div>
-							<div class="text-karriere">Berufliche Perspektive gesucht? Schicken Sie uns noch heute Ihren Lebenslauf und wir melden uns mit einer beruflichen Herausforderung, die nur auf Sie zugeschnitten ist! </div>
-						</div>		
-				 		
-				        <div class="box-karriere">
-							<img src="<?=Yii::getAlias('@web/web') ?>/images/edit-note.png">
-							<div class="title-karriere">INDIVIDUELLE MERKLISTE ANLEGEN</div>
-							<div class="text-karriere">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
-						</div>		
-				 			</div>
-					</div>
+			<div class="all-boxes-karriere">
+					
+			        <div class="box-karriere">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/bird-env.png">
+						<div class="title-karriere">LEBENSLAUF EINREICHEN</div>
+						<div class="text-karriere">Berufliche Perspektive gesucht? Schicken Sie uns noch heute Ihren Lebenslauf und wir melden uns mit einer beruflichen Herausforderung, die nur auf Sie zugeschnitten ist! </div>
+						<a href="#" >mehr erfahren</a>
+					</div>		
+			 		
+			        <div class="box-karriere">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/envelope1.png">
+						<div class="title-karriere">ZUM JOB-TICKER ANMELDEN</div>
+						<div class="text-karriere">Anmelden. Wunschkriterien definieren. Zurücklehnen. Wir versorgen Sie mit interessanten Jobangeboten. Noch nie war es leichter, den persönlichen Traumjob zu finden.</div>
+						<a href="#" >mehr erfahren</a>
+					</div>		
+			 		
+			        <div class="box-karriere">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/edit-note.png">
+						<div class="title-karriere">INDIVIDUELLE MERKLISTE ANLEGEN</div>
+						<div class="text-karriere">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
+						<a href="#" >mehr erfahren</a>
+					</div>		
+			 </div>
+		</div>
 	</div>
 	
-
+	<div>
+	
+	</div>
 
 
     

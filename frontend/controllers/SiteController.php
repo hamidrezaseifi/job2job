@@ -269,11 +269,14 @@ class SiteController extends Controller
         $vacances = VacancyBase::find()->all();
         $branches = BranchBase::find()->all();
         
+        $searchText = isset($_POST["searchedText"]) ? $_POST["searchedText"] : "";
+        
         return $this->render('searchjobs', [
             'skills' => $skills,
             'regins' => $regins,
             'vacances' => $vacances,
             'branches' => $branches,
+            'searchText' => $searchText,
         ]);
     }
 
