@@ -17,21 +17,12 @@ $this->registerCssFile ( "@web/web/css/segments.css", [ ], 'css-segment' );
 <div ng-controller="IndexController">
 	<div class="home home-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
-        	<div class="vertical-align">
-        		<div class="content-center"><h1><h1>Ihre Personalberatung – Job2Job<br><?php
-
-echo Yii::t ( 'app', 'Jetzt Top Jobs in Ihrer Nähe finden' );
-										?></h1></div>
-        	</div>
-
+        	<?php echo $this->render('topbanner', ['showSearch' => true]);?>
         </div>
 	</div>
 
-
-
-
     <div class="was_wir_machen">
-<div class="content-center">
+		<div class="content-center">
     		<div class="width50">
     			<h2>Was wir machen</h2>
     			<p>Die <b>Job2Job GmbH</b> mit Sitz in Hameln, ist eine inhabergeführte Personalberatung, die sich in die Branchen – Medizin, Pharmazie, Pflege und Industrie spezialisiert hat.</p>

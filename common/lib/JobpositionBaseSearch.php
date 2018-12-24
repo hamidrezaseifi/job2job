@@ -331,19 +331,13 @@ class JobpositionBaseSearch extends JobpositionBase {
 	}
 	
 	public function searchBranches($branch, $limit = 10) {
-	    $order = array (
-	        'createdate' => SORT_DESC
-	    );
 	    
-	    $models = JobpositionBase::find ()->select ( [
-	        'title',
-	        'subtitle'
-	    ] )->where ( [
-	        'status' => 1,
-	        'branch' => $branch
-	    ] )->orderBy ( [
-	        'createdate' => SORT_DESC
-	    ] )->limit ( $limit )->all ();
+	    $models = JobpositionBase::find ()
+	    ->select ( [ 'id', 'title', 'subtitle' ] )
+	    ->where ( [ 'status' => 1, 'branch' => $branch ] )
+	    ->orderBy ( [ 'createdate' => SORT_DESC ] )
+	    ->limit ( $limit )
+	    ->all ();
 	    
 	    return $models;
 	}

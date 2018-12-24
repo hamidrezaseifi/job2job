@@ -402,7 +402,7 @@ if ($user->isGuest) {
 	?>
 <div class="mainlogin">
 	<div class="content-center">
-		<h3 class="light-and-bold"><strong>BEI MEIN JOB2JOB ANMELDEN</strong></h3>
+		<h3 class="body-login-title"><strong>BEI MEIN JOB2JOB ANMELDEN</strong></h3>
 
 		<?php
 

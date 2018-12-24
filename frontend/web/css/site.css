@@ -938,7 +938,7 @@ right: 230px;
   float: right;
   font-family: AvenirLTPro-LightOblique;
   font-size: 25px;
-  height: 460px;
+  height: 490px;
   line-height: 35px;
   position: relative;
   text-align: justify;
@@ -954,7 +954,7 @@ right: 230px;
   margin: 30px auto 0;
 }
 .pagination2 {
-  bottom: 29%;
+  bottom: 0;
   margin-right: -25px;
   position: absolute;
   right: 50%;
@@ -1465,6 +1465,7 @@ ul.list-icon {
  .telephone-email-ansprechpartner a {
   color: #fff;
  }
+
  body div h3.light-and-bold {
   color: #1a3156;
   font-family: AvenirLTPro-Light;
@@ -1473,18 +1474,16 @@ ul.list-icon {
   margin-bottom: 40px !important;
   text-align: center;
 }
-.wir-fordern-ihre-karriere h3{
-  margin-bottom:70px;
+
+ .body-login-title {
+  color: #1a3156;
+  font-family: AvenirLTPro-Light;
+  font-size: 30px !important;
+  font-weight: normal !important;
+  margin-bottom: 40px !important;
+  text-align: center;
 }
-.all-boxes-karriere {
-  display: table;
-  width: 100%;
-}
-.wir-fordern-ihre-karriere {
-  display: table;
-  padding: 50px 0 70px;
-  width: 100%;
-}
+
 .box-karriere {
   display: table;
   float: left;
@@ -5275,9 +5274,6 @@ body {
 .slider2-content p {
   margin-bottom: -150px;
 }
-.slider2-content .pagination2 {
-  bottom: 13%;
-}
 .contact-footer > p {
   font-family: AvenirLTPro-Light;
 }
@@ -5509,7 +5505,6 @@ body .boxes-aktuelle.boxesnumber3 {
     .box-karriere:nth-child(2) {margin: 0 3.5%;}
     .box-karriere {width: 31%;}
     .title-karriere {font-size: 17px;line-height: 22px;margin: 30px auto 15px;}
-    .wir-fordern-ihre-karriere h3 {margin-bottom: 45px;}
     .anstellungsarten-box .title {font-size: 17px;height: 65px;line-height: 22px;margin: 0 auto;}
     .option1 {max-width: 340px;}
     .verticalmiddle {padding: 25px;}
@@ -5968,7 +5963,6 @@ body .boxes-aktuelle.boxesnumber3 {
    /*Kandidaten RULES*/
    .box-karriere {margin: 0 0 35px !important;width: 100%;}
    .text-karriere {margin-bottom: 15px;min-height: unset;}
-   .wir-fordern-ihre-karriere {padding: 40px 0 20px;}
    .was_wir_machen {padding: 20px 10 20px;}
    .option1 {display: table;margin: 0 0 35px;max-width: unset;width: 100%;}
    .chooseoptions {margin-bottom: 0;}
@@ -8130,3 +8124,35 @@ a:active, a:hover {
     clear: both;
 }
 
+
+
+@media(max-width: 1350px)
+{
+
+	.text-up-left
+	{
+		left: 20px;
+		right: 20px;
+		top: 50px;	
+	}
+	
+	.text-up-right
+	{
+		left: 20px;
+		right: 20px;
+		top: 120px;	
+	}
+	
+	.search-container-over-image
+	{
+		left: calc(50vw - 150px);
+		top: 190px;	
+	}
+
+}
+
+.recomand-title
+{
+	font-size: 16px;
+	margin-top: 40px;
+}

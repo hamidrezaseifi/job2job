@@ -20,7 +20,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 	<div class="home candidate-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
 
-			<?php echo $this->render('topbanner');?>
+			<?php echo $this->render('topbanner', ['showSearch' => true]);?>
 			
 			<?php  if(false){?>
         	<div class="content-center960">
@@ -108,54 +108,78 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 		</div>
 	</div>
 	
-	<div>
+	<div class="twobox-container">
 	
+    	<div class="branch-box">
+    		<div class="title">Branchen</div>
+    		<?php foreach($branches as $branch){?>
+    			<a href="<?=Yii::getAlias('@web') ?>/site/branchview/candidate/<?php echo $branch->shortcut;?>">
+    				<div class="branch-item"> 
+    					<img alt="" src="<?php echo Yii::getAlias('@web') . $branch->logo;?>">
+    					<span><?php echo $branch->title;?> >></span>
+    				</div>
+    			</a>
+    		<?php } ?>
+    	</div>
+	
+    	<div class="job-box">
+     		<div class="title">Jobbörse</div>
+    		<?php foreach($jobs as $job){?>
+    			<a href="<?=Yii::getAlias('@web') ?>/site/jobview/<?php echo $job->id;?>">
+    				<div class="job-item"> 
+     					<span><?php echo $job->title;?></span>
+    				</div>
+    			</a>
+    		<?php } ?>
+    	
+    	</div>
+    	
+    	<div class="clear"></div>
+    	
 	</div>
 
-
-    
     <div class="was_wir_machen">
 		<div class="content-center">
     		<div class="width50">
 				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR BEWERBER</strong></h2>
 
-                <div class="recruitment_hidden">
+                <div class="content_ showcontent">
                     <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
                 </div>
       
                 <div class="recruitment_content">
                             
-                    <div class="hiddenj2j content_seg1" style="display: block;">
+                    <div class="hiddenj2j content_trapezoid5" style="display: block;">
                       <div class="text-title-bewerber">1. Qualifikation und Chancen</div><br>
                       <p>  Gemeinsam mit Ihnen entwerfen wir das Gerüst für Ihren perfekten Job. Auf Basis Ihrer beruflichen Ziele, Gehaltsvorstellungen, Qualifikationen und Co. geben wir Ihnen eine realistische Einschätzung Ihrer Job-Chancen. 
                       </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_seg2" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid4" style="display: none;">
                       <div class="text-title-bewerber">2. Vorstellung passender Stellen</div><br>
                        <p> Was wünscht der Kunde von künftigen Mitarbeitern? Wie arbeitet es sich im entsprechenden Unternehmen? Gibt es Bonuszahlungen? Bekomme ich einen Firmenwagen? Wir stellen Ihnen nicht nur auf Sie zugeschnittene Positionen vor, sondern beantworten Ihnen alle wichtigen Fragen zur möglichen Stelle. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_seg3" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid3" style="display: none;">
                       <div class="text-title-bewerber">3. Präsentation beim Arbeitgeber </div><br>
                        <p> Sobald wir die passende Stelle für Sie gefunden haben, optimieren wir Ihre Bewerbungsunterlagen und stellen Sie beim Kunden vor. Unsere qualifizierte Vermittlung verschafft Ihnen einen entscheidenden Wettbewerbsvorteil gegenüber Ihren Mitbewerbern. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_seg4" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid2" style="display: none;">
                       <div class="text-title-bewerber">4. Interviews</div><br>
                        <p> Als aussichtsreicher Kandidat werden Sie zum Interview bei Ihrem potenziellen Arbeitgeber geladen. Wir sorgen dafür, dass Sie bestmöglich auf das Gespräch vorbereitet sind. Im Anschluss analysieren wir das Interview und geben Ihnen Tipps für künftige Gespräche mit auf den Weg. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_seg5" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid1" style="display: none;">
                       <div class="text-title-bewerber">5. Vertrag</div><br>
                       <p>  Auch bei den Vertragsverhandlungen stehen wir Ihnen zur Seite. Wir führen die Verhandlungen und unterbreiten Ihnen das Angebot des Kunden. Zu einem Abschluss kommt es nur, wenn Sie rundum zufrieden sind. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_seg6" style="display: none;">
+                    <div class="hiddenj2j content_triangle-up" style="display: none;">
                       <div class="text-title-bewerber">6. Betreuung</div><br>
                        <p> Eine ganzheitliche und nachhaltige Betreuung steht bei uns an oberster Stelle. Wir weichen Ihnen während des gesamten Recruitment-Prozesses nicht von der Seite und begleiten Sie auch darüber hinaus. 
                         </p>
@@ -164,6 +188,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 
     		</div>
     
+    		<?php if(false){?>
     		<div class="width50">
                 <div class="squarewrapper2">
                     <div class="square2 square-fixed">
@@ -207,7 +232,32 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
                     </div>
                 </div>
             </div> 
+			<?php } ?>
+			
+			<div class="width50">
+				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Betreuung</span></div>			
 
+				<div ng-click="activeProcess('trapezoid1')" class="triangle trapezoid1">
+					<span class="triangle_content">Vertrag</span>
+				</div>			
+
+				<div ng-click="activeProcess('trapezoid2')" class="triangle trapezoid2">
+					<span class="triangle_content">Interviews</span>
+				</div>			
+
+				<div ng-click="activeProcess('trapezoid3')" class="triangle trapezoid3">
+					<span class="triangle_content">Präsentation beim Arbeitgeber</span>
+				</div>			
+
+				<div ng-click="activeProcess('trapezoid4')" class="triangle trapezoid4">
+					<span class="triangle_content">Vorstellung passender Stellen</span>
+				</div>			
+
+				<div ng-click="activeProcess('trapezoid5')" class="triangle trapezoid5">
+					<span class="triangle_content">Qualifikation und Chancen</span>
+				</div>			
+			</div>
+			
               <br>
               <br>
               <div class="width50 weiter_lesen" style="display: none;">
@@ -219,77 +269,36 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     
     <div class="all-slider das_sagen_kunden_candidate" style="">
 				
-			<div class="content-center">
-				<h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KUNDEN</strong></h2></div>
-				<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;"><div class="slider-kunden" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 17127px; height: 600px; z-index: auto; opacity: 1;">
-		
-	 				<div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;">
-							<a ng-click="showPaginationContent('1', $event)" id="link1" class="selected"><span>1</span></a>
-							<a ng-click="showPaginationContent('2', $event)" id="link2" class=""><span>2</span></a>
-							<a ng-click="showPaginationContent('3', $event)" id="link3" class=""><span>3</span></a>
-							<a ng-click="showPaginationContent('4', $event)" id="link4" class=""><span>4</span></a>
-						</div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;" class="pagination-content">
-                                <div id="item1" class="fade in pagination-content-item">
-                                  <p>„Ich kann Aristo nur als Personalberatung weiterempfehlen. Hier finden Sie integre Partner, die sich Ihrem Auftrag wirklich verpflichtet fühlen.“</p>
-                                </div>
-                                <div id="item2" class="fade pagination-content-item">
-                                  <p>„Ich kann Aristo nur wärmsten Herzens an Experten empfehlen, die auf der Suche sind nach einer positiven beruflichen Veränderung. Ich bin Aristo äußerst dankbar für die Hilfe bei der Suche nach meinem Traumjob.“</p>
-                                </div>
-                                <div id="item3" class="fade pagination-content-item">
-                                  <p>„Ich freue mich sehr, mit Aristo zusammenzuarbeiten. Ich habe sie als zuverlässigen Partner im Projektgeschäft kennengelernt. Unsere Zusammenarbeit ist geprägt von gegenseitigem Vertrauen und Respekt.“</p>
-                                </div>
-                                <div id="item4" class="fade pagination-content-item">
-                                  <p>“In meinen Augen ist genau der sehr persönliche und gleichzeitig professionelle Umgang zwischen Aristo und den Partnern auf Unternehmer- als auch Beraterseite eines der Erfolgsgeheimnisse der Aristo Gruppe. Ich bedanke mich beim gesamten Team und wünsche noch viele weitere erfolgreiche Jahre.”</p>
-                                </div>
-							</div>
-						</div>
-					</div>	
-				</div>							
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Die Berater bei Job2Job überzeugen nicht nur durch ihr fachliches Know-how, sondern auch durch ihr feines Gespür für genau das, was ich als Kunde brauche.“</p>
-							</div>
-						</div>
-					</div>	
-				</div>							
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Job2Job ist unser Nr.1 Ansprechpartner, um kritische Schlüsselpositionen schnell und effizient zu besetzen.“</p>
-							</div>
-						</div>
-					</div>	
-				</div>							
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Im Gespräch mit den Job2Job Consultants hatte ich das Gefühl, dass hier Spaß und Leidenschaft der absolute Erfolgsfaktor sind.“</p>
-							</div>
-						</div>
-					</div>	
-				</div>							
-			</div></div></div>
-					
-	</div>    
+		<div class="content-center"><h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KANDIDATEN</strong></h2></div>
+		<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;">
+			<div class="slider-kunden" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 17127px; height: 600px; z-index: auto; opacity: 1;">
+
+	 			<div class="each-slide-kunden" style="">
+    				<div class="content-center">
+    					<div class="slider2-content">
+    						<div class="pagination2" style="display: block;">
+    							<?php foreach ($recommendations as $index => $recommendation ){?>
+    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', $event)" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
+    							<?php } ?>
+    						</div>
+    						<div class="vertical-align">
+    							<div style="margin-bottom: 0px!important;" class="pagination-content">
+    							<?php foreach ($recommendations as $index => $recommendation ){?>
+                                    <div id="item<?php echo $index + 1;?>" class="fade <?php echo $index == 0 ? 'in' : ''; ?> pagination-content-item">
+                                      <div class="recomand-content"><?php echo $recommendation->recommendation;?></div>
+                                      <div class="recomand-title"><?php echo $recommendation->title;?></div>
+                                    </div>
+     							<?php } ?>
+    							</div>
+    						</div>
+    					</div>	
+    				</div>							
+				</div>
+			</div>
+		</div>
+	</div>
  
- 
- 
- 
+ 	<?php if(false){?>
     <div class="boxes-ref">
 		<div class="content-center statistic-anim" >
 			<div class="width25" ng-repeat="statistc in numberStatictics">
@@ -297,13 +306,9 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 					<h5 class="count_up finished">{{Math.round(statistc.currentValue)}}</h5><h5><em>{{statistc.label}}</em></h5>
 				</div>
 			</div>
-			
-			
 		</div>
-		
-
-		
     </div>
+    <?php } ?>
 </div>	
 
 

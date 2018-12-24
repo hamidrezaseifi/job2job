@@ -23,6 +23,7 @@ use common\lib\JobpositionBase;
 use common\lib\VacancyBase;
 use common\lib\CandidatefavoriteBase;
 use common\lib\CandidatejobapplyBase;
+use common\lib\RecommendationBase;
 
 /**
  * Site controller
@@ -118,13 +119,30 @@ class SiteController extends Controller
      */
     public function actionCandidate()
     {
-        $isfinished = false;
-        $total = 0;
-        $jobModels = $this->lastNJob(- 1, 4, $isfinished, $total);
+        //$isfinished = false;
+        //$total = 0;
+        //$jobModels = $this->lastNJob(- 1, 4, $isfinished, $total);
 
+        $branches = BranchBase::find()->where(['status' => 1])->all();
+        
+        $searchModel = new JobpositionBaseSearch();
+        $searchModel->status = 1;
+        
+        $recommendations = RecommendationBase::find()->where(['iscandidate' => 1])->orderBy(['updated' => SORT_DESC])->limit(4)->all();
+        
+        $jobs = array();
+        foreach($branches as $branch){
+            $allJobModels = $searchModel->searchBranches($branch->id, 3);
+            
+            //$allJobModels = $dataProvider->getModels();
+            
+            $jobs[] = count($allJobModels) > 0 ? $allJobModels[0] : false;
+        }
         return $this->render('candidate', [
-            "jobModels" => $jobModels
-
+            "jobs" => $jobs,
+            'branches' => $branches,
+            'recommendations' => $recommendations,
+            
         ]);
     }
 
@@ -135,7 +153,27 @@ class SiteController extends Controller
      */
     public function actionCompany()
     {
-        return $this->render('company', []);
+        $branches = BranchBase::find()->where(['status' => 1])->all();
+        
+        $searchModel = new JobpositionBaseSearch();
+        $searchModel->status = 1;
+        
+        $recommendations = RecommendationBase::find()->where(['iscandidate' => 0])->orderBy(['updated' => SORT_DESC])->limit(4)->all();
+        
+        $jobs = array();
+        foreach($branches as $branch){
+            $allJobModels = $searchModel->searchBranches($branch->id, 3);
+            
+            //$allJobModels = $dataProvider->getModels();
+            
+            $jobs[] = count($allJobModels) > 0 ? $allJobModels[0] : false;
+        }
+        return $this->render('company', [
+            "jobs" => $jobs,
+            'branches' => $branches,
+            'recommendations' => $recommendations,
+            
+        ]);
     }
 
     /**
@@ -164,9 +202,9 @@ class SiteController extends Controller
             'createdate' => SORT_DESC
         ), true, true);
         $allJobModels = $dataProvider->getModels();
-
+        
         return $this->render('carrier', [
-            'jobModels' => $allJobModels
+            'jobModels' => $allJobModels,
         ]);
     }
 
@@ -267,7 +305,8 @@ class SiteController extends Controller
         
         $skills = BrainHelper::mapTranslate($skills, 'id', 'title');
         $vacances = VacancyBase::find()->all();
-        $branches = BranchBase::find()->all();
+        $branches = BranchBase::find()->where(['status' => 1])->all();
+        
         
         $searchText = isset($_POST["searchedText"]) ? $_POST["searchedText"] : "";
         

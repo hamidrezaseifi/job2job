@@ -12,6 +12,7 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		];
 	
 	$scope.Math = window.Math;
+	$scope.lastctiveProcess = "";
 
 	$scope.customerCommentsCount = 4;
 	$scope.currentCustomerComments = 1;
@@ -43,6 +44,21 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		
 		$(".pagination-content div.in").removeClass("in");
 		$('#item' + index).addClass("in");
+	}
+	
+	$scope.activeProcess = function(item){
+		$(".triangle.up").removeClass("up")
+		
+		if($scope.lastctiveProcess !== item){
+			$("."+ item).addClass("up")			
+			$scope.lastctiveProcess = item;
+		}
+		else{
+			$scope.lastctiveProcess = "";
+		}
+		
+		$(".showcontent").removeClass("showcontent").hide();
+		$(".content_" + $scope.lastctiveProcess).addClass("showcontent").show();
 	}
 	
 	function checkAnimation(){
