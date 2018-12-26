@@ -176,7 +176,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     </div>
 
 
-<div>{{test}}</div>
+	<div style="border:1px solid gray; padding: 10px; margin-top: 20px; display: none;">{{textDebug}}</div>
 </div>
 <script type="text/javascript">
 var jobscounturl = "<?php echo Yii::getAlias("@web") . "/site/jobcount"; ?>";

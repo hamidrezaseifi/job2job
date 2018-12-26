@@ -578,25 +578,26 @@ class SiteController extends Controller
     
     public function actionJobcount()
     {
-        $params = Yii::$app->getRequest()->getBodyParams();
+        header('Content-type: application/json');
+        $this->layout=false;
         
+        $params = Yii::$app->getRequest()->getBodyParams();
+                
         $search = new JobpositionBaseSearch();
         $out = $search->searchCount($params);
         
         
-        $this->layout=false;
-        header('Content-type: application/json');
-        echo json_encode($out);
-        \Yii::$app->end();
+         echo json_encode($out);
         exit();
     }
     
     public function actionDosearchjobs()
     {
+        header('Content-type: application/json');
+        $this->layout=false;
         
         $params = Yii::$app->getRequest()->getBodyParams();
-        
-        
+                
         $search = new JobpositionBaseSearch();
         
         $results = $search->searchInPage($params, $params["selectedSortOption"]);
@@ -610,12 +611,8 @@ class SiteController extends Controller
         
         $results = ['data' => $results, 'count' => $count, 'isMoreJobs' => $totalLoaded + count($results) < $count];
         
-        
-        $this->layout=false;
-        header('Content-type: application/json');
         echo json_encode($results);
-        \Yii::$app->end();
-        exit();
+        exit;
     }
     
     public function actionJobview($id)

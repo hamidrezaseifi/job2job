@@ -15,12 +15,16 @@ $this->registerJsFile ( "@web/web/js/segments.js", [ ], 'js-segments' );
 $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 $this->registerCssFile ( "@web/web/css/segments.css", [ ], 'css-segment' );
 
+$user = Yii::$app->user;
+$identity = $user->identity;
+$isCompany = $identity ? $identity->isCompany() : false;
+
 ?>
 
 <div ng-controller="IndexController">
 	<div class="home home-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
-        	<?php echo $this->render('topbanner', ['showSearch' => true]);?>
+        	<?php echo $this->render('topbanner', ['showSearch' => ($user->isGuest || !$isCompany), 'showEmployeeFinder' => (!$user->isGuest && $isCompany)]);?>
         </div>
 	</div>
 

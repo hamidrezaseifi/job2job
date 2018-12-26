@@ -27,6 +27,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.loadingSearchShow = false;
 	
 	$scope.showSOrtList = false;
+	$scope.textDebug = "test";
 	
 	$scope.sortOptionList = [
 		{value:"title", label:"Bezeichnung"},
@@ -185,17 +186,19 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        },
 	        url : $scope.jobssearchturl,
 	        data : $scope.query
-	    }).then(function mySuccess(response) {
+	    }).then(function successCallback(response) {
+	    	
 	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
-
 	    	//$scope.foundJobs = response.data.data;
 	    	$scope.jobsSearchCount = response.data.count;
 	    	$scope.isMoreJobs = response.data.isMoreJobs;
 	    	
 	    	$scope.query.loadedCount += response.data.data.length;
 	        //$scope.test = response.data;
-	    }, function myError(response) {
-	        alert(response.statusText);
+	    }, function errorCallback(response) {
+	        
+	        $scope.textDebug = "error search: " + response;
+	        alert($scope.textDebug);
 	        //$scope.test = response.data;
 	    });
 		
@@ -212,12 +215,14 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        },
 	        url : $scope.jobscounturl,
 	        data : $scope.query
-	    }).then(function mySuccess(response) {
-	    	$scope.jobsFilterCount = response.data.count;
-	    	//alert($scope.jobsFilterCount);
+	    }).then(function successCallback(response) {
+	    	$scope.jobsFilterCount = response.data.count;	    	
+	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
 	        //$scope.test = response.data;
-	    }, function myError(response) {
-	        alert(response.statusText);
+	    }, function errorCallback(response) {
+	        
+	        $scope.textDebug = "error count: " + response;
+	        alert($scope.textDebug);
 	        //$scope.test = response.data;
 	    });
 	}

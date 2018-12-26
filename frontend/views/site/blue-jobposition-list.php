@@ -46,7 +46,7 @@ $showMoreFromBranch = isset($showMoreFromBranch) ? $showMoreFromBranch : false;
     			<p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs/">JOB SUCHEN</a></p>
     			<?php } ?>
     			<?php if($showMoreFromBranch){ ?>	
-    			<?php ActiveForm::begin(['action' => Yii::getAlias('@web') . '/site/searchjobs', 'options' =>['target' => '_blank' ]]) ?>
+    			<?php ActiveForm::begin(['action' => Yii::getAlias('@web') . '/site/searchjobs']) ?>
     			<input type="hidden" value="<?php echo $shortCut;?>" name="searchBranch">
     			<button>UND MEHR</button>
     			<?php ActiveForm::end() ?>
