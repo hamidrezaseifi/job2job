@@ -46,7 +46,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		$scope.showSOrtList = false;
 		
 		$scope.query.loadedCount = 0;
-		$scope.searchJobs();
+		$scope.searchJobs(true);
 		$scope.foundJobs = [];
 	}
 	
@@ -176,6 +176,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		$scope.closeDropdown();
 		if(clear){
 			$scope.query.loadedCount = 0;
+			$scope.jobsSearchCount = 0;
 			$scope.foundJobs = [];
 		}
 		
@@ -189,12 +190,12 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	    }).then(function successCallback(response) {
 	    	
 	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
-	    	//$scope.foundJobs = response.data.data;
+
 	    	$scope.jobsSearchCount = response.data.count;
 	    	$scope.isMoreJobs = response.data.isMoreJobs;
 	    	
 	    	$scope.query.loadedCount += response.data.data.length;
-	        //$scope.test = response.data;
+
 	    }, function errorCallback(response) {
 	        
 	        $scope.textDebug = "error search: " + response;
@@ -204,6 +205,10 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		
 	}
 
+	$scope.testFoundJobs  = function (){
+		return JSON.stringify($scope.foundJobs);
+	}
+	
 	$scope.getJobCount = function(){
 		
 		//alert(JSON.stringify($scope.query)); 
@@ -217,8 +222,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        data : $scope.query
 	    }).then(function successCallback(response) {
 	    	$scope.jobsFilterCount = response.data.count;	    	
-	    	$scope.foundJobs = $scope.foundJobs.concat(response.data.data);
-	        //$scope.test = response.data;
+	    	
 	    }, function errorCallback(response) {
 	        
 	        $scope.textDebug = "error count: " + response;
@@ -294,7 +298,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		
 		$scope.closeDropdown();
 		createTags();
-		$scope.searchJobs();
+		$scope.searchJobs(true);
 	}
 
 	$scope.loadMoreJob = function (){
@@ -306,7 +310,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	}
 	
 	createTags();
-	$scope.searchJobs();
+	$scope.searchJobs(true);
 
 	
 	

@@ -602,7 +602,6 @@ class SiteController extends Controller
         
         $results = $search->searchInPage($params, $params["selectedSortOption"]);
         
-        
         $totalLoaded = $params["loadedCount"];
         
         $count = count($results);
