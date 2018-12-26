@@ -106,9 +106,31 @@ class SiteController extends Controller
         $total = 0;
         $jobModels = $this->lastNJob(- 1, 4, $isfinished, $total);
 
+        $recommendations = [];
+        $recommendationsCandidate = RecommendationBase::find()->where(['iscandidate' => 1])->orderBy(['updated' => SORT_DESC])->limit(4)->all();
+        $recommendationsCompany = RecommendationBase::find()->where(['iscandidate' => 0])->orderBy(['updated' => SORT_DESC])->limit(4)->all();
+        
+        $companyIndex = 0;
+        $candidateIndex = 0;
+        while(count($recommendations) < 4 && ($candidateIndex < 4 || $companyIndex < 4)){
+            
+            if(count($recommendationsCandidate) > $candidateIndex){
+                $recommendations[] = $recommendationsCandidate[$candidateIndex];
+                $candidateIndex++;
+            }
+            
+            if(count($recommendationsCompany) > $companyIndex){
+                $recommendations[] = $recommendationsCompany[$companyIndex];
+                $companyIndex ++;
+            }
+            
+        }
+        
+        
         return $this->render('index', [
-            "jobModels" => $jobModels
-
+            'jobModels' => $jobModels,
+            'recommendations' => $recommendations,
+            
         ]);
     }
 
@@ -154,22 +176,12 @@ class SiteController extends Controller
     public function actionCompany()
     {
         $branches = BranchBase::find()->where(['status' => 1])->all();
+        $vacancies = VacancyBase::find()->where(['status' => 1])->all();
         
-        $searchModel = new JobpositionBaseSearch();
-        $searchModel->status = 1;
+        $recommendations = RecommendationBase::find()->where(['iscandidate' => 0])->orderBy(['updated' => SORT_DESC])->limit(4)->all();        
         
-        $recommendations = RecommendationBase::find()->where(['iscandidate' => 0])->orderBy(['updated' => SORT_DESC])->limit(4)->all();
-        
-        $jobs = array();
-        foreach($branches as $branch){
-            $allJobModels = $searchModel->searchBranches($branch->id, 3);
-            
-            //$allJobModels = $dataProvider->getModels();
-            
-            $jobs[] = count($allJobModels) > 0 ? $allJobModels[0] : false;
-        }
         return $this->render('company', [
-            "jobs" => $jobs,
+            'vacancies' => $vacancies,
             'branches' => $branches,
             'recommendations' => $recommendations,
             

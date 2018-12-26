@@ -16,7 +16,7 @@ class CandidatejobapplyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidatejobapply[]|array
+     * @return CandidatejobapplyBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CandidatejobapplyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidatejobapply|array|null
+     * @return CandidatejobapplyBase|array|null
      */
     public function one($db = null)
     {

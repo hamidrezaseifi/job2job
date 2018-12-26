@@ -416,19 +416,12 @@ function render_skills($list, $ischild = false)
 		    	<div class="item top-margin-15">
 				<?=BrainRadioBoxRenderer::widget(['name' => 'CandidateBase[availability]','value' => $candidateModel->availability,'id_prefix' => 'available_','items' => BrainStaticList::accessableList()]);?>
 				</div>
-		    	<div class="item-title"><?php
 
-    echo Yii::t('app', 'Job-Sorte');
-    ?></div>
-		    	<div class="item top-margin-15">
-				<?=BrainRadioBoxRenderer::widget(['name' => 'CandidateBase[jobtype]','value' => $candidateModel->jobtype,'id_prefix' => 'jobtype_','items' => $jobypes]);?>
-		    	</div>
-
-		    	<div class="item-title skillpart <?=($candidateModel->jobtype =='' ? ' nodisplay' : '')?>" ><?php
+		    	<div class="item-title skillpart" ><?php
 
     echo Yii::t('app', 'Fähigkeiten');
     ?></div>
-		    	<div class="item skillpart <?=($candidateModel->jobtype =='' ? ' nodisplay' : '')?>" >
+		    	<div class="item skillpart" >
 		    		<div id="skills" style="">
 		    			<span class="brows-button" ng-click="browsskills()"></span>
 		    		</div>
@@ -455,19 +448,9 @@ function render_skills($list, $ischild = false)
 		    	<div class="item top-margin-15">
 				<?=$candidateModel->availability;?>
 				</div>
-		    	<div class="item-title"><?php
 
-    echo Yii::t('app', 'Job-Sorte');
-    ?></div>
-		    	<div class="item top-margin-15">
-				<?=($candidateModel->jobtype !=null ? $jobypes[$candidateModel->jobtype] : '')?>
-		    	</div>
-
-		    	<div class="item-title skillpart <?=($candidateModel->jobtype =='' ? ' nodisplay' : '')?>" ><?php
-
-    echo Yii::t('app', 'Fähigkeiten');
-    ?></div>
-		    	<div class="item skillpart <?=($candidateModel->jobtype =='' ? ' nodisplay' : '')?>" >
+		    	<div class="item-title skillpart" ><?php echo Yii::t('app', 'Fähigkeiten'); ?></div>
+		    	<div class="item skillpart" >
 		    	<?php
 
     foreach ($skills as $skill) {

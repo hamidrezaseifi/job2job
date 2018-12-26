@@ -16,7 +16,7 @@ class ConnectedcompanyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Connectedcompany[]|array
+     * @return ConnectedcompanyBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class ConnectedcompanyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Connectedcompany|array|null
+     * @return ConnectedcompanyBase|array|null
      */
     public function one($db = null)
     {

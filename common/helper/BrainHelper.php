@@ -3,6 +3,7 @@
 namespace common\helper;
 
 use Yii;
+use yii\base\InvalidParamException;
 
 
 class BrainHelper 
@@ -77,9 +78,9 @@ class BrainHelper
 	 * ```
 	 *
 	 * @param array $array
-	 * @param string|\Closure $from
-	 * @param string|\Closure $to
-	 * @param string|\Closure $group
+	 * @param string $from
+	 * @param string $to
+	 * @param string $group
 	 * @return array
 	 */
 	public static function mapTranslate($array, $from, $to, $mapvalue = true, $mapkey = false)
@@ -128,7 +129,7 @@ class BrainHelper
 	 * ```
 	 *
 	 * @param array|object $array array or object to extract value from
-	 * @param string|\Closure|array $key key name of the array element, an array of keys or property name of the object,
+	 * @param string|array $key key name of the array element, an array of keys or property name of the object,
 	 * or an anonymous function returning the value. The anonymous function signature should be:
 	 * `function($array, $defaultValue)`.
 	 * The possibility to pass an array of keys is available since version 2.0.4.

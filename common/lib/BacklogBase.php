@@ -34,7 +34,7 @@ class BacklogBase extends \common\models\Backlog
 
     /**
      * @inheritdoc
-     * @return BacklogQuery the active query used by this AR class.
+     * @return BacklogQueryBase the active query used by this AR class.
      */
     public static function find()
     {

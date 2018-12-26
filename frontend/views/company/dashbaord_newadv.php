@@ -218,10 +218,6 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    <div class="job-adv-wizard-item wizard-item3">
 	    	<div class="item-title"><?php echo Yii::t('app', 'Kategorieauswahl'); ?></div>
 	    	<div class="content">
-	    		<div class="desc"><?php echo Yii::t('app', 'Wählen Sie ein Hauptkategorie, für die Ihre Stellenanzeige gefunden werden soll.'); ?></div>
-	    		<div class="item">
-	    			<?=Html::dropDownList('jobtypelist', $jobModel->jobtype, $jobypes , ['id' => 'jobtypelist']) ?>
-		    	</div>
 
 	    		<div class="desc" style="margin-top: 20px;"><?php echo Yii::t('app', 'Geben Sie Ihr Schlagworte an, um besser gefunden zu werden.'); ?></div>
 	    		<div class="">
@@ -264,7 +260,6 @@ var vacancy_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie die Vakanz der St
 var worktype_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie den Arbeitszeitmodel der Stelle aus!'); ?>";
 var jobdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Job-Beginn und die geplante Dauer beim zweiten Schritt an!'); ?>";
 var expire_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Gültigkeit der Stellenanzeige beim zweiten Schritt an!'); ?>";
-var jobtype_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie das Hauptkategorie der Stelle beim zweiten Schritt aus!'); ?>";
 var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!'); ?>";
 var skill_exists_msg = '<?php echo Yii::t('app', 'Das Schlagwort "%" existiert in der liste!'); ?>';
 

@@ -1,9 +1,11 @@
 <?php
 
+use yii\base\Object;
+
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
-/* @var $exception Exception */
+/* @var $exception Object */
 
 use yii\helpers\Html;
 

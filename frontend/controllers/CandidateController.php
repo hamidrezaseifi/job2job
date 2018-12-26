@@ -5,7 +5,6 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\LoginForm;
 use common\lib\SkillsBase;
 use common\lib\UsersBase;
 use common\lib\CandidateBase;
@@ -16,7 +15,6 @@ use common\lib\WorktimemodelBase;
 use common\helper\BrainHelper;
 use common\lib\CandidateskillBase;
 use common\lib\ContantsBase;
-use common\lib\JobtypeBase;
 use common\lib\UploadedfilesBase;
 use common\helper\BrainStaticList;
 use common\lib\PostcodeBase;
@@ -26,9 +24,6 @@ use common\lib\CandidatejobapplyBase;
 use common\lib\JobpositionBaseSearch;
 use common\lib\CandidatejobapplyBaseSearch;
 use common\lib\FrontlogBase;
-use common\lib\UserpermissionBase;
-use yii\helpers\ArrayHelper;
-use common\lib\BackendUserModel;
 
 /**
  * Site controller
@@ -166,7 +161,6 @@ class CandidateController extends Controller
                     [
                         'parentid' => 1,
                         'status' => 1,
-                        'jobtype' => $candidateModel->jobtype
                     ])
                     ->orderBy('title')
                     ->all();
@@ -182,7 +176,6 @@ class CandidateController extends Controller
                 $countries_array = BrainStaticList::countryList(true);
                 $distances_temp = BrainStaticList::distanceList();
                 $worktypes_array = BrainStaticList::workTypeList();
-                $jobypes_array = BrainStaticList::jobTypeList();
                 $candidSkills_array = BrainHelper::mapTranslate($candidSkills, 'skill', 'skill');
 
                 $distances_array = array();
@@ -210,7 +203,6 @@ class CandidateController extends Controller
                         'countries' => $countries_array,
                         'distances' => $distances_array,
                         'worktypes' => $worktypes_array,
-                        'jobypes' => $jobypes_array,
                         'cellphoneList' => explode('-', $candidateModel->cellphone),
                         'telList' => explode('-', $candidateModel->tel),
                         'reachabilityList' => BrainStaticList::reachabilityList(),
@@ -315,8 +307,7 @@ class CandidateController extends Controller
         $percentCalc += $candidateModel->contacttime != null && $candidateModel->contacttime != '' ? 1 : 0;
         $percentCalc += $candidateModel->employment != null ? 1 : 0;
         $percentCalc += $candidateModel->availability != null && $candidateModel->availability != '' ? 1 : 0;
-        $percentCalc += $candidateModel->jobtype != null && $candidateModel->jobtype > 0 ? 1 : 0;
-        // $percentCalc += $candidateModel->availablefrom != null && $candidateModel->availablefrom != '' ? 1 : 0;
+
         $percentCalc += $candidateModel->desiredjobpcode != null &&
             $candidateModel->desiredjobpcode != '' ? 1 : 0;
         $percentCalc += $candidateModel->desiredjobcity != null &&
@@ -448,7 +439,6 @@ class CandidateController extends Controller
                 [
                     'parentid' => 1,
                     'status' => 1,
-                    'jobtype' => $data['CandidateBase']['jobtype']
                 ])->all();
             $skill_array = BrainHelper::mapTranslate($skills, 'title', 'title');
 
@@ -470,7 +460,6 @@ class CandidateController extends Controller
                     $sdata = array();
                     $sdata['SkillsBase']['parentid'] = 1;
                     $sdata['SkillsBase']['title'] = $skill;
-                    $sdata['SkillsBase']['jobtype'] = $data['CandidateBase']['jobtype'];
                     $sdata['SkillsBase']['status'] = 0;
                     $sdata['SkillsBase']['createdate'] = $createdate;
                     $sdata['SkillsBase']['updatedate'] = $createdate;
@@ -838,9 +827,7 @@ class CandidateController extends Controller
         $worktypes = WorktimemodelBase::findAll([
             'status' => 1
         ]);
-        $jobypes = JobtypeBase::findAll([
-            'status' => 1
-        ]);
+        
 
         $skill_array = BrainHelper::mapTranslate($skills, 'id', 'title');
         $nationalities_array = array(
@@ -868,7 +855,6 @@ class CandidateController extends Controller
         );
         $worktypes_array = array_merge($worktypes_array,
             BrainHelper::mapTranslate($worktypes, 'id', 'title'));
-        $jobypes_array = BrainHelper::mapTranslate($jobypes, 'id', 'title');
 
         return $this->render('myprofile',
             [
@@ -880,7 +866,6 @@ class CandidateController extends Controller
                 'distances' => $distances_array,
                 'titles' => $titles_array,
                 'worktypes' => $worktypes_array,
-                'jobypes' => $jobypes_array
             ]);
     }
 
@@ -889,16 +874,11 @@ class CandidateController extends Controller
      *
      * @return mixed
      */
-    public function actionSkills($jt)
+    public function actionSkills()
     {
-        if (! isset($jt) || intval($jt) <= 0) {
-            echo 'alert("Error!1")';
-            exit();
-        }
         $skills = SkillsBase::find()->where([
             'parentid' => 0,
             'status' => 1,
-            'jobtype' => $jt
         ])->one();
         $parentid = 0;
         if (! $skills) {
@@ -912,7 +892,6 @@ class CandidateController extends Controller
             [
                 'parentid' => $parentid,
                 'status' => 1,
-                'jobtype' => $jt
             ])
             ->orderBy('title')
             ->all();

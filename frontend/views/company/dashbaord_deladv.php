@@ -3,12 +3,12 @@
 /* @var $this yii\web\View */
 /* @var $model \common\models\Users */
 /* @var $modelSecond \common\models\Users */
-/* @var $companyModel \common\models\CompanyBase */
-/* @var $pdmModel \common\models\PersonaldecisionmakerBase */
-/* @var $pdmModelSecond \common\models\PersonaldecisionmakerBase */
-/* @var $searchModel \common\models\PersonaldecisionmakerBase */
-/* @var $searchModel \common\models\PersonaldecisionmakerBase */
-/* @var $dataProvider \common\models\PersonaldecisionmakerBase */
+/* @var $companyModel \common\lib\CompanyBase */
+/* @var $pdmModel \common\lib\PersonaldecisionmakerBase */
+/* @var $pdmModelSecond \common\lib\PersonaldecisionmakerBase */
+/* @var $searchModel \common\lib\PersonaldecisionmakerBase */
+/* @var $searchModel \common\lib\PersonaldecisionmakerBase */
+/* @var $dataProvider \common\lib\PersonaldecisionmakerBase */
 /* @var $jobadvList array */
 
 use yii\helpers\Html;

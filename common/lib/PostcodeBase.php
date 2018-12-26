@@ -26,7 +26,7 @@ class PostcodeBase extends \common\models\Postcode
 
     /**
      * @inheritdoc
-     * @return PostcodeQuery the active query used by this AR class.
+     * @return PostcodeQueryBase the active query used by this AR class.
      */
     public static function find()
     {

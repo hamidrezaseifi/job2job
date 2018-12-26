@@ -75,12 +75,6 @@ $(document).ready(function(){
 		window.location = advlisturl;
 	});
 	
-	$("#jobtypelist").change(function(){
-		prepareSkillTextbox();
-		
-		$(".skillholder .item").remove();
-	});
-	
 	$(".nav-button-set .buttonapply").click(function(){
 
 		submitJob();
@@ -105,10 +99,9 @@ function setToNavColor()
 
 function prepareSkillTextbox()
 {
-	var jobtype = $("#jobtypelist").val();
 	
 	$("#skilltext").autocomplete({
-	      source: allskils[jobtype],
+	      source: allskils,
 	    });
 	
 }
@@ -208,12 +201,6 @@ function submitJob()
 		return;
 	}
 	
-	if($("div.content select[name='jobtypelist']").val() == 0){
-		alert(jobtype_msg);
-		return;
-	}
-
-	
 	var selected_skills = "";
 	$(".skillholder .item .text").each(function(index , item){
 		selected_skills += $.trim($(item).html()) + ", ";
@@ -231,7 +218,6 @@ function submitJob()
 	formData.append("JobpositionBase[postcode]", $("div.content input[name='postcode']").val());
 	formData.append("JobpositionBase[comments]", $("div.content textarea[name='comments']").val());
 	formData.append("JobpositionBase[expiredate]", $("div.content input[name='expiredate']").val());
-	formData.append("JobpositionBase[jobtype]", $("div.content select[name='jobtypelist']").val());
 	formData.append("JobpositionBase[vacancy]", $("div.content select[name='vacancy']").val());
 	formData.append("JobpositionBase[worktype]", $("div.content select[name='worktype']").val());
 	formData.append("JobpositionBase[jobstartdate]", jobstartdate);

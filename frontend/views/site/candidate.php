@@ -13,6 +13,7 @@ $this->registerJsFile("@web/web/js/candidate.js", [], 'js-candidate');
 $this->registerJsFile("@web/web/js/segments-candidate.js", [], 'js-segments');
 $this->registerCssFile("@web/web/css/segments-candidate.css", [], 'css-segment');
 $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
+$this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 
 ?>
 
@@ -267,7 +268,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     </div>
     
     
-    <div class="all-slider das_sagen_kunden_candidate" style="">
+    <div class="all-slider recommendations-slider das_sagen_kunden_candidate" style="">
 				
 		<div class="content-center"><h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KANDIDATEN</strong></h2></div>
 		<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;">
@@ -278,7 +279,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     					<div class="slider2-content">
     						<div class="pagination2" style="display: block;">
     							<?php foreach ($recommendations as $index => $recommendation ){?>
-    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', $event)" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
+    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', true)" data-iscandidate="<?php echo $recommendation->iscandidate; ?>" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
     							<?php } ?>
     						</div>
     						<div class="vertical-align">

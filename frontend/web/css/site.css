@@ -8086,6 +8086,44 @@ a:active, a:hover {
 	top: 400px;
 }
 
+.personal-container-over-image
+{
+	position: absolute;
+	width: 250px;
+	left: calc(50vw - 125px);
+	background: transparent;
+	height: 50px;
+	top: 400px;
+}
+
+.personal-container-over-image a 
+{
+    background: #72a84f none repeat scroll 0 0;
+    color: #fff;
+    display: table;
+    font-family: AvenirLTPro-Book;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 auto;
+    padding: 10px 38px 9px;
+    position: relative;
+}
+
+.personal-container-over-image a::after 
+{
+    background-image: url(img/sprite.png);
+    background-position: -2px -19px;
+    background-repeat: no-repeat;
+    background-size: 346.5px auto;
+    content: "";
+    display: table;
+    height: 30px;
+    position: absolute;
+    right: 14px;
+    top: 9px;
+    width: 11px;
+}
+
 .search-container-over-image input[type="text"]
 {
 	height: 30px;
@@ -8148,6 +8186,12 @@ a:active, a:hover {
 		left: calc(50vw - 150px);
 		top: 190px;	
 	}
+	
+	.personal-container-over-image
+	{
+		left: calc(50vw - 125px);
+		top: 190px;	
+	}
 
 }
 
@@ -8156,3 +8200,19 @@ a:active, a:hover {
 	font-size: 16px;
 	margin-top: 40px;
 }
+
+.das_sagen_kunden_candidate
+{
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candidaten-customers.jpg');
+    background-size: cover;
+}
+
+.pagination-content .pagination-content-item
+{
+	position: absolute;
+	top: 120px;
+	width: 100%;
+	height: 260px;
+}
+
+

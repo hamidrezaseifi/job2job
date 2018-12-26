@@ -15,7 +15,7 @@ class VacancyQuery extends \yii\db\ActiveQuery
     }*/
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return Vacancy[]|array
      */
     public function all($db = null)
@@ -24,7 +24,7 @@ class VacancyQuery extends \yii\db\ActiveQuery
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return Vacancy|array|null
      */
     public function one($db = null)

@@ -32,7 +32,7 @@ class JobpositionseenBase extends \common\models\Jobpositionseen
 
     /**
      * @inheritdoc
-     * @return JobpositionseenQuery the active query used by this AR class.
+     * @return JobpositionseenQueryBase the active query used by this AR class.
      */
     public static function find()
     {

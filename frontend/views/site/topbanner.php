@@ -2,10 +2,21 @@
 
 /* @var $this yii\web\View */
 /* @var $showSearch boolean */
+/* @var $showEmployeeFinder boolean */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$user = Yii::$app->user;
+$identity = Yii::$app->user->identity;
+
+$showEmployeeFinder = isset($showEmployeeFinder) ? $showEmployeeFinder : false;
+
+$employeefinderlink = Yii::getAlias('@web') . "/site/register";
+
+if (! $user->isGuest && $identity->isCompany ()) {
+    $employeefinderlink = Yii::getAlias('@web') . "/company/dashboard/newjob";
+}
 
 ?>
 
@@ -22,5 +33,11 @@ use yii\bootstrap\ActiveForm;
 				<?php ActiveForm::end() ?>
 				
 			</div>
+			<?php } ?>
+
+			<?php if($showEmployeeFinder){?>
+			<div class="personal-container-over-image" >
+    			<a href="<?php echo $employeefinderlink;?>">PERSONAL FINDEN</a>
+   			</div>
 			<?php } ?>
 

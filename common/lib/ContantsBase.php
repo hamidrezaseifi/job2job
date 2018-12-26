@@ -18,7 +18,7 @@ class ContantsBase extends \common\models\Contants
 
     /**
      * @inheritdoc
-     * @return ContantsQuery the active query used by this AR class.
+     * @return ContantsQueryBase the active query used by this AR class.
      */
     public static function find()
     {

@@ -7,13 +7,14 @@ use yii\helpers\Html;
 $this->registerJsFile("@web/web/js/candidate.js", [], 'js-candidate');
 $this->registerJsFile("@web/web/js/segments-candidate.js", [], 'js-segments');
 $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
+$this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 
 ?>
 <div ng-controller="CandidateController">
 	<div class="home candidate-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
 
-			<?php echo $this->render('topbanner', ['showSearch' => false]);?>
+			<?php echo $this->render('topbanner', ['showSearch' => false, 'showEmployeeFinder' => true,]);?>
 			
 			<?php  if(false){?>
         	<div class="content-center960">
@@ -44,7 +45,18 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
 	
 	<div class="twobox-container">
 	
-    	<div class="branch-box">
+    	<div class="business-models-box-company">
+    		<div class="title">GESCHÄFTSMODELLE</div>
+    		<?php foreach($vacancies as $vacancy){?>
+    			<a href="<?=Yii::getAlias('@web') ?>/site/<?php echo $vacancy->link;?>">
+    				<div class="business-models-item"> 
+    					<span><?php echo $vacancy->title;?> >></span>
+    				</div>
+    			</a>
+    		<?php } ?>
+    	</div>
+	
+    	<div class="branch-box-company">
     		<div class="title">Branchen</div>
     		<?php foreach($branches as $branch){?>
     			<a href="<?=Yii::getAlias('@web') ?>/site/branchview/candidate/<?php echo $branch->shortcut;?>">
@@ -53,19 +65,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     					<span><?php echo $branch->title;?> >></span>
     				</div>
     			</a>
-    		<?php } ?>
-    	</div>
-	
-    	<div class="job-box">
-     		<div class="title">Jobbörse</div>
-    		<?php foreach($jobs as $job){?>
-    			<a href="<?=Yii::getAlias('@web') ?>/site/jobview/<?php echo $job->id;?>">
-    				<div class="job-item"> 
-     					<span><?php echo $job->title;?></span>
-    				</div>
-    			</a>
-    		<?php } ?>
-    	
+    		<?php } ?>    	
     	</div>
     	
     	<div class="clear"></div>
@@ -75,7 +75,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     <div class="was_wir_machen">
 		<div class="content-center">
     		<div class="width50">
-				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR BEWERBER</strong></h2>
+				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR KUNDEN</strong></h2>
 
                 <div class="content_ showcontent">
                     <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
@@ -201,7 +201,7 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     </div>
     
     
-    <div class="all-slider das_sagen_kunden_candidate" style="">
+    <div class="all-slider recommendations-slider das_sagen_kunden" style="">
 				
 		<div class="content-center"><h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KUNDEN</strong></h2></div>
 		<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;">
@@ -212,14 +212,15 @@ $this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
     					<div class="slider2-content">
     						<div class="pagination2" style="display: block;">
     							<?php foreach ($recommendations as $index => $recommendation ){?>
-    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', $event)" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
+    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', true)" data-iscandidate="<?php echo $recommendation->iscandidate; ?>" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
     							<?php } ?>
     						</div>
     						<div class="vertical-align">
     							<div style="margin-bottom: 0px!important;" class="pagination-content">
     							<?php foreach ($recommendations as $index => $recommendation ){?>
                                     <div id="item<?php echo $index + 1;?>" class="fade <?php echo $index == 0 ? 'in' : ''; ?> pagination-content-item">
-                                      <p><?php echo $recommendation->recommendation;?></p>
+                                      <div class="recomand-content"><?php echo $recommendation->recommendation;?></div>
+                                      <div class="recomand-title"></div>
                                     </div>
      							<?php } ?>
     							</div>

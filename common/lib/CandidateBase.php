@@ -22,7 +22,6 @@ use Yii;
  * @property string $contacttime
  * @property integer $employment
  * @property string $availability
- * @property integer $jobtype
  * @property string $availablefrom
  * @property string $desiredjobpcode
  * @property string $desiredjobcity
@@ -36,8 +35,6 @@ class CandidateBase extends \common\models\Candidate
 {
 
     protected $_user = false;
-
-    protected $_jobtype = false;
 
     protected $_branch = false;
 
@@ -67,7 +64,6 @@ class CandidateBase extends \common\models\Candidate
             'employment' => Yii::t('app', 'Employment'),
             'availability' => Yii::t('app', 'Availability'),
             'branch' => Yii::t('app', 'Branch'),
-            'jobtype' => Yii::t('app', 'Jobtype'),
             'availablefrom' => Yii::t('app', 'Availablefrom'),
             'desiredjobpcode' => Yii::t('app', 'Desiredjobpcode'),
             'desiredjobcity' => Yii::t('app', 'Desiredjobcity'),
@@ -108,18 +104,6 @@ class CandidateBase extends \common\models\Candidate
         $name .= strlen($name) > 0 ? ' ' : '';
         $name .= $this->_user->fullname();
         return $name;
-    }
-
-    public function getJobtype()
-    {
-        if (! $this->_jobtype) {
-            $this->_jobtype = JobtypeBase::findOne(
-                [
-                    'id' => $this->jobtype
-                ]);
-        }
-
-        return $this->_jobtype;
     }
 
     public function getBranch()

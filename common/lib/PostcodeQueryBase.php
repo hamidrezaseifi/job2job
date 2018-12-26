@@ -16,7 +16,7 @@ class PostcodeQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Postcode[]|array
+     * @return PostcodeBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class PostcodeQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Postcode|array|null
+     * @return PostcodeBase|array|null
      */
     public function one($db = null)
     {

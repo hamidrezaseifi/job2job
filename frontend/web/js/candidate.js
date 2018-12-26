@@ -14,18 +14,7 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 	$scope.Math = window.Math;
 	$scope.lastctiveProcess = "";
 
-	$scope.customerCommentsCount = 4;
-	$scope.currentCustomerComments = 1;
-
-	setInterval(function(){ 
-		
-		$scope.currentCustomerComments ++;
-		if($scope.currentCustomerComments > $scope.customerCommentsCount){
-			$scope.currentCustomerComments = 1;
-		}
-
-		$scope.showPaginationContent($scope.currentCustomerComments , null);
-	}, 7000);
+	showNextRecommandation(1);
 
 	checkAnimation();
 	
@@ -37,13 +26,9 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		//window.document.title = $(window).width();
 	});
 
-	$scope.showPaginationContent = function(index){
+	$scope.showPaginationContent = function(index, isClick){
 		
-		$(".pagination2 a.selected").removeClass("selected");
-		$('#link' + index).addClass("selected");
-		
-		$(".pagination-content div.in").removeClass("in");
-		$('#item' + index).addClass("in");
+		showNextRecommandation(index, isClick);		
 	}
 	
 	$scope.activeProcess = function(item){

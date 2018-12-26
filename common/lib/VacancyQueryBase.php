@@ -16,7 +16,7 @@ class VacancyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Vacancy[]|array
+     * @return VacancyBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class VacancyQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Vacancy|array|null
+     * @return VacancyBase|array|null
      */
     public function one($db = null)
     {

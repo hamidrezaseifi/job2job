@@ -16,7 +16,7 @@ class FrontlogQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Frontlog[]|array
+     * @return FrontlogBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class FrontlogQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Frontlog|array|null
+     * @return FrontlogBase|array|null
      */
     public function one($db = null)
     {

@@ -5,6 +5,7 @@ use Yii;
 use yii\base\Model;
 
 use common\lib\BackendUserModel;
+use common\lib\UsersBase;
 
 /**
  * Login form
@@ -67,7 +68,7 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return User|null
+     * @return UsersBase|null
      */
     protected function getUser()
     {

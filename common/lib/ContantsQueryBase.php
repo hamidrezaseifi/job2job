@@ -16,7 +16,7 @@ class ContantsQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Contants[]|array
+     * @return ContantsBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class ContantsQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Contants|array|null
+     * @return ContantsBase|array|null
      */
     public function one($db = null)
     {

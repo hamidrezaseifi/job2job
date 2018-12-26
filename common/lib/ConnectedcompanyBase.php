@@ -20,7 +20,7 @@ class ConnectedcompanyBase extends \common\models\Connectedcompany
 
 	/**
 	 * @inheritdoc
-	 * @return ConnectedcompanyQuery the active query used by this AR class.
+	 * @return ConnectedcompanyQueryBase the active query used by this AR class.
 	 */
 	public static function find()
 	{

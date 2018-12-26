@@ -36,7 +36,7 @@ class CallrequestBase extends \common\models\Callrequest
 
     /**
      * @inheritdoc
-     * @return CallrequestQuery the active query used by this AR class.
+     * @return CallrequestQueryBase the active query used by this AR class.
      */
     public static function find()
     {

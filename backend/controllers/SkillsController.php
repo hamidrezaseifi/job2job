@@ -213,7 +213,7 @@ class SkillsController extends Controller
      * Finds the Skills model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Skills the loaded model
+     * @return SkillsBase the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

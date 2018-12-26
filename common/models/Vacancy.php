@@ -7,16 +7,18 @@ use Yii;
 /**
  * This is the model class for table "j2j_vacancy".
  *
- * @property integer $id
+ * @property int $id
  * @property string $title
- * @property integer $status
+ * @property string $link
+ * @property int $status
+ * @property string $updated
  *
  * @property Jobposition[] $jobpositions
  */
 class Vacancy extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -24,26 +26,30 @@ class Vacancy extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
             [['title'], 'required'],
             [['status'], 'integer'],
+            [['updated'], 'safe'],
             [['title'], 'string', 'max' => 55],
+            [['link'], 'string', 'max' => 45],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
+            'link' => Yii::t('app', 'Link'),
             'status' => Yii::t('app', 'Status'),
+            'updated' => Yii::t('app', 'Updated'),
         ];
     }
 
@@ -56,7 +62,7 @@ class Vacancy extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return VacancyQuery the active query used by this AR class.
      */
     public static function find()

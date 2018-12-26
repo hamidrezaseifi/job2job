@@ -5,11 +5,13 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $jobitems string */
 /* @var $places array */
+/* @var $recommendations array */
 
 $this->title = yii::$app->params ['sitetitle'] . ' | ' . Yii::t ( 'app', 'Home Page' );
 
 $this->registerJsFile ( "@web/web/js/index.js", [ ], 'js-index' );
 $this->registerJsFile ( "@web/web/js/segments.js", [ ], 'js-segments' );
+$this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 $this->registerCssFile ( "@web/web/css/segments.css", [ ], 'css-segment' );
 
 ?>
@@ -173,76 +175,37 @@ echo Yii::t ( 'app', 'Produktion und Gewerbe' );
     	</div>
     </div>
 
+    <div class="all-slider recommendations-slider <?php echo ($recommendations[0]->iscandidate == 1 ? 'das_sagen_kunden_candidate' : 'das_sagen_kunden') ?>" style="">
+				
+		<div class="content-center candidate-recommand-title"><h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KUNDEN</strong></h2></div>
+		<div class="content-center compnay-recommand-title"><h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KANDIDATEN</strong></h2></div>
+		<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;">
+			<div class="slider-kunden" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 17127px; height: 600px; z-index: auto; opacity: 1;">
 
-    <div class="all-slider das_sagen_kunden" style="">
-
-			<div class="content-center">
-				<h2 style="position: absolute;">DAS SAGEN<strong>UNSERE KUNDEN</strong></h2></div>
-				<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto;margin: 0px; overflow: hidden;"><div class="slider-kunden" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 17127px; height: 600px; z-index: auto; opacity: 1;">
-
-	 				<div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;">
-							<a ng-click="showPaginationContent('1', $event)" id="link1" class="selected"><span>1</span></a>
-							<a ng-click="showPaginationContent('2', $event)" id="link2" class=""><span>2</span></a>
-							<a ng-click="showPaginationContent('3', $event)" id="link3" class=""><span>3</span></a>
-						</div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;" class="pagination-content">
-                                <div id="item1" class="fade in">
-                                  <p>„Die Personalberater bei Job2Job hören zu, was ich bei anderen Personaldienstlern vermisse und somit bekommt unser Unternehmen genau das, was wir als Kunde brauchen.“</p>
-                                </div>
-                                <div id="item2" class="fade">
-                                  <p>„Mittlerweile ist Job2Job zu unser Nr.1 in jeglichen Personalanfragen geworden. Hier zählt Qualität vor Quantität.“</p>
-                                </div>
-                                <div id="item3" class="fade">
-                                  <p>„Im Gespräch mit den Job2Job Disponenten hatte ich das Gefühl, <br>
-									dass hier Spaß und Leidenschaft der absolute Erfolgsfaktor sind.“</p>
-                                </div>
-							</div>
-						</div>
-					</div>
+	 			<div class="each-slide-kunden" style="">
+    				<div class="content-center">
+    					<div class="slider2-content">
+    						<div class="pagination2" style="display: block;">
+    							<?php foreach ($recommendations as $index => $recommendation ){?>
+    							<a ng-click="showPaginationContent('<?php echo $index + 1;?>', true)" data-iscandidate="<?php echo $recommendation->iscandidate; ?>" id="link<?php echo $index + 1;?>" <?php echo $index == 0 ? 'class="selected"' : ''; ?>><span><?php echo $index + 1;?></span></a>
+    							<?php } ?>
+    						</div>
+    						<div class="vertical-align">
+    							<div style="margin-bottom: 0px!important;" class="pagination-content">
+    							<?php foreach ($recommendations as $index => $recommendation ){?>
+                                    <div id="item<?php echo $index + 1;?>" class="fade <?php echo $index == 0 ? 'in' : ''; ?> pagination-content-item">
+                                      <div class="recomand-content"><?php echo $recommendation->recommendation;?></div>
+                                      <div class="recomand-title"><?php echo $recommendation->title;?></div>
+                                    </div>
+     							<?php } ?>
+    							</div>
+    						</div>
+    					</div>	
+    				</div>							
 				</div>
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Die Berater bei Aristo überzeugen nicht nur durch ihr fachliches Know-how, sondern auch durch ihr feines Gespür für genau das, was ich als Kunde brauche.“</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Aristo ist unser Nr.1 Ansprechpartner, um kritische Schlüsselpositionen schnell und effizient zu besetzen.“</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><div class="each-slide-kunden" style="">
-				<div class="content-center">
-					<div class="slider2-content">
-						<div class="pagination2" style="display: block;"><a href="#" class=""><span>1</span></a><a href="#" class=""><span>2</span></a><a href="#" class="selected"><span>3</span></a><a href="#" class=""><span>4</span></a></div>
-						<div class="vertical-align">
-							<div style="margin-bottom: 0px!important;">
-								<p>„Im Gespräch mit den Aristo Consultants hatte ich das Gefühl, dass hier Spaß und Leidenschaft der absolute Erfolgsfaktor sind.“</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div></div></div>
-
+			</div>
+		</div>
 	</div>
-
-
-
 
     <div class="boxes-ref">
 		<div class="content-center statistic-anim" >

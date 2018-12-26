@@ -2,8 +2,8 @@
 
 /* @var $this yii\web\View */
 /* @var $model \common\models\Users */
-/* @var $companyModel \common\models\CompanyBase */
-/* @var $pdmModel \common\models\PersonaldecisionmakerBase */
+/* @var $companyModel \common\lib\CompanyBase */
+/* @var $pdmModel \common\lib\PersonaldecisionmakerBase */
 /* @var $skills array */
 /* @var $nationalities array */
 /* @var $countries array */

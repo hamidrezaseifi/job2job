@@ -26,7 +26,6 @@ use Yii;
  * @property integer $employment
  * @property string $availability
  * @property integer $branch
- * @property integer $jobtype
  * @property string $availablefrom
  * @property string $desiredjobpcode
  * @property string $desiredjobcity
@@ -54,8 +53,8 @@ class Candidate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userid', 'email', 'branch', 'jobtype'], 'required'],
-            [['userid', 'employment', 'branch', 'jobtype', 'desiredjobregion'], 'integer'],
+            [['userid', 'email', 'branch'], 'required'],
+            [['userid', 'employment', 'branch', 'desiredjobregion'], 'integer'],
             [['availablefrom', 'createdate', 'updatedate'], 'safe'],
             [['coverletter'], 'string'],
             [['title', 'homenumber'], 'string', 'max' => 15],
@@ -91,7 +90,6 @@ class Candidate extends \yii\db\ActiveRecord
             'employment' => Yii::t('app', 'Employment'),
             'availability' => Yii::t('app', 'Availability'),
             'branch' => Yii::t('app', 'Branch'),
-            'jobtype' => Yii::t('app', 'Jobtype'),
             'availablefrom' => Yii::t('app', 'Availablefrom'),
             'desiredjobpcode' => Yii::t('app', 'Desiredjobpcode'),
             'desiredjobcity' => Yii::t('app', 'Desiredjobcity'),

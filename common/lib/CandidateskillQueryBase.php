@@ -16,7 +16,7 @@ class CandidateskillQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidateskill[]|array
+     * @return CandidateskillBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CandidateskillQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidateskill|array|null
+     * @return CandidateskillBase|array|null
      */
     public function one($db = null)
     {

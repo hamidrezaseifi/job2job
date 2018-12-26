@@ -27,7 +27,7 @@ class JobpositionskillBase extends \common\models\Jobpositionskill
 
     /**
      * @inheritdoc
-     * @return JobpositionskillQuery the active query used by this AR class.
+     * @return JobpositionskillQueryBase the active query used by this AR class.
      */
     public static function find()
     {

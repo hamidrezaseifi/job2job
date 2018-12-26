@@ -16,7 +16,7 @@ class CandidatefavoriteQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidatefavorite[]|array
+     * @return CandidatefavoriteBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CandidatefavoriteQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Candidatefavorite|array|null
+     * @return CandidatefavoriteBase|array|null
      */
     public function one($db = null)
     {

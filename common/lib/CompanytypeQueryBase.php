@@ -16,7 +16,7 @@ class CompanytypeQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Companytype[]|array
+     * @return CompanytypeBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CompanytypeQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Companytype|array|null
+     * @return CompanytypeBase|array|null
      */
     public function one($db = null)
     {

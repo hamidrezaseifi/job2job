@@ -16,7 +16,7 @@ class DistanceQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Distance[]|array
+     * @return DistanceBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class DistanceQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Distance|array|null
+     * @return DistanceBase|array|null
      */
     public function one($db = null)
     {

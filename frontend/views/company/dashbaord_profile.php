@@ -3,9 +3,9 @@
 /* @var $this yii\web\View */
 /* @var $model \common\models\Users */
 /* @var $modelSecond \common\models\Users */
-/* @var $companyModel \common\models\CompanyBase */
-/* @var $pdmModel \common\models\PersonaldecisionmakerBase */
-/* @var $pdmModelSecond \common\models\PersonaldecisionmakerBase */
+/* @var $companyModel \common\lib\CompanyBase */
+/* @var $pdmModel \common\lib\PersonaldecisionmakerBase */
+/* @var $pdmModelSecond \common\lib\PersonaldecisionmakerBase */
 /* @var $skills array */
 /* @var $nationalities array */
 /* @var $countries array */

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $model \common\models\Users */
-/* @var $candidateModel \common\models\CandidateBase */
+/* @var $candidateModel \common\lib\CandidateBase */
 /* @var $skills array */
 /* @var $nationalities array */
 /* @var $countries array */
@@ -179,19 +179,9 @@ text/plain, application/pdf, image/*, application/vnd.openxmlformats-officedocum
 					'id_prefix' => 'available_' , 
 					'items' => array(0 => Yii::t('app', 'Aktuell nicht verfügber') , 1 => Yii::t('app', 'Verfügber')) , 
 			]); ?>
-			</div>
-	    	<div class="item-title"><?php echo Yii::t('app', 'Job-Sorte'); ?></div>
-	    	<div class="item top-margin-15">
-			<?= BrainRadioBoxRenderer::widget([
-					'name' => 'CandidateBase[jobtype]' , 
-					'value' => $candidateModel->jobtype , 
-					'id_prefix' => 'jobtype_' , 
-					'items' => $jobypes , 
-			]); ?>
-	    	</div>
-	    	
-	    	<div class="item-title skillpart <?=($candidateModel->jobtype == '' ? ' nodisplay' : '') ?>" ><?php echo Yii::t('app', 'Fähigkeiten'); ?></div>
-	    	<div class="item skillpart <?=($candidateModel->jobtype == '' ? ' nodisplay' : '') ?>" >
+			</div>	    	
+	    	<div class="item-title skillpart" ><?php echo Yii::t('app', 'Fähigkeiten'); ?></div>
+	    	<div class="item skillpart" >
 	    		<div id="skills" style="">
 	    			<span class="brows-button"></span>
 	    		</div>

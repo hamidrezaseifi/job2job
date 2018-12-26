@@ -35,7 +35,7 @@ class FrontlogBase extends \common\models\Frontlog
 
     /**
      * @inheritdoc
-     * @return FrontlogQuery the active query used by this AR class.
+     * @return FrontlogQueryBase the active query used by this AR class.
      */
     public static function find()
     {

@@ -16,7 +16,7 @@ class NationalityQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Nationality[]|array
+     * @return NationalityBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class NationalityQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Nationality|array|null
+     * @return NationalityBase|array|null
      */
     public function one($db = null)
     {

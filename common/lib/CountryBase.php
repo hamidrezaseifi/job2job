@@ -31,7 +31,7 @@ class CountryBase extends \common\models\Country
 
     /**
      * @inheritdoc
-     * @return CountryQuery the active query used by this AR class.
+     * @return CountryQueryBase the active query used by this AR class.
      */
     public static function find()
     {

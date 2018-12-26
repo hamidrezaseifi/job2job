@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $model \common\models\Users */
-/* @var $candidateModel \common\models\CandidateBase */
+/* @var $candidateModel \common\lib\CandidateBase */
 /* @var $skills array */
 /* @var $nationalities array */
 /* @var $countries array */

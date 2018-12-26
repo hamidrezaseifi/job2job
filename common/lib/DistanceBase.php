@@ -25,7 +25,7 @@ class DistanceBase extends \common\models\Distance
 
     /**
      * @inheritdoc
-     * @return DistanceQuery the active query used by this AR class.
+     * @return DistanceQueryBase the active query used by this AR class.
      */
     public static function find()
     {

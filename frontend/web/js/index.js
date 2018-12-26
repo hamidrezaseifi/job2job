@@ -13,19 +13,7 @@ brainApp.controller('IndexController', function ($scope, $http, $sce, $element, 
 	
 	$scope.Math = window.Math;
 
-	$scope.customerCommentsCount = 3;
-	$scope.currentCustomerComments = 1;
-
-	setInterval(function(){ 
-		
-		$scope.currentCustomerComments ++;
-		if($scope.currentCustomerComments > $scope.customerCommentsCount){
-			$scope.currentCustomerComments = 1;
-		}
-
-		$scope.showPaginationContent($scope.currentCustomerComments , null);
-	}, 7000);
-	
+	showNextRecommandation(1);
 	
 	checkAnimation();
 	
@@ -37,13 +25,9 @@ brainApp.controller('IndexController', function ($scope, $http, $sce, $element, 
 		//window.document.title = $(window).width();
 	});
 
-	$scope.showPaginationContent = function(index){
+	$scope.showPaginationContent = function(index, isClick){
 		
-		$(".pagination2 a.selected").removeClass("selected");
-		$('#link' + index).addClass("selected");
-		
-		$(".pagination-content div.in").removeClass("in");
-		$('#item' + index).addClass("in");
+		showNextRecommandation(index, isClick);		
 	}
 	
 	function checkAnimation(){

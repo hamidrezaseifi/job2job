@@ -16,7 +16,7 @@ class CityQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return City[]|array
+     * @return CityBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CityQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return City|array|null
+     * @return CityBase|array|null
      */
     public function one($db = null)
     {

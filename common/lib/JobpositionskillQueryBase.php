@@ -16,7 +16,7 @@ class JobpositionskillQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Jobpositionskill[]|array
+     * @return JobpositionskillBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class JobpositionskillQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Jobpositionskill|array|null
+     * @return JobpositionskillBase|array|null
      */
     public function one($db = null)
     {

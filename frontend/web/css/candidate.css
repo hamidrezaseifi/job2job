@@ -13,21 +13,6 @@
 	height: 72px;
 }
 
-
-.das_sagen_kunden_candidate
-{
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candidaten-customers.jpg');
-    background-size: cover;
-}
-
-.pagination-content .pagination-content-item
-{
-	position: absolute;
-	top: 120px;
-	width: 100%;
-	height: 260px;
-}
-
 .text-title-bewerber
 {
 	font-size: 19px;
@@ -54,7 +39,9 @@
 }
 
 .twobox-container .branch-box,
-.twobox-container .job-box
+.twobox-container .job-box,
+.twobox-container .branch-box-company,
+.twobox-container .business-models-box-company
 {
 	min-width: 350px;
 	width: 350px;
@@ -67,7 +54,8 @@
 	color: white;
 }
 
-.twobox-container .job-box
+.twobox-container .job-box,
+.twobox-container .branch-box-company
 {
 	margin-left: 20px;
 	margin-right: calc(35vw - 175px);
@@ -75,25 +63,31 @@
 }
 
 .twobox-container .branch-box a,
-.twobox-container .job-box a
+.twobox-container .job-box a,
+.twobox-container .branch-box-company a,
+.twobox-container .business-models-box-company a
 {
 	color: white;
 }
 
 .twobox-container .branch-box .branch-item,
-.twobox-container .job-box .job-item
+.twobox-container .job-box .job-item,
+.twobox-container .branch-box-company .branch-item,
+.twobox-container .business-models-box-company .business-models-item
 {
 	margin: 10px;
 	line-height: 25px;
 }
 
-.twobox-container .branch-box .branch-item img
+.twobox-container .branch-box .branch-item img,
+.twobox-container .branch-box-company .branch-item img
 {
 	width: 20px;
 	margin-right: 10px;
 }
 
-.twobox-container .branch-box
+.twobox-container .branch-box,
+.twobox-container .business-models-box-company
 {
 	margin-left: calc(35vw - 175px);
 	margin-right: 20px;

@@ -16,7 +16,7 @@ class WorktimemodelQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Worktimemodel[]|array
+     * @return WorktimemodelBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class WorktimemodelQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Worktimemodel|array|null
+     * @return WorktimemodelBase|array|null
      */
     public function one($db = null)
     {

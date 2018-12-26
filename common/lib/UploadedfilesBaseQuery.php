@@ -16,7 +16,7 @@ class UploadedfilesBaseQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Uploadedfiles[]|array
+     * @return UploadedfilesBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class UploadedfilesBaseQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Uploadedfiles|array|null
+     * @return UploadedfilesBase|array|null
      */
     public function one($db = null)
     {

@@ -5,7 +5,6 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\LoginForm;
 use common\lib\SkillsBase;
 use common\lib\UsersBase;
 use common\lib\CompanyBase;
@@ -16,7 +15,6 @@ use common\lib\CandidateskillBase;
 use common\lib\PersonaldecisionmakerBase;
 use common\lib\JobpositionBase;
 use common\lib\UploadedfilesBase;
-use common\lib\JobtypeBase;
 use \common\lib\JobpositionBaseSearch;
 use common\lib\JobpositionskillBase;
 use common\helper\BrainStaticList;
@@ -324,9 +322,9 @@ class CompanyController extends Controller
     				$this->edit_jobadv($_POST , $jobModel);
     			}
     			
-    			$skills1 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 1])->orderBy('title')->all();
-    			$skills2 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 2])->orderBy('title')->all();
-    			$skills3 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 3])->orderBy('title')->all();
+    			$skills1 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
+    			$skills2 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
+    			$skills3 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
     			 
     			$skills1 = BrainHelper::mapTranslate($skills1, 'id', 'title');
     			$skills2 = BrainHelper::mapTranslate($skills2, 'id', 'title');
@@ -334,7 +332,6 @@ class CompanyController extends Controller
     			
     			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
     			$worktypes_array = BrainStaticList::workTypeList();
-    			$jobypes_array = BrainStaticList::jobTypeList();
     			$vacancy_array = BrainStaticList::vacancyList();
     			$countries = BrainStaticList::countryList();
     			unset($countries['Deutschland']);
@@ -348,7 +345,6 @@ class CompanyController extends Controller
     					'companyModel' 			=> $companyModel,
     					'pdmModel'	 			=> $pdmModel,
     					'pdmModelSecond'		=> $pdmModelSecond,
-    					'jobypes' 				=> $jobypes_array,
     					'skills' 				=> $skills,
     					'countries' 			=> $countries_array,
     					'selectedSkills' 		=> array(),
@@ -373,7 +369,6 @@ class CompanyController extends Controller
     				$this->edit_jobadv($_POST , $jobModel);
     			}
     			
-    			$jobypes =  JobtypeBase::findAll(['status' => 1]);
     			$countries = CountryBase::findAll(['status' => 1]);
     			$worktypes =  WorktimemodelBase::findAll(['status' => 1]);
     			$selectedJobskill = JobpositionskillBase::findAll(['jobid' => $jobid]); 
@@ -388,8 +383,6 @@ class CompanyController extends Controller
     			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
     			$worktypes_array = array(0 => '');
     			$worktypes_array = array_merge($worktypes_array , BrainHelper::mapTranslate($worktypes, 'id', 'title'));
-    			$jobypes_array = array(0 => '-----' . Yii::t('app', 'Hauptkategorie') . '-----');
-    			$jobypes_array= array_merge($jobypes_array, BrainHelper::mapTranslate($jobypes, 'id', 'title'));
     			$countries = BrainHelper::mapTranslate($countries, 'title', 'title');
     			unset($countries['Deutschland']);
     			$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
@@ -403,7 +396,6 @@ class CompanyController extends Controller
     					'companyModel' 			=> $companyModel,
     					'pdmModel'	 			=> $pdmModel,
     					'pdmModelSecond'		=> $pdmModelSecond,
-    					'jobypes' 				=> $jobypes_array,
     					'skills' 				=> $skills,
     					'countries' 			=> $countries_array,
     					'selectedSkills' 		=> $selectedJobskill,
@@ -669,7 +661,7 @@ class CompanyController extends Controller
     	}
     	$data['JobpositionBase']['status'] = 2;
     	 
-    	$allskills = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => $data['JobpositionBase']['jobtype']])->all();
+    	$allskills = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1])->all();
     	$allskills = BrainHelper::mapTranslate($allskills, 'title', 'title');
     	
     	$data['skills'] = isset($data['skills']) && is_string($data['skills']) ? $data['skills'] : '';
@@ -697,8 +689,7 @@ class CompanyController extends Controller
     			$sdata = array();
     			$sdata['SkillsBase']['parentid'] = 1;
     			$sdata['SkillsBase']['title'] = $skill;
-    			$sdata['SkillsBase']['jobtype'] = $data['JobpositionBase']['jobtype'];
-    			$sdata['SkillsBase']['status'] = 0;
+     			$sdata['SkillsBase']['status'] = 0;
     			$sdata['SkillsBase']['createdate'] = $skilldata['JobpositionskillBase']['created'];
     			$sdata['SkillsBase']['updatedate'] = $skilldata['JobpositionskillBase']['created'];
     			

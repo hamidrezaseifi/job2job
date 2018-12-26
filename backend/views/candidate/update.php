@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $candidateModel common\models\CandidateBase */
-/* @var $userModel common\models\UsersBase */
+/* @var $candidateModel common\lib\CandidateBase */
+/* @var $userModel common\lib\UsersBase */
 
 $this->title = Yii::t('app', 'Bewerber bearbeiten');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bewerber'), 'url' => ['index']];

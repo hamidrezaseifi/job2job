@@ -7,8 +7,8 @@ use backend\components\TelephonPreview;
 use yii\base\Widget;
 
 /* @var $this yii\web\View */
-/* @var $candidateModel common\models\CandidateBase */
-/* @var $userModel common\models\UsersBase */
+/* @var $candidateModel \common\lib\CandidateBase */
+/* @var $userModel \common\lib\UsersBase */
 /* @var $form yii\widgets\ActiveForm */
 
 $userModel->bdate = BrainHelper::dateEnglishToGerman($userModel->bdate);

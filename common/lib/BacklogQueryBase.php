@@ -16,7 +16,7 @@ class BacklogQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Backlog[]|array
+     * @return BacklogBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class BacklogQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Backlog|array|null
+     * @return BacklogBase|array|null
      */
     public function one($db = null)
     {

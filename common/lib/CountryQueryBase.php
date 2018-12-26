@@ -16,7 +16,7 @@ class CountryQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Country[]|array
+     * @return CountryBase[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class CountryQueryBase extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Country|array|null
+     * @return CountryBase|array|null
      */
     public function one($db = null)
     {
