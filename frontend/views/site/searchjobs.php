@@ -14,6 +14,12 @@
 /* @var $vacancies array */
 /* @var $skills array */
 /* @var $itemstitle string */
+/* @var $searchText string */
+/* @var $searchBranch int */
+/* @var $vacances array */
+/* @var $branches array */
+/* @var $regins array */
+
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -197,5 +203,7 @@ var vacancies = {
 		<?php } ?>	
 	};
 var searchText = "<?php echo $searchText; ?>";
+
+var searchBranch = [<?php echo $searchBranch ? $searchBranch : ""; ?>];
 
 </script>

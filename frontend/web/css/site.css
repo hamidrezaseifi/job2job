@@ -721,6 +721,7 @@ h2 strong {
   display: table;
   padding: 70px 0;
   width: 100%;
+  text-transform: uppercase;
 }
 .blue-section-aktuelle h2 {
   color: #fff;
@@ -891,7 +892,9 @@ right: 230px;
   position: relative;
   z-index: 6;
 }
-.button-aktuelle a {
+.button-aktuelle a, 
+.button-aktuelle button 
+{
   background: #72a84f none repeat scroll 0 0;
   color: #fff;
   display: table;
@@ -901,6 +904,7 @@ right: 230px;
   line-height:16px;
   padding: 10px 38px 9px;
   position: relative;
+  border: none;
 }
 .button-aktuelle a:hover {
   box-shadow: 0 0 10px rgba(10, 10, 10, 1);

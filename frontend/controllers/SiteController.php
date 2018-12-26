@@ -295,11 +295,12 @@ class SiteController extends Controller
         $searchModel = new JobpositionBaseSearch();
         $searchModel->status = 1;
 
-        $jobModels = $t == 'candidate' ? $searchModel->searchBranches($branchModel->id) : false;
+        $jobModels = $t == 'candidate' ? $searchModel->searchBranches($branchModel->id, 4) : false;
         
         return $this->render('branch-' . $b . '-' . $t, [
-            "jobModels" => $jobModels
-
+            "jobModels" => $jobModels,
+            "shortCut" => $b,
+            
         ]);
     }
 
@@ -321,6 +322,9 @@ class SiteController extends Controller
         
         
         $searchText = isset($_POST["searchedText"]) ? $_POST["searchedText"] : "";
+        $searchBranchShortcut = isset($_POST["searchBranch"]) ? $_POST["searchBranch"] : false;
+        $searchBranch = $searchBranchShortcut ? BranchBase::findOne(['shortcut' => $searchBranchShortcut]) : false;
+        $searchBranch = $searchBranch ? $searchBranch->id : false;
         
         return $this->render('searchjobs', [
             'skills' => $skills,
@@ -328,6 +332,7 @@ class SiteController extends Controller
             'vacances' => $vacances,
             'branches' => $branches,
             'searchText' => $searchText,
+            'searchBranch' => $searchBranch,
         ]);
     }
 

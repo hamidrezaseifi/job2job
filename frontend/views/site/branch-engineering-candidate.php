@@ -1,6 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $shortCut string */
+/* @var $jobModels array */
 use yii\helpers\Html;
 
 $this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
@@ -30,45 +32,17 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 		</ul>
 
 		<br><br><br>
-		<div>
-			<div style="float: left;">
-				<?php
-
-if (count($jobModels) > 0) {
-        ?>
-				<p><b>Verfügbare Jobprofile bei Job2Job </b></p>
-				<ul>
-					<?php
-
-foreach ($jobModels as $jobModel) {
-            ?>
-					<li><?php
-
-echo $jobModel->title;
-            ?> </li>
-					<?php
-
-}
-        ?>
-					<li><a href="javascript:void()">Und mehr</a></li>
-				</ul>
-				<?php
-
-} else {
-        ?>
-				<p><b>Zurzeot gibt keine verfügbare Jobprofile bei Job2Job im Ingenieurwesen und Technik </b></p>
-				<?php
-
-}
-    ?>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<br><br><br>
-
-
 	</div>
 
+    <?php echo $this->render('blue-jobposition-list', [
+        'jobModels' => $jobModels,
+        'showSearch' => false, 
+        'showMoreFromBranch' => true, 
+        'forTitle' => 'FÜR Ingenieurwesen und Technik',
+        'shortCut' => $shortCut,
+        
+    ]);
+    ?>
 
 
 </div>

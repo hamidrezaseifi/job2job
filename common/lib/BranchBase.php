@@ -9,65 +9,15 @@ use Yii;
  *
  * @property integer $id
  * @property string $title
+ * @property string $shortcut
  * @property string $image
  * @property string $logo
- * @property string $url
  * @property integer $status
  * @property string $created
  * @property string $updated
  */
 class BranchBase extends \common\models\Branch {
-	/**
-	 *
-	 * @inheritdoc
-	 */
-	public static function tableName() {
-		return 'j2j_branch';
-	}
 
-	/**
-	 *
-	 * @inheritdoc
-	 */
-	public function rules() {
-		return [
-				[
-						[
-								'status'
-						],
-						'integer'
-				],
-				[
-						[
-								'created',
-								'updated'
-						],
-						'safe'
-				],
-				[
-						[
-								'title'
-						],
-						'string',
-						'max' => 80
-				],
-				[
-						[
-								'image',
-								'logo'
-						],
-						'string',
-						'max' => 200
-				],
-				[
-						[
-								'url'
-						],
-						'string',
-						'max' => 100
-				]
-		];
-	}
 
 	/**
 	 *
@@ -75,14 +25,14 @@ class BranchBase extends \common\models\Branch {
 	 */
 	public function attributeLabels() {
 		return [
-				'id' => Yii::t ( 'app', 'ID' ),
-				'title' => Yii::t ( 'app', 'Title' ),
-				'image' => Yii::t ( 'app', 'Image' ),
-				'logo' => Yii::t ( 'app', 'Logo' ),
-				'url' => Yii::t ( 'app', 'Url' ),
-				'status' => Yii::t ( 'app', 'Status' ),
-				'created' => Yii::t ( 'app', 'Created' ),
-				'updated' => Yii::t ( 'app', 'Updated' )
+		    'id' => Yii::t('app', 'ID'),
+		    'title' => Yii::t('app', 'Title'),
+		    'shortcut' => Yii::t('app', 'Shortcut'),
+		    'image' => Yii::t('app', 'Image'),
+		    'logo' => Yii::t('app', 'Logo'),
+		    'status' => Yii::t('app', 'Status'),
+		    'created' => Yii::t('app', 'Created'),
+		    'updated' => Yii::t('app', 'Updated'),
 		];
 	}
 

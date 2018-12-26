@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $jobitems string */
 /* @var $places array */
 /* @var $recommendations array */
+/* @var $jobModels array */
 
 $this->title = yii::$app->params ['sitetitle'] . ' | ' . Yii::t ( 'app', 'Home Page' );
 
@@ -23,6 +24,7 @@ $this->registerCssFile ( "@web/web/css/segments.css", [ ], 'css-segment' );
         </div>
 	</div>
 
+	<?php if(false) {?>
     <div class="was_wir_machen">
 		<div class="content-center">
     		<div class="width50">
@@ -128,7 +130,6 @@ echo Yii::t ( 'app', 'Produktion und Gewerbe' );
           </div>
     </div>
 
-
     <div class="unsere-werte">
     	<div class="content-center">
     		<h3 class="light-and-bold" style="color: #FFFFFF">UNSERE<strong> WERTE</strong></h3>
@@ -174,6 +175,7 @@ echo Yii::t ( 'app', 'Produktion und Gewerbe' );
     		</div>
     	</div>
     </div>
+	<?php } ?>
 
     <div class="all-slider recommendations-slider <?php echo ($recommendations[0]->iscandidate == 1 ? 'das_sagen_kunden_candidate' : 'das_sagen_kunden') ?>" style="">
 				
@@ -222,49 +224,14 @@ echo Yii::t ( 'app', 'Produktion und Gewerbe' );
 
     </div>
 
-    <div class="blue-section-aktuelle ">
-    	<div class="content-center">
-    		<h2>AKTUELLE STELLENANGEBOTE<br>
-    <strong>FÜR BEWERBER</strong></h2>
-    				<div class="boxes-aktuelle boxesnumber4">
-    				<?php
-
-foreach ( $jobModels as $jobModel ) {
-									$jobtitle = $jobModel->title; // strlen($jobModel->title) > 32 ? substr($jobModel->title , 0 , 30) . ' ...' : $jobModel->title;
-									?>
-    					<div class="box-aktuelle" style="position:relative;" onclick="location.href='<?=Yii::getAlias ( '@web' )?>/site/jobview?id=<?php
-
-echo $jobModel->id;
-									?>'">
-    						<h4><?php
-
-echo $jobtitle?></h4>
-    						<div style="margin: 10px 0;"><?php
-
-echo $jobModel->city?></div>
-    						<div style="max-height:220px; height:220px; overflow:hidden; ">
-    							<?php
-
-echo $jobModel->comments?>
-    						</div>
-    						<p style="margin-top: 15px;">
-    							<a href="<?=Yii::getAlias ( '@web' )?>/site/jobview?id=<?php
-
-echo $jobModel->id;
-									?>">Mehr erfahren &gt;</a>
-    						</p>
-    					</div>
-    				<?php
-
-}
-								?>
-
-    		</div>
-    				<div class="button-aktuelle">
-    			<p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs/">JOB SUCHEN</a></p>
-    		</div>
-    	</div>
-    </div>
+    <?php echo $this->render('blue-jobposition-list', [
+        'jobModels' => $jobModels,
+        'showSearch' => true, 
+        'showMoreFromBranch' => false, 
+        'forTitle' => 'FÜR BEWERBER']);
+    ?>
+    
+    
 </div>
 
 
