@@ -14,6 +14,7 @@ $this->registerJsFile ( "@web/web/js/index.js", [ ], 'js-index' );
 $this->registerJsFile ( "@web/web/js/segments.js", [ ], 'js-segments' );
 $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 $this->registerCssFile ( "@web/web/css/segments.css", [ ], 'css-segment' );
+$this->registerCssFile ( "@web/web/css/index.css", [ ], 'css-index' );
 
 $user = Yii::$app->user;
 $identity = $user->identity;
@@ -26,6 +27,33 @@ $isCompany = $identity ? $identity->isCompany() : false;
         <div class="home-box-1 top-section top-section-with-boxes" >
         	<?php echo $this->render('topbanner', ['showSearch' => ($user->isGuest || !$isCompany), 'showEmployeeFinder' => (!$user->isGuest && $isCompany)]);?>
         </div>
+	</div>
+
+	<div class="home home-teaser">
+		<div class="teaser-box-container">
+    		<div class="teaser-box">
+    			<div class="teaser-heaser">FÜR UNTERNEHMEN</div>
+    			<div class="teaser-text">Teaser Text für Unternehmen</div>
+    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a>
+    		</div>
+		</div>
+		
+		<div class="teaser-box-container">		
+    		<div class="teaser-box">
+    			<div class="teaser-heaser">FÜR BEWERBER</div>
+    			<div class="teaser-text">Teaser Text für Bewerber</div>
+    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a>
+    		</div>
+		</div>
+		
+		<div class="teaser-box-container">		
+    		<div class="teaser-box">
+    			<div class="teaser-heaser">JOBBÖRSE</div>
+    			<div class="teaser-text">Teaser Text für Jobbörse</div>
+    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">Aktuelle Stellenangebote >> </a>
+    		</div>
+		</div>
+		<div class="clear"></div>
 	</div>
 
 	<?php if(false) {?>
