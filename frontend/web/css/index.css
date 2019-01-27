@@ -2,6 +2,7 @@
 .home.home-teaser
 {
 	margin-bottom: 40px;
+	height: 300px;
 }
 
 .home.home-teaser .teaser-box-container
@@ -10,6 +11,7 @@
 	float: left;
 	margin: 20px 20px;
 	min-width: 370px;
+	display: none;
 }
 
 .home.home-teaser .teaser-box-container .teaser-box
@@ -36,15 +38,15 @@
 {
 	padding: 4px;
 	margin: 10px 0;
-	font-size: 18px;
-	height: 100px;
+	font-size: 16px;
+	height: 140px;
 }
 
 .home.home-teaser .teaser-box-container .teaser-box .teaser-link
 {
 	padding: 4px;
 	margin: 10px 10px;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 @media(max-width: 800px){

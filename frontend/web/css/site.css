@@ -400,7 +400,8 @@ footer .contact-footer > p, footer .contact-footer a {
   position: relative;
 }
 .button-footer a:hover{
-  box-shadow: 0 0 10px rgba(10, 10, 10, 1);
+  font-weight: bold;
+  color: #1a3156 !important;
 }
 .button-footer a::after {
   background-image: url("img/sprite.png");
@@ -602,6 +603,7 @@ h5 {
   padding: 45px 0 65px 0;
   width: 100%;
   background-color: #f6f6f6;
+  height: 450px;
 }
 .width50 {
   display: block;
@@ -1486,16 +1488,6 @@ ul.list-icon {
   font-weight: normal !important;
   margin-bottom: 40px !important;
   text-align: center;
-}
-
-.box-karriere {
-  display: table;
-  float: left;
-  text-align: center;
-  width: 29%;
-}
-.box-karriere:nth-child(2) {
-  margin:0 6.5%;
 }
 body .das_sagen_kunden {
   background-position-x: center !important;
@@ -7688,11 +7680,6 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
 	background-color: #f6f6f6;
 }
 
-.home-box-1
-{
-	background-image:url('../images/home-banner-2.jpg');
-}
-
 div.slice {
   text-align: center;
   float: left;
@@ -8052,52 +8039,83 @@ a:active, a:hover {
 	margin-bottom: 30px;
 }
 
+.home-box-1
+{
+	background-image:url('../images/home-banner-2.jpg');
+}
+
 .light-and-bold
 {
-	color: #fafafa !important;
+	color: #1a3156 !important;
 	font-weight: bold;
 }
 
 .text-up-left
 {
-	position: absolute;
+	/*position: absolute;
 	left: 100px;
-	top: 100px;	
+	top: 100px;	*/
 	padding-left: 20px;
 	padding-right: 20px;
 	min-width: 200px;
-	font-size: 24px;
+	font-size: 18px;
+	max-width: 600px;
+	display: none;
+	float: left;
+    margin-left: 100px;
+    margin-top: 100px;
 }
 
 .text-up-right
 {
-	position: absolute;
+	/*position: absolute;
 	right: 100px;
-	top: 100px;	
+	top: 100px;*/	
 	padding-left: 20px;
 	padding-right: 20px;
 	min-width: 200px;
-	font-size: 24px;
+	font-size: 18px;
+	max-width: 600px;
+	text-align: left;
+	display: none;
+	float: right;
+    margin-right: 100px;
+    margin-top: 100px;
+}
+
+.text-up-right div.name
+{
+	font-size: 16px;
+	font-weight: normal;
+	text-align: right;
 }
 
 .search-container-over-image
 {
-	position: absolute;
-	width: 300px;
-	left: calc(50vw - 175px);
+	/*position: absolute;
+    left: calc(50vw - 250px);*/
+    width: 500px;
 	background: white;
 	height: 50px;
 	top: 400px;
+	display: none;
+	clear: both;
+    margin-left: calc(50vw - 250px);
+    margin-top: 300px;
 }
 
 .personal-container-over-image
 {
-	position: absolute;
-	width: 250px;
-	left: calc(50vw - 125px);
+	/*position: absolute;
+	left: calc(50vw - 175px);*/
+	width: 350px;
 	background: transparent;
 	height: 50px;
 	top: 400px;
+	display: none;
+	clear: both;
+    margin-left: calc(50vw - 250px);
+    margin-top: 300px;
 }
 
 .personal-container-over-image a 
@@ -8109,8 +8127,11 @@ a:active, a:hover {
     font-size: 12px;
     line-height: 16px;
     margin: 0 auto;
-    padding: 10px 38px 9px;
+    padding: 20px 38px 9px;
     position: relative;
+    width: 100%;
+    text-align: center;
+    height: 50px;
 }
 
 .personal-container-over-image a::after 
@@ -8124,7 +8145,7 @@ a:active, a:hover {
     height: 30px;
     position: absolute;
     right: 14px;
-    top: 9px;
+    top: 19px;
     width: 11px;
 }
 
@@ -8173,28 +8194,66 @@ a:active, a:hover {
 
 	.text-up-left
 	{
-		left: 20px;
-		right: 20px;
-		top: 50px;	
+		float: none;
+		margin: 100px calc(50vw - 300px);
 	}
 	
 	.text-up-right
 	{
-		left: 20px;
-		right: 20px;
-		top: 120px;	
+		float: none;
+		margin: 100px calc(50vw - 300px);
+		max-width: inherit;
 	}
 	
 	.search-container-over-image
 	{
-		left: calc(50vw - 150px);
-		top: 190px;	
+		float: none;
+		margin: 100px calc(50vw - 250px);
 	}
 	
 	.personal-container-over-image
 	{
-		left: calc(50vw - 125px);
-		top: 190px;	
+		float: none;
+		margin: 100px calc(50vw - 125px);
+	}
+
+}
+
+@media(max-width: 650px)
+{
+
+	.home-box-1
+	{
+		background-image:url();
+		background-color: gray;
+	}
+	
+	.text-up-left
+	{
+		float: none;
+		width: calc(100vw - 50px);
+		margin: 100px 25px;
+	}
+	
+	.text-up-right
+	{
+		float: none;
+		width: calc(100vw - 50px);
+		margin: 100px 25px;
+	}
+	
+	.search-container-over-image
+	{
+		float: none;
+		width: calc(100vw - 50px);
+		margin: 100px 25px;
+	}
+	
+	.personal-container-over-image
+	{
+		float: none;
+		width: calc(100vw - 50px);
+		margin: 100px 25px;
 	}
 
 }

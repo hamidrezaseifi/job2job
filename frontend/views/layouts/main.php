@@ -53,6 +53,7 @@ $this->beginPage ()?>
 
     <script src="<?=Yii::getAlias ( '@web' )?>/web/js/mainlayout.js"></script>
     <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/datepicker-de.js"></script>
+    <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/isInViewport.min.js"></script>
 
     <link rel="stylesheet" id="ubermenu-css" href="<?=Yii::getAlias ( '@web' )?>/web/css/ubermenu.css" type="text/css" media="all">
 
@@ -241,11 +242,6 @@ $this->beginBody ()?>
                     								<li id="menu-item-2577" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2577 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/personalrecruitment">
                     										<span class="ubermenu-target-title ubermenu-target-text">PERSONALREKRUTIERUNG</span>
-                    									</a>
-                    								</li>
-                    								<li id="menu-item-2577" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-2577 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/medical">
-                    										<span class="ubermenu-target-title ubermenu-target-text">MEDICAL</span>
                     									</a>
                     								</li>
                      							</ul>

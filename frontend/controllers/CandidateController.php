@@ -557,8 +557,7 @@ class CandidateController extends Controller
         if (count($_POST) && isset($_POST['checkcondition'])) {
             $_POST['CandidateBase']['createdate'] = date('Y-m-d');
 
-            $_POST['UsersBase']['bdate'] = (isset($_POST['UsersBase']['bdate'])) ? BrainHelper::dateGermanToEnglish(
-                $_POST['UsersBase']['bdate']) : '';
+            $_POST['UsersBase']['bdate'] = (isset($_POST['UsersBase']['bdate'])) ? BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']) : '';
             $_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
             $_POST['UsersBase']['password_hash'] = '';
             $_POST['UsersBase']['usertype'] = UsersBase::UserTypeCandidate;

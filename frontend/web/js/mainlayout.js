@@ -44,7 +44,11 @@ brainApp.controller('BodyController', function ($scope, $http, $sce, $element, $
 		var expireDate = new Date(now.getFullYear() + 10, now.getMonth(), now.getDate());
 		$cookies.put("accept-cookie-usage", new Date(), {'expires': expireDate}); //$cookies->get("accept-cookie-usage");
 	}
-	//'accept-cookie-usage'
+
+	$(".text-over-image.text-up-left").delay(100).fadeIn();
+	$(".text-over-image.text-up-right").delay(400).fadeIn();
+	$(".search-container-over-image").delay(700).fadeIn();
+	$(".personal-container-over-image").delay(700).fadeIn();
 	
 	$("nav li.ubermenu-item").mouseover(function() { 
 		$(this).addClass("ubermenu-active");

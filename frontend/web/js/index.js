@@ -30,6 +30,11 @@ brainApp.controller('IndexController', function ($scope, $http, $sce, $element, 
 		showNextRecommandation(index, isClick);		
 	}
 	
+	$($(".teaser-box-container")[0]).delay(200).fadeIn();
+	$($(".teaser-box-container")[1]).delay(500).fadeIn();
+	$($(".teaser-box-container")[2]).delay(800).fadeIn();
+
+	
 	function checkAnimation(){
 		
 		$("div.slice:not(.start)").each(function(index, item){

@@ -21,7 +21,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 	<div class="home candidate-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
 
-			<?php echo $this->render('topbanner', ['showSearch' => true]);?>
+			<?php echo $this->render('topbanner', ['showSearch' => true, 'candidatePage' => true, ]);?>
 			
 			<?php  if(false){?>
         	<div class="content-center960">
@@ -81,7 +81,6 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 
 	<div class="wir-fordern-ihre-karriere">
 		<div class="content-center">
-			<h3 class="light-and-bold">WIR ERMÖGLICHEN IHNEN <strong> EINE NACHHALTIGE KARRIERE</strong></h3>
 		
 			<div class="all-boxes-karriere">
 					
@@ -101,12 +100,13 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 			 		
 			        <div class="box-karriere">
 						<img src="<?=Yii::getAlias('@web/web') ?>/images/edit-note.png">
-						<div class="title-karriere">INDIVIDUELLE MERKLISTE ANLEGEN</div>
-						<div class="text-karriere">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
+						<div class="title-karriere" style="width: 280px;">INDIVIDUELLE MERKLISTE ANLEGEN</div>
+						<div class="text-karriere" style="height: 125px">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
 						<a href="#" >mehr erfahren</a>
 					</div>		
 			 </div>
 		</div>
+		<div class="wir-fordern-ihre-karriere-bottom" data-show="0"></div>
 	</div>
 	
 	<div class="twobox-container">
@@ -181,7 +181,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
                     </div>  
                  
                     <div class="hiddenj2j content_triangle-up" style="display: none;">
-                      <div class="text-title-bewerber">6. Betreuung</div><br>
+                      <div class="text-title-bewerber">6. Pflege</div><br>
                        <p> Eine ganzheitliche und nachhaltige Betreuung steht bei uns an oberster Stelle. Wir weichen Ihnen während des gesamten Recruitment-Prozesses nicht von der Seite und begleiten Sie auch darüber hinaus. 
                         </p>
                     </div>  
@@ -236,7 +236,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 			<?php } ?>
 			
 			<div class="width50">
-				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Betreuung</span></div>			
+				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Pflege</span></div>			
 
 				<div ng-click="activeProcess('trapezoid1')" class="triangle trapezoid1">
 					<span class="triangle_content">Vertrag</span>
@@ -261,10 +261,9 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 			
               <br>
               <br>
-              <div class="width50 weiter_lesen" style="display: none;">
-				<a href="javascript:void(0)"><span class="close_btn"><p>&lt; Zuklappen</p></span></a>
-              </div>
+              
           </div>
+		<div class="was_wir_machen_bottom" data-show="0"> </div>          
     </div>
     
     

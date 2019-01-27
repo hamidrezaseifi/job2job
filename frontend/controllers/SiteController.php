@@ -631,6 +631,8 @@ class SiteController extends Controller
     
     public function actionTest()
     {
+        echo Yii::$app->getSecurity()->generatePasswordHash("Firma123&");
+        exit;
         return $this->render('test', []);
     }
     

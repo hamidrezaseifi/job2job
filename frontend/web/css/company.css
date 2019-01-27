@@ -1,0 +1,267 @@
+
+
+.candidate-main-content
+{
+	margin-top: -5px;
+	min-height: 200px;
+	background-color: #f6f6f6;
+}
+
+.box-karriere img
+{
+	width: 72px;
+	height: 72px;
+}
+
+.text-title-bewerber
+{
+	font-size: 19px;
+	font-weight: bold;
+	color: #1a3156;
+}
+
+.wir-fordern-ihre-karriere h3{
+  margin-bottom:70px;
+}
+.all-boxes-karriere {
+  display: table;
+  width: 100%;
+}
+.wir-fordern-ihre-karriere {
+  display: table;
+  padding: 50px 0 70px;
+  width: 100%;
+}
+
+.twobox-container
+{
+	margin: 20px 0;
+}
+
+.twobox-container .branch-box,
+.twobox-container .job-box,
+.twobox-container .branch-box-company,
+.twobox-container .business-models-box-company
+{
+	min-width: 350px;
+	width: 350px;
+	border: 1px solid lightgray;
+	border-radius: 5px;	
+	min-height: 200px;	
+	margin: 20px auto;
+	padding: 0 4px;
+	background-color: #3c71a0;
+	color: white;
+}
+
+.twobox-container .job-box,
+.twobox-container .branch-box-company
+{
+	margin-left: 20px;
+	margin-right: calc(35vw - 175px);
+	float: right;
+}
+
+.twobox-container .branch-box a,
+.twobox-container .job-box a,
+.twobox-container .branch-box-company a,
+.twobox-container .business-models-box-company a
+{
+	color: white;
+}
+
+.twobox-container .branch-box .branch-item,
+.twobox-container .job-box .job-item,
+.twobox-container .branch-box-company .branch-item,
+.twobox-container .business-models-box-company .business-models-item
+{
+	margin: 10px;
+	line-height: 25px;
+}
+
+.twobox-container .branch-box .branch-item img,
+.twobox-container .branch-box-company .branch-item img
+{
+	width: 20px;
+	margin-right: 10px;
+}
+
+.business-models-box-company .business-models-item
+{
+	padding: 15px 0px;
+}
+
+.twobox-container .branch-box,
+.twobox-container .business-models-box-company
+{
+	margin-left: calc(35vw - 175px);
+	margin-right: 20px;
+	float: left;
+	height: 262px;
+}
+
+
+.twobox-container .title
+{
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 2px 0;
+	border-bottom: 2px solid white;
+	padding: 2px;
+}
+
+.triangle 
+{
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #3c71a0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    color: #fffff4;
+    display:none;
+}
+
+.triangle.up 
+{
+    border-left-width: 60px;
+    border-right-width: 60px;
+    border-bottom-width: 60px;  
+}
+
+.triangle.up .triangle_content,
+.triangle:hover .triangle_content
+{
+    color: #000046; 
+    font-weight: bold; 
+}
+
+.triangle-up 
+{
+	width: 0;
+    height: 0;
+    margin-top: 10px;
+    border-bottom-color: #3c71a0;
+}
+
+.triangle-up .triangle_content
+{
+    text-align: center;
+    margin-left: -18px;
+    margin-top: 7px !important;
+    display: inline-block;
+}
+
+.triangle.trapezoid1 .triangle_content.triangle_content-company
+{
+    text-align: center;
+    display: inline-block;
+}
+      
+.triangle-up.up 
+{
+   margin-top: 0;
+}    
+    
+.trapezoid1 
+{
+    height: 0;
+    width: 200px;
+    border-bottom-color: #4b87bc;
+}    
+    
+.trapezoid1.up 
+{
+    width: 220px;
+    margin-top: -10px;
+}    
+    
+.trapezoid2 
+{
+    height: 0;
+    width: 300px;
+    border-bottom-color: #3c71a0;
+}    
+    
+.trapezoid2.up 
+{
+    width: 320px;
+    margin-top: -10px;
+}    
+    
+.trapezoid3 
+{
+    height: 0;
+    width: 400px;
+    border-bottom-color: #4b87bc;
+}    
+    
+.trapezoid3.up 
+{
+    width: 420px;
+    margin-top: -10px;
+}    
+    
+.trapezoid4 
+{
+    height: 0;
+    width: 500px;
+    border-bottom-color: #3c71a0;
+}    
+    
+.trapezoid4.up 
+{
+    width: 520px;
+    margin-top: -10px;
+}    
+    
+.trapezoid5 
+{
+    height: 0;
+    width: 480px;
+    border-bottom-color: #4b87bc;
+}    
+    
+.trapezoid5.up 
+{
+    width: 500px;
+    margin-top: -10px;
+}    
+
+@media(max-width: 1350px)
+{
+
+	.twobox-container .branch-box
+	{
+		margin-left: calc(25vw - 175px);		
+	}
+	
+	.twobox-container .job-box
+	{
+		margin-right: calc(25vw - 175px);
+	}
+	
+}	
+
+@media(max-width: 810px)
+{
+
+	.twobox-container .branch-box
+	{
+		margin-left: calc(50vw - 175px);
+		margin-right: calc(50vw - 175px);
+		float: none;	
+	}
+	
+	.twobox-container .job-box
+	{
+		margin-left: calc(50vw - 175px);
+		margin-right: calc(50vw - 175px);
+		float: none;	
+	}
+	
+}	
+

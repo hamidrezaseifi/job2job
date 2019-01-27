@@ -25,7 +25,7 @@ $isCompany = $identity ? $identity->isCompany() : false;
 <div ng-controller="IndexController">
 	<div class="home home-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
-        	<?php echo $this->render('topbanner', ['showSearch' => ($user->isGuest || !$isCompany), 'showEmployeeFinder' => (!$user->isGuest && $isCompany)]);?>
+        	<?php echo $this->render('topbanner', ['showSearch' => ($user->isGuest || !$isCompany), 'showEmployeeFinder' => (!$user->isGuest && $isCompany), 'firstPage' => true, ]);?>
         </div>
 	</div>
 
@@ -33,24 +33,24 @@ $isCompany = $identity ? $identity->isCompany() : false;
 		<div class="teaser-box-container">
     		<div class="teaser-box">
     			<div class="teaser-heaser">FÜR UNTERNEHMEN</div>
-    			<div class="teaser-text">Teaser Text für Unternehmen</div>
-    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a>
+    			<div class="teaser-text">Die gründliche Mitarbeitersuche bleibt erfolglos? Leider kein Einzelfall. Der „War of Talents“ wurde selten so hart geführt, wie heute. Gut, dass Sie mit Job2Job einen erfahrenen Verbündeten an Ihrer Seite wissen.</div>
+    			<div style="text-align: center"><a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a></div>
     		</div>
 		</div>
 		
 		<div class="teaser-box-container">		
     		<div class="teaser-box">
     			<div class="teaser-heaser">FÜR BEWERBER</div>
-    			<div class="teaser-text">Teaser Text für Bewerber</div>
-    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a>
+    			<div class="teaser-text">Berufliche Perspektive gesucht? Bei Job2Job sind Sie richtig. Wir zeigen Ihnen Wege aus der beruflichen Sackgasse – und vermitteln Ihnen einen Job mit Zukunft. Profitieren Sie von Flexibilität und fairen Löhnen, ohne typischem Bewerbungsstress. </div>
+    			<div style="text-align: center"><a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/whyjob2job">Warum-Job2Job? >> </a></div>
     		</div>
 		</div>
 		
 		<div class="teaser-box-container">		
     		<div class="teaser-box">
     			<div class="teaser-heaser">JOBBÖRSE</div>
-    			<div class="teaser-text">Teaser Text für Jobbörse</div>
-    			<a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">Aktuelle Stellenangebote >> </a>
+    			<div class="teaser-text">Vom Gesundheits- und Krankenpfleger über den Maschinenbauingenieur bis hin zur Bürokauffrau. Bei uns finden Sie für (fast) alle Branchen die passenden Stellenangebote. Sei es in Vollzeit, Teilzeit oder für flexible Einsätze.</div>
+    			<div style="text-align: center"><a class="teaser-link" href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">Aktuelle Stellenangebote >> </a></div>
     		</div>
 		</div>
 		<div class="clear"></div>

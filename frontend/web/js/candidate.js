@@ -31,6 +31,13 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		showNextRecommandation(index, isClick);		
 	}
 	
+	$(window).on('resize scroll', function(){
+		
+		checkPiramid();
+		checkBoxes();
+		
+	});
+	
 	$scope.activeProcess = function(item){
 		$(".triangle.up").removeClass("up")
 		
@@ -43,7 +50,7 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		}
 		
 		$(".showcontent").removeClass("showcontent").hide();
-		$(".content_" + $scope.lastctiveProcess).addClass("showcontent").show();
+		$(".content_" + $scope.lastctiveProcess).addClass("showcontent").slideDown();
 	}
 	
 	function checkAnimation(){
@@ -91,14 +98,8 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 	}
 	
 	function doAnimateStatistic(){
-		//alert($scope.numberStatictics.length);
 		
 		for(var i=0; i< $scope.numberStatictics.length; i++){
-			//var st = $scope.numberStatictics[i];
-			
-			//alert(i + ": " + $scope.numberStatictics[i].currentValue);
-			
-			//var inter = 5000 / st.maxValue;
 			
 			if($scope.numberStatictics[i].currentValue < $scope.numberStatictics[i].maxValue){
 				$scope.numberStatictics[i].currentValue += $scope.numberStatictics[i].maxValue / 1000;
@@ -107,6 +108,34 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		
 		
 	}
+	
+	function checkPiramid(){
+		
+		if ($(".was_wir_machen_bottom").data("show") == "0" && $(".was_wir_machen_bottom").is( ':in-viewport' ) ) {
+			$(".triangle.trapezoid5").delay(1700).fadeIn();
+			$(".triangle.trapezoid4").delay(1400).fadeIn();
+			$(".triangle.trapezoid3").delay(1100).fadeIn();
+			$(".triangle.trapezoid2").delay(800).fadeIn();
+			$(".triangle.trapezoid1").delay(500).fadeIn();
+			$(".triangle.triangle-up").delay(200).fadeIn();
+			$(".was_wir_machen_bottom").data("show" , "1");
+		}
+		
+	}
+	
+	function checkBoxes(){
+		
+		if ($(".wir-fordern-ihre-karriere-bottom").data("show") == "0" && $(".wir-fordern-ihre-karriere-bottom").is( ':in-viewport' ) ) {
+			$($(".box-karriere")[0]).delay(200).fadeIn();
+			$($(".box-karriere")[1]).delay(500).fadeIn();
+			$($(".box-karriere")[2]).delay(800).fadeIn();
+			$(".wir-fordern-ihre-karriere-bottom").data("show" , "1");
+		}
+		
+	}
+	
+	checkPiramid();
+	checkBoxes();
 	
 	
 });

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 $this->registerJsFile("@web/web/js/candidate.js", [], 'js-candidate');
 $this->registerJsFile("@web/web/js/segments-candidate.js", [], 'js-segments');
-$this->registerCssFile("@web/web/css/candidate.css", [], 'css-candidate');
+$this->registerCssFile("@web/web/css/company.css", [], 'css-company');
 $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 
 ?>
@@ -14,7 +14,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 	<div class="home candidate-main-content">
         <div class="home-box-1 top-section top-section-with-boxes" >
 
-			<?php echo $this->render('topbanner', ['showSearch' => false, 'showEmployeeFinder' => true,]);?>
+			<?php echo $this->render('topbanner', ['showSearch' => false, 'showEmployeeFinder' => true, 'companyPage' => true,]);?>
 			
 			<?php  if(false){?>
         	<div class="content-center960">
@@ -46,7 +46,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 	<div class="twobox-container">
 	
     	<div class="business-models-box-company">
-    		<div class="title">GESCHÄFTSMODELLE</div>
+    		<div class="title">Geschäftsmodelle</div>
     		<?php foreach($vacancies as $vacancy){?>
     			<a href="<?=Yii::getAlias('@web') ?>/site/<?php echo $vacancy->link;?>">
     				<div class="business-models-item"> 
@@ -78,46 +78,41 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR KUNDEN</strong></h2>
 
                 <div class="content_ showcontent">
-                    <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
+                    <p>Fair, transparent, komfortabel: Bei der Auswahl der für Ihre Vakanzen passenden Kandidaten müssen Sie sich um (fast) nichts kümmern, haben aber jederzeit Einblick in unsere Prozesse – und können bei Bedarf eingreifen. Wie der Recruiting-Prozess im Detail verläuft, veranschaulicht unser bewährtes Pyramiden-Konzept. </p>
                 </div>
       
                 <div class="recruitment_content">
                             
-                    <div class="hiddenj2j content_trapezoid5" style="display: block;">
-                      <div class="text-title-bewerber">1. Qualifikation und Chancen</div><br>
-                      <p>  Gemeinsam mit Ihnen entwerfen wir das Gerüst für Ihren perfekten Job. Auf Basis Ihrer beruflichen Ziele, Gehaltsvorstellungen, Qualifikationen und Co. geben wir Ihnen eine realistische Einschätzung Ihrer Job-Chancen. 
+                    <div class="hiddenj2j content_trapezoid4" style="display: block;">
+                      <div class="text-title-bewerber">1. Qualifikation und Anforderungen</div><br>
+                      <p>  Wie dringend werden Arbeitskräfte gebraucht? Welche Qualifikationen müssen Bewerber mitbringen? Wo werden diese eingesetzt? Und welches Budget steht überhaupt zur Verfügung? Wir klären gemeinsam mit Ihnen die wichtigsten Fragen. 
                       </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_trapezoid4" style="display: none;">
-                      <div class="text-title-bewerber">2. Vorstellung passender Stellen</div><br>
-                       <p> Was wünscht der Kunde von künftigen Mitarbeitern? Wie arbeitet es sich im entsprechenden Unternehmen? Gibt es Bonuszahlungen? Bekomme ich einen Firmenwagen? Wir stellen Ihnen nicht nur auf Sie zugeschnittene Positionen vor, sondern beantworten Ihnen alle wichtigen Fragen zur möglichen Stelle. 
-                        </p>
-                    </div>  
-                 
                     <div class="hiddenj2j content_trapezoid3" style="display: none;">
-                      <div class="text-title-bewerber">3. Präsentation beim Arbeitgeber </div><br>
-                       <p> Sobald wir die passende Stelle für Sie gefunden haben, optimieren wir Ihre Bewerbungsunterlagen und stellen Sie beim Kunden vor. Unsere qualifizierte Vermittlung verschafft Ihnen einen entscheidenden Wettbewerbsvorteil gegenüber Ihren Mitbewerbern. 
+                      <div class="text-title-bewerber">2. Kandidaten-Suche und -Prüfung</div><br>
+                       <p> Auf Basis des zuvor erstellten Anforderungsprofils wählen wir aus unserem weit verzweigten Netzwerk die vielversprechendsten Kandidaten aus. Wir prüfen Referenzen, führen Interviews und machen Eignungstests. Sie lehnen sich entspannt zurück.  
                         </p>
                     </div>  
                  
                     <div class="hiddenj2j content_trapezoid2" style="display: none;">
-                      <div class="text-title-bewerber">4. Interviews</div><br>
-                       <p> Als aussichtsreicher Kandidat werden Sie zum Interview bei Ihrem potenziellen Arbeitgeber geladen. Wir sorgen dafür, dass Sie bestmöglich auf das Gespräch vorbereitet sind. Im Anschluss analysieren wir das Interview und geben Ihnen Tipps für künftige Gespräche mit auf den Weg. 
+                      <div class="text-title-bewerber">3. Präsentation der Kandidaten </div><br>
+                       <p> Wir präsentieren Ihnen die ausgewählten Kandidatenprofile – und stellen Ihnen Bewerber auf Wunsch persönlich vor. Dabei begleiten und beraten wir Sie während des gesamten Interview-Prozesses. 
                         </p>
                     </div>  
                  
                     <div class="hiddenj2j content_trapezoid1" style="display: none;">
-                      <div class="text-title-bewerber">5. Vertrag</div><br>
-                      <p>  Auch bei den Vertragsverhandlungen stehen wir Ihnen zur Seite. Wir führen die Verhandlungen und unterbreiten Ihnen das Angebot des Kunden. Zu einem Abschluss kommt es nur, wenn Sie rundum zufrieden sind. 
+                      <div class="text-title-bewerber">4. Vertragsabschluss</div><br>
+                       <p> Wurden die vielversprechendsten Kandidaten gefunden, geht es an die Vertragsabwicklung. Die Vertragsverhandlungen mit den Bewerbern führen wir gemäß Ihren Vorgaben, sodass am Ende ein Abschluss steht, den beide Parteien als fair empfinden. 
                         </p>
                     </div>  
                  
                     <div class="hiddenj2j content_triangle-up" style="display: none;">
-                      <div class="text-title-bewerber">6. Betreuung</div><br>
-                       <p> Eine ganzheitliche und nachhaltige Betreuung steht bei uns an oberster Stelle. Wir weichen Ihnen während des gesamten Recruitment-Prozesses nicht von der Seite und begleiten Sie auch darüber hinaus. 
+                      <div class="text-title-bewerber">5. Pflege </div><br>
+                      <p>  Unser Konzept der nachhaltigen Betreuung endet nicht mit Vertragsabschluss. Wir stehen Ihnen auch im weiteren Verlauf Ihres Projekts zur Seite und initiieren gerne Verlängerungen der Zusammenarbeit mit den Mitarbeitern Ihrer Wahl. 
                         </p>
                     </div>  
+ 
                 </div>
 
     		</div>
@@ -169,26 +164,22 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 			<?php } ?>
 			
 			<div class="width50">
-				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Betreuung</span></div>			
+				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Pflege</span></div>			
 
 				<div ng-click="activeProcess('trapezoid1')" class="triangle trapezoid1">
-					<span class="triangle_content">Vertrag</span>
+					<span class="triangle_content triangle_content-company">Vertrag</span>
 				</div>			
 
 				<div ng-click="activeProcess('trapezoid2')" class="triangle trapezoid2">
-					<span class="triangle_content">Interviews</span>
+					<span class="triangle_content">Präsentation der Kandidaten</span>
 				</div>			
 
 				<div ng-click="activeProcess('trapezoid3')" class="triangle trapezoid3">
-					<span class="triangle_content">Präsentation beim Arbeitgeber</span>
+					<span class="triangle_content">Kandidaten-Suche und Prüfung</span>
 				</div>			
 
 				<div ng-click="activeProcess('trapezoid4')" class="triangle trapezoid4">
-					<span class="triangle_content">Vorstellung passender Stellen</span>
-				</div>			
-
-				<div ng-click="activeProcess('trapezoid5')" class="triangle trapezoid5">
-					<span class="triangle_content">Qualifikation und Chancen</span>
+					<span class="triangle_content">Qualifikation und Anforderungen</span>
 				</div>			
 			</div>
 			
@@ -198,6 +189,8 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 				<a href="javascript:void(0)"><span class="close_btn"><p>&lt; Zuklappen</p></span></a>
               </div>
           </div>
+          <div class="was_wir_machen_bottom" data-show="0"> </div>          
+          
     </div>
     
     
