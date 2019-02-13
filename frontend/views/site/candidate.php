@@ -111,6 +111,11 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 	
 	<div class="twobox-container">
 	
+		<div class="content-center">
+			<div ><h2><strong>BRANCHE AUSWÄHLEN - LOS GEHT'S</strong></h2></div>
+		</div>
+		
+				
     	<div class="branch-box">
     		<div class="title">Branchen</div>
     		<?php foreach($branches as $branch){?>

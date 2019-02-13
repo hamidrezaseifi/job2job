@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="selectform cont_1" ng-class="{'active' : active_register}" ng-click="active_register=true;">REGISTRIEREN</div>
 			</div>
 
-			<p class="content1" ng-show="active_register">Erstellen Sie sich Ihr Benutzerkonto und sichern Sie sich alle Vorteile einer <br>Zusammenarbeit mit der Aristo Group.</p>
+			<p class="content1" ng-show="active_register">Erstellen Sie sich Ihr Benutzerkonto und sichern Sie sich alle Vorteile einer <br>Zusammenarbeit.</p>
         	<p class="content2" ng-show="!active_register">Konto bereits vorhanden?<br><br>Melden Sie sich mit Ihrem Benutzerprofil an und erhalten Sie die aktuellsten Informationen zu Ihrem Traumberuf!</p>
 
             <div class="form1-registration"  ng-show="!active_register">
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
         				<input id="pass1log" type="password" name="LoginForm[password]" class="requiredfieldlog" ng-model="LoginData.LoginForm.password">
         			</div>
 
-        			<a class="recover-pass" href="https://aristo-group.com/registrieren/">Passwort vergessen?</a>
+        			<a class="recover-pass" href="<?php echo Yii::getAlias('@web');?>/site/resetpassword">Passwort vergessen?</a>
 
         			<div class="button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>
             	<?php
@@ -179,7 +179,7 @@ $this->params['breadcrumbs'][] = $this->title;
             			<div class="contact-policy">
             				<md-checkbox ng-model="registerData.accept" aria-label="Checkbox" class="accept-checkbox">
             				<label for="registrieren-radio1" class="contactcontainer">
-            				Ich bin damit einverstanden, dass meine persönlichen Daten von Aristo heute und in Zukunft gespeichert, bearbeitet und für Vermittlungszwecke an Dritte übermittelt werden dürfen. Ich habe die Datenschutzerklärung gelesen und stimme dieser zu. Ich bin damit einverstanden, dass Aristo mich zum Zweck der Vermittlung in ein Projekt/eine Festanstellung kontaktieren darf.*
+            				Ich bin damit einverstanden, dass meine persönlichen Daten von Job2Job heute und in Zukunft gespeichert, bearbeitet und für Vermittlungszwecke an Dritte übermittelt werden dürfen. Ich habe die Datenschutzerklärung gelesen und stimme dieser zu. Ich bin damit einverstanden, dass Job2Job mich zum Zweck der Vermittlung in ein Projekt/eine Festanstellung kontaktieren darf.*
 
             				</label>
             				</md-checkbox>

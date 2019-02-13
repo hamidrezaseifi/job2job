@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				
 				<div class="register-div">
 					Neu bei Job2job? <a href="<?=Yii::getAlias('@web') ?>/site/register"> JETZT REGISTRIEREN</a>
-					<a class="passreset-open">Passwort vergessen?</a>
+					<a class="passreset-open"href="<?php echo Yii::getAlias('@web');?>/site/resetpassword">Passwort vergessen?</a>
 				</div>
 				
 				<div class="button-form float-left button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>

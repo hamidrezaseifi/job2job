@@ -5,10 +5,10 @@
 brainApp.controller('IndexController', function ($scope, $http, $sce, $element, $interval) {
 
 	$scope.numberStatictics = [
-		{label: "Geschäftskontakte", maxValue:51251, currentValue: 0, stop:false }, 
-		{label: "MitarbeiterInnen", maxValue:50, currentValue: 0, stop:false }, 
-		{label: "Jahre Erfahrung", maxValue:10, currentValue: 0, stop:false }, 
-		{label: "Vermittlungen", maxValue:2193, currentValue: 0, stop:false }, 
+		{label: "Vermittlungen", maxValue:2000, currentValue: 0, stop:false }, 
+		{label: "Zufriedene Kunden", maxValue:385, currentValue: 0, stop:false }, 
+		{label: "Aktuelle Mitarbeiter", maxValue:87, currentValue: 0, stop:false }, 
+		{label: "Jahre Branchenexpertise", maxValue:17, currentValue: 0, stop:false }, 
 		];
 	
 	$scope.Math = window.Math;

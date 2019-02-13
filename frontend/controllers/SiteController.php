@@ -317,7 +317,7 @@ class SiteController extends Controller
         $regins = JobpositionBase::allRegions();
         
         $skills = BrainHelper::mapTranslate($skills, 'id', 'title');
-        $vacances = VacancyBase::find()->all();
+        $vacances = VacancyBase::find()->where(['status' => 1])->all();
         $branches = BranchBase::find()->where(['status' => 1])->all();
         
         
@@ -434,6 +434,14 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionResetpassword()
+    {
+        return $this->render('resetpassword', [
+            'isindex' => false
+        ]);
+    }
+    
+    
     public function actionRegister()
     {
         if (! Yii::$app->user->isGuest) {
