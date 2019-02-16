@@ -520,6 +520,7 @@ footer .contact-footer > p, footer .contact-footer a {
   height: 395px;
   position: relative;
   width: 100%;
+  margin-bottom: 100px;
 }
 .vertical-align {
   display: table-cell;
@@ -3645,104 +3646,7 @@ div.wpcf7-response-output {
   border: 1px solid #72a84f;
   color: #fff;
 }
-.box-founded-jobs {
-  background-color: #f4f4f4;
-  float: left;
-  margin: 10px 0.7%;
-  min-height: 342px;
-  padding: 22px 12px 15px;
-  width: 250px;
-  transition: all 200ms ease-out;
-}
-.box-founded-jobs:hover {
-  box-shadow: 0 0 10px rgba(10, 10, 10, 1);
-  cursor: pointer;
-}
-.box-founded-jobs:hover .button1-founded-jobs {
-  box-shadow: 0 0 5px rgba(10, 10, 10, 1);
-}
 
-.box-founded-jobs .title {
-  color: #1a3156;
-  font-family: AvenirLTPro-Black;
-  font-size: 16px;
-  line-height: 22px;
-  margin-bottom: 5px;
-  overflow-wrap: break-word;
-  min-height: 70px;
-}
-.box-founded-jobs li {
-  color: #1a3156;
-  font-family: AvenirLTPro-Book;
-  font-size: 15px;
-  margin-bottom: 14px;
-  padding-left: 25px;
-  position: relative;
-}
-.box-founded-jobs li::before {
-  background: #1a3156 none repeat scroll 0 0;
-  border-radius: 50%;
-  content: "";
-  height: 6px;
-  left: 5px;
-  position: absolute;
-  top: 3px;
-  width: 6px;
-}
-.box-founded-jobs .price {
-  color: #7c7c7b;
-  font-size: 13px;
-  line-height: 18px;
-  margin-left: 25px;
-}
-.box-founded-jobs .location {
-  color: #13395e;
-  font-family: AvenirLTPro-Book;
-  font-size: 13px;
-  line-height: 18px;
-  margin-left: 25px;
-  width:auto;
-  text-transform:uppercase;
-}
-.buttons-founded-jobs a {
-  display: table;
-  float: left;
-  font-size: 11px;
-  margin: 0 5px;
-  padding: 6px 20px 6px;
-  color: #fff;
-  position: relative;
-}
-.buttons-founded-jobs {
-  display: table;
-  margin:0 auto;
-}
-.button1-founded-jobs {
-  background: #3871a1;
-  transition: all 200ms ease-out;
-}
-.button2-founded-jobs {
-  background: #1a3156;
-  cursor:pointer;
-}
-.buttons-founded-jobs a::after {
-  background-color: transparent;
-  background-image: url("img/sprite.png");
-  background-position: -6px -21px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  border: medium none;
-  content: "";
-  cursor: pointer;
-  display: table;
-  font-size: 0;
-  height: 14px;
-  position: absolute;
-  right: 6px;
-  top: 4px;
-  width: 7px;
-  z-index: 99;
-}
 .deletemerken {
   background-color: transparent;
   background-image: url("img/sprite.png");
@@ -8278,4 +8182,65 @@ a:active, a:hover {
 	height: 260px;
 }
 
+.header-banner-box 
+{
+    top: 570px;
+    position: relative;
+    background-color: rgba(114,168,79, 0.8);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px;
+    line-height: 30px;
+    height: 150px;
+    
+}
+
+.header-banner-box-left-350 
+{
+    width: 350px;
+    left: calc(25vw - 175px);
+    float: left;
+    text-align: center;
+}
+
+.header-banner-box-left-450 
+{
+    width: 450px;
+    left: calc(25vw - 175px);
+    float: left;
+    text-align: center;
+}
+
+.header-banner-box-left-350 a.header-banner-link,
+.header-banner-box-left-450 a.header-banner-link
+{
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    color: rgba(114,168,79, 1);
+    padding: 5px 10px;
+}
+
+.header-banner-box-left-350:hover a.header-banner-link,
+.header-banner-box-left-450:hover a.header-banner-link
+{
+    box-shadow: 0 0 10px rgba(10, 10, 10, 1);
+    color: #5e8941;
+}
+
+.header-banner-box-left-350 a.header-banner-link:hover,
+.header-banner-box-left-450 a.header-banner-link:hover
+{
+    box-shadow: 0 0 10px rgba(10, 10, 10, 1);
+    color: #5e8941 !important;
+}
+
+.header-banner-box-right 
+{
+    padding-top: 40px;
+	width: 550px;
+    right: calc(25vw - 175px);
+    float: right;
+}
 

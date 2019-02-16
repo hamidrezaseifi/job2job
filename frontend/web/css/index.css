@@ -18,9 +18,14 @@
 {
 	width: 350px;
 	margin: auto;
-	border: 1px solid #1a3156;
 	padding: 2px;
-	
+	background-color: #f4f4f4;
+	transition: all 200ms ease-out;	
+}
+
+.home.home-teaser .teaser-box-container .teaser-box:hover
+{
+	box-shadow: 0 0 10px rgba(10, 10, 10, 1);
 }
 
 .home.home-teaser .teaser-box-container .teaser-box .teaser-heaser
@@ -36,7 +41,7 @@
 
 .home.home-teaser .teaser-box-container .teaser-box .teaser-text
 {
-	padding: 4px;
+	padding: 10px;
 	margin: 10px 0;
 	font-size: 16px;
 	height: 140px;
@@ -47,6 +52,17 @@
 	padding: 4px;
 	margin: 10px 10px;
 	font-size: 16px;
+}
+
+.home.home-teaser .teaser-box-container .teaser-box .teaser-link-container
+{
+	padding: 5px;
+	text-align: center;
+}
+
+.home.home-teaser .teaser-box-container .teaser-box:hover .teaser-link
+{
+	box-shadow: 0 0 5px rgba(10, 10, 10, 1);
 }
 
 @media(max-width: 800px){

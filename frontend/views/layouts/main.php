@@ -283,11 +283,6 @@ $this->beginBody ()?>
                     							<li id="menu-item-1757" class="title-submenuuber no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-1757 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     								<span class="ubermenu-target-title ubermenu-target-text">ÜBER UNS</span>
                     							</li>
-                    							<li id="menu-item-1563" class="no-hover ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-1563 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/whoweare">
-                    									<span class="ubermenu-target-title ubermenu-target-text">Wer wir sind</span>
-                    								</a>
-                    							</li>
                     							<li id="menu-item-20247" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-20247 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/whatwedo">
                     									<span class="ubermenu-target-title ubermenu-target-text">Was wir machen</span>

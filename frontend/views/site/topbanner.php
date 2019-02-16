@@ -26,15 +26,15 @@ if (! $user->isGuest && $identity->isCompany ()) {
 
 ?>
 
+			<?php if(false){?>
+
 			<div class="light-and-bold text-over-image text-up-left" >„Job2Job Personaldienstleistungen - Wir bringen Interessen zusammen“</div>
-			
-			<?php if($firstPage){?>
+
 			<div class="light-and-bold text-over-image text-up-right" >
 				„Klingt nach Binsenweisheit, ist aber schlicht Realität: Mitarbeiter sind das wichtigste Kapital eines Unternehmens.“
 				<br><br>
             	<div class="name">– Madeleine Mohr, Geschäftsführerin der Job2Job GmbH</div>
             </div>
-			<?php } ?>
 			
 			<?php if($candidatePage){?>
 			<div class="light-and-bold text-over-image text-up-right" >
@@ -68,4 +68,40 @@ if (! $user->isGuest && $identity->isCompany ()) {
     			<a href="<?php echo $employeefinderlink;?>">JETZT QUALIFIZIERTES PERSONAL FINDEN</a>
    			</div>
 			<?php } ?>
+			
+			<?php }?>	
+					
+			<?php if($firstPage){?>
+			
+			<div class="header-banner-box header-banner-box-right" >„Job2Job Personaldienstleistungen - Wir bringen Interessen zusammen“</div>
+			
+			<?php } ?>
+			
+			<?php if($candidatePage){?>
+			
+			<div class="header-banner-box header-banner-box-right" >„Zeitnah und ressourcenschonend den ‚perfekten‘ Mitarbeiter finden? Das geht nur mit einem gut vernetzten Partner.“</div>
+			
+			<?php } ?>
+			
+			<?php if($companyPage){?>
+			
+			<div class="header-banner-box header-banner-box-right" >„Zeitnah und ressourcenschonend den ‚perfekten‘ Mitarbeiter finden? Das geht nur mit einem gut vernetzten Partner.“ </div>
+			
+			<?php } ?>
+			
+			<?php if($showSearch){?>
+			<div class="header-banner-box header-banner-box-left-350" >
+				Job Suche<br><br>
+				<p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs" class="header-banner-link">JOB SUCHEN</a></p>				
+			</div>
+			<?php } ?>
+			
+			<?php if($showEmployeeFinder){?>
+			<div class="header-banner-box header-banner-box-left-450" >
+				Job Suche<br><br>
+				<p><a href="<?php echo $employeefinderlink;?>" class="header-banner-link">JETZT QUALIFIZIERTES PERSONAL FINDEN</a></p>				
+			</div>
+			<?php } ?>
+			
+			
 
