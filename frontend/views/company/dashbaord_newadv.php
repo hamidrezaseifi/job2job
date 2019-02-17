@@ -9,7 +9,6 @@
 /* @var $pdmModelSecond \common\lib\PersonaldecisionmakerBase */
 /* @var $skills array */
 /* @var $nationalities array */
-/* @var $countries array */
 /* @var $distances array */
 /* @var $titles array */
 /* @var $companytypes array */
@@ -61,8 +60,7 @@ $this->registerJsFile("@web/web/js/froala/plugins/quote.min.js", [], 'js-froala-
 
 Yii::$app->formatter->locale = 'de-DE';
 $months = array(0 => '--' . Yii::t('app', 'Monath') . '--');
-for ($i = 1; $i < 13; $i++) {
-	
+for ($i = 1; $i < 13; $i++) {	
 	$months[$i] = Yii::$app->formatter->asDate('2014-' . $i . '-1' , 'php:F');
 }
 $thisyear = intval(date('Y')); 
@@ -94,7 +92,7 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
     <div class="top-wizard-nave">
     	<div class="nav-item">
     		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 1</div>
-    		<div class="desc"><?php echo Yii::t('app', 'Jobtexte'); ?></div>
+    		<div class="desc"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>
     	
     	</div>
     	
@@ -102,16 +100,10 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
     	
     	<div class="nav-item">
     		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 2</div>
-    		<div class="desc"><?php echo Yii::t('app', 'Allgemeine Informationen'); ?></div>
+    		<div class="desc"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
     	
     	</div>
     	
-    	<div class="nav-item-sep"></div>
-    	
-    	<div class="nav-item">
-    		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 3</div>
-    		<div class="desc"><?php echo Yii::t('app', 'Kategorieauswahl'); ?></div>
-    	</div>
     	<div class="clear"></div>
     	
     </div>
@@ -119,7 +111,7 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
     <div class="job-adv-wizard-container">
     	
 	    <div class="job-adv-wizard-item wizard-item1">
-	    	<div class="item-title"><?php echo Yii::t('app', 'Jobtexte'); ?></div>
+	    	<div class="item-title"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Betreff'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie einen aussagekraftigen Title für Ihre Anzeigeausschreibung ein.'); ?></div>
@@ -127,7 +119,7 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 
 	    		<div class="title"><?php echo Yii::t('app', 'Land'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'In welchem Land ist der Jobstandort.'); ?></div>
-	    		<div class="item"><?=Html::dropDownList('country', $jobModel->country, $countries) ?></div>
+	    		<div class="item"><?=Html::textInput('country', $jobModel->country, ['readonly' => 'readonly', 'disabled' => true]) ?></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Ort'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Standort der Stelle ein.'); ?></div>
@@ -164,7 +156,7 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    </div>
     	
 	    <div class="job-adv-wizard-item wizard-item2">
-	    	<div class="item-title"><?php echo Yii::t('app', 'Allgemeine Informationen'); ?></div>
+	    	<div class="item-title"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Aktuelle Vakanzen'); ?>:*</div>
 	    		<div class="item"><?=Html::dropDownList('vacancy', $jobModel->vacancy, $vacancies) ?></div>
@@ -284,16 +276,6 @@ var cities = new Array();
 var cities_country = new Array();
 var postcodes = new Array();
 var postcodes_city = new Array();
-
-<?php foreach ($cities as $city => $country){?>
-cities.push("<?php echo $city;?>");
-cities_country.push("<?php echo $country;?>");
-<?php }?>
-
-<?php foreach ($postcodes as $postcode => $city){?>
-postcodes.push("<?php echo $postcode;?>");
-postcodes_city.push("<?php echo $city;?>");
-<?php }?>
 
 $(function(){
     $('#commentstext').froalaEditor({

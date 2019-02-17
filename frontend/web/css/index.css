@@ -5,6 +5,17 @@
 	height: 300px;
 }
 
+.home.home-teaser .title
+{
+	margin: 20px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .home.home-teaser .teaser-box-container
 {
 	width: calc(33% - 40px);

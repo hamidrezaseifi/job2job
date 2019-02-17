@@ -35,7 +35,8 @@
 
 .twobox-container
 {
-	margin: 20px 0;
+	margin: 60px 0;
+    padding-top: 30px;
 }
 
 .twobox-container .branch-box,
@@ -54,12 +55,18 @@
 	color: white;
 }
 
-.twobox-container .job-box,
-.twobox-container .branch-box-company
+.twobox-container .job-box
 {
 	margin-left: 20px;
 	margin-right: calc(35vw - 175px);
 	float: right;
+}
+
+.twobox-container .branch-box-company
+{
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
 }
 
 .twobox-container .branch-box a,

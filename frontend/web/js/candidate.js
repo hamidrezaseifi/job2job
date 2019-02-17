@@ -38,6 +38,11 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 		
 	});
 	
+	$($(".teaser-box-container")[0]).delay(200).fadeIn();
+	$($(".teaser-box-container")[1]).delay(500).fadeIn();
+	$($(".teaser-box-container")[2]).delay(800).fadeIn();
+	$(".twobox-container .branch-box-company").delay(1100).fadeIn();
+	
 	$scope.activeProcess = function(item){
 		$(".triangle.up").removeClass("up")
 		

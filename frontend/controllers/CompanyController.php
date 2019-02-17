@@ -213,7 +213,8 @@ class CompanyController extends Controller
     	$model = $pdmModel->isNewRecord ? new UsersBase() : $pdmModel->getUser();
     	$modelSecond = $pdmModelSecond->isNewRecord ? new UsersBase() : $pdmModelSecond->getUser();
     	
-    	$jobPositionModel = JobpositionBase::findAll(['companyid' => $companyModel->id]);
+    	$jobPositionModel = JobpositionBase::find()->select(["count(*) as jobCount"])->where(['companyid' => $companyModel->id])->all();
+    	$jobPositionModel = count($jobPositionModel) > 0 ? $jobPositionModel[0] : $jobPositionModel;
      	 
     	$logopath = self::company_logo();    	
     	$logo_approved = true;
@@ -223,9 +224,9 @@ class CompanyController extends Controller
     		$logo_approved= false;
     	}
     	
-    	$postcodes = PostcodeBase::allPostcodes(true);
-    	$cities = CityBase::allCities(true);
-    	 
+    	//$postcodes = PostcodeBase::allPostcodes(true);
+    	//$cities = CityBase::allCities(true);
+    	
     	switch ($action)
     	{
     		case 'myprofile' :
@@ -243,7 +244,6 @@ class CompanyController extends Controller
     			$modelSecond->bdate = BrainHelper::dateEnglishToGerman($modelSecond->bdate);
     			    			
     			$nationalities_array = BrainStaticList::nationalityList();
-    			$countries_array = BrainStaticList::countryList();
     			$distances_array = BrainStaticList::distanceList();
     			$companytype_array = BrainStaticList::companyTypeList();
     			$employeecount_array = BrainStaticList::employeeCountList();
@@ -276,7 +276,6 @@ class CompanyController extends Controller
     					'pdmModelSecond'		=> $pdmModelSecond,
     					//'skills' 				=> $skill_array,
     					'nationalities' 		=> $nationalities_array,
-    					'countries' 			=> $countries_array,
     					'distances' 			=> $distances_array,
     					'companytypes'			=> $companytype_array,
     					'cellphoneList'			=> explode('-' , $pdmModel->cellphone),
@@ -319,6 +318,8 @@ class CompanyController extends Controller
     			
     			if(isset($_POST['job']))
     			{
+    			    print_r($_POST);
+    			    exit;
     				$this->edit_jobadv($_POST , $jobModel);
     			}
     			
@@ -333,10 +334,8 @@ class CompanyController extends Controller
     			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
     			$worktypes_array = BrainStaticList::workTypeList();
     			$vacancy_array = BrainStaticList::vacancyList();
-    			$countries = BrainStaticList::countryList();
-    			unset($countries['Deutschland']);
-    			$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
-    			$countries_array = array_merge($countries_array , $countries);
+    			
+    			$jobModel->country = 'Deutschland';
      			
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [
     					'jobModel' 				=> $jobModel,
@@ -346,10 +345,7 @@ class CompanyController extends Controller
     					'pdmModel'	 			=> $pdmModel,
     					'pdmModelSecond'		=> $pdmModelSecond,
     					'skills' 				=> $skills,
-    					'countries' 			=> $countries_array,
     					'selectedSkills' 		=> array(),
-    					'cities'				=> $cities,
-    					'postcodes'				=> $postcodes,
     					'vacancies'				=> $vacancy_array,
     						
     			]);
@@ -383,10 +379,6 @@ class CompanyController extends Controller
     			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
     			$worktypes_array = array(0 => '');
     			$worktypes_array = array_merge($worktypes_array , BrainHelper::mapTranslate($worktypes, 'id', 'title'));
-    			$countries = BrainHelper::mapTranslate($countries, 'title', 'title');
-    			unset($countries['Deutschland']);
-    			$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
-    			$countries_array = array_merge($countries_array , $countries);
     			$vacancy_array = BrainStaticList::vacancyList();
     			 
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [
@@ -397,10 +389,7 @@ class CompanyController extends Controller
     					'pdmModel'	 			=> $pdmModel,
     					'pdmModelSecond'		=> $pdmModelSecond,
     					'skills' 				=> $skills,
-    					'countries' 			=> $countries_array,
     					'selectedSkills' 		=> $selectedJobskill,
-    					'cities'				=> $cities,
-    					'postcodes'				=> $postcodes,
     					'vacancies'				=> $vacancy_array,
     						
     			]);
@@ -447,7 +436,7 @@ class CompanyController extends Controller
     	$percentCalc += $companyModel->employeecountindex != null && $companyModel->employeecountindex > 0 ? 1 : 0;
     	$percentCalc += $companyModel->logo != null && $companyModel->logo != '' ? 1 : 0;
     	
-    	$percentCalc += count($jobPositionModel) < 5 ? count($jobPositionModel) : 5;
+    	$percentCalc += $jobPositionModel->jobCount < 5 ? $jobPositionModel->jobCount : 5;
     	
     	$percentCalc += $logopath && $logo_approved? 1 : 0;
     	

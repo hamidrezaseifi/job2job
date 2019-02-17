@@ -3,10 +3,11 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 
+$this->registerCssFile("@web/web/css/company.css", [], 'css-company');
+$this->registerCssFile("@web/web/css/index.css", [], 'css-index');
 
 $this->registerJsFile("@web/web/js/candidate.js", [], 'js-candidate');
 $this->registerJsFile("@web/web/js/segments-candidate.js", [], 'js-segments');
-$this->registerCssFile("@web/web/css/company.css", [], 'css-company');
 $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recommandation-slider' );
 
 ?>
@@ -16,45 +17,25 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 
 			<?php echo $this->render('topbanner', ['showSearch' => false, 'showEmployeeFinder' => true, 'companyPage' => true,]);?>
 			
-			<?php  if(false){?>
-        	<div class="content-center960">
-        		<div class="steps">
-        			<div class="step1 eachstep">
-        				<h2 class="light-and-bold text-over-image" ><span>Welche Art von <strong>Beschäftigung </strong> suchen Sie?</span></h2>
-        				<div class="chooseoptions">
-        					<div class="option1" ng-repeat="branch in branchs ">
-        						<a href="<?=Yii::getAlias('@web') ?>/site/branchview/candidate/{{branch.shortcut}}">
-            						<div class="eachbox eachboxheight">							
-            							<div class="verticalmiddle">
-            								<h4>{{branch.label}}</h4>
-            								<p><img alt="" ng-src="<?=Yii::getAlias('@web') ?>{{branch.logo}}"></p>
-            								
-            							</div>
-            						</div>						
-        						</a>
-        						
-        					</div>
-        					
-        				</div>
-        			</div> 
-        		</div>
-        	</div>
-        	<?php } ?>
         </div>		
 	</div>
 	
-	<div class="twobox-container">
+	<div class="home home-teaser">
+		<div class="title">Unsere Geschäftsmodelle</div>
+		<?php foreach($vacancies as $vacancy){?>
+		<div class="teaser-box-container">
+    		<div class="teaser-box">
+    			<div class="teaser-heaser"><?php echo $vacancy->title;?></div>
+    			<div class="teaser-text">Die gründliche Mitarbeitersuche bleibt erfolglos? Leider kein Einzelfall. Der „War of Talents“ wurde selten so hart geführt, wie heute. Gut, dass Sie mit Job2Job einen erfahrenen Verbündeten an Ihrer Seite wissen.</div>
+    			<div class="teaser-link-container"><a class="teaser-link" href="<?=Yii::getAlias('@web') ?>/site/<?php echo $vacancy->link;?>">Zum <?php echo $vacancy->title;?> </a></div>
+    		</div>
+		</div>
+		<?php } ?>
+		
+		<div class="clear"></div>
+	</div>
 	
-    	<div class="business-models-box-company">
-    		<div class="title">Geschäftsmodelle</div>
-    		<?php foreach($vacancies as $vacancy){?>
-    			<a href="<?=Yii::getAlias('@web') ?>/site/<?php echo $vacancy->link;?>">
-    				<div class="business-models-item"> 
-    					<span><?php echo $vacancy->title;?> >></span>
-    				</div>
-    			</a>
-    		<?php } ?>
-    	</div>
+	<div class="twobox-container">
 	
     	<div class="branch-box-company">
     		<div class="title">Branchen</div>

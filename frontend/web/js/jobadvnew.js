@@ -213,7 +213,7 @@ function submitJob()
 	formData.append("job", "true");
 	formData.append('_csrf-frontend', $("#formnewadv").children("input[name='_csrf-frontend']").val());
 	formData.append("JobpositionBase[title]", $("div.content input[name='title']").val());
-	formData.append("JobpositionBase[country]", $("div.content select[name='country']").val());
+	formData.append("JobpositionBase[country]", $("div.content input[name='country']").val());
 	formData.append("JobpositionBase[city]", $("div.content input[name='city']").val());
 	formData.append("JobpositionBase[postcode]", $("div.content input[name='postcode']").val());
 	formData.append("JobpositionBase[comments]", $("div.content textarea[name='comments']").val());
