@@ -21,6 +21,7 @@
 /* @var $cities array */
 /* @var $postcodes array */
 /* @var $vacancies array */
+/* @var $branchs array */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -83,7 +84,7 @@ if(strlen($startdate) >= 10 )
 $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 
 ?>
-<div class="register-bewerbung" style="padding-bottom: 20px;">
+<div class="register-bewerbung" style="padding-bottom: 20px;" ng-controller="NewAdvController">
     
     <div class="register-bewerbung-title j2jgreenback">
     	<?php echo Yii::t('app', 'Neue Anzeige'); ?>
@@ -129,28 +130,35 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie die Postleitzahl der Stelle ein.'); ?></div>
 	    		<div class="item"><?=Html::textInput('postcode', $jobModel->postcode) ?></div>
 
-	    		<div class="title"><?php echo Yii::t('app', 'Beschreibung'); ?>:*</div>
-	    		<div class="desc"><?php echo Yii::t('app', 'Beschreiben Sire Ihre Stelle nun möglichst detailliert.'); ?></div>
-	    		<div class="item job-comment"><?php 
-	    		/*echo froala\froalaeditor\FroalaEditorWidget::widget([
-					    'model' => $jobModel,
-					    'attribute' => 'comments',
-					    'options'=>[// html attributes
-					        'id'=>'comments'
-					    ],
-					    'clientOptions'=>[
-					        'toolbarInline'=> false,
-					        'toolbarButtons' => ['bold', 'italic', 'underline', 'fontSize', '|', 'formatUL', 'formatOL', 'paragraphStyle', 
-					        		'|', 'paragraphFormat', 'align', '|', 'insertHR', '|', 'undo', 'redo'],
-					    	'theme' =>'gray',//optional: dark, red, gray, royal
-					        'language'=>'de' // optional: ar, bs, cs, da, de, en_ca, en_gb, en_us ...
-					    ]
-					]);*/
+	    		<div class="title"><?php echo Yii::t('app', 'Branchen'); ?>:*</div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Branch der Stelle ein.'); ?></div>
+	    		<div class="item"><?=Html::dropDownList('branch', $jobModel->branch, $branchs) ?></div>
+
+	    		<div class="title"><?php echo Yii::t('app', 'Aufgaben'); ?>:*</div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Aufgaben der Stelle ein.'); ?></div>
+	    		<div class="item">
+    	    		<div class="">
+    	    			<input class="add-text-item task-text-item" >
+    	    			<button type="button" class="addbutton" ng-click="addTask()"><b style="font-size: 18px">+</b>  <?php echo Yii::t('app', 'hinzufügen'); ?></button>
+    	    		</div>
+	    			<div class="task-item-container">
+	    				<div ng-repeat="task in selectedTaskList" class="task-item">{{task}} <i ng-click="deleteTask(task)" class="material-icons">delete</i></div>
+	    			</div>
+	    		</div>
+
+	    		<div class="title"><?php echo Yii::t('app', 'Qualifikationen'); ?>:*</div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Qualifikationen der Stelle ein.'); ?></div>
+	    		<div class="item">
+    	    		<div class="">
+    	    			<input class="add-text-item skill-text-item" >
+    	    			<button type="button" class="addbutton" ng-click="addSkill()"><b style="font-size: 18px">+</b>  <?php echo Yii::t('app', 'hinzufügen'); ?></button>
+    	    		</div>
+	    			<div class="task-item-container">
+	    				<div ng-repeat="skill in selectedSkillList" class="task-item">{{skill}} <i ng-click="deleteSkill(skill)" class="material-icons">delete</i></div>
+	    			</div>
+	    		</div>
+
 	    		
-	    		
-	    		echo Html::textarea('comments', $jobModel->comments, ['id' => 'commentstext']) 
-	    		
-	    		?></div>
 
 	    	</div>
 	    </div>
@@ -159,19 +167,16 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    	<div class="item-title"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Aktuelle Vakanzen'); ?>:*</div>
-	    		<div class="item"><?=Html::dropDownList('vacancy', $jobModel->vacancy, $vacancies) ?></div>
-	    		<div class="" style="margin-bottom: 10px;">
-	    			<div style="width: 200px; float: left;">
-		    			<b>Arbeitnehmerüberlassung</b><br>
-		    			Arbeitnehmerüberlassung wählen Sie bitte, wenn
-	    			</div>
-	    			<div style="width: 200px; float: left;">
-		    			<b>Personalvermittlung</b><br>
-		    			Personalvermittlung wählen Sie bitte, wenn
-	    			</div>
-	    			<div class="clear"></div>
+	    		<div class="item">
+	    		<?php foreach($vacancies as $id => $title) {?>
+	    			<label class="vakancy-title"><?php echo $title; ?></label><input ng-model="selectedVacance" class="vakancy-item" type="radio" value="<?php echo $id; ?>" name ="vacancy" />
+	    		<?php } ?>
+	    			<label class="vakancy-title">Sonstige</label><input class="vakancy-item" ng-click="otherVacancySelected()" ng-model="selectedVacance" type="radio" value="0" name ="vacancy" />
+	    			<input ng-show="selectedVacance == 0" class="other-vacancy" >
 	    		</div>
-				<div style="height: 20px; background-color: white; margin-left: -20px; margin-right: -20px;"></div>
+	    		
+				<div class="h-divider"></div>
+				
 	    		<div class="title"><?php echo Yii::t('app', 'Job-Beginn und Dauer'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie den Job-Beginn und die geplante Dauer an.'); ?></div>
 	    		<div class="" style="padding-left: 30px; padding-top: 5px; margin-bottom: 10px;">
@@ -186,7 +191,7 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    			</div>
 	    		</div>
 
-				<div style="height: 20px; background-color: white; margin-left: -20px; margin-right: -20px;"></div>
+				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Arbeitszeitmodel'); ?>:*</div>
 	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte wählen Sie den Arbeitszeitmodel der Stelle aus'); ?></div>
@@ -194,30 +199,21 @@ $jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
 	    			<?=Html::dropDownList('worktype', $jobModel->worktype, BrainStaticList::workTypeList()) ?>
 	    		</div>
 
-				<div style="height: 20px; background-color: white; margin-left: -20px; margin-right: -20px;"></div>
+				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Gültigkeit'); ?>:*</div>
 	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Im folgenden können Sie ein Gültigkeitsdatum eintragen. Nach diesem Datum wird Ihr Stellenanzeige nicht mehr im Verzeichnis gelistet'); ?></div>
-	    		<div class="item">
+	    		<div class="item" style="padding-bottom: 10px;">
 	    			<label style="width:100px; "><?php echo Yii::t('app', 'Gültigkeit: '); ?></label>&nbsp;
 	    			<?=Html::textInput('expiredate', $jobModel->expiredate, ['style'=>'width:120px; height: 26px;', 'class' => 'calender-icon']) ?>
 	    		</div>
-	    		
 
-	    	</div>
-	    </div>
-    	
-	    <div class="job-adv-wizard-item wizard-item3">
-	    	<div class="item-title"><?php echo Yii::t('app', 'Kategorieauswahl'); ?></div>
-	    	<div class="content">
+				<div class="h-divider"></div>
 
-	    		<div class="desc" style="margin-top: 20px;"><?php echo Yii::t('app', 'Geben Sie Ihr Schlagworte an, um besser gefunden zu werden.'); ?></div>
-	    		<div class="">
-	    			<input id="skilltext" >
-	    			<button id="addskillbutton" onclick="addskill(); return false;"><b style="font-size: 18px">+</b>  <?php echo Yii::t('app', 'hinzufügen'); ?></button>
-	    		</div>
-				<div class="skillholder">
-	    			&nbsp;
+	    		<div class="title"><?php echo Yii::t('app', 'Notiz'); ?>:</div>
+	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte geben Sie den Notiz. der Stelle an.'); ?></div>
+	    		<div class="item">
+	    			<?=Html::textarea('comments', $jobModel->comments, ['style'=>'width:90%; height: 150px;']) ?>
 	    		</div>
 	    		
 
@@ -260,33 +256,8 @@ var advlisturl = "<?php echo YII::getAlias('@web')?>/company/dashboard/jobs";
 var allskils = new Array();
 var skilltypelist = new Array();
 <?php foreach ($skills as $id => $skill){?>
-skilltypelist = new Array();
-<?php foreach ($skill as $skillitem){?>
-skilltypelist.push("<?php echo $skillitem;?>");
+allskils.push("<?php echo $skill;?>");
 <?php } ?>
-allskils[<?php echo $id;?>] = skilltypelist;
-<?php } ?>
-
-var preselectedskils = new Array();
-<?php foreach ($selectedSkills as $selSkillModel){?>
-preselectedskils.push("<?php echo $selSkillModel->skill;?>");
-<?php } ?>
-
-var cities = new Array();
-var cities_country = new Array();
-var postcodes = new Array();
-var postcodes_city = new Array();
-
-$(function(){
-    $('#commentstext').froalaEditor({
-      toolbarButtons: ['bold', 'italic', 'underline', 'fontSize', '|', 'formatUL', 'formatOL', 'paragraphStyle', 
-		        		'|', 'paragraphFormat', 'align', '|', 'insertHR', '|', 'undo', 'redo'],
-      toolbarButtonsXS: ['bold', 'italic' , 'underline'],
-      language: 'de',
-      theme: 'gray',
-      height: 150,
-    });
-  });
   
 </script>
 

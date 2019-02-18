@@ -55,30 +55,49 @@ class BranchBase extends \common\models\Branch {
 				'shortcut' => $shortcut
 		] );
 	}
-
+	
 	/**
 	 *
 	 * @inheritdoc
 	 * @return BranchQueryBase the active branches.
 	 */
 	public static function allActive() {
-		$branchesQuery = BranchBase::findAll ( [
-				'status' => 1
-		] );
-
-		$branches = array ();
-		foreach ( $branchesQuery as $branchItem ) {
-			$branch = array ();
-			$branch ["id"] = $branchItem->id;
-			$branch ["shortcut"] = $branchItem->shortcut;
-			$branch ["label"] = $branchItem->title;
-			$branch ["image"] = $branchItem->image;
-			$branch ["logo"] = $branchItem->logo;
-			$branch ["jobs"] = [ ];
-
-			$branches [] = $branch;
-		}
-
-		return $branches;
+	    $branchesQuery = BranchBase::findAll ( [
+	        'status' => 1
+	    ] );
+	    
+	    $branches = array ();
+	    foreach ( $branchesQuery as $branchItem ) {
+	        $branch = array ();
+	        $branch ["id"] = $branchItem->id;
+	        $branch ["shortcut"] = $branchItem->shortcut;
+	        $branch ["label"] = $branchItem->title;
+	        $branch ["image"] = $branchItem->image;
+	        $branch ["logo"] = $branchItem->logo;
+	        $branch ["jobs"] = [ ];
+	        
+	        $branches [] = $branch;
+	    }
+	    
+	    return $branches;
+	}
+	
+	/**
+	 *
+	 * @inheritdoc
+	 * @return BranchQueryBase the active branches.
+	 */
+	public static function allActiveKeyList() {
+	    $branchesQuery = BranchBase::findAll ( [
+	        'status' => 1
+	    ] );
+	    
+	    $branches = array ();
+	    foreach ( $branchesQuery as $branchItem ) {
+	        
+	        $branches [$branchItem->id] = $branchItem->title;
+	    }
+	    
+	    return $branches;
 	}
 }

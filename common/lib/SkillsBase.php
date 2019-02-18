@@ -87,19 +87,31 @@ class SkillsBase extends \common\models\Skills
     
     public static function listChilds($id)
     {
-    	$list = array();
-    	$listData = SkillsBase::find()->select(['id'])->where(['parentid' => $id])->all();
-    	foreach($listData as $data)
-    	{
-    		$list[$data->id] = $data->id;
-    		$listSubData = SkillsBase::listChilds($data->id);
-    		foreach($listSubData as $subdata)
-    		{
-    			$list[$subdata] = $subdata;
-    		}
-    	}
-    	
-    	return $list;
+        $list = array();
+        $listData = SkillsBase::find()->select(['id'])->where(['parentid' => $id])->all();
+        foreach($listData as $data)
+        {
+            $list[$data->id] = $data->id;
+            $listSubData = SkillsBase::listChilds($data->id);
+            foreach($listSubData as $subdata)
+            {
+                $list[$subdata] = $subdata;
+            }
+        }
+        
+        return $list;
     }
-
+    
+    public static function allChilds($id)
+    {
+        $list = array();
+        $listData = SkillsBase::find()->select(['id', 'title'])->where(['parentid' => $id])->all();
+        foreach($listData as $data)
+        {
+            $list[$data->id] = $data->title;
+        }
+        
+        return $list;
+    }
+    
 }

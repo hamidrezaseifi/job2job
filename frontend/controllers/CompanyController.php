@@ -11,12 +11,14 @@ use common\lib\CompanyBase;
 use common\lib\CountryBase;
 use common\lib\WorktimemodelBase;
 use common\helper\BrainHelper;
+use common\lib\BranchBase;
 use common\lib\CandidateskillBase;
 use common\lib\PersonaldecisionmakerBase;
 use common\lib\JobpositionBase;
 use common\lib\UploadedfilesBase;
 use \common\lib\JobpositionBaseSearch;
 use common\lib\JobpositionskillBase;
+use common\lib\VacancyBase;
 use common\helper\BrainStaticList;
 use common\lib\PostcodeBase;
 use common\lib\CityBase;
@@ -322,18 +324,12 @@ class CompanyController extends Controller
     			    exit;
     				$this->edit_jobadv($_POST , $jobModel);
     			}
-    			
-    			$skills1 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
-    			$skills2 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
-    			$skills3 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , ])->orderBy('title')->all();
-    			 
-    			$skills1 = BrainHelper::mapTranslate($skills1, 'id', 'title');
-    			$skills2 = BrainHelper::mapTranslate($skills2, 'id', 'title');
-    			$skills3 = BrainHelper::mapTranslate($skills3, 'id', 'title');
-    			
-    			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
+    			    			
+    			$skills = SkillsBase::allChilds(1);
     			$worktypes_array = BrainStaticList::workTypeList();
     			$vacancy_array = BrainStaticList::vacancyList();
+    			$branchs = BranchBase::allActiveKeyList();
+    			$vacancies = VacancyBase::allActiveKeyList();
     			
     			$jobModel->country = 'Deutschland';
      			
@@ -346,8 +342,9 @@ class CompanyController extends Controller
     					'pdmModelSecond'		=> $pdmModelSecond,
     					'skills' 				=> $skills,
     					'selectedSkills' 		=> array(),
-    					'vacancies'				=> $vacancy_array,
-    						
+    			        'vacancies'				=> $vacancies,
+        			    'branchs'				=> $branchs,
+    			    
     			]);
     				 
     			break;    	
