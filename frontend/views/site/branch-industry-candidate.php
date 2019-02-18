@@ -22,8 +22,11 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 	<div class="branch-content">
 	    <p><b>Handwerker und Industrie-Arbeiter sind fachlich hochqualifiziert, berufliche Perspektive und gute Bezahlung aber sind nicht überall die Regel. Es sei denn Job2Job übernimmt die Vermittlung. </b></p>
-		<p>Vom Schweißer zum Schlosser, vom Maler zum Modellbauer, vom Koch zum Klempner – Industrie und Handwerk bieten vielen hundert Berufen ein Zuhause. Eines haben jedoch alle Angehörigen der Branche gemeinsam: Sie bringen ein erhebliches Maß an fachlichem Know-how mit. Das wird von Arbeitgebern geschätzt – aber nicht immer wertgeschätzt.</p>
-		<p>Sind Sie es leid, im unterbezahlten „dead end“ Job ohne berufliche Aufstiegschancen zu versauern? Möchten Sie Ihr mühsam erworbenes Fachwissen in den Dienst einer anspruchsvolleren Aufgabe stellen? Oder suchen Sie einfach nach einer angemessenen Vergütung für Ihre Fähigkeiten? Dann sprechen Sie uns an! Sie haben die Ambitionen, wir die nötigen Kontakte, um Ihnen eine Stelle mit Zukunft zu verschaffen.</p>
+	    <div>
+    		<div class="width50 pad20"><p>Vom Schweißer zum Schlosser, vom Maler zum Modellbauer, vom Koch zum Klempner – Industrie und Handwerk bieten vielen hundert Berufen ein Zuhause. Eines haben jedoch alle Angehörigen der Branche gemeinsam: Sie bringen ein erhebliches Maß an fachlichem Know-how mit. Das wird von Arbeitgebern geschätzt – aber nicht immer wertgeschätzt.</p></div>
+    		<div class="width50 pad20"><p>Sind Sie es leid, im unterbezahlten „dead end“ Job ohne berufliche Aufstiegschancen zu versauern? Möchten Sie Ihr mühsam erworbenes Fachwissen in den Dienst einer anspruchsvolleren Aufgabe stellen? Oder suchen Sie einfach nach einer angemessenen Vergütung für Ihre Fähigkeiten? Dann sprechen Sie uns an! Sie haben die Ambitionen, wir die nötigen Kontakte, um Ihnen eine Stelle mit Zukunft zu verschaffen.</p></div>
+	    	<div class="clear"></div>
+		</div>
 
 		<br><br><br>
 	</div>

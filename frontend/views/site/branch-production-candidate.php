@@ -22,9 +22,11 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 	<div class="branch-content">
 	    <p><b>In Produktion und Gewerbe werden immer wieder motivierte Hilfskräfte gesucht. Sie sind auf der Suche nach einer neuen Herausforderung und wollen in unterschiedliche Branchen reinschnuppern? Job2Job hilft Ihnen dabei!</b></p>
-		<p>Selbst Milliardäre haben mal klein angefangen. Schon aus diesem Grund nehmen Sie das Sprichwort „Vom Tellerwäscher zum Millionär“ gerne wörtlich? Dann sind Sie bei uns richtig. Bewerben Sie sich als Aushilfskraft – beispielsweise als Küchenhilfe – und fassen Sie Fuß im Geschäftsleben. Produzierende Unternehmen unterschiedlichster Branchen warten auf Sie. Sammeln Sie erste Erfahrungen als Staplerfahrer oder Produktionshelfer und erschließen Sie sich Schritt für Schritt weitere Tätigkeitsbereiche, die Ihre Karriere vorantreiben.</p>
-		<p>Wer weiß, vielleicht reicht es ja irgendwann zum Millionär? Bis dahin steht Ihnen Job2Job zur Seite – mit einem fairen Einkommen als Hilfskraft, Qualifizierungsmaßnahmen und neuen beruflichen Perspektiven.</p>
-
+	    <div>
+			<div class="width50 pad20"><p>Selbst Milliardäre haben mal klein angefangen. Schon aus diesem Grund nehmen Sie das Sprichwort „Vom Tellerwäscher zum Millionär“ gerne wörtlich? Dann sind Sie bei uns richtig. Bewerben Sie sich als Aushilfskraft – beispielsweise als Küchenhilfe – und fassen Sie Fuß im Geschäftsleben. Produzierende Unternehmen unterschiedlichster Branchen warten auf Sie. Sammeln Sie erste Erfahrungen als Staplerfahrer oder Produktionshelfer und erschließen Sie sich Schritt für Schritt weitere Tätigkeitsbereiche, die Ihre Karriere vorantreiben.</p></div>
+			<div class="width50 pad20"><p>Wer weiß, vielleicht reicht es ja irgendwann zum Millionär? Bis dahin steht Ihnen Job2Job zur Seite – mit einem fairen Einkommen als Hilfskraft, Qualifizierungsmaßnahmen und neuen beruflichen Perspektiven.</p></div>
+	    	<div class="clear"></div>
+		</div>
 		<br><br><br>
 
 	</div>
