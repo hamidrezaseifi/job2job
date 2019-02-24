@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `j2j_application`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_application` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
@@ -58,7 +58,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_applicationattachment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_applicationattachment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `applicationid` int(11) NOT NULL,
@@ -86,7 +86,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_applicationskill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_applicationskill` (
   `applicationid` int(11) NOT NULL,
   `skillid` int(11) NOT NULL,
@@ -113,7 +113,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_backlog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_backlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
@@ -140,7 +140,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_backmessage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_backmessage` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
@@ -171,7 +171,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_branch` (
   `id` int(11) NOT NULL,
   `title` varchar(80) DEFAULT NULL,
@@ -202,7 +202,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_callrequest`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_callrequest` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL DEFAULT '0',
@@ -231,7 +231,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_candidate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_candidate` (
   `userid` int(11) NOT NULL,
   `title` varchar(15) DEFAULT '',
@@ -281,7 +281,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_candidatefavorite`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_candidatefavorite` (
   `userid` int(11) NOT NULL,
   `jobposid` int(11) NOT NULL,
@@ -308,7 +308,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_candidatejobapply`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_candidatejobapply` (
   `userid` int(11) NOT NULL,
   `jobposid` int(11) NOT NULL,
@@ -336,7 +336,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_candidateskill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_candidateskill` (
   `candidateid` int(11) NOT NULL,
   `skill` varchar(100) NOT NULL,
@@ -361,7 +361,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_city`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_city` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -388,7 +388,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `companyname` varchar(80) NOT NULL,
@@ -427,7 +427,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_companytype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_companytype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
@@ -452,7 +452,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_connectedcompany`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_connectedcompany` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `companyid` int(11) NOT NULL,
@@ -479,7 +479,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_contants`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_contants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(100) NOT NULL,
@@ -505,7 +505,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_country`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
@@ -530,7 +530,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_distance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_distance` (
   `title` varchar(50) NOT NULL,
   `status` smallint(6) NOT NULL DEFAULT '1',
@@ -554,7 +554,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_education`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_education` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `applicationid` int(11) NOT NULL,
@@ -583,7 +583,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_emailtext`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_emailtext` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL DEFAULT '-',
@@ -610,7 +610,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_frontlog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_frontlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
@@ -639,7 +639,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_jobposition`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_jobposition` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `companyid` int(11) NOT NULL,
@@ -690,7 +690,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_jobpositionseen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_jobpositionseen` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `jobpos` int(11) NOT NULL,
@@ -718,7 +718,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_jobpositionskill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_jobpositionskill` (
   `jobid` int(11) NOT NULL,
   `skill` varchar(100) NOT NULL,
@@ -744,7 +744,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_jobpositiontasks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_jobpositiontasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `jobid` int(11) NOT NULL,
@@ -754,7 +754,7 @@ CREATE TABLE `j2j_jobpositiontasks` (
   PRIMARY KEY (`id`),
   KEY `FK_JOBPOSITION_TASK_idx` (`jobid`),
   CONSTRAINT `FK_JOBPOSITION_TASK` FOREIGN KEY (`jobid`) REFERENCES `j2j_jobposition` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -773,7 +773,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_languages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_languages` (
   `id` varchar(45) NOT NULL,
   `index` int(11) NOT NULL DEFAULT '0',
@@ -803,7 +803,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_nationality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_nationality` (
   `title` varchar(50) NOT NULL,
   `status` smallint(6) NOT NULL DEFAULT '1',
@@ -827,7 +827,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_navigation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_navigation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parentid` int(11) DEFAULT '0',
@@ -863,7 +863,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_personaldecisionmaker`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_personaldecisionmaker` (
   `userid` int(11) NOT NULL,
   `companyid` int(11) NOT NULL,
@@ -899,7 +899,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_postcode`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_postcode` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(45) DEFAULT NULL,
@@ -925,7 +925,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_recommendation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_recommendation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iscandidate` smallint(6) NOT NULL DEFAULT '1',
@@ -933,7 +933,7 @@ CREATE TABLE `j2j_recommendation` (
   `recommendation` text,
   `updated` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -952,7 +952,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_skills`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_skills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parentid` int(11) NOT NULL DEFAULT '0',
@@ -980,7 +980,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_targetmessageusers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_targetmessageusers` (
   `userid` int(11) NOT NULL,
   `status` smallint(6) NOT NULL DEFAULT '1',
@@ -1005,7 +1005,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_uploadedfiles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_uploadedfiles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file` varchar(200) NOT NULL,
@@ -1032,7 +1032,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_usergroup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_usergroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
@@ -1059,7 +1059,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_usergroupnavgation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_usergroupnavgation` (
   `groupid` int(11) NOT NULL,
   `navigationid` int(11) NOT NULL,
@@ -1092,7 +1092,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_userpermission`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_userpermission` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -1117,7 +1117,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uname` varchar(45) NOT NULL,
@@ -1158,7 +1158,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_vacancy`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_vacancy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(55) NOT NULL,
@@ -1185,7 +1185,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_workexperience`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_workexperience` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `applicationid` int(11) NOT NULL,
@@ -1219,7 +1219,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_workpermission`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_workpermission` (
   `id` smallint(6) NOT NULL,
   `title` varchar(55) NOT NULL,
@@ -1242,7 +1242,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `j2j_worktimemodel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `j2j_worktimemodel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
