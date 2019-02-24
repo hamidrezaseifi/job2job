@@ -2,11 +2,19 @@
 brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', function ($scope, $http, $sce, $element) {
 
 	$scope.currentWizardIndex = 1;
-	$scope.selectedTaskList = [];
-	$scope.selectedSkillList = [];
-	$scope.selectedVacance = -1;
+
+	$scope.jobposition = jobposition ;
+	$scope.jobposition.taskList = [];
+	$scope.jobposition.skillList = [];
+	$scope.jobposition.vacance = -1;
+	$scope.jobposition.jobStartMonth = jobStartMonth;
+
+	$scope.jobposition.branch = "" + $scope.jobposition.branch;
+	$scope.jobposition.worktype = "" + $scope.jobposition.worktype;
 	
 	$scope.allskils = allskils;
+	$scope.branchs = branchs;
+	$scope.worktypes = worktypes;
 	
 	$scope.addTask = function(){
 		var task = $(".add-text-item.task-text-item").val();
@@ -17,13 +25,13 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		}
 		
 		$scope.deleteTask(task);
-		$scope.selectedTaskList.push(task);
+		$scope.jobposition.taskList.push(task);
 	}
 	
 	$scope.deleteTask = function(task){
-		var index = $scope.selectedTaskList.indexOf(task);
+		var index = $scope.jobposition.taskList.indexOf(task);
 		if(index > -1){
-			$scope.selectedTaskList.splice(index, 1);
+			$scope.jobposition.taskList.splice(index, 1);
 		}
 	}
 	
@@ -36,13 +44,13 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		}
 		
 		$scope.deleteSkill(skill);
-		$scope.selectedSkillList.push(skill);
+		$scope.jobposition.skillList.push(skill);
 	}
 	
 	$scope.deleteSkill = function(skill){
-		var index = $scope.selectedSkillList.indexOf(skill);
+		var index = $scope.jobposition.skillList.indexOf(skill);
 		if(index > -1){
-			$scope.selectedSkillList.splice(index, 1);
+			$scope.jobposition.skillList.splice(index, 1);
 		}
 	}
 	
@@ -51,33 +59,16 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		
 	}
 
-	$.datepicker.setDefaults($.datepicker.regional["de"]);
-	
-	$("input.calender-icon[name='expiredate']").datepicker({
-	      changeMonth: true,
-	      changeYear: true,
-	      minDate: "+5D", maxDate: "+1Y"
-	    });
+	$scope.cancelAdv = function(){
+		window.location = advlisturl;
+	}
 
-	$(".wizard-item2").hide();
-	$(".wizard-item3").hide();
-	$(".nav-button-set .prev").hide();
-	$(".nav-button-set .buttonapply").hide();
-	$(".nav-button-set .apply-condition").hide();
+	$scope.createAdv = function(){
+		submitJob();
+	}
 	
 	
-	$("span.check").click(function(){
-		$(this).prev().click();
-	});
-
-	$("span.checkone").click(function(){
-		
-		$(this).prev().prev().click();
-	});
-
-	setToNavColor();
-
-	$(".nav-button-set .next").click(function(){
+	$scope.nextWizard = function(){
 		var next = $scope.currentWizardIndex + 1;
 		
 		$(".wizard-item" + $scope.currentWizardIndex).slideUp();
@@ -96,9 +87,9 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 			$(".nav-button-set .prev").show();
 			$(".nav-button-set .cancel").hide();
 		}
-	});
+	}
 
-	$(".nav-button-set .prev").click(function(){
+	$scope.prevWizard = function(){
 		var next = $scope.currentWizardIndex - 1;
 		
 		$(".wizard-item" + $scope.currentWizardIndex).slideUp();
@@ -119,16 +110,24 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 			$(".nav-button-set .next").show();
 		}
 		
-	});
-
-	$(".nav-button-set .cancel").click(function(){
-		window.location = advlisturl;
-	});
+	}
 	
-	$(".nav-button-set .buttonapply").click(function(){
+	
+	$.datepicker.setDefaults($.datepicker.regional["de"]);
+	
+	$("input.calender-icon[name='expiredate']").datepicker({
+	      changeMonth: true,
+	      changeYear: true,
+	      minDate: "+5D", maxDate: "+1Y"
+	    });
 
-		submitJob();
-	});
+	$(".wizard-item2").hide();
+	$(".wizard-item3").hide();
+	$(".nav-button-set .prev").hide();
+	$(".nav-button-set .buttonapply").hide();
+	$(".nav-button-set .apply-condition").hide();
+	
+	setToNavColor();	
 	
 	$(".add-text-item.skill-text-item").autocomplete({source: allskils});
 	
@@ -139,121 +138,113 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		$(navitem).css("color" , "black");	
 	}
 	
+	$("span.check").click(function(){
+		$(this).prev().click();
+	});
+
+	$("span.checkone").click(function(){
+		
+		$(this).prev().prev().click();
+	});
 
 
 	function submitJob()
 	{
+		var jobPos = angular.copy($scope.jobposition);
 		
-		$("div.content input[type='text']").each(function(index , item){
-			$(item).val( $.trim($(item).val()) );
-		});
+		for(obj in jobPos){
+			if(typeof jobPos[obj] == "string"){
+				jobPos[obj] = $.trim(jobPos[obj]);
+			}
+		}
 		
-		$("div.content input[type='number']").each(function(index , item){
-			$(item).val( $.trim($(item).val()) );
-			$(item).val( new Number($(item).val()) );
-		});
-		
-		$("div.content textarea").each(function(index , item){
-			$(item).val( $.trim($(item).val()) );
-		});
-		
-		$("div.content input[name='jobduration']").val()
-		
+		jobPos.branch = new Number(jobPos.branch);
+		jobPos.worktype = new Number(jobPos.worktype);
+
 		if($("#checkcondition").length == 1 &&  $("#checkcondition:checked").length == 0){
 			alert(condition_msg);
 			return;
 		}
 		
-		if($("div.content input[name='title']").val() == ""){
+		if(checkIsNullOrEmpty(jobPos.title)){
 			alert(title_msg);
 			return;
 		}
 		
-		if($("div.content select[name='country']").val() == ""){
+		if(checkIsNullOrEmpty(jobPos.country)){
 			alert(country_msg);
 			return;
 		}
 		
-		if($("div.content input[name='city']").val() == ""){
+		if(checkIsNullOrEmpty(jobPos.city)){
 			alert(city_msg);
 			return;
 		}
 		
-		if($("div.content input[name='postcode']").val() == ""){
+		if(checkIsNullOrEmpty(jobPos.postcode)){
 			alert(postcode_msg);
 			return;
 		}
 		
-		if($("div.content textarea[name='comments']").val() == ""){
-			alert(comment_msg);
-			return;
+		if(checkIsNullOrEmpty(jobPos.comments)){
+			//alert(comment_msg);
+			//return;
 		}
 		
-		if($("div.content select[name='vacancy']").val() == ""){
+		if(checkIsNullOrZero(jobPos.vacancy)){
 			alert(vacancy_msg);
 			return;
 		}
 		
-		if($("div.content select[name='worktype']").val() == 0){
+		if(checkIsNullOrZero(jobPos.branch)){
+			alert(branch_msg);
+			return;
+		}
+
+		if(checkIsNullOrZero(jobPos.worktype)){
 			alert(worktype_msg);
 			return;
 		}
 		
-		if($("div.content select[name='jobstart_month']").val() == 0 || $("div.content select[name='jobstart_year']").val() == 0 
-				|| $("div.content input[name='jobduration']").val() == "" || $("div.content input[name='jobduration']").val() == 0 ){
+		if(checkIsNullOrEmpty(jobPos.jobStartMonth) || checkIsNullOrZero(jobPos.duration)){
 			alert(jobdate_msg);
 			return;
 		}
 		
-		if($("div.content input[name='expiredate']").val() == ""){
+		if(checkIsNullOrEmpty(jobPos.expiredate)){
 			alert(expire_msg);
 			return;
 		}
 		
-		var selected_skills = "";
-		$(".skillholder .item .text").each(function(index , item){
-			selected_skills += $.trim($(item).html()) + ", ";
-		});
-
-
-		var jobstartdate = $("div.content select[name='jobstart_year']").val() + "-" + $("div.content select[name='jobstart_month']").val() + "-1";
+		if(jobPos.skillList.length === 0){
+			alert(skill_msg);
+			return;
+		}
 		
-		var formData = new FormData();
-		formData.append("job", "true");
-		formData.append('_csrf-frontend', $("#formnewadv").children("input[name='_csrf-frontend']").val());
-		formData.append("JobpositionBase[title]", $("div.content input[name='title']").val());
-		formData.append("JobpositionBase[country]", $("div.content input[name='country']").val());
-		formData.append("JobpositionBase[city]", $("div.content input[name='city']").val());
-		formData.append("JobpositionBase[postcode]", $("div.content input[name='postcode']").val());
-		formData.append("JobpositionBase[comments]", $("div.content textarea[name='comments']").val());
-		formData.append("JobpositionBase[expiredate]", $("div.content input[name='expiredate']").val());
-		formData.append("JobpositionBase[vacancy]", $("div.content select[name='vacancy']").val());
-		formData.append("JobpositionBase[worktype]", $("div.content select[name='worktype']").val());
-		formData.append("JobpositionBase[jobstartdate]", jobstartdate);
-		formData.append("JobpositionBase[duration]", $("div.content input[name='jobduration']").val());
-		formData.append("JobpositionBase[duration]", $("div.content input[name='jobduration']").val());
-		formData.append("JobpositionBase[extends]", $("div.content input[name='extends']:checked").length);
-		formData.append("skills", selected_skills);
+		if(jobPos.taskList.length === 0){
+			alert(task_msg);
+			return;
+		}
 
-		$.ajax({
-			url: $("#formnewadv").attr("action"),
-			type: "POST",
-			data: formData,
-			contentType: false,
-			cache: false,
-			processData:false,
-			success: function(idata)
-			{
-				if(idata == 'ok'){
-					window.location = advlisturl;
-				}
-				else{
-					alert("Error : " + idata);
-				}
-			}
-		});
 		
-		
+		$http({
+	        method : "POST",
+	        headers: {
+	        	'Content-type': 'application/json; charset=UTF-8',
+	        },
+	        url : advsaveurl,
+	        data : jobPos
+	    }).then(function successCallback(response) {
+	    	if(response.data.msg === 'ok'){
+	    		window.location = advlisturl;
+	    	}
+	    	
+	    }, function errorCallback(response) {
+	        
+	        alert("error:\n\n" +  response);
+	        $scope.debug = response;
+	        //$scope.test = response.data;
+	    });
 	}	
 	
 }]);

@@ -24,6 +24,7 @@ use common\lib\PostcodeBase;
 use common\lib\CityBase;
 use common\lib\ConnectedcompanyBase;
 use common\lib\FrontlogBase;
+use common\lib\JobpositiontasksBase;
 
 
 /**
@@ -314,36 +315,79 @@ class CompanyController extends Controller
     				 
     			break;    
     			
+    		case 'savejob' :
+    		    $jobModel = new JobpositionBase();
+    		    header('Content-type: application/json');
+    		    $this->layout=false;
+    		    
+    		    $params = Yii::$app->getRequest()->getBodyParams();
+    		    
+    		    
+    		    $this->edit_jobadv($params , $jobModel);
+    		    
+    		    break;
+    		    
     		case 'newjob' :
-    				 
-    			$jobModel = new JobpositionBase();
-    			
-    			if(isset($_POST['job']))
-    			{
-    			    print_r($_POST);
-    			    exit;
-    				$this->edit_jobadv($_POST , $jobModel);
-    			}
+    		    
+    		    $jobModel = new JobpositionBase();
     			    			
     			$skills = SkillsBase::allChilds(1);
     			$worktypes_array = BrainStaticList::workTypeList();
     			$vacancy_array = BrainStaticList::vacancyList();
     			$branchs = BranchBase::allActiveKeyList();
     			$vacancies = VacancyBase::allActiveKeyList();
+    			$worktypes =  WorktimemodelBase::allActiveKeyList();
     			
     			$jobModel->country = 'Deutschland';
-     			
+    			//$jobModel->jobstartdate = 
+    			
+    			Yii::$app->formatter->locale = 'de-DE';
+    			
+    			$startmonth = '';
+    			$startdate = $jobModel->jobstartdate;
+    			if(strlen($startdate) >= 10 )
+    			{
+    			    $startmonth= intval(substr($startdate , 0 , 4)) . "-" . intval(substr($startdate , 5 , 2));
+    			}
+    			
+    			$jobModel->expiredate = BrainHelper::dateEnglishToGerman($jobModel->expiredate);
+    			
+    			
+    			$jobAttributes = $jobModel->attributes;
+    			$jobAttributes["id"] = 0;
+    			$jobAttributes["companyid"] = 0;
+    			$jobAttributes["jobstartdate"] = "";
+    			$jobAttributes["title"] = "";
+    			$jobAttributes["subtitle"] = "";
+    			$jobAttributes["postcode"] = "";
+    			$jobAttributes["city"] = "";
+    			$jobAttributes["comments"] = "";
+    			$jobAttributes["duration"] = 0;
+    			$jobAttributes["extends"] = 0;
+    			$jobAttributes["showdate"] = "";
+    			$jobAttributes["expiredate"] = "";
+    			$jobAttributes["branch"] = 0;
+    			$jobAttributes["vacancy"] = 0;
+    			$jobAttributes["worktype"] = 0;
+    			$jobAttributes["userid"] = 0;
+    			$jobAttributes["status"] = 0;
+    			unset($jobAttributes["createdate"]);
+    			unset($jobAttributes["updatedate"]);
+    			
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [
-    					'jobModel' 				=> $jobModel,
-    					'userModel' 			=> $model,
-    					'userModelSecond' 		=> $modelSecond,
-    					'companyModel' 			=> $companyModel,
-    					'pdmModel'	 			=> $pdmModel,
-    					'pdmModelSecond'		=> $pdmModelSecond,
-    					'skills' 				=> $skills,
-    					'selectedSkills' 		=> array(),
-    			        'vacancies'				=> $vacancies,
-        			    'branchs'				=> $branchs,
+    			    'jobModel' 				=> $jobModel,
+    			    'startmonth' 			=> $startmonth,
+    			    'jobAttributes'			=> $jobAttributes,
+    			    'userModel' 			=> $model,
+					'userModelSecond' 		=> $modelSecond,
+					'companyModel' 			=> $companyModel,
+					'pdmModel'	 			=> $pdmModel,
+					'pdmModelSecond'		=> $pdmModelSecond,
+					'skills' 				=> $skills,
+					'selectedSkills' 		=> array(),
+			        'vacancies'				=> $vacancies,
+    			    'branchs'				=> $branchs,
+    			    'worktypes'				=> $worktypes,
     			    
     			]);
     				 
@@ -362,7 +406,6 @@ class CompanyController extends Controller
     				$this->edit_jobadv($_POST , $jobModel);
     			}
     			
-    			$countries = CountryBase::findAll(['status' => 1]);
     			$worktypes =  WorktimemodelBase::findAll(['status' => 1]);
     			$selectedJobskill = JobpositionskillBase::findAll(['jobid' => $jobid]); 
     			$skills1 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 1])->orderBy('title')->all();
@@ -623,7 +666,7 @@ class CompanyController extends Controller
     	exit;
     }
 
-    private function edit_jobadv($data , $jobModel)
+    private function edit_jobadv($inData , $jobModel)
     {
     	$message = 'ok';
     	$isnew = $jobModel->isNewRecord;
@@ -631,68 +674,92 @@ class CompanyController extends Controller
     	$model = Yii::$app->user->identity;
     	$companyModel = $model->company();
     	
-    	if($isnew)
-    	{
-    		$data['JobpositionBase']['createdate'] = date('Y-m-d H:i:s');
+    	$data = array();
+    	$data['JobpositionBase'] = array();
+    	//"id":0,"companyid":0,"title":"tttttttt","subtitle":"","postcode":"1111111","city":"oooooooo","country":"Deutschland","comments":"wwwwwwwwwwwwwwwwwwwwwwwww","jobstartdate":"","duration":12,"extends":true,"showdate":"","expiredate":"2019-06-20T22:00:00.000Z","branch":"1","vacancy":"3","worktype":"3","userid":0,"status":0,"taskList":["aaaaaaa","bbbbbbbbbbbbbb"],"skillList":["sssssssss","fffffffffff"],"vacance":-1,"jobStartMonth":"2019-04-30T22:00:00.000Z"
+    	
+    	foreach ($jobModel->attributes as $key => $value){
+    	    $data['JobpositionBase'][$key] = isset($inData[$key]) ? $inData[$key] : ''; 
     	}
-    	$data['JobpositionBase']['updatedate'] = date('Y-m-d H:i:s');
+    	
     	$data['JobpositionBase']['companyid'] = $companyModel->id;
-    	$data['JobpositionBase']['subtitle'] = isset($data['JobpositionBase']['subtitle']) ? $data['JobpositionBase']['subtitle'] : '';
-    	$data['JobpositionBase']['postcode'] = isset($data['JobpositionBase']['postcode']) ? $data['JobpositionBase']['postcode'] : '';
-    	$data['JobpositionBase']['showdate'] = isset($data['JobpositionBase']['showdate']) ? $data['JobpositionBase']['showdate'] : date('Y-m-d');
-    	$data['JobpositionBase']['expiredate'] = isset($data['JobpositionBase']['expiredate']) ? BrainHelper::dateGermanToEnglish($data['JobpositionBase']['expiredate']) : date('Y-m-d');
+    	$data['JobpositionBase']['expiredate'] = substr ($data['JobpositionBase']['expiredate'], 0, 10);
+    	$data['JobpositionBase']['jobstartdate'] = substr ($inData['jobStartMonth'], 0, 7) . "-01";
+    	//$data['JobpositionBase']['subtitle'] = isset($inData['subtitle']) ? $inData['subtitle'] : '';
+    	//$data['JobpositionBase']['postcode'] = isset($inData['postcode']) ? $inData['postcode'] : '';
+    	$data['JobpositionBase']['showdate'] = isset($inData['showdate']) ? $inData['showdate'] : date('Y-m-d');
+    	//$data['JobpositionBase']['expiredate'] = isset($inData['expiredate']) ? BrainHelper::dateGermanToEnglish($inData['expiredate']) : date('Y-m-d');
+    	
+    	
     	if($isnew)
     	{
-    		$data['JobpositionBase']['userid'] = Yii::$app->user->identity->id;
+    	    $data['JobpositionBase']['userid'] = Yii::$app->user->identity->id;
     	}
+    	else{
+    	    $data['JobpositionBase']['updatedate'] = date('Y-m-d H:i:s');
+    	}
+    	
     	$data['JobpositionBase']['status'] = 2;
-    	 
+    	
     	$allskills = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1])->all();
     	$allskills = BrainHelper::mapTranslate($allskills, 'title', 'title');
-    	
-    	$data['skills'] = isset($data['skills']) && is_string($data['skills']) ? $data['skills'] : '';
-    	
-    	$skills = explode(',' , $data['skills']);
-    	
+    	    	
     	$jobModel->load($data); 
     	$jobModel->save(false);
+    	
     	JobpositionskillBase::deleteAll(['jobid' => $jobModel->id]);
+    	
+    	$skills = $inData['skillList'];
     	
     	$skilldata = array();
     	$skilldata['JobpositionskillBase']['jobid'] = $jobModel->id;
-    	$skilldata['JobpositionskillBase']['created'] = date('Y-m-d H:i:s');
     	foreach ($skills as $skill)
     	{
-    		$skill = trim($skill);
-    		if($skill == '') continue; 
-    		$skilldata['JobpositionskillBase']['skill'] = $skill;
-    		$jobskill = new JobpositionskillBase();
-    		$jobskill->load($skilldata);
-    		$jobskill->save(false);
-    		
-    		if(!isset($allskills[$skill]))
-    		{
-    			$sdata = array();
-    			$sdata['SkillsBase']['parentid'] = 1;
-    			$sdata['SkillsBase']['title'] = $skill;
-     			$sdata['SkillsBase']['status'] = 0;
-    			$sdata['SkillsBase']['createdate'] = $skilldata['JobpositionskillBase']['created'];
-    			$sdata['SkillsBase']['updatedate'] = $skilldata['JobpositionskillBase']['created'];
-    			
-    			$skillModel = new SkillsBase();
-    			$skillModel->load($sdata);
-    			$skillModel->save(false);
-    			
-    		}
-    		
+    	    $skill = trim($skill);
+    	    if($skill == '') continue;
+    	    $skilldata['JobpositionskillBase']['skill'] = $skill;
+    	    
+    	    $jobskill = new JobpositionskillBase();
+    	    $jobskill->load($skilldata);
+    	    $jobskill->save(false);
+    	    
+    	    if(!isset($allskills[$skill]))
+    	    {
+    	        $sdata = array();
+    	        $sdata['SkillsBase']['parentid'] = 1;
+    	        $sdata['SkillsBase']['title'] = $skill;
+    	        $sdata['SkillsBase']['status'] = 0;
+    	        $sdata['SkillsBase']['createdate'] = $skilldata['JobpositionskillBase']['created'];
+    	        $sdata['SkillsBase']['updatedate'] = $skilldata['JobpositionskillBase']['created'];
+    	        
+    	        $skillModel = new SkillsBase();
+    	        $skillModel->load($sdata);
+    	        $skillModel->save(false);
+    	        
+    	    }
+    	    
     	}
+    	
+    	$taskdata = array();
+    	$taskdata['JobpositiontasksBase']['jobid'] = $jobModel->id;
+    	foreach ($inData['taskList'] as $task)
+    	{
+    	    $skill = trim($task);
+    	    if($task == '') continue;
+    	    $taskdata['JobpositiontasksBase']['task'] = $task;
+    	    
+    	    $jobtask = new JobpositiontasksBase();
+    	    $jobtask->load($taskdata);
+    	    $jobtask->save(false);
+    	    
+    	}
+    	
+    	//JobpositiontasksBase
 
-    	$data['JobpositionBase']['country'] = isset($data['JobpositionBase']['country']) ? $data['JobpositionBase']['country'] : false;
-    	$data['JobpositionBase']['city'] = isset($data['JobpositionBase']['city']) ? $data['JobpositionBase']['city'] : false;
-    	$data['JobpositionBase']['postcode'] = isset($data['JobpositionBase']['postcode']) ? $data['JobpositionBase']['postcode'] : false;
-
-    	PostcodeBase::add($data['JobpositionBase']['country'], $data['JobpositionBase']['city'], $data['JobpositionBase']['postcode']);
-
+    	$res = array();
+    	$res["msg"] = $message;
+    	echo json_encode($res);
+    	exit;
     	echo $message;
     	exit;
     }
@@ -776,7 +843,6 @@ class CompanyController extends Controller
     		$plist = $companyModel->personalDecisionMakerList();
     		 
     		$pdmModel = isset($plist[0]) ? $plist[0] : new PersonaldecisionmakerBase();
-    		$pdmModelSecond = isset($plist[1]) ? $plist[1] : new PersonaldecisionmakerBase();
     		
     
     		$_POST['PersonaldecisionmakerBase']['updatedate'] = date('Y-m-d H:i:s');

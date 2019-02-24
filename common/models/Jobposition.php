@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "j2j_jobposition".
  *
- * @property integer $id
- * @property integer $companyid
+ * @property int $id
+ * @property int $companyid
  * @property string $title
  * @property string $subtitle
  * @property string $postcode
@@ -16,15 +16,15 @@ use Yii;
  * @property string $country
  * @property string $comments
  * @property string $jobstartdate
- * @property integer $duration
- * @property integer $extends
+ * @property int $duration
+ * @property int $extends
  * @property string $showdate
  * @property string $expiredate
- * @property integer $branch
- * @property integer $vacancy
- * @property integer $worktype
- * @property integer $userid
- * @property integer $status
+ * @property int $branch
+ * @property int $vacancy
+ * @property int $worktype
+ * @property int $userid
+ * @property int $status
  * @property string $createdate
  * @property string $updatedate
  *
@@ -38,11 +38,12 @@ use Yii;
  * @property Vacancy $vacancy0
  * @property Jobpositionseen[] $jobpositionseens
  * @property Jobpositionskill[] $jobpositionskills
+ * @property Jobpositiontasks[] $jobpositiontasks
  */
 class Jobposition extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -50,15 +51,15 @@ class Jobposition extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['companyid', 'title', 'subtitle', 'postcode', 'city', 'country', 'jobstartdate', 'showdate', 'expiredate', 'branch'], 'required'],
+            [['companyid', 'title', 'subtitle', 'postcode', 'city', 'jobstartdate', 'showdate', 'expiredate', 'branch'], 'required'],
             [['companyid', 'duration', 'extends', 'branch', 'vacancy', 'worktype', 'userid', 'status'], 'integer'],
             [['comments'], 'string'],
-            [['jobstartdate', 'showdate', 'expiredate', 'createdate', 'updatedate'], 'safe'],
+            [['jobstartdate', 'showdate', 'expiredate'], 'safe'],
             [['title', 'city', 'country'], 'string', 'max' => 80],
             [['subtitle'], 'string', 'max' => 500],
             [['postcode'], 'string', 'max' => 20],
@@ -70,7 +71,7 @@ class Jobposition extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -176,5 +177,22 @@ class Jobposition extends \yii\db\ActiveRecord
     public function getJobpositionskills()
     {
         return $this->hasMany(Jobpositionskill::className(), ['jobid' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getJobpositiontasks()
+    {
+        return $this->hasMany(Jobpositiontasks::className(), ['jobid' => 'id']);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return JobpositionQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new JobpositionQuery(get_called_class());
     }
 }

@@ -44,4 +44,16 @@ class WorktimemodelBase extends \common\models\Worktimemodel
                 
         return $worktimemodelQuery;
     }
+    
+    public static function allActiveKeyList() {
+        $query = WorktimemodelBase::findAll (['status' => 1]);
+        
+        $items = array ();
+        foreach ( $query as $item ) {
+            
+            $items [$item->id] = $item->title;
+        }
+        
+        return $items;
+    }
 }
