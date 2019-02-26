@@ -192,6 +192,8 @@ class CandidateController extends Controller
                 if (strlen($candidateModel->cellphone) < 2) {
                     $candidateModel->cellphone = '--';
                 }
+                
+                $candidateModel->desiredjobcountry = 'Deutschland';
 
                 $subpageContent = $this->renderPartial('dashbaord_profile',
                     [

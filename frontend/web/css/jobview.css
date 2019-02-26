@@ -1,12 +1,6 @@
 
 .jobview-jobpanel {
-	width: calc(100vw - 390px);
-    margin-left: 30px;
-    margin-right: 40px;
-    margin-bottom: 20px;
-    border: 2px solid #aaaaaa;
-    padding-bottom: 20px;
-    float: left;
+	
 }
 
 .jobview-rightpanel {
@@ -16,7 +10,8 @@
     margin-bottom: 30px;
     border: 1px solid #aaaaaa;
     padding: 15px;
-    min-height: calc(100vh - 130px);
+    background: white;
+    top: 120px;
 }
 
 .jobview-rightpanel div.desc {
@@ -75,15 +70,25 @@
 }
 
 
-.jobview-pagetitle {
+.jobview-pagetitle 
+{
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     line-height: 70px;
     vertical-align: middle;
-    width: 85%;
-    padding-left: 70px;
     float: left;
+    background: #1a3156;
+    color: white;
+    width: 50%;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.jobview-pagetitle .job-title-gender
+{
+	color: #d20000;
+	padding-left: 10px;
 }
 
 .jobview-favstar {
@@ -94,56 +99,6 @@
     float: right;
 }
 
-.jobview-title
-{
-	font-size: 20px;
-	margin-top: 25px;
-	margin-left: 20px;
-	width: 90%
-}
-
-.jobview-ort
-{
-	font-size: 16px;
-	margin-top: 25px;
-	
-	width: 90%;
-	padding-left: 70px;
-	color: #909090;
-	font-size: 24px;
-	font-weight: bold;
-}
-
-.jobview-jobtitle
-{
-	font-size: 16px;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	
-	width: 90%;
-	padding-left: 70px;
-	color: #222b62;
-	font-size: 24px;
-	font-weight: bold;
-}
-
-.jobview-detail
-{
-	font-size: 16px;
-	margin-top: 25px;
-	
-	width: 90%;
-	padding-left: 70px;
-}
-
-.jobview-comments
-{
-	font-size: 16px;
-	margin-top: 25px;
-	
-	width: 90%;
-	padding-left: 70px;
-}
 
 .buttonbewerben {
     border: 2px solid #a9cb14;
@@ -225,6 +180,69 @@
 	cursor: pointer;
 }
 
+.jobview-container
+{
+    width: 800px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.jobview-info
+{
+	border: #e2e1e1 2px solid;
+    padding: 20px;
+}
 
+.jobview-info div
+{
+    color: #1a3156;
+    font-size: 22px;
+}
 
+.jobview-info div span
+{
+	font-weight: bold;
+    width: 220px;
+    display: inline-block;
+    height: 34px;
+}
+
+.jobview-twinbox
+{
+	border: #e2e1e1 2px solid;
+    margin-top: 20px;
+    width: 46%;
+    padding: 20px;
+    float: left;
+    height: 300px;
+    overflow: hidden;
+}
+
+.jobview-tasks
+{
+    float: left;
+}
+
+.jobview-skills
+{
+    float: right;
+}
+
+.jobview-tasks .tasks-title,
+.jobview-skills .skills-title
+{
+	font-weight: bold;
+    width: 220px;
+    color: #1a3156;
+    font-size: 18px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.jobview-tasks ul li, 
+.jobview-skills ul li 
+{
+    line-height: 25px;
+    margin-bottom: 5px;
+}

@@ -136,4 +136,25 @@ class JobpositionBase extends \common\models\Jobposition
          
          return $regions;
     }
+    
+    public function getBranch()
+    {
+        return $this->hasOne(BranchBase::className(), ['id' => 'branch']);
+    }
+    
+    public function getWorktype()
+    {
+        return $this->hasOne(WorktimemodelBase::className(), ['id' => 'worktype']);
+    }
+    
+    public function getJobpositiontasks()
+    {
+        return $this->hasMany(JobpositiontasksBase::className(), ['jobid' => 'id'])->all();
+    }
+
+    public function getJobpositionskills()
+    {
+        return $this->hasMany(JobpositionskillBase::className(), ['jobid' => 'id'])->all();
+    }
+    
 }

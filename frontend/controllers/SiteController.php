@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\LoginForm;
 use frontend\models\ContactForm;
+use frontend\modules\UserAccessControl;
 use common\lib\SkillsBase;
 use common\lib\UsersBase;
 use common\lib\JobpositionBaseSearch;
@@ -63,6 +64,19 @@ class SiteController extends Controller
                             '@'
                         ]
                     ]
+                ]
+            ],
+            'access' => [
+                'class' => UserAccessControl::className(),
+                'only' => [
+                    'searchjobs',
+                ],
+                'rules' => [
+                    [
+                        'actions' => ['searchjobs'],
+                        'access' => [UserAccessControl::CANDIDATE_USER, UserAccessControl::GUEST_USER]
+                    ],
+                    
                 ]
             ],
             'verbs' => [
@@ -628,11 +642,22 @@ class SiteController extends Controller
         $isFavorite = (isset(Yii::$app->user->identity))? CandidatefavoriteBase::isFavorite(Yii::$app->user->identity->id, $id) : false;
         $isApplied = (isset(Yii::$app->user->identity))? CandidatejobapplyBase::isApplied(Yii::$app->user->identity->id, $id) : false;
         
+        $start = BrainHelper::dateEnglishToGerman($job->jobstartdate);
+        $end = $job->duration > 0 ? BrainHelper::dateAddEnglish($job->jobstartdate, $job->duration, false, true) : 'unbefristet';
         
+        $tasks = $job->getJobpositiontasks();
+        $skills = $job->getJobpositionskills();
+        
+        //print_r($tasks); exit;
         return $this->render('jobview', [
             'jobModel' => $job,
             'isFavorite' => $isFavorite,
             'isApplied' => $isApplied,
+            'startDate' => $start,
+            'endDate' => $end,
+            'duration' => $job->duration > 0 ? $job->duration : 'unbefristet',
+            'tasks' => $tasks,
+            'skills' => $skills,
             
         ]);
     }

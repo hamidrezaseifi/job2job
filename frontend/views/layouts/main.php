@@ -132,10 +132,7 @@ $this->beginBody ()?>
 
                     <nav id="ubermenu-main-2" class="ubermenu ubermenu-main ubermenu-menu-2 ubermenu-responsive-collapse ubermenu-horizontal ubermenu-transition-slide ubermenu-trigger-hover_intent ubermenu-skin-none  ubermenu-bar-align-full ubermenu-items-align-left ubermenu-bound ubermenu-sub-indicators ubermenu-retractors-responsive ubermenu-notouch">
                     	<ul id="ubermenu-nav-main-2" class="ubermenu-nav">
-                    		<?php
-
-																						if ($user->isGuest || $identity->isCandidate ()) {
-																							?>
+                    		<?php if ($user->isGuest || $identity->isCandidate ()) { ?>
                     		<li id="menu-item-2567" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-current-menu-item ubermenu-item-has-children ubermenu-item-2567 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     			<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" tabindex="0" href="<?=Yii::getAlias ( '@web' )?>/site/candidate">
                     				<span class="ubermenu-target-title ubermenu-target-text">FÜR BEWERBER</span>
@@ -197,10 +194,8 @@ $this->beginBody ()?>
                     				</li>
                     			</ul>
                     		</li>
-                    		<?php
-																						}
-																						if ($user->isGuest || $identity->isCompany ()) {
-																							?>
+                    		<?php }
+							if ($user->isGuest || $identity->isCompany ()) { ?>
                     		<li id="menu-item-2568" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-2568 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     			<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/company" tabindex="0">
                     				<span class="ubermenu-target-title ubermenu-target-text">FÜR UNTERNEHMER</span>
@@ -267,9 +262,7 @@ $this->beginBody ()?>
                     			</li>
                     		</ul>
                     		</li>
-                    		<?php
-																						}
-																						?>
+                    		<?php } ?>
 
                     	<li id="menu-item-17" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-has-children ubermenu-item-17 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     		<a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" tabindex="0">
@@ -326,7 +319,10 @@ $this->beginBody ()?>
 				</nav>
 
 
-				<div class="button-header"><p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">JOB SUCHEN</a></p>
+				<div class="button-header" style="width: 170px;">
+					<p>
+						<?php if ($user->isGuest || $identity->isCandidate ()) { ?><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">JOB SUCHEN</a><?php } ?>
+					</p>
 				</div>
 				<a id="mobileheaderphone" href="tel:+49 89 599 182 70">
 					<i class="fa fa-phone" aria-hidden="true"></i>

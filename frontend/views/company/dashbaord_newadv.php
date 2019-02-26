@@ -206,14 +206,6 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
     </div>
 <?php ActiveForm::end() ?>
 
-<div style="border: 1px solid gray; padding: 10px; margin-top: 20px;">
-	{{jobposition}}
-</div>
-
-<div style="border: 1px solid gray; padding: 10px; margin-top: 20px;">
-	{{debug}}
-</div>
-
 </div>
 
 

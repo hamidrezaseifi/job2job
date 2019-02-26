@@ -49,14 +49,14 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 	    <div class="register-bewerbung-teil-items-container">
 	    
 	    	<div class="items-preview">
+		    	<div class="item-title"><?php echo Yii::t('app', 'Firmenname'); ?></div>
+		    	<div class="item "> <?php echo $companyModel->companyname;?> </div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Geschäftsform'); ?></div>
 		    	<div class="item "> <?=$companytypes[$companyModel->companytype] ?> </div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Verbundene Unternehmen'); ?></div>
 		    	<div class="item top-margin-15">
 		    		<?= (count($connectedCompanies) == 0 ? Yii::t('app', 'Kein'): implode(', ', $connectedCompanies)) ?>
 		    	</div>
-		    	<div class="item-title"><?php echo Yii::t('app', 'Firmenname'); ?></div>
-		    	<div class="item "> <?php echo $companyModel->companyname;?> </div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Gründungsdatum'); ?></div>
 		    	<div class="item "><?php echo $companyModel->founddate;?></div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Steuer-ID'); ?></div>
@@ -72,6 +72,10 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 	    	
 	    	<div class="items-edit">
 	    	<?php $form = ActiveForm::begin(['options' =>['enctype' => 'multipart/form-data']])?>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Firmenname'); ?></div>
+		    	<div class="item requireditem">
+		    		<input type="text" name="CompanyBase[companyname]" required value="<?php echo $companyModel->companyname;?>" />
+		    	</div>
 	    		<input type="hidden" name="part" value="company">
 	    		<input type="hidden" name="MAX_FILE_SIZE" value="2242880" />
 		    	<div class="item-title"><?php echo Yii::t('app', 'Geschäftsform'); ?></div>
@@ -83,10 +87,6 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    		<div id="skills" style="">
 		    			<span class="brows-button"></span>
 		    		</div>
-		    	</div>
-		    	<div class="item-title"><?php echo Yii::t('app', 'Firmenname'); ?></div>
-		    	<div class="item requireditem">
-		    		<input type="text" name="CompanyBase[companyname]" required value="<?php echo $companyModel->companyname;?>" />
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Gründungsdatum'); ?></div>
 		    	<div class="item requireditem">

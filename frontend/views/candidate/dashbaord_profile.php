@@ -255,7 +255,7 @@ function render_skills($list, $ischild = false)
     echo Yii::t('app', 'Land');
     ?></div>
 		    	<div class="item">
-		    		<?=Html::dropDownList('CandidateBase[country]',$candidateModel->country,$countries)?>
+		    		<?=Html::dropDownList('CandidateBase[country]',$candidateModel->country,$countries, ['disabled' => true])?>
 		    	</div>
 		    	<div class="item-title"><?php
 
@@ -523,7 +523,7 @@ echo Yii::t('app', 'Wo möchten Sie Ihre Tätigkeit ausführen?');
     echo Yii::t('app', 'Land');
     ?></div>
 		    	<div class="item">
-		    		<?=Html::dropDownList('CandidateBase[desiredjobcountry]',$candidateModel->desiredjobcountry,$countries)?>
+		    		<?=Html::dropDownList('CandidateBase[desiredjobcountry]',$candidateModel->desiredjobcountry,$countries,['disabled' => true])?>
 		    	</div>
 		    	<div class="item-title"><?php
 
@@ -656,7 +656,7 @@ echo Yii::t('app',
 
         echo Yii::t('app', 'Datei hochladen');
         ?>
-					    <input type="file" multiple id="candidate_doc" name="candidate_doc" file-model="candidate_doc" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+					    <input type="file" multiple id="candidate_doc" name="candidate_doc" file-model="candidate_doc" accept="application/pdf" />
 					</label>
 					<div class="file_title"></div>
 		    	</div>

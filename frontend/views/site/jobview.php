@@ -4,12 +4,15 @@
 /* @var $isFavorite boolean */
 /* @var $isApplied boolean */
 /* @var $id integer */
+/* @var $startDate string */
+/* @var $endDate string */
+/* @var $duration integer */
+/* @var $tasks array */
+/* @var $skills array */
 
 use yii\bootstrap\ActiveForm;
 
 $this->registerCssFile("@web/web/css/jobview.css", [], 'css-jobview');
-$this->registerCssFile("@web/web/css/styleradio.css", [], 'css-style-radio');
-$this->registerCssFile("@web/web/css/stylecheckbox.css", [], 'css-style-checkbox');
 $this->registerJsFile("@web/web/js/jobview.js", [], 'js-jobview');
 
 Yii::$app->formatter->locale = 'de-DE';
@@ -42,53 +45,53 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
 
 <div class="jobview-jobpanel">
     
-    <div class="jobview-pagetitle j2jgreenback">
-    	<?php echo $jobModel->title; ?>
+    <div class="jobview-pagetitle">
+    	<?php echo $jobModel->title; ?> <span class="job-title-gender">( M / W / D )</span>
     </div>
-    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate()) {?>
+    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate() && false) {?>
     <div class="jobview-favstar">
     	<a href="<?=Yii::getAlias('@web') ?>/candidate/jobfav?id=<?=$jobModel->id ?>"><img alt="" src="<?php echo Yii::getAlias('@web')?>/web/images/<?=$faveimage ?>" width="60"></a>
     </div>
-    
 	<?php } ?>
 	
     <div class="clear"></div>
     
-   	<div class="jobview-ort ">
-    	<?php echo Yii::t('app', 'Für einen Einsatz in ') . $jobModel->city . ' (' . $jobModel->postcode . ') ' . Yii::t('app', ' suchen wir:'); ?>
-    </div>
-
-    <div class="jobview-jobtitle">
-    	<?php echo $jobModel->title; ?>
+   	<div class="jobview-container">
+       	<div class="jobview-info">
+       		<div><span>Referenznummer: </span> <?php echo $jobModel->id;?></div>
+       		<div><span>Branche: </span> <?php echo $jobModel->getBranch()->one()->title;?></div>
+       		<div><span>Einsatzort: </span> <?php echo $jobModel->city;?></div>
+       		<div><span>Beschäftigungsform: </span> <?php echo $jobModel->getWorktype()->one()->title;?></div>
+       		<div><span>Beginn des Projekts: </span> <?php echo $startDate;?></div>
+       		<div><span>Ende des Projekts: </span> <?php echo $endDate;?></div>
+       		<div><span>Dauer: </span> <?php echo $duration;?></div>
+        </div>
+        
+       	<div class="jobview-twinbox jobview-tasks">
+       		<div class="tasks-title">Ihre Aufgaben:</div>
+       		<ul>
+       			<?php foreach($tasks as $task){?>
+       			<li><?php echo $task->task?></li>
+       			<?php } ?>
+       		</ul>
+        </div>
+        
+       	<div class="jobview-twinbox jobview-skills">
+       		<div class="skills-title">Ihre Qualifikationen:</div>
+       		<ul>
+       			<?php foreach($skills as $skill){?>
+       			<li><?php echo $skill->skill?></li>
+       			<?php } ?>
+       		</ul>
+        </div>
+        <div class="clear"></div>
     </div>
     
-    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate()) {?> 	
+    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate() && false) {?> 	
     <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($isApplied ? ' disabled-link' : '') ?>"><?php echo $isApplied ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
-	<?php } else {?>
-    <div style="height: 20px;"></div>
-	
 	<?php } ?>
-    
-   	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Arbeitszeitmodel') . ':</b> '; ?>
-    </div>
-    
-   	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Vakanz') . ':</b> '; ?>
-    </div>
-    
-   	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Job-Beginn und Dauer') . ':</b> ' . $startmonths . ' ' . $startyear . ', ' . $jobModel->duration . ' ' . Yii::t('app', 'Monat(e)'). ($jobModel->extends == 1 ? ' ' . Yii::t('app', ', Verlängerung möglich'): ''); ?>
-    </div>
-    
-   	<div class="jobview-detail ">
-    	<?php echo '<b>' . Yii::t('app', 'Hauptkategorie') . ':</b> '; ?>
-    </div>
-    
-   	<div class="jobview-comments ">
-    	<?php echo nl2br($jobModel->comments); ?>
-    </div>
-    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate()) {?>
+
+    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate() && false) {?>
     <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($isApplied ? ' disabled-link' : '') ?>"><?php echo $isApplied ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
     <?php } ?>
 </div>
