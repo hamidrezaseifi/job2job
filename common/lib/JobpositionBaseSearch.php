@@ -343,7 +343,8 @@ class JobpositionBaseSearch extends JobpositionBase {
 	}
 	
 	public function searchCount($params) {
-	    $query = $this->createSearchQuery($params, ['count(DISTINCT id) as jobCount']);
+	    $query = $this->createSearchCountQuery($params, ['count(DISTINCT id) as jobCount']);
+	    
 	    $result = $query->all();
 	    
 	    $out = ['count' => 0, 'err' => false];
@@ -357,7 +358,7 @@ class JobpositionBaseSearch extends JobpositionBase {
 	    
 	    $order = false;
 	    switch ($sortType){
-	        case "new": $order = ["createdate" => SORT_ASC]; break;
+	        case "new": $order = ["createdate" => SORT_DESC]; break;
 	        case "title": $order = ["title" => SORT_ASC]; break;
 	        case "vacancy": $order = ["vacancy" => SORT_ASC]; break;
 	        case "startdate": $order = ["jobstartdate" => SORT_ASC]; break;
@@ -394,74 +395,150 @@ class JobpositionBaseSearch extends JobpositionBase {
 	    $searchTextList = array_filter(explode(" ", $params["searchText"]), function($value) {
 	        return $value !== "";
 	    });
-	    
-
-	    $countries = array_keys($params["region"]);
-	    
-	    $query = JobpositionBase::find()->distinct(['id'])
-	    ->select($columnSelect)
-	    ->leftJoin('j2j_jobpositionskill', 'j2j_jobpositionskill.jobid = j2j_jobposition.id')
-	    ->Where(['status' => 1]);
-	    $textFilterArray = false;
-
-	    foreach ($searchTextList as $searchText){
-	        $orItem = ['or', ['like', 'title' , trim($searchText)], ['like', 'subtitle' , trim($searchText)]];
-	        if($textFilterArray){
-	            $textFilterArray = ['or', $textFilterArray, $orItem];
-	        }
-	        else{
-	            $textFilterArray = $orItem;
-	        }
-	        
-	        //echo $likeSearchText . ', '. PHP_EOL;
-	    }
-	    
-	    if($textFilterArray){
-	        $query->andWhere($textFilterArray);
-	    }
-	    
-	    if(count($params["vacancies"])){
-	        $query->andWhere(['in', 'vacancy', $params["vacancies"]]);
-	    }
-	    if(count($params["branches"])){
-	        $query->andWhere(['in', 'branch', $params["branches"]]);
-	    }
-	    
-	    if(count($params["skills"])){
-	        $query->andWhere(['in', 'skill', $params["skills"]]);
-	    }
-	    
-	    $regionFilterArray = false;
-	    foreach ($countries as $country){
 	        
 	        
-	        if(isset($params["region"][$country])){
+	        $countries = array_keys($params["region"]);
+	        
+	        $query = JobpositionBase::find()->distinct(['id'])
+	        ->select($columnSelect)
+	        ->leftJoin('j2j_jobpositionskill', 'j2j_jobpositionskill.jobid = j2j_jobposition.id')
+	        ->Where(['status' => 1]);
+	        $textFilterArray = false;
+	        
+	        foreach ($searchTextList as $searchText){
+	            $orItem = ['or', ['like', 'title' , trim($searchText)], ['like', 'subtitle' , trim($searchText)]];
+	            if($textFilterArray){
+	                $textFilterArray = ['or', $textFilterArray, $orItem];
+	            }
+	            else{
+	                $textFilterArray = $orItem;
+	            }
 	            
-	            $countryList = $params["region"][$country];
-	            $cities = array_keys($countryList);
-	            foreach ($cities as $city){
-	                if($countryList[$city]){
-	                    $orItem = $city == 'self' ? ['or', ['country' => $country]] : ['or', ['city' => $city]];
-	                    
-	                    if($regionFilterArray){
-	                        $regionFilterArray = ['or', $regionFilterArray, $orItem];
-	                    }
-	                    else{
-	                        $regionFilterArray = $orItem;
+	            //echo $likeSearchText . ', '. PHP_EOL;
+	        }
+	        
+	        if($textFilterArray){
+	            $query->andWhere($textFilterArray);
+	        }
+	        
+	        if(count($params["vacancies"])){
+	            $query->andWhere(['in', 'vacancy', $params["vacancies"]]);
+	        }
+	        if(count($params["branches"])){
+	            $query->andWhere(['in', 'branch', $params["branches"]]);
+	        }
+	        
+	        if(count($params["skills"])){
+	            $query->andWhere(['in', 'skill', $params["skills"]]);
+	        }
+	        
+	        $regionFilterArray = false;
+	        foreach ($countries as $country){
+	            
+	            
+	            if(isset($params["region"][$country])){
+	                
+	                $countryList = $params["region"][$country];
+	                $cities = array_keys($countryList);
+	                foreach ($cities as $city){
+	                    if($countryList[$city]){
+	                        $orItem = $city == 'self' ? ['or', ['country' => $country]] : ['or', ['city' => $city]];
+	                        
+	                        if($regionFilterArray){
+	                            $regionFilterArray = ['or', $regionFilterArray, $orItem];
+	                        }
+	                        else{
+	                            $regionFilterArray = $orItem;
+	                        }
 	                    }
 	                }
 	            }
+	            
+	            //echo $likeSearchText . ', '. PHP_EOL;
 	        }
 	        
-	        //echo $likeSearchText . ', '. PHP_EOL;
-	    }
+	        if($regionFilterArray){
+	            $query->andWhere($regionFilterArray);
+	        }
+	        
+	        //echo $query->createCommand()->rawSql;
+	        //exit;
+	        return $query;
+	}
+	
+	
+	private function createSearchCountQuery($params, $columnSelect){
 	    
-	    if($regionFilterArray){
-	        $query->andWhere($regionFilterArray);
-	    }
-	    
-	    //echo $query->createCommand()->rawSql;
-	    //exit;
-	    return $query;
+	    $searchTextList = array_filter(explode(" ", $params["searchText"]), function($value) {
+	        return $value !== "";
+	    });
+	        
+	        
+	        $countries = array_keys($params["region"]);
+	        
+	        $query = JobpositionBase::find()->distinct(['id'])
+	        ->select($columnSelect)
+	        ->Where(['status' => 1]);
+	        $textFilterArray = false;
+	        
+	        foreach ($searchTextList as $searchText){
+	            $orItem = ['or', ['like', 'title' , trim($searchText)], ['like', 'subtitle' , trim($searchText)]];
+	            if($textFilterArray){
+	                $textFilterArray = ['or', $textFilterArray, $orItem];
+	            }
+	            else{
+	                $textFilterArray = $orItem;
+	            }
+	            
+	            //echo $likeSearchText . ', '. PHP_EOL;
+	        }
+	        
+	        if($textFilterArray){
+	            $query->andWhere($textFilterArray);
+	        }
+	        
+	        if(count($params["vacancies"])){
+	            $query->andWhere(['in', 'vacancy', $params["vacancies"]]);
+	        }
+	        if(count($params["branches"])){
+	            $query->andWhere(['in', 'branch', $params["branches"]]);
+	        }
+	        
+	        if(count($params["skills"])){
+	            $query->andWhere(['in', 'skill', $params["skills"]]);
+	        }
+	        
+	        $regionFilterArray = false;
+	        foreach ($countries as $country){
+	            
+	            
+	            if(isset($params["region"][$country])){
+	                
+	                $countryList = $params["region"][$country];
+	                $cities = array_keys($countryList);
+	                foreach ($cities as $city){
+	                    if($countryList[$city]){
+	                        $orItem = $city == 'self' ? ['or', ['country' => $country]] : ['or', ['city' => $city]];
+	                        
+	                        if($regionFilterArray){
+	                            $regionFilterArray = ['or', $regionFilterArray, $orItem];
+	                        }
+	                        else{
+	                            $regionFilterArray = $orItem;
+	                        }
+	                    }
+	                }
+	            }
+	            
+	            //echo $likeSearchText . ', '. PHP_EOL;
+	        }
+	        
+	        if($regionFilterArray){
+	            $query->andWhere($regionFilterArray);
+	        }
+	        
+	        //echo $query->createCommand()->rawSql;
+	        //exit;
+	        return $query;
 	}
 }

@@ -240,6 +240,12 @@
     margin-bottom: 10px;
 }
 
+.jobview-tasks ul, 
+.jobview-skills ul 
+{
+    margin-left: 10px;
+}
+
 .jobview-tasks ul li, 
 .jobview-skills ul li 
 {
