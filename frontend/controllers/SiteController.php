@@ -639,6 +639,10 @@ class SiteController extends Controller
     public function actionJobview($id)
     {
         $job = JobpositionBase::findOne(['id' => $id]);
+        if($job->status != 1){
+            Yii::$app->getResponse()->redirect(Yii::getAlias ('@web'));
+        }
+        
         $isFavorite = (isset(Yii::$app->user->identity))? CandidatefavoriteBase::isFavorite(Yii::$app->user->identity->id, $id) : false;
         $isApplied = (isset(Yii::$app->user->identity))? CandidatejobapplyBase::isApplied(Yii::$app->user->identity->id, $id) : false;
         
