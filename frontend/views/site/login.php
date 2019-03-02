@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				
 				<div class="inputform">
 					<label>E-Mail:</label>
-					<?=$form->field($model, 'username')->textInput(['type' => 'email' , 'title' => 'Bitte geben Sie ihre Vorname an!' . PHP_EOL . 'Vorname darf nur Buchstaben und mindestens 4 Buchstaben enthalten . Z.B. John'])->label(false);   ?>
+					<?=$form->field($model, 'username')->textInput(['type' => 'email' , 'title' => 'Bitte geben Sie ihre Vorname an!' . PHP_EOL . 'Vorname darf nur Buchstaben und mindestens 4 Buchstaben enthalten . Z.B. John', 'autofocus' => true])->label(false);   ?>
 				</div>
 				
 				<div class="inputform">
@@ -69,6 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				</div>
 				
 				<div class="button-form float-left button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>
+				<input type="submit" value="go" style="display:none;">
 			<?php ActiveForm::end() ?>
 		</div>		
 	</div>    

@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "j2j_candidate".
  *
- * @property integer $userid
+ * @property int $userid
  * @property string $title
  * @property string $title2
  * @property string $nationality
@@ -23,15 +23,17 @@ use Yii;
  * @property string $tel
  * @property string $reachability
  * @property string $contacttime
- * @property integer $employment
+ * @property int $employment
  * @property string $availability
- * @property integer $branch
+ * @property int $branch
  * @property string $availablefrom
  * @property string $desiredjobpcode
  * @property string $desiredjobcity
  * @property string $desiredjobcountry
- * @property integer $desiredjobregion
+ * @property int $desiredjobregion
  * @property string $coverletter
+ * @property int $workpermission
+ * @property string $workpermissionlimit
  * @property string $createdate
  * @property string $updatedate
  *
@@ -40,7 +42,7 @@ use Yii;
 class Candidate extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -48,25 +50,26 @@ class Candidate extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
             [['userid', 'email', 'branch'], 'required'],
-            [['userid', 'employment', 'branch', 'desiredjobregion'], 'integer'],
-            [['availablefrom', 'createdate', 'updatedate'], 'safe'],
+            [['userid', 'employment', 'branch', 'desiredjobregion', 'workpermission'], 'integer'],
+            [['availablefrom', 'workpermissionlimit', 'createdate', 'updatedate'], 'safe'],
             [['coverletter'], 'string'],
             [['title', 'homenumber'], 'string', 'max' => 15],
             [['title2', 'nationality', 'street', 'pcode', 'city', 'country', 'cellphone', 'tel', 'reachability', 'contacttime', 'availability', 'desiredjobpcode', 'desiredjobcity', 'desiredjobcountry'], 'string', 'max' => 45],
             [['photo', 'address1'], 'string', 'max' => 200],
             [['email'], 'string', 'max' => 100],
+            [['userid'], 'unique'],
             [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['userid' => 'id']],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -96,6 +99,8 @@ class Candidate extends \yii\db\ActiveRecord
             'desiredjobcountry' => Yii::t('app', 'Desiredjobcountry'),
             'desiredjobregion' => Yii::t('app', 'Desiredjobregion'),
             'coverletter' => Yii::t('app', 'Coverletter'),
+            'workpermission' => Yii::t('app', 'Workpermission'),
+            'workpermissionlimit' => Yii::t('app', 'Workpermissionlimit'),
             'createdate' => Yii::t('app', 'Createdate'),
             'updatedate' => Yii::t('app', 'Updatedate'),
         ];
@@ -110,7 +115,7 @@ class Candidate extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return CandidateQuery the active query used by this AR class.
      */
     public static function find()

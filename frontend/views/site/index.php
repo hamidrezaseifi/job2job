@@ -258,7 +258,7 @@ echo Yii::t ( 'app', 'Produktion und Gewerbe' );
 
     <?php echo $this->render('blue-jobposition-list', [
         'jobModels' => $jobModels,
-        'showSearch' => true, 
+        'showSearch' => ($user->isGuest || $identity->isCandidate ()), 
         'showMoreFromBranch' => false, 
         'forTitle' => 'FÜR BEWERBER']);
     ?>

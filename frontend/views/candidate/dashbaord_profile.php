@@ -44,20 +44,14 @@ function render_skills($list, $ischild = false)
 ?>
 <div class="register-bewerbung" ng-controller="CandidateContentController">
 
-    <div class="register-bewerbung-title j2jgreenback">
-    	<?php
-
-    echo Yii::t('app', 'Mein Profil');
-    ?>
+    <div class="register-bewerbung-title j2jblueback">
+    	<?php echo Yii::t('app', 'Mein Profil'); ?>
     </div>
 
     <div class="register-bewerbung-logo">
     	<div><img id="mainlogo" alt="" src="<?=Yii::getAlias('@web')?>/web/images/logo.png"></div>
-    	<div><?php
-
-    echo Yii::t('app',
-        'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jgreenback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!');
-    ?></div>
+    	<div><?php echo Yii::t('app',
+        'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jblueback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!'); ?></div>
     </div>
 
     <div style="clear:both;"></div>
@@ -65,10 +59,7 @@ function render_skills($list, $ischild = false)
 
     <div class="register-bewerbung-teil register-bewerbung-personamgabe-teil">
 	    <div class="register-bewerbung-teil-title">
-	    	<?php
-
-    echo Yii::t('app', 'ANGABEN ZUR PERSON');
-    ?>
+	    	<?php echo Yii::t('app', 'ANGABEN ZUR PERSON'); ?>
 	    </div>
 	    <div class="register-bewerbung-teil-items-container">
 
@@ -98,25 +89,20 @@ function render_skills($list, $ischild = false)
 		    	<div class="item requireditem">
 		    		<?=$model->lname?>
 		    	</div>
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Geburtsdatum');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Geburtsdatum'); ?></div>
 		    	<div class="item requireditem">
 		    		<?=$model->bdate?>
 		    	</div>
 
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Staatsangehörigkeit');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Staatsangehörigkeit'); ?></div>
 		    	<div class="item">
 		    	<?=$candidateModel->nationality?>
 		    	</div>
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Bewerbungsfoto');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Arbeitserlaubnis'); ?></div>
+		    	<div class="item">
+		    	<?=$candidateModel->workPermissionTitle() . ($candidateModel->workpermission == 2 ? ' bis ' . $candidateModel->workpermissionlimit : '')?>
+		    	</div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Bewerbungsfoto'); ?></div>
 		    	<div class="item"><?=($photopath ? '<img src="' .$photopath .'" class="personalphoto2 ' .($photo_approved ? '' : 'notapproved') .'" >' : '-') .($photo_approved ? '' : ' &nbsp; &nbsp;' .Yii::t('app','nicht bestätigt'))?></div>
 		    	<div style="clear:both; "></div>
 	    	</div>
@@ -161,40 +147,40 @@ function render_skills($list, $ischild = false)
 		    	<div class="item requireditem">
 		    		<?=Html::textInput('UsersBase[lname]',$model->lname)?>
 		    	</div>
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Geburtsdatum');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Geburtsdatum'); ?></div>
 		    	<div class="item requireditem">
 		    		<?=Html::textInput('UsersBase[bdate]',$model->bdate)?>
 		    	</div>
 
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Staatsangehörigkeit');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Staatsangehörigkeit'); ?></div>
 		    	<div class="item">
 		    	<?=Html::dropDownList('CandidateBase[nationality]',$candidateModel->nationality,$nationalities)?>
 		    	</div>
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Bewerbungsfoto hochladen');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Arbeitserlaubnis'); ?></div>
+		    	<div class="item requireditem">
+    		    	<?=BrainRadioBoxRenderer::widget(['name' => 'CandidateBase[workpermission]',
+    		    	    'value' => $candidateModel->workpermission,
+    		    	    'id_prefix' => 'workperm_', 
+    		    	    'input_attributes' => ['ng-model' => 'workPermissionValue'], 
+    		    	    'items' => $candidateModel->workPermissionsTitles()]);
+    		    	?>
+		    	</div>
+		    	<div class="item-title workpermissionlimit" ng-if="workPermissionValue == 2"><?php echo Yii::t('app', 'Arbeitserlaubnis-Frist'); ?></div>
+		    	<div class="item requireditem workpermissionlimit" ng-if="workPermissionValue == 2">
+		    		<input type="text" name="CandidateBase[workpermissionlimit]" id="workpermissionlimit" style="z-index: 100;position: relative;" value="<?=$candidateModel->workpermissionlimit?>" />
+		    		<span class="brows_date"></span>
+		    	</div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Bewerbungsfoto hochladen'); ?></div>
 		    	<div class="item">
 					<label class="fileContainer">
-					     <?php
-
-        echo Yii::t('app', 'Datei hochladen');
-        ?>
+					     <?php echo Yii::t('app', 'Datei hochladen'); ?>
 					    <input type="file" accept="image/*" name="candidate_photo" id="candidate_photo" file-model="candidate_photo" multiple />
 					</label>
 					<div class="file_title"></div>
 
 		    	</div>
 		    	<div style="clear:both; "></div>
-		    	<?php
-
-    ActiveForm::end()?>
+		    	<?php ActiveForm::end() ?>
 	    	</div>
 
 			<div class="items-edit-preview-part">
@@ -214,8 +200,8 @@ function render_skills($list, $ischild = false)
 	    </div>
 
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
     	<div style="clear:both; "></div>
     </div>
@@ -380,8 +366,8 @@ function render_skills($list, $ischild = false)
     	</div>
 
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
 
     	<div style="clear:both;"></div>
@@ -409,10 +395,7 @@ function render_skills($list, $ischild = false)
 		    	<div class="item top-margin-15">
 	 	    <?=BrainRadioBoxRenderer::widget(['name' => 'CandidateBase[employment]','value' => $candidateModel->employment,'id_prefix' => 'employment','items' => BrainStaticList::employeementList()]);?>
 				</div>
-		    	<div class="item-title"><?php
-
-    echo Yii::t('app', 'Verfügbarkeit');
-    ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'Verfügbarkeit'); ?></div>
 		    	<div class="item top-margin-15">
 				<?=BrainRadioBoxRenderer::widget(['name' => 'CandidateBase[availability]','value' => $candidateModel->availability,'id_prefix' => 'available_','items' => BrainStaticList::accessableList()]);?>
 				</div>
@@ -485,8 +468,8 @@ function render_skills($list, $ischild = false)
  		</div>
 
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
 
     	<div style="clear:both;"></div>
@@ -575,8 +558,8 @@ echo Yii::t('app', 'Wo möchten Sie Ihre Tätigkeit ausführen?');
 	 	</div>
 
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
 
     	<div style="clear:both;"></div>
@@ -684,8 +667,8 @@ echo Yii::t('app',
 	 	</div>
 
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
 
     <div style="clear:both;"></div>
@@ -732,11 +715,9 @@ echo Yii::t('app', 'Hinzufügen');
 </div>
 
 <script>
-	var availe_date_row = '<li id="availability_date_li" style="width: 130px; padding-left: 2px;"><?php
-
-echo Yii::t('app', 'Ab');
-?>&nbsp;<input type="text" name="CandidateBase[availablefrom]" style="z-index: 100;position: relative;" value="<?=date('d.m.Y')?>" /><span class="brows_date"></span></li>';
-
+	var availe_date_row = '<li id="availability_date_li" style="width: 130px; padding-left: 2px;"><?php echo Yii::t('app', 'Ab'); ?>&nbsp; <input type="text" name="CandidateBase[availablefrom]" style="z-index: 100;position: relative;" value="<?=date('d.m.Y')?>" /><span class="brows_date"></span></li>';
+	var profileJsonUrl = "<?php echo Yii::getAlias('@web'); ?>/candidate/profilejson";
+	var workPermissionValue = <?php echo $candidateModel->workpermission;?>;
 	var skills = <?php
 
 echo json_encode($allskills);
@@ -790,10 +771,9 @@ echo Yii::t('app', 'Bitte erklären Sie ihre Verfügberkeit!');
 
 echo Yii::t('app', 'Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!');
 ?>";
-	var skill_exists_msg = "<?php
-
-echo Yii::t('app', 'Fähigkeit existiert in der liste!');
-?>";
+    var skill_exists_msg = "<?php echo Yii::t('app', 'Fähigkeit existiert in der liste!'); ?>";
+    
+    var workpermission_limit_msg = "<?php echo Yii::t('app', 'Das Arbeitserlaubnis-Frist ist ungültig.\nBitte geben Sie ihr Arbeitserlaubnis-Frist an!'); ?>";
 
 	var basepath = "<?php
 

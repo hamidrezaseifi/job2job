@@ -33,13 +33,13 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 ?>
 <div class="register-bewerbung">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Mein Profil'); ?>
     </div>
     
     <div class="register-bewerbung-logo">
     	<div><img id="mainlogo" alt="" src="<?=Yii::getAlias('@web') ?>/web/images/logo.png"></div>
-    	<div><?php echo Yii::t('app', 'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jgreenback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!'); ?></div>
+    	<div><?php echo Yii::t('app', 'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jblueback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!'); ?></div>
     </div>
     
     <div class="register-bewerbung-teil register-unternehmen-personamgabe-teil">
@@ -131,8 +131,8 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 	    </div>
     	    	
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
     	<div style="clear:both; "></div>
     </div>
@@ -331,8 +331,8 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 	    </div>
     	    	
     	<div class="open-close-button">
-    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_down.png" class="imgopen" style="width:20px;" />
-    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_up.png" class="imgclose" style="width:20px; display:none;" />
+    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_down_blue.png" class="imgopen" style="width:20px;" />
+    		<img src="<?=Yii::getAlias('@web') ?>/web/images/arrow_up_blue.png" class="imgclose" style="width:20px; display:none;" />
     	</div>
     	<div style="clear:both; "></div>
     </div>

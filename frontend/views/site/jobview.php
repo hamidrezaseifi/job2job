@@ -46,7 +46,7 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
 <div class="jobview-jobpanel">
     
     <div class="jobview-pagetitle">
-    	<?php echo $jobModel->title; ?> <span class="job-title-gender">( M / W / D )</span>
+    	<?php echo $jobModel->title; ?> <span class="job-title-gender">( m / w / d )</span>
     </div>
     <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity && Yii::$app->user->identity->isCandidate() && false) {?>
     <div class="jobview-favstar">
@@ -58,12 +58,11 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
     
    	<div class="jobview-container">
        	<div class="jobview-info">
-       		<div><span>Referenznummer: </span> <?php echo $jobModel->id;?></div>
+       		<div><span>Projekt-ID: </span> <?php echo $jobModel->id;?></div>
        		<div><span>Branche: </span> <?php echo $jobModel->getBranch()->one()->title;?></div>
        		<div><span>Einsatzort: </span> <?php echo $jobModel->city;?></div>
-       		<div><span>Beschäftigungsform: </span> <?php echo $jobModel->getWorktype()->one()->title;?></div>
-       		<div><span>Beginn des Projekts: </span> <?php echo $startDate;?></div>
-       		<div><span>Ende des Projekts: </span> <?php echo $endDate;?></div>
+       		<div><span>Arbeitszeitmodel: </span> <?php echo $jobModel->getWorktype()->one()->title;?></div>
+       		<div><span>Beschäftigungsbeginn: </span> <?php echo $startDate;?></div>
        		<div><span>Dauer: </span> <?php echo $duration;?></div>
         </div>
         
@@ -95,7 +94,7 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
     <div><a href="<?=Yii::getAlias('@web') ?>/candidate/jobapply?id=<?=$jobModel->id ?>" class="buttonbewerben<?=($isApplied ? ' disabled-link' : '') ?>"><?php echo $isApplied ? Yii::t('app', 'schon beworben') : Yii::t('app', 'Jetzt bewerben'); ?></a></div><div class="clear"></div>
     <?php } ?>
 </div>
-<div class="jobview-rightpanel j2jgreenback">
+<div class="jobview-rightpanel">
 	<div class="desc"><?php echo Yii::t('app', 'Hat diese Anzeige Ihr Interesse geweckt?<br>Dann sprechen Sie uns an!'); ?></div>
 	<br>
 	<div class="desc"><?php echo Yii::t('app', 'Telefon:'); ?><br><a class="tel" href="tel:0511645742542">0511645742542</a></div>
@@ -124,7 +123,7 @@ if(!Yii::$app->user->isGuest && Yii::$app->user->identity)
 	<div class="data"><input name="CallrequestBase[tel]" type="text" required="required" value="<?php echo $usertel;?>" ></div>
 	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Mitteilung'); ?></div>
 	<div class="data"><textarea name="CallrequestBase[message]"></textarea></div>
-	<div class="j2jgreenback sendbutton"><?php echo Yii::t('app', 'absenden'); ?></div>
+	<div class="sendbutton"><?php echo Yii::t('app', 'absenden'); ?></div>
 	<input type="hidden" name="CallrequestBase[status]" value="0">
 	<input type="hidden" name="CallrequestBase[userid]" value="<?php echo $userid;?>">
 	<?php ActiveForm::end()?>

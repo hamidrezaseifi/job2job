@@ -87,7 +87,6 @@
 
 .jobview-pagetitle .job-title-gender
 {
-	color: #d20000;
 	padding-left: 10px;
 }
 
@@ -203,7 +202,7 @@
 .jobview-info div span
 {
 	font-weight: bold;
-    width: 220px;
+    width: 280px;
     display: inline-block;
     height: 34px;
 }

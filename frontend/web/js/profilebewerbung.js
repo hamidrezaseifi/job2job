@@ -42,31 +42,22 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
 
     $scope.showskillbrower = false;
     $scope.loadingshow = true;
+    $scope.workPermissionValue = workPermissionValue + "" ;
     
-    //bewerberFileUpload.uploadFileToUrl(112299);
-    
-    var purl = $sce.trustAsResourceUrl(postcodeurl);
-    
-    $http.jsonp(purl , {jsonpCallbackParam: 'callback'}).then(function(response) {
-        //alert(response.data);
-        
-        postcodes = response.data;
-    	$("input[name='CandidateBase[pcode]']").autocomplete({ source: postcodes , minLength : 3,
-            select: function( event, ui ) {
-            	$("input[name='CandidateBase[pcode]']").val( ui.item.value );
-                $("input[name='CandidateBase[city]']").val( ui.item.city );
-                return false;
-              }});
-        $("input[name='CandidateBase[desiredjobpcode]']").autocomplete({ source: postcodes ,minLength : 3,
-            select: function( event, ui ) {
-            	$("input[name='CandidateBase[desiredjobpcode]']").val( ui.item.value );
-                $("input[name='CandidateBase[desiredjobcity]']").val( ui.item.city );
-                return false;
-              }});
-        //alert(response.data);
-        $scope.loadingshow = false;
-        
+    $scope.$watch('workPermissionValue', function() {
+        if($scope.workPermissionValue == 2){
+        	
+            setTimeout(() => {
+            	$("#workpermissionlimit").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    minDate: "6M", maxDate: "10Y",
+                });
+    		}, 1000);
+        	
+        }
     });
+    
     
     $scope.addskill = function () {
         var text = $.trim($("#skillbrowstext").val());
@@ -102,6 +93,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         changeYear: true,
         minDate: "-100Y", maxDate: 2,
     });
+    
     $(".hideedit").hide();
     $(".applyedit").hide();
 
@@ -139,6 +131,8 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
 
     $(".showedit").click(function () {
         toggle_profile_item_edit(true, $(this).parent().parent().parent());
+        
+        
     });
 
     $(".hideedit").click(function () {
@@ -159,7 +153,6 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
                 var data = form.serialize();
                 var dataAr = form.serializeArray();
 
-                //alert(form.attr("action"));
                 var part = form.children("input[name='part']").val();
 
                 if (part == "person") {
@@ -179,6 +172,13 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
                     if ($("input[name='UsersBase[bdate]']").val() == "") {
 
                         alert(bdate_msg);
+                        return;
+                    }
+
+                    if ($("input[name='CandidateBase[workpermission]']:checked").length == 1 && $("input[name='CandidateBase[workpermissionlimit]']").val() == "") {
+
+                        alert(workpermission_limit_msg);
+                        $("input[name='CandidateBase[workpermissionlimit]']").focus();
                         return;
                     }
 
@@ -214,7 +214,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
               		   $scope.loadingshow = false;
               		   
               		 if(response.data == 'ok'){
-
+              			
             			  if (part == "person") {
                          	
             				  if(typeof $scope.candidate_photo != "undefined"){
@@ -235,6 +235,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
                              }
                          }
             			 $scope.loadingshow = false;
+            			 window.location = window.location;
             			}
             			else{
             				alert("Error : " + response.data);
@@ -260,7 +261,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         if ($("#available_Verfügber:checked").length == 0) {
             $("#availability_date_li").remove();
         }
-        if ($("#available_Verfügber:checked").length == 1) {
+        else {
             if ($("#availability_date_li").length == 0) {
                 var ulo = $("#available_Verfügber").parent().parent();
                 $(availe_date_row).appendTo(ulo);
@@ -480,6 +481,7 @@ function toggle_profile_item_edit(show, item)
 			item.children(".register-bewerbung-teil-items-container").children(".items-edit-preview-part").children(".hideedit").fadeIn("fast");
 			item.children(".register-bewerbung-teil-items-container").children(".items-edit-preview-part").children(".applyedit").fadeIn("fast");
 		});	
+		
 	}
 	else {
 		item.children(".register-bewerbung-teil-items-container").children(".items-edit-preview-part").children(".applyedit").fadeOut("fast");

@@ -15,7 +15,7 @@ class CandidateQuery extends \yii\db\ActiveQuery
     }*/
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return Candidate[]|array
      */
     public function all($db = null)
@@ -24,7 +24,7 @@ class CandidateQuery extends \yii\db\ActiveQuery
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @return Candidate|array|null
      */
     public function one($db = null)

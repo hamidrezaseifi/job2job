@@ -7,7 +7,7 @@ use yii\helpers\Html;
 $this->registerCssFile("@web/web/css/dashboard.css", [], 'css-dashboard');
 $this->registerJsFile("@web/web/js/dashboardbewerbung.js", [], 'js-dashboardbewerbung');
 
-$photopath = $photopath && $photo_approved ? $photopath : Yii::getAlias('@web') . '/web/images/person2.png';
+$photopath = $photopath && $photo_approved ? $photopath : Yii::getAlias('@web') . '/web/images/person2_blue.png';
 // $percentCalc  $percentTotal
 //dashboard_bewerber.css
 ?>

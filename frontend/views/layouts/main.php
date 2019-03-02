@@ -175,23 +175,6 @@ $this->beginBody ()?>
                     						</li>
                     					</ul>
                     				</li>
-                    				<li class=" ubermenu-autocolumn menu-item-2567-col-1 ubermenu-item-level-1 ubermenu-column ubermenu-column-1-2 ubermenu-has-submenu-stack ubermenu-item-type-column ubermenu-column-id-2567-col-1">
-                    					<ul class="ubermenu-submenu ubermenu-submenu-id-2567-col-1 ubermenu-submenu-type-stack">
-                    						<li class=" ubercolumn-image ubermenu-item ubermenu-item-type-custom ubermenu-item-object-ubermenu-custom ubermenu-item-has-children ubermenu-item-355 ubermenu-item-level-2 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack ubermenu-item-type-column ubermenu-column-id-355">
-                    							<ul class="ubermenu-submenu ubermenu-submenu-id-355 ubermenu-submenu-type-stack">
-                    								<li id="menu-item-358" class="no-href-link no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-358 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<br>
-                    								</li>
-                    								<li id="menu-item-356" class="link-image no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-356 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">
-                    										<img class="ubermenu-image ubermenu-image-size-full" src="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout.jpg" srcset="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout.jpg 381w, <?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-300x162.jpg 300w" sizes="(max-width: 381px) 100vw, 381px" width="381" height="206" alt="Aristo Personalberater Gespraech">
-                    										<span class="ubermenu-target-title ubermenu-target-text">JOB SUCHE</span>
-                    									</a>
-                    								</li>
-                    							</ul>
-                    						</li>
-                    					</ul>
-                    				</li>
                     			</ul>
                     		</li>
                     		<?php }
@@ -250,12 +233,6 @@ $this->beginBody ()?>
                     							<li id="menu-item-564" class="no-href-link no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-564 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     								<br>
                     							</li>
-                    							<li id="menu-item-565" class="link-image no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-565 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    								<a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left">
-                    									<img class="ubermenu-image ubermenu-image-size-full" src="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-2.jpg" srcset="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-2.jpg 381w, <?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-2-300x162.jpg 300w" sizes="(max-width: 381px) 100vw, 381px" width="381" height="206" alt="Aristo Personalberater Gespraech">
-
-                    								</a>
-                    							</li>
                     						</ul>
                     					</li>
                     				</ul>
@@ -301,12 +278,6 @@ $this->beginBody ()?>
                     						<ul class="ubermenu-submenu ubermenu-submenu-id-3305 ubermenu-submenu-type-stack">
                     							<li id="menu-item-3306" class="no-href-link no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-3306 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     								<br>
-                    							</li>
-                    							<li id="menu-item-4235" class="link-image no-hover ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-4235 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                        							<a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="<?=Yii::getAlias ( '@web' )?>/site/about">
-                        								<img class="ubermenu-image ubermenu-image-size-full" src="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-3.jpg" srcset="<?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-3.jpg 381w, <?=Yii::getAlias ( '@web/web' )?>/images/aris/personalvermittlung-aristo-muenchen-menu-flyout-3-300x162.jpg 300w" sizes="(max-width: 381px) 100vw, 381px" width="381" height="206" alt="personalvermittlung-aristo-muenchen-menu-flyout-3">
-                        								<span class="ubermenu-target-title ubermenu-target-text">ÜBER UNS</span>
-                        							</a>
                     							</li>
                     						</ul>
                     					</li>

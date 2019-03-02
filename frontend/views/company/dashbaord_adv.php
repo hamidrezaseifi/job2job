@@ -25,7 +25,7 @@ $formatter = \Yii::$app->formatter;
 ?>
 <div class="register-bewerbung">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Mein Job Anzeigen'); ?>
     </div>
     

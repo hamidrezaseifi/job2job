@@ -3,7 +3,7 @@
 {
 	position: fixed;
 	left: 0;
-	top: 105px; 
+	top: 115px; 
 	width: 220px; 
 	height: 70vh; 
 	background-color: rgba(230,235,230,0.5);
@@ -99,7 +99,7 @@ img.notapproved
 {
 	float: left; 
 	width: calc(100vw - 240px); 
-	height: 70vh; 
+	margin-top: 5px;
 }
 
 #progressbar

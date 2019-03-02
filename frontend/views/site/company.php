@@ -34,24 +34,6 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 		
 		<div class="clear"></div>
 	</div>
-	
-	<div class="twobox-container">
-	
-    	<div class="branch-box-company">
-    		<div class="title">Branchen</div>
-    		<?php foreach($branches as $branch){?>
-    			<a href="<?=Yii::getAlias('@web') ?>/site/branchview/candidate/<?php echo $branch->shortcut;?>">
-    				<div class="branch-item"> 
-    					<img alt="" src="<?php echo Yii::getAlias('@web') . $branch->logo;?>">
-    					<span><?php echo $branch->title;?> >></span>
-    				</div>
-    			</a>
-    		<?php } ?>    	
-    	</div>
-    	
-    	<div class="clear"></div>
-    	
-	</div>
 
     <div class="was_wir_machen">
 		<div class="content-center">

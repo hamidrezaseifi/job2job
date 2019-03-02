@@ -47,7 +47,7 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 ?>
 <div class="register-bewerbung" style="padding-bottom: 20px;" ng-controller="NewAdvController">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Neue Anzeige'); ?>
     </div>
     

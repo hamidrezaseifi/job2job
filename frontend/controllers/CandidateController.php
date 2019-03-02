@@ -93,16 +93,26 @@ class CandidateController extends Controller
     {
         return $this->render('index');
     }
+    
+    public function actionProfilejson()
+    {
+        $candidateModel = CandidateBase::findOne(['userid' => Yii::$app->user->identity->id]);
+        
+        
+        //echo($this->asJson($candidateModel));
+        echo json_encode($candidateModel->getAttributes(), true);
+        exit;
+    }
 
     /**
      * Displays homepage.
      *
      * @return mixed
      */
-    public function actionDashboard()
+    public function actionDashboard($ac = 'index', $index = '')
     {
-        $action = isset($_GET['ac']) ? $_GET['ac'] : 'index';
-        $after_verify = isset($_GET['verify']) && $_GET['verify'] == 'ok' ? true : false;
+        $action = $ac; //isset($_GET['ac']) ? $_GET['ac'] : 'index';
+        $after_verify = isset($index) && $index == 'ok' ? true : false;
 
         $subpageContent = '';
 
@@ -156,7 +166,8 @@ class CandidateController extends Controller
                 }
 
                 $model->bdate = BrainHelper::dateEnglishToGerman($model->bdate);
-
+                $candidateModel->workpermissionlimit = BrainHelper::dateEnglishToGerman($candidateModel->workpermissionlimit);
+                
                 $skills = SkillsBase::find()->where(
                     [
                         'parentid' => 1,
@@ -343,23 +354,30 @@ class CandidateController extends Controller
     private function update_profile($part, $data)
     {
         $message = 'ok';
-
+        
         $data['CandidateBase']['updatedate'] = date('Y-m-d');
         $data['UsersBase']['updatedate'] = date('Y-m-d');
 
+        if($data['CandidateBase']['workpermission'] == 2 && (!isset($data['CandidateBase']['workpermissionlimit']) || $data['CandidateBase']['workpermissionlimit'] == null)){
+            echo "ungültige Arbeitserlaubnis-Frist";
+            exit;
+        }
+        
         $model = UsersBase::findOne([
             'id' => Yii::$app->user->identity->id
         ]); // Yii::$app->user->identity;
         $candidateModel = CandidateBase::findOne([
             'userid' => $model->id
         ]);
+        
+        
 
         if ($part == "person") {
-            $data['UsersBase']['bdate'] = isset($data['UsersBase']['bdate']) ? BrainHelper::dateGermanToEnglish(
-                $data['UsersBase']['bdate']) : date('Y-m-d');
+            $data['UsersBase']['bdate'] = isset($data['UsersBase']['bdate']) ? BrainHelper::dateGermanToEnglish($data['UsersBase']['bdate']) : date('Y-m-d');
             $model->load($data);
             $model->save(false);
 
+            $data['CandidateBase']['workpermissionlimit'] = isset($data['CandidateBase']['workpermissionlimit']) ? BrainHelper::dateGermanToEnglish($data['CandidateBase']['workpermissionlimit']) : null;
             $candidateModel->load($data);
             $candidateModel->save(false);
         }

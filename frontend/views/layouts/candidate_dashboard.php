@@ -7,7 +7,7 @@ use yii\helpers\Html;
 $this->registerCssFile("@web/web/css/dashboard.css", [], 'css-dashboard');
 $this->registerJsFile("@web/web/js/dashboardbewerbung.js", [], 'js-dashboardbewerbung');
 
-$photopath = $photopath && $photo_approved ? $photopath : Yii::getAlias('@web') . '/web/images/person2.png';
+$photopath = $photopath && $photo_approved ? $photopath : Yii::getAlias('@web') . '/web/images/person2_blue.png';
 // $percentCalc  $percentTotal
 //dashboard_bewerber.css
 ?>
@@ -22,7 +22,6 @@ $photopath = $photopath && $photo_approved ? $photopath : Yii::getAlias('@web') 
 		<div id="progressbar" style="clear:both;"><div class="progress-label" ><?php echo round( ($percentCalc * 100) / $percentTotal ); ?>%</div></div>
 	</div>
 	
-	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/candidate/dashboard/index') ?>"><?php echo Yii::t('app', 'Dashboard'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/candidate/dashboard/myprofile') ?>"><?php echo Yii::t('app', 'Profil'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/candidate/dashboard/markedjob') ?>"><?php echo Yii::t('app', 'Gemerkte Anzeigen'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/candidate/dashboard/applyjob') ?>"><?php echo Yii::t('app', 'Beworbene Anzeigen'); ?></a></div>

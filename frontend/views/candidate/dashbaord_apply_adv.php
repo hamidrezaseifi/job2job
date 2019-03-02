@@ -26,7 +26,7 @@ $formatter = \Yii::$app->formatter;
 ?>
 <div class="register-bewerbung" ng-controller="AppliedJobController">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Mein beworbene Stellenanzeigen'); ?>
     </div>
      
