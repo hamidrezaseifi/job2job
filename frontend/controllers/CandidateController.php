@@ -41,10 +41,7 @@ class CandidateController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'except' => [
-                    'register',
-                    'verify',
-                    'response',
-                    'check'
+                    'register', 'verify', 'response', 'check'
                 ],
                 'rules' => [
                     [

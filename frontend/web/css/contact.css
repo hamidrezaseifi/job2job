@@ -1,0 +1,90 @@
+
+
+
+.contact-container
+{
+	font-family: AvenirLTPro-Light !important;; 
+	padding-bottom: 70px;
+	font-size: 16px;
+	width: calc(100vw - 60px);
+    margin: 30px;
+}
+
+.site-contact-detail
+{
+	width: 40%;
+	float: left;
+	margin-right: 30px;
+}
+
+.site-contact-top
+{
+	line-height: 26px;
+}
+
+.site-contact-top-left
+{
+	float: left;
+	width: 40%;
+	margin-right: 30px;
+}
+
+.site-contact-top-right
+{
+	float: left;
+	width: 40%;
+}
+
+.site-contact-form
+{
+	margin-top: 70px;	
+}
+
+.site-contact-form label
+{
+	margin-top: 20px;	
+}
+
+.form-part-left
+{
+	float: left;
+	width: 300px;
+}
+
+.form-part-left input
+{
+	width: 95%;
+}
+
+.form-part-right
+{
+	float: left;
+	width: calc(100% - 300px);
+}
+
+.form-part-right textarea 
+{
+    width: 99%;
+    height: 170px;
+}
+
+.form-send
+{
+	margin-top: 20px;
+}
+
+.form-send button.contect-send
+{
+	padding: 2px;
+    background-color: #1a3156;
+    border: none;
+    color: white;
+    width: calc(100% - 60px);
+    margin-left: 30px;
+}
+
+.site-contact-map
+{
+	width: 48%;
+	float: left;
+}

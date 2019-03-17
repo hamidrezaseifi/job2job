@@ -73,7 +73,7 @@ class SiteController extends Controller
                 ],
                 'rules' => [
                     [
-                        'actions' => ['searchjobs'],
+                        'actions' => ['searchjobs', 'jobview'],
                         'access' => [UserAccessControl::CANDIDATE_USER, UserAccessControl::GUEST_USER]
                     ],
                     

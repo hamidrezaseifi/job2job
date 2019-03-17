@@ -8,8 +8,80 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
+$this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
+$this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
+$this->registerCssFile("@web/web/css/contact.css", [], 'css-contact');
+
 ?>
-<div class="site-contact-parent">
+
+
+<div class="site-contact-container">
+
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/contact-back.jpg); background-size: 100% 100%;">
+
+			<div class="anim-image-title">
+				Kontaktmöglichkeiten
+			</div>
+	</div>
+
+	<div class="contact-container">
+	
+		<div class="site-contact-detail">
+    		<div class="site-contact-detail-top">
+                <div class="site-contact-top-left">
+                    Job2Job GmbH<br>
+                	31789 Hameln<br>
+                	Pyrmonter Straße 42<br>
+            	</div>
+                <div class="site-contact-top-right">
+                    Tel.: 05151/55694-30<br>
+                	Fax: 05151/55694-24<br>
+                	Email: info@job2job-gmbh.de<br>
+            	</div>
+    			<div class="clear"></div>
+    		</div>
+    		
+    		<div class="site-contact-form">
+                <form action="" >
+                	<div class="form-part-left">
+                     	<label>Name/Firma</label><br>
+                    	<input type="text" name="name" placeholder="<?= Yii::t('app' , 'Name') ?>" class="contect-name"><br>
+                    	<label>E-Mail</label><br>
+                    	<input type="text" name="email" placeholder="<?= Yii::t('app' , 'E-Mail-Adresse') ?>" class="contect-email"><br>
+                    	<label>Betreff</label><br>
+                    	<input type="text" name="title" placeholder="<?= Yii::t('app' , 'Betreff') ?>" class="contect-title"><br>               	
+                	</div>
+                	<div class="form-part-right">
+                     	<label>Nachricht</label><br>
+                		<textarea name="text" placeholder="<?= Yii::t('app' , 'Nachricht') ?>" maxlength="200" class="contect-text"></textarea><br>
+                		
+                	</div>
+                	<div class="clear"></div>                	
+                	<div class="form-send">
+                     	<button type="button" class="contect-send"><?= Yii::t('app' , 'Senden') ?></button>
+                	</div>
+                	
+                </form>
+    		
+    		</div>
+	
+		</div>
+		
+		<div class="site-contact-map">
+			<iframe width="95%" height="350" style="border:0; "
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDiTNNWMEMkS_pNc0OxdVGKjfVIPnxyLKE&q=Job2Job+GmbH" >
+				</iframe>
+		
+		</div>	
+		<div class="clear"></div>	
+	</div>
+
+
+
+</div>
+
+
+<div class="site-contact-parent" style="display: none">
 
 	<div class="site-contact brandarkbluetext">
 	    <div class="site-contact-title"><?= Yii::t('app' , 'Wir freuen uns auf Ihre<br>Kontaktaufnahme') ?></div><br>

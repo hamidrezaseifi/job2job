@@ -12,7 +12,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 <div class="branch-container">
 
-	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/gesundheitswesen-gray.jpg);">
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/med-branche.jpg); background-size: 100% 100%;">
 
 			<div class="anim-image-title">
 				Jobs im Gesundheitswesen:<br>
