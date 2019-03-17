@@ -40,9 +40,11 @@
 		
 		var isCandidate = $('#link' + index).data("iscandidate") === 1;
 		
+		
+			
 		$(".pagination-content div.in").removeClass("in");
 		$('#item' + index).addClass("in");
-		
+		//.slider2-content
 		if(lastRecommandationWasCandidate !== isCandidate){
 			lastRecommandationWasCandidate = isCandidate;
 			
@@ -50,11 +52,13 @@
 				$(".recommendations-slider").removeClass("das_sagen_kunden").addClass("das_sagen_kunden_candidate");
 				$(".candidate-recommand-title").show();
 				$(".compnay-recommand-title").hide();
+				$(".slider2-content").css("float" , "left");
 			}
 			else{
 				$(".recommendations-slider").removeClass("das_sagen_kunden_candidate").addClass("das_sagen_kunden");
 				$(".candidate-recommand-title").hide();
 				$(".compnay-recommand-title").show();
+				$(".slider2-content").css("float" , "right");
 			}
 		}
 		

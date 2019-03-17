@@ -7755,7 +7755,7 @@ md-sidenav
 
 .das_sagen_kunden
 {
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/muenchen-was-sagen-kunden_3.jpg');
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/company-recommand.jpg');
     background-size: cover;
 }
 
@@ -8170,7 +8170,7 @@ a:active, a:hover {
 
 .das_sagen_kunden_candidate
 {
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candidaten-customers.jpg');
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candid-recommand.jpg');
     background-size: cover;
 }
 
