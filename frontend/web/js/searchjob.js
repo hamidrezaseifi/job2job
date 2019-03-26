@@ -16,6 +16,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.vacancies = vacancies;
 	$scope.jobscounturl = jobscounturl;
 	$scope.jobssearchturl = jobssearchturl;
+	$scope.favlist = favlist;
 	
 	$scope.isMoreJobs = false;
 	$scope.jobsFilterCount = false;
@@ -26,7 +27,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	$scope.isPageTitle = true;
 	$scope.loadingSearchShow = false;
 	
-	$scope.showSOrtList = false;
+	$scope.showSortList = false;
 	$scope.textDebug = "test";
 	
 	$scope.sortOptionList = [
@@ -37,13 +38,24 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 		{value:"branch", label:"Branche"},
 	];
 	
+	$scope.getFavImageName = function(id){
+		
+		if($scope.favlist.indexOf(id) > -1){
+			return "favorite_blue.png";	
+		}
+		else{
+			return "favorite_empty_blue.png";
+		}
+		
+	};
+	
 	$scope.showSortList = function (){
-		$scope.showSOrtList = !$scope.showSOrtList;	
+		$scope.showSortList = !$scope.showSortList;	
 	}
 	
 	$scope.selectSortOption = function (item){
 		$scope.query.selectedSortOption = item.value;
-		$scope.showSOrtList = false;
+		$scope.showSortList = false;
 		
 		$scope.query.loadedCount = 0;
 		$scope.searchJobs(true);
@@ -230,6 +242,22 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	        //$scope.test = response.data;
 	    });
 	}
+	
+	$scope.addFavorite = function(id){
+		$http({
+	        method : "GET",
+	        url : addtofavurl + "?id=" + id,
+	        data : $scope.query
+	    }).then(function successCallback(response) {
+	    	 	
+	    	$scope.favlist = response["data"]["favlist"];
+	    	
+	    }, function errorCallback(response) {
+	        
+	        alert(response);
+	    });
+		
+	};
 	
 	function createTags(){
 		var tags = "";

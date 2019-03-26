@@ -1,10 +1,23 @@
 var sending = false;
 
-$(document).ready(function(){
+
+brainApp.controller('JobviewController', function ($scope, $http, $sce, $element, $compile) {
 	
 	$("#callpannel").hide();
+	$scope.isFavorite = isFavorite;
 	
-	$(".jobview-rightpanel .call-request").click(function(){
+	$scope.getFavImageName = function(id){
+		
+		if($scope.isFavorite){
+			return "favorite_blue.png";	
+		}
+		else{
+			return "favorite_empty_blue.png";
+		}
+		
+	};
+
+	$scope.showCallMe = function(){
 		
 		$("#callpannel .title").hide();
 		$("#sendrequestform textarea").val("");
@@ -21,15 +34,9 @@ $(document).ready(function(){
 	    	  $("#callpannel .responsecontainer").hide();
 	      }
 	      });
-	});
-	
-	$(".jobview-rightpanel .job-print").click(function(){
-		printjob();
-	});
-	
-	
-	
-	$("#callpannel .sendbutton").click(function(){
+	};
+		
+	$scope.sendCallMe = function(){
 		
 		
 		$("#callpannel .sendbutton").css("color" , "lightgray");
@@ -70,62 +77,53 @@ $(document).ready(function(){
 		
 		sending = true;
 		
-		$.post($("#sendrequestform").attr("action"), $("#sendrequestform").serialize(), function(data){
-			if(data == 'ok'){
-				
-			}
-			else{
-				alert(data);
-			}
-			
-			sending = false;
-			
-			$("#callpannel .sendcontainer").slideUp();
-	  	  	$("#callpannel .responsecontainer").slideDown();
-	  	  	
-	  	  	$("#callpannel .sendbutton").css("color" , "rgb(34, 34, 34)");
-			$("#callpannel .sendbutton").css("cursor" , "pointer");
-	  	  	
-		}).fail(function(xhr, status, error) {
-		    
-		    alert(error);
-		    $("#callpannel .sendbutton").css("color" , "rgb(34, 34, 34)");
-			$("#callpannel .sendbutton").css("cursor" , "pointer");
-			
-			sending = false;
-			
-		    //$("#callpannel").dialog("close");
-		  });
 		
-	});
+		
+	};	
+	
+	$scope.printjob = function(){
+		
+		$("#topmenu").hide();
+		$("#menu-line").hide();
+		$(".jobview-rightpanel").hide();
 
+		$(".jobview-jobpanel").css("width" , "calc(100vw - 60px)");
+		$("#mainlogotop").css("position" , "absolute");
+		$(".buttonbewerben").hide();
+		$(".jobview-favstar").hide();
+		
+		window.print();
+		
+		$(".jobview-jobpanel").css("width" , "calc(100vw - 390px)");
+		$("#mainlogotop").css("position" , "fixed");
+		
+		$(".buttonbewerben").show();
+		$(".jobview-favstar").show();
+		$("#topmenu").show();
+		$("#menu-line").show();
+		$(".jobview-rightpanel").show();
+
+	}
+	
+	$scope.toggleFavoriote = function(id){
+		$http({
+	        method : "GET",
+	        url : addtofavurl + "?id=" + id,
+	        data : $scope.query
+	    }).then(function successCallback(response) {
+	    	 	
+	    	$scope.isFavorite = !$scope.isFavorite;
+	    	
+	    }, function errorCallback(response) {
+	        
+	        alert(response);
+	    });
+	}
+
+	
+	
 });
 
 
-function printjob()
-{
-	
-	$("#topmenu").hide();
-	$("#menu-line").hide();
-	$(".jobview-rightpanel").hide();
 
-	$(".jobview-jobpanel").css("width" , "calc(100vw - 60px)");
-	$("#mainlogotop").css("position" , "absolute");
-	$(".buttonbewerben").hide();
-	$(".jobview-favstar").hide();
-	
-	window.print();
-	
-	$(".jobview-jobpanel").css("width" , "calc(100vw - 390px)");
-	$("#mainlogotop").css("position" , "fixed");
-	
-	$(".buttonbewerben").show();
-	$(".jobview-favstar").show();
-	$("#topmenu").show();
-	$("#menu-line").show();
-	$(".jobview-rightpanel").show();
 
-	
-	
-	
-}

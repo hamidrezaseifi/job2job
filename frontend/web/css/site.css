@@ -7755,7 +7755,7 @@ md-sidenav
 
 .das_sagen_kunden
 {
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/company-recommand.jpg');
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/commercial.jpg');
     background-size: cover;
 }
 
@@ -7945,7 +7945,7 @@ a:active, a:hover {
 
 .home-box-1
 {
-	background-image:url('../images/home-2.jpg');
+	background-image:url('../images/home-3.jpg');
 }
 
 .light-and-bold
@@ -8128,7 +8128,7 @@ a:active, a:hover {
 
 	.home-box-1
 	{
-		background-image:url();
+		background-image:url('../images/home-2.jpg');
 		background-color: gray;
 	}
 	
@@ -8170,7 +8170,7 @@ a:active, a:hover {
 
 .das_sagen_kunden_candidate
 {
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candid-recommand.jpg');
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candid-recommand2.jpg');
     background-size: cover;
 }
 
@@ -8244,9 +8244,27 @@ a:active, a:hover {
     float: right;
 }
 
+.header-banner-box-left
+{
+    padding-top: 40px;
+	width: 550px;
+    left: calc(25vw - 175px);
+    float: left;
+}
+
 .pad20
 {
 	padding: 20px;
+}
+
+.pad-right20
+{
+	padding-right: 20px;
+}
+
+.pad-left20
+{
+	padding-left: 20px;
 }
 
 .j2jgreenback
@@ -8259,3 +8277,8 @@ a:active, a:hover {
 	background-color: #1a3156;
 }
 
+.fav-image
+{
+	width: 30px;
+	float: right;
+}

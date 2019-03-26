@@ -12,7 +12,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 <div class="branch-container">
 
-	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/commercial-gray.jpg); background-size: 100% 190%;">
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/commercial.jpg); background-size: 100% 190%;">
 
 			<div class="anim-image-title">
 				Arbeiten im kaufmännischen Sektor:<br>
@@ -32,9 +32,9 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 		
 
 		<div class="box-list">
-			<div class="item"><div><b>Jobe von Job2Job :</b></div> Riesige Auswahl, minimaler Aufwand – Ihr Job findet Sie.</div>
-			<div class="item"><div><b>Faire Löhne:</b></div> Verkaufen Sie sich nicht unter Wert. Die Einhaltung aller Mindestlöhne und zusätzlichen Vergütungen hat für uns oberste Priorität. </div>
-			<div class="item"><div><b>Flexibel 1-100% arbeiten:</b></div> Leben und Arbeiten Sie nach Ihren Regeln – individuell und selbstbestimmt. </div>
+			<div class="item"><div><b>Jobs von Job2Job</b></div> Riesige Auswahl, minimaler Aufwand – Ihr Job findet Sie.</div>
+			<div class="item"><div><b>Faire Löhne</b></div> Verkaufen Sie sich nicht unter Wert. Die Einhaltung aller Mindestlöhne und zusätzlichen Vergütungen hat für uns oberste Priorität. </div>
+			<div class="item"><div><b>Flexibel 1-100% arbeiten</b></div> Leben und Arbeiten Sie nach Ihren Regeln – individuell und selbstbestimmt. </div>
 		</div>
 		<div class="clear"></div>
 

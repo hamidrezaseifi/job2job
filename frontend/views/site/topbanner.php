@@ -28,7 +28,7 @@ if (! $user->isGuest && $identity->isCompany ()) {
 					
 			<?php if($firstPage){?>
 			
-			<div class="header-banner-box header-banner-box-right" >„Job2Job Personaldienstleistungen - Wir bringen Interessen zusammen“</div>
+			<div class="header-banner-box header-banner-box-left" >„Job2Job Personaldienstleistungen - Wir bringen Interessen zusammen“</div>
 			
 			<?php } ?>
 			
@@ -44,7 +44,7 @@ if (! $user->isGuest && $identity->isCompany ()) {
 			
 			<?php } ?>
 			
-			<?php if($showSearch){?>
+			<?php if($showSearch && false){?>
 			<div class="header-banner-box header-banner-box-left-350" >
 				Job Suche<br><br>
 				<p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs" class="header-banner-link">JOB SUCHEN</a></p>				

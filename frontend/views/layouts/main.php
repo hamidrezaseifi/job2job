@@ -339,10 +339,7 @@ $this->beginBody ()?>
                 	<li id="menu-item-3302" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3302"><a href="<?=Yii::getAlias ( '@web' )?>/referenzen/">Referenzen</a></li>
                 </ul>
                 </li>
-                <li id="menu-item-4884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4884"><a href="<?=Yii::getAlias ( '@web' )?>/blog/">Blog</a></li>
                 <li id="menu-item-4512" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4512"><a href="<?=Yii::getAlias ( '@web' )?>/kontakt/">Kontakt</a></li>
-                <li id="menu-item-6747" class="mobilemeinaristo menu-item menu-item-type-post_type menu-item-object-page menu-item-6747"><a href="<?=Yii::getAlias ( '@web' )?>/mein-aristo/">MEIN ARISTO</a></li>
-                <li id="menu-item-3355" class="mobilephoneitem menu-item menu-item-type-custom menu-item-object-custom menu-item-3355"><a href="tel:+498959918270">ARISTO ANRUFEN</a></li>
                 </ul>
             </div>
         </div>

@@ -31,4 +31,16 @@ class CandidatefavoriteBase extends \common\models\Candidatefavorite
         
         return $model && isset($model->createdate);
     }
+    
+    public static function listAlljobfav($userid)
+    {
+        
+        $allfav = CandidatefavoriteBase::findAll(['userid' => $userid]);
+        $list = [];
+        foreach($allfav as $fav){
+            $list[] = $fav->jobposid;
+        }
+        
+        return $list;
+    }
 }

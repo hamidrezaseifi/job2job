@@ -394,14 +394,13 @@
   float: left;
   margin: 10px 0.7%;
   min-height: 342px;
-  padding: 22px 12px 15px;
+  padding: 6px 12px 15px;
   width: 250px;
   transition: all 200ms ease-out;
 }
 
 .box-founded-jobs:hover {
   box-shadow: 0 0 10px rgba(10, 10, 10, 1);
-  cursor: pointer;
 }
 
 .box-founded-jobs:hover .button1-founded-jobs {
@@ -456,13 +455,12 @@
 }
 
 .buttons-founded-jobs a {
-  display: table;
-  float: left;
-  font-size: 11px;
-  margin: 0 5px;
-  padding: 6px 20px 6px;
-  color: #fff;
-  position: relative;
+	display: inline-block;
+    font-size: 11px;
+    padding: 6px 20px;
+    color: #fff;
+    position: relative;
+    width: 170px;
 }
 
 .buttons-founded-jobs {
@@ -494,8 +492,16 @@
   height: 14px;
   position: absolute;
   right: 6px;
-  top: 4px;
+  top: 6px;
   width: 7px;
   z-index: 99;
+}
+
+.fav-image{
+	cursor: pointer;
+}
+
+.fav-container{
+	height: 30px;
 }
 

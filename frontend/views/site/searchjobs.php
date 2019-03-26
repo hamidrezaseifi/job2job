@@ -19,6 +19,7 @@
 /* @var $vacances array */
 /* @var $branches array */
 /* @var $regins array */
+/* @var $favlist array */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -148,6 +149,14 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 
 	<div class="box-founded-jobs-container">
 		<div ng-repeat="job in foundJobs" class="box-founded-jobs">
+			<div class="fav-container">
+			<?php if($isCandidate){?>
+			<img class="fav-image" ng-click="addFavorite(job.id)" alt="" ng-src="<?php echo Yii::getAlias("@web");?>/web/images/{{getFavImageName(job.id)}}">
+			<?php } else {?>
+			
+			<?php } ?>
+			</div>
+			<div class="clear"></div>
 			<a href="<?php echo Yii::getAlias("@web");?>/site/jobview/{{job.id}}">
                 <div class="highestJobsuche">
                     <div class="title">{{job.title}}</div>
@@ -160,7 +169,6 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 			</a>
 			<div class="buttons-founded-jobs">
 				<a class="button1-founded-jobs" href="<?php echo Yii::getAlias("@web");?>/site/jobview/{{job.id}}">DETAILS</a>
-				<a class="button2-founded-jobs" <?php if($isCandidate){?>ng-click="markJob(job.id)"<?php } ?>>MERKEN</a>
 			</div>			
 		</div>
 		<div class="clear"></div>
@@ -181,6 +189,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 <script type="text/javascript">
 var jobscounturl = "<?php echo Yii::getAlias("@web") . "/site/jobcount"; ?>";
 var jobssearchturl = "<?php echo Yii::getAlias("@web") . "/site/dosearchjobs"; ?>";
+var addtofavurl = "<?php echo Yii::getAlias("@web") . "/candidate/jobfav"; ?>";
 var regions = {
 		<?php foreach ($regins as $country => $cities){?>
 		'<?php echo $country;?>' : { 'self' : false,
@@ -202,6 +211,9 @@ var vacancies = {
 		<?php echo $vacancy->id;?>:'<?php echo $vacancy->title;?>',
 		<?php } ?>	
 	};
+
+var favlist = [<?php foreach ($favlist as $fav){ echo $fav . ', ';  } ?>];
+
 var searchText = "<?php echo $searchText; ?>";
 
 var searchBranch = [<?php echo $searchBranch ? $searchBranch : ""; ?>];

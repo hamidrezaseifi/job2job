@@ -347,6 +347,7 @@ class SiteController extends Controller
             'branches' => $branches,
             'searchText' => $searchText,
             'searchBranch' => $searchBranch,
+            'favlist' => CandidatefavoriteBase::listAlljobfav(Yii::$app->user->identity->id),
         ]);
     }
 

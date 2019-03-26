@@ -993,7 +993,7 @@ class CandidateController extends Controller
         echo $output;
         exit();
     }
-
+    
     /**
      * add jobposition to favorite.
      *
@@ -1001,13 +1001,15 @@ class CandidateController extends Controller
      */
     public function actionJobfav($id)
     {
-        // return Yii::$app->user->identity->id . ' , ' . $id;
+        header('Content-type: application/json');
+        $this->layout=false;
+        
         $favModel = CandidatefavoriteBase::findOne(
             [
                 'userid' => Yii::$app->user->identity->id,
                 'jobposid' => $id
             ]);
-
+        
         if ($favModel) {
             $favModel->delete();
         } else {
@@ -1020,15 +1022,34 @@ class CandidateController extends Controller
             $data['CandidatefavoriteBase']['createdate'] = date('Y-m-d H:i:s');
             $favModel->load($data);
             $favModel->save(false);
-
+            
             FrontlogBase::addLog('JobFav:' . $id, Yii::$app->user->identity->id, true);
         }
-        return $this->redirect([
-            'site/jobview',
-            'id' => $id
-        ]);
+        
+        $results = ['res' => 'ok', 'favlist' => CandidatefavoriteBase::listAlljobfav(Yii::$app->user->identity->id), ];
+        
+        echo json_encode($results);
+        exit;
+        
     }
-
+    
+    /**
+     * list jobposition id from user favorites.
+     *
+     * @return mixed
+     */
+    public function actionAlljobfav()
+    {
+        header('Content-type: application/json');
+        $this->layout=false;
+        
+        $results = ['res' => 'ok', 'favlist' => CandidatefavoriteBase::listAlljobfav(Yii::$app->user->identity->id), ];
+        
+        echo json_encode($results);
+        exit;
+        
+    }
+    
     /**
      * add jobposition to favorite.
      *
