@@ -45,15 +45,14 @@ $this->beginPage ()?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?=Html::csrfMetaTags ()?>
     <title><?=Html::encode ( Yii::$app->params ['sitetitle'] )?></title>
-    <?php
-
-				$this->head ()?>
+    <?php $this->head ()?>
     <link rel="icon" type="image/png" href="<?=Yii::getAlias ( '@web/web/images' )?>/site-icon.jpg">
     <link rel="stylesheet" href="<?=Yii::getAlias ( '@web' )?>/web/css/jquery.lightbox.min.css">
 
     <script src="<?=Yii::getAlias ( '@web' )?>/web/js/mainlayout.js"></script>
     <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/datepicker-de.js"></script>
     <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/isInViewport.min.js"></script>
+    <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/utils.js"></script>
 
     <link rel="stylesheet" id="ubermenu-css" href="<?=Yii::getAlias ( '@web' )?>/web/css/ubermenu.css" type="text/css" media="all">
 

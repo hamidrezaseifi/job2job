@@ -21,10 +21,10 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	</div>
 
 	<div class="branch-content">
-	    <p><b>Angestellte und temporäre Hilfskräfte in Lager und Logistik werden händeringend gesucht. Doch die Arbeitsbedingungen sind nicht überall gut. <br>Mit Job2Job finden Sie die Stellen, bei denen Arbeit noch Spaß macht!</b></p>
-	    <div>
-    		<div class="width50 pad20"><p>Der Online-Handel boomt. Die unvermeidliche Folge: beständig wachsende Lager und eine wahre Paket-Flut, die sich – gerade zur Weihnachtszeit – zu immer höheren Wellen auftürmt. Wellen schlagen in jüngster Zeit auch die mitunter prekären Verhältnisse von (Zeit-)Arbeitskräften in Lager und Logistik.</p></div>
-    		<div class="width50 pad20"><p>Haben Sie genug von Lohn-Dumping, unbezahlten Überstunden und Leistungsdruck? Sie haben Erfahrung im Bereich Lager und Logistik? Dann wenden Sie sich an Job2Job. Wir finden gemeinsam mit Ihnen den Arbeitgeber, der Ihre unverzichtbare Arbeit zu schätzen weiß. </p></div>
+	    <p>Angestellte und temporäre Hilfskräfte in Lager und Logistik werden händeringend gesucht. Doch die Arbeitsbedingungen sind nicht überall gut. <br>Mit <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> finden Sie die Stellen, bei denen Arbeit noch Spaß macht!</p>
+	    <div style="margin-top: 20px">
+    		<div class="width50 pad-right20"><p>Der Online-Handel boomt. Die unvermeidliche Folge: beständig wachsende Lager und eine wahre Paket-Flut, die sich – gerade zur Weihnachtszeit – zu immer höheren Wellen auftürmt. Wellen schlagen in jüngster Zeit auch die mitunter prekären Verhältnisse von (Zeit-)Arbeitskräften in Lager und Logistik.</p></div>
+    		<div class="width50 pad-left20"><p>Haben Sie genug von Lohn-Dumping, unbezahlten Überstunden und Leistungsdruck? Sie haben Erfahrung im Bereich Lager und Logistik? Dann wenden Sie sich an <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a>. Wir finden gemeinsam mit Ihnen den Arbeitgeber, der Ihre unverzichtbare Arbeit zu schätzen weiß. </p></div>
 	    	<div class="clear"></div>
 		</div>
 

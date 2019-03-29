@@ -22,17 +22,17 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	</div>
 
 	<div class="branch-content">
-	    <p><b>Im kaufmännischen Sektor stehen Ihre Chancen auf einen Arbeitsplatz gut. Doch die Suche nach der geeigneten Stelle ist mühsam. Job2Job nimmt Sie Ihnen ab!</b></p>
-	    <div>
-	    	<div class="width50 pad20"><p>Sie sind gelernter Bürokaufmann/-kauffrau, Sachbearbeiter/in oder arbeiten in einem anderen Beruf im kaufmännischen Bereich? Herzlichen Glückwunsch. Sie haben prinzipiell die Möglichkeit in nahezu jedem deutschen Unternehmen zu arbeiten. Doch eine große Auswahl macht auch den Bewerbungsprozess mühsam. Zumal auf attraktive Stellen in renommierten Unternehmen ein regelrechter Run herrscht.</p></div>
-	    	<div class="width50 pad20"><p>Diesen Bewerbungsstress möchten Sie sich am liebsten vom Hals halten? Dann beauftragen Sie Job2Job damit – und lehnen Sie sich entspannt zurück. Wir finden den Arbeitgeber, bei dem Sie glücklich werden – auch in finanzieller Hinsicht. Ganz egal, ob Sie eine Festanstellung suchen oder für flexible Einsätze offen sind.</p></div>
+	    <p>Im kaufmännischen Sektor stehen Ihre Chancen auf einen Arbeitsplatz gut. Doch die Suche nach der geeigneten Stelle ist mühsam. <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> nimmt Sie Ihnen ab!</p>
+	    <div style="margin-top: 20px">
+	    	<div class="width50 pad-right20"><p>Sie sind gelernter Bürokaufmann/-kauffrau, Sachbearbeiter/in oder arbeiten in einem anderen Beruf im kaufmännischen Bereich? Herzlichen Glückwunsch. Sie haben prinzipiell die Möglichkeit in nahezu jedem deutschen Unternehmen zu arbeiten. Doch eine große Auswahl macht auch den Bewerbungsprozess mühsam. Zumal auf attraktive Stellen in renommierten Unternehmen ein regelrechter Run herrscht.</p></div>
+	    	<div class="width50 pad-left20"><p>Diesen Bewerbungsstress möchten Sie sich am liebsten vom Hals halten? Dann beauftragen Sie <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> damit – und lehnen Sie sich entspannt zurück. Wir finden den Arbeitgeber, bei dem Sie glücklich werden – auch in finanzieller Hinsicht. Ganz egal, ob Sie eine Festanstellung suchen oder für flexible Einsätze offen sind.</p></div>
 	    	<div class="clear"></div>
 	    </div>
 		
 		
 
 		<div class="box-list">
-			<div class="item"><div><b>Jobs von Job2Job</b></div> Riesige Auswahl, minimaler Aufwand – Ihr Job findet Sie.</div>
+			<div class="item"><div><b>Jobs von <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a></b></div> Riesige Auswahl, minimaler Aufwand – Ihr Job findet Sie.</div>
 			<div class="item"><div><b>Faire Löhne</b></div> Verkaufen Sie sich nicht unter Wert. Die Einhaltung aller Mindestlöhne und zusätzlichen Vergütungen hat für uns oberste Priorität. </div>
 			<div class="item"><div><b>Flexibel 1-100% arbeiten</b></div> Leben und Arbeiten Sie nach Ihren Regeln – individuell und selbstbestimmt. </div>
 		</div>

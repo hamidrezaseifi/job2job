@@ -933,19 +933,14 @@ right: 230px;
   height: 460px;
   width: 100%;
 }
-.each-slide-kunden h2 {
-  color: #fff;
-  display: table;
-  float: left;
-  margin-top: 45px;
-}
+
 .slider2-content {
   color: #fff;
   display: table;
   float: right;
   font-family: AvenirLTPro-LightOblique;
   font-size: 25px;
-  height: 490px;
+  height: 520px;
   line-height: 35px;
   position: relative;
   text-align: justify;
@@ -7753,12 +7748,6 @@ md-sidenav
 	
 }
 
-.das_sagen_kunden
-{
-	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/commercial.jpg');
-    background-size: cover;
-}
-
 .main-content {
   
   min-height: calc(100vh - 63px);
@@ -8168,16 +8157,61 @@ a:active, a:hover {
 	margin-top: 40px;
 }
 
-.das_sagen_kunden_candidate
+.das_sagen_kunden_candidate1
 {
 	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candid-recommand2.jpg');
     background-size: cover;
 }
 
+.das_sagen_kunden_candidate2
+{
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/candid-recommand2.jpg');
+    background-size: cover;
+}
+
+.das_sagen_kunden1
+{
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/company-recommand.jpg');
+    background-size: cover;
+}
+
+.das_sagen_kunden2
+{
+	background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) ), url('../images/commercial.jpg');
+    background-size: cover;
+}
+
+.recomand-content
+{
+	max-height: 240px;
+	overflow-y: hidden;
+}
+.recommand-title
+{
+	
+	
+}
+
+.recommand-title h2 {
+  color: #fff;
+  display: table;
+  margin: 15px auto 25px !important;
+}
+
+.candidate-recommand-title1
+{
+	float: left;
+}
+
+.compnay-recommand-title1
+{
+	float: right;
+}
+
 .pagination-content .pagination-content-item
 {
 	position: absolute;
-	top: 120px;
+	top: 60px;
 	width: 100%;
 	height: 260px;
 }

@@ -6,3 +6,7 @@ function checkIsNullOrEmpty(value){
 function checkIsNullOrZero(value){
 	return value === null || value == 0; 
 }
+
+function isOdd(num) { 
+	return num % 2;
+}

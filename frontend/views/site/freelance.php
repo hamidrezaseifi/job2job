@@ -18,23 +18,28 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	</div>
 
 	<div class="branch-content">
-	    <p><strong>Hätten Sie es gewusst? Zeitarbeit kann Ihnen ganz neue Perspektiven eröffnen. Job2Job macht es möglich. </strong></p>
-		<p>Zugegeben. Zeitarbeit hat nicht unbedingt den besten Ruf. Doch die sogenannte „Arbeitnehmerüberlassung“ hat für Angestellte durchaus auch Vorteile: </p>
+	    
+	    <div style="margin-top: 20px">
+			<div class="width50 pad-left20"><p>Hätten Sie es gewusst? Zeitarbeit kann Ihnen ganz neue Perspektiven eröffnen. <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> macht es möglich. </p></div>
+			<div class="width50 pad-right20"><p>Zugegeben. Zeitarbeit hat nicht unbedingt den besten Ruf. Doch die sogenannte „Arbeitnehmerüberlassung“ hat für Angestellte durchaus auch Vorteile: </p></div>
+			<div class="clear"></div>
+		</div>
 
-		<ul>
-			<li>Als Berufsanfänger sammeln Sie wertvolle Erfahrungen, die Ihnen den Eintritt in die Arbeitswelt erleichtern. </li>
-            <li>Nach längerer Berufsabstinenz fassen Sie durch Zeitarbeit wieder Fuß auf dem Arbeitsmarkt. </li>
-            <li>Gerade älteren Arbeitssuchenden winken mit dem Zeitarbeitsmodell neue Perspektiven. </li>
-            <li>Eine berufliche Umorientierung wird durch temporäre Arbeitsleistungen vereinfacht. </li>
-            <li>Die Arbeitnehmerüberlassung ist in der Regel sozialversicherungspflichtig.</li>
-            <li>Zeitarbeitnehmer haben dieselben Rechte wie regulär angestellte Arbeitnehmer. </li>
-            <li>Sie wahren sich ein Höchstmaß an Flexibilität.</li>
-
-		</ul>
+		<div class="box-list">
+			<div class="item">Als Berufsanfänger sammeln Sie wertvolle Erfahrungen, die Ihnen den Eintritt in die Arbeitswelt erleichtern. </div>
+            <div class="item">Nach längerer Berufsabstinenz fassen Sie durch Zeitarbeit wieder Fuß auf dem Arbeitsmarkt. </div>
+            <div class="item">Gerade älteren Arbeitssuchenden winken mit dem Zeitarbeitsmodell neue Perspektiven. </div>
+            <div class="item">Eine berufliche Umorientierung wird durch temporäre Arbeitsleistungen vereinfacht. </div>
+            <div class="item">Die Arbeitnehmerüberlassung ist in der Regel sozialversicherungspflichtig.</div>
+            <div class="item">Zeitarbeitnehmer haben dieselben Rechte wie regulär angestellte Arbeitnehmer. </div>
+            <div class="item">Sie wahren sich ein Höchstmaß an Flexibilität.</div>
+			<div class="clear"></div>
+		</div>
 		
+		<br>
 		<p>Sie möchten mehr über das Modell der Zeitarbeit erfahren? Sprechen Sie uns an. Wir beantworten Ihre Fragen. </p>
 
-		<br><br><br>
+		<br>
 
 
 	</div>

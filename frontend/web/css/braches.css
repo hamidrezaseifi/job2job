@@ -42,6 +42,12 @@
     transition: all 200ms ease-out;
 }
 
+.box-list div.item.short
+{
+    height: 120px !important;
+    line-height: 30px;
+}
+
 .box-list div.item div
 {
 	text-align: center;
