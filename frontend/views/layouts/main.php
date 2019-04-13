@@ -267,6 +267,11 @@ $this->beginBody ()?>
                     									<span class="ubermenu-target-title ubermenu-target-text">Unser Engagement</span>
                     								</a>
                     							</li>
+                    							<li id="menu-item-7490" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7490 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
+                    								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/impressum">
+                    									<span class="ubermenu-target-title ubermenu-target-text">Impressum</span>
+                    								</a>
+                    							</li>
                     						</ul>
                     					</li>
                     				</ul>

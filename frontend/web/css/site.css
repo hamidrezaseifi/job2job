@@ -1488,42 +1488,7 @@ ul.list-icon {
 body .das_sagen_kunden {
   background-position-x: center !important;
 }
-.title-karriere {
-  color: #1a3156;
-  display: table;
-  font-family: AvenirLTPro-Black;
-  font-size: 19px;
-  line-height: 24px;
-  margin: 38px auto 23px;
-  width: 195px;
-}
-.text-karriere {
-  color: #1a3156;
-  font-family: AvenirLTPro-Light;
-  font-size: 16px;
-  line-height: 25px;
-  margin-bottom: 20px;
-  min-height:100px;
-}
-.box-karriere > a {
-  color: #1a3156;
-  display: table;
-  font-family: AvenirLTPro-Book;
-  font-size: 17px;
-  margin: 0 auto;
-  padding: 5px 25px 5px 0;
-  position: relative;
-}
-.box-karriere > a::after {
-  content: "\203A";
-  display: table;
-  font-size: 26px;
-  height: 19px;
-  position: absolute;
-  right: 6px;
-  top: -1px;
-  width: 11px;
-}
+
 .aktuelle-informationen-fur-kandidaten h3 strong {
   display: table;
   margin: 0 auto;
@@ -8315,4 +8280,25 @@ a:active, a:hover {
 {
 	width: 30px;
 	float: right;
+}
+
+.impresum-social-icon{
+    width: 36px;
+    margin-left: 20px;
+}
+
+.impresum-social-label{
+	width: 60px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.impresum-social-label{
+	width: 60px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.impresum-content{
+    padding-left: 40px;
 }
