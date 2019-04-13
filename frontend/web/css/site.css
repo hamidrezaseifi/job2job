@@ -7902,6 +7902,11 @@ a:active, a:hover {
 	background-image:url('../images/home-3.jpg');
 }
 
+.candidate-box
+{
+	background-image:url('../images/candidate-1.jpg');
+}
+
 .light-and-bold
 {
 	color: #1a3156 !important;
@@ -8301,4 +8306,15 @@ a:active, a:hover {
 
 .impresum-content{
     padding-left: 40px;
+}
+
+.footer-link{
+	color: white;
+	font-family:AvenirLTPro-Light !important;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.yellow-back{
+	background-color: yellow;
 }

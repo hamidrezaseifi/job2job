@@ -267,11 +267,6 @@ $this->beginBody ()?>
                     									<span class="ubermenu-target-title ubermenu-target-text">Unser Engagement</span>
                     								</a>
                     							</li>
-                    							<li id="menu-item-7490" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7490 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/impressum">
-                    									<span class="ubermenu-target-title ubermenu-target-text">Impressum</span>
-                    								</a>
-                    							</li>
                     						</ul>
                     					</li>
                     				</ul>
@@ -415,6 +410,12 @@ if ($user->isGuest) {
 				<span class="sprite k footer-social"></span>
 			</a>
 		</div>
+	</div>
+	<div class="footer-child">
+        <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH Rechte</b></div>
+        <a class="footer-link" href="<?=Yii::getAlias ( '@web' )?>/site/impressum">Impressum</a> <br>
+        <a class="footer-link" href="<?=Yii::getAlias ( '@web' )?>/site/privacypolicy">Datenschutz & Bestimmungen</a> <br>
+        <a class="footer-link" href="<?=Yii::getAlias ( '@web' )?>/site/rights">Ihre Rechte</a> <br>
 	</div>
 	<div class="footer-child footer-last">
         <div style="font-size:12px; line-height: 20px; text-align: center; margin-bottom: 10px;">Sie haben Fragen?</div>

@@ -370,7 +370,7 @@ class SiteController extends Controller
     {
         return $this->render('freelance', []);
     }
-
+    
     /**
      * Displays Impressum.
      *
@@ -380,7 +380,27 @@ class SiteController extends Controller
     {
         return $this->render('impressum', []);
     }
-
+    
+    /**
+     * Displays Impressum.
+     *
+     * @return mixed
+     */
+    public function actionRights()
+    {
+        return $this->render('rights', []);
+    }
+    
+    /**
+     * Displays Impressum.
+     *
+     * @return mixed
+     */
+    public function actionPrivacypolicy()
+    {
+        return $this->render('privacypolicy', []);
+    }
+    
     /**
      * Displays Whoweare.
      *
