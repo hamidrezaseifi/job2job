@@ -12,7 +12,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 <div class="branch-container">
 
-	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/engineering.jpg); background-size: 100vw calc(100vw * 0.33);">
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/engineering2.jpg); background-size: 100vw;">
 
 			<div class="anim-image-title">
 				Ingenieurwesen und Technik :<br>

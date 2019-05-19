@@ -13,7 +13,7 @@
 
 .anim-image-header .anim-image-title
 {
-	background: #fff none repeat scroll 0 0;
+	background: rgba(255,255,255, 0.8) none repeat scroll 0 0;
     color: #202871;
     font-family: AvenirLTPro-Book;
     font-size: 25px;

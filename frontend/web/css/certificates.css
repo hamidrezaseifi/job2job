@@ -16,7 +16,7 @@
 	height: 70px;
 	line-height: 70px;
 	vertical-align: middle;	
-	width: 76%;
+	width: 90%;
 	padding-left: 70px;
 }
 
@@ -30,11 +30,14 @@
 .certificates-item
 {
 	width: 233px;
-	height: 177px;
-	float: left;
-	margin: 5px;
-	background-image-repeat: no-repeat;
-	cursor: pointer;
+    height: 177px;
+    float: left;
+    margin: 5px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-position: 5% -5%;
+    background-size: 220px;
 }
 
 .certificates-item-desc

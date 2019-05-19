@@ -241,55 +241,42 @@ class SiteController extends Controller
      */
     public function actionCertificates()
     {
+        $path = dirname(dirname(__FILE__)) . '/web/certificates';
+        
+        $path = str_replace("\\", "/", $path);
+        $img_path = $path . '/img/';
+        
         $pdfList = array();
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert1.png',
-            'title' => 'title 1',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert1.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert2.png',
-            'title' => 'title 2',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert2.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert3.png',
-            'title' => 'title 3',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert3.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert4.png',
-            'title' => 'title 4',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert4.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert5.png',
-            'title' => 'title 5',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert5.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert6.png',
-            'title' => 'title 6',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert6.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert7.png',
-            'title' => 'title 7',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert7.pdf'
-        );
-        $pdfList[] = array(
-            'image' => Yii::getAlias('@web') . '/web/certificates/cert8.png',
-            'title' => 'title 8',
-            'desc' => 'description 1',
-            'file' => Yii::getAlias('@web') . '/web/certificates/cert8.pdf'
-        );
+        $files = scandir($path);
+        
+        foreach($files as $file){
+            $filepath = $path . '/' . $file;
+            $finf = pathinfo ($filepath);
+            if(isset($finf['extension'])){
+                $filename = $finf['filename'];
+                $extension = $finf['extension'];
+                $image_file = $img_path . $filename . '.jpg';
+                $text_file = $path . '/' . $filename . '.txt';
+                $desc_file = $filename;
+                if(file_exists($text_file)){
+                    $desc_file = file_get_contents($text_file);
+                }
+                //echo $extension . '  ,  ' . $text_file . '  ,  ' . $desc_file . '<br>';
+                if(($extension == 'jpg' || $extension == 'pdf') && file_exists($image_file)){
+                    $pdfList[] = [
+                        'image' => Yii::getAlias('@web') . '/web/certificates/img/' . urlencode($filename) . '.jpg',
+                        'title' => $desc_file,
+                        'desc' => '',
+                        'file' => Yii::getAlias('@web') . '/web/certificates/' . urlencode($file)
+                    ];
+                }
+                
+            }
+        }
+        
+       // print_r($pdfList); exit;
+        
+        
 
         return $this->render('certificates', [
             'pdfList' => $pdfList
@@ -347,7 +334,7 @@ class SiteController extends Controller
             'branches' => $branches,
             'searchText' => $searchText,
             'searchBranch' => $searchBranch,
-            'favlist' => CandidatefavoriteBase::listAlljobfav(Yii::$app->user->identity->id),
+            'favlist' => Yii::$app->user->isGuest ? [] : CandidatefavoriteBase::listAlljobfav(Yii::$app->user->identity->id),
         ]);
     }
 
@@ -956,5 +943,15 @@ class SiteController extends Controller
             }
         }
         return false;
+    }
+    
+    private function endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        if ($length == 0) {
+            return true;
+        }
+        
+        return (substr($haystack, -$length) === $needle);
     }
 }
