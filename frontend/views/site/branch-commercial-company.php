@@ -10,7 +10,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 <div class="branch-container">
 
-	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/commercial-1.jpg); background-size: cover;">
+	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/commercial2.jpg); background-size: 100vw calc(100vw * 0.33);">
 
 			<div class="anim-image-title">
 				Kaufmännische Mitarbeiter mit Know-how und Praxiserfahrung finden
