@@ -85,21 +85,21 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 			<div class="all-boxes-karriere">
 					
 			        <div class="box-karriere">
-						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon1.png">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon1-2.jpg">
 						<div class="title-karriere">LEBENSLAUF EINREICHEN</div>
 						<div class="text-karriere">Berufliche Perspektive gesucht? Schicken Sie uns noch heute Ihren Lebenslauf und wir melden uns mit einer beruflichen Herausforderung, die nur auf Sie zugeschnitten ist! </div>
 						<a href="#" >mehr erfahren</a>
 					</div>		
 			 		
 			        <div class="box-karriere">
-						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon2.png">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon2-2.jpg">
 						<div class="title-karriere">ZUM JOB-TICKER ANMELDEN</div>
 						<div class="text-karriere">Anmelden. Wunschkriterien definieren. Zurücklehnen. Wir versorgen Sie mit interessanten Jobangeboten. Noch nie war es leichter, den persönlichen Traumjob zu finden.</div>
 						<a href="#" >mehr erfahren</a>
 					</div>		
 			 		
 			        <div class="box-karriere">
-						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon3.png">
+						<img src="<?=Yii::getAlias('@web/web') ?>/images/icon3-2.jpg">
 						<div class="title-karriere" style="width: 280px;">INDIVIDUELLE MERKLISTE ANLEGEN</div>
 						<div class="text-karriere" style="height: 125px">Bewahren Sie die Übersicht über Ihre bevorzugten Stellenangebote und fügen Sie vielversprechende Inserate Ihrer persönlichen Merkliste hinzu. </div>
 						<a href="#" >mehr erfahren</a>
