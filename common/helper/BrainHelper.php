@@ -12,11 +12,11 @@ class BrainHelper
 	public static function dateGermanToEnglish($idate)
 	{
 		if($idate == '' || $idate == null) return $idate;
+				
+		$formatter = \Yii::$app->formatter;
+		$formatter->timeZone = 'UTC';
+		return $formatter->asDate($idate, 'php:Y-m-d');
 		
-		
-		$date = date_create_from_format('d.m.Y', $idate);
-		
-		return date_format($date, 'Y-m-d');
 	}
 	
 	public static function dateEnglishToGerman($idate)
@@ -24,22 +24,22 @@ class BrainHelper
 		if(!$idate || $idate == '' || $idate == null) return $idate;
 		
 		$idate .= strlen($idate) == 10 ? ' 00:00:00' : '';
-
-		$date = date_create_from_format('Y-m-d H:i:s', $idate);
-
-		return date_format($date, 'd.m.Y');
+		
+		$formatter = \Yii::$app->formatter;
+		$formatter->timeZone = 'UTC';
+		return $formatter->asDate($idate, 'php:d.m.Y H:i');
+		
 	}
 	
 	public static function dateAddEnglish($idate , $add , $fromgerman = true , $togerman = true)
 	{
 		if($idate == '' || $idate == null) return $idate;
 		
-		$informat = $fromgerman ? 'd.m.Y' : 'Y-m-d H:i:s';
 		$outformat = $togerman ? 'd.m.Y' : 'Y-m-d H:i:s';
 	
-		$date = $fromgerman ? date_create_from_format($informat, $idate) : date_create_from_format($informat, $idate);
-		date_add($date, date_interval_create_from_date_string($add . ' months'));
-		return date_format($date, $outformat);
+		$formatter = \Yii::$app->formatter;
+		$formatter->timeZone = 'UTC';
+		return $formatter->asDate($idate, 'php:'.$outformat);
 	}
 	
 	/**

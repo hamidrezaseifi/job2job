@@ -16,10 +16,10 @@ class VacancyBase extends \common\models\Vacancy
      * @inheritdoc
      * @return BranchQueryBase the active branches.
      */
-    public static function allActiveKeyList() {
+    public static function allActiveKeyList($addInitial = true) {
         $query = VacancyBase::findAll (['status' => 1] );
         
-        $items = array ();
+        $items = $addInitial ? [ 0 => ''] : [];
         foreach ( $query as $item ) {
             
             $items [$item->id] = $item->title;

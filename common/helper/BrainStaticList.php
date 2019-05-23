@@ -9,7 +9,6 @@ use common\lib\CountryBase;
 use common\lib\DistanceBase;
 use common\lib\CompanytypeBase;
 use common\lib\WorktimemodelBase;
-use common\lib\JobtypeBase;
 use common\lib\VacancyBase;
 
 
@@ -116,19 +115,6 @@ class BrainStaticList
 		$item_array = BrainHelper::mapTranslate($worktypes, 'id', 'title');
 		$item_array[0] = $notypetitle;
 		asort($item_array);
-		
-		return $item_array;
-	}
-	
-	public static function jobTypeList($notype = false, $notypetitle = '')
-	{
-		$jobypes =  JobtypeBase::findAll(['status' => 1]);
-		$item_array = BrainHelper::mapTranslate($jobypes, 'id', 'title');
-		if($notype)
-		{
-			$item_array[0] = $notypetitle;
-		}
-		ksort($item_array);
 		
 		return $item_array;
 	}

@@ -87,12 +87,12 @@ class BranchBase extends \common\models\Branch {
 	 * @inheritdoc
 	 * @return BranchQueryBase the active branches.
 	 */
-	public static function allActiveKeyList() {
+	public static function allActiveKeyList($addInitial) {
 	    $branchesQuery = BranchBase::findAll ( [
 	        'status' => 1
 	    ] );
 	    
-	    $branches = array ();
+	    $branches = $addInitial ? [ 0 => ''] : [];
 	    foreach ( $branchesQuery as $branchItem ) {
 	        
 	        $branches [$branchItem->id] = $branchItem->title;

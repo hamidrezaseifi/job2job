@@ -14,12 +14,14 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Bearbeiten');
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        				'model' 				=> $model,
-    					'jobypes' 				=> $jobypes,
-    					'countries' 			=> $countries,
-    					'cities'				=> $cities,
-    					'vacancies'				=> $vacancies,
-    					'worktypes'				=> $worktypes,
+		'model' 				=> $model,
+        'branchs' 				=> $branchs,
+        'countries' 			=> $countries,
+		'cities'				=> $cities,
+		'vacancies'				=> $vacancies,
+		'worktypes'				=> $worktypes,
+        'job2jobComp'			=> $job2jobComp,
+        'skills' 				=> $skills,
     ]) ?>
 
 </div>

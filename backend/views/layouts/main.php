@@ -20,7 +20,8 @@ $drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?=Yii::$app->language?>" ng-app="brainApp">
+
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,8 +30,9 @@ $drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
     <?php $this->head() ?>
     <link rel="icon" type="image/png" href="<?=Yii::getAlias('@web/web/images') ?>/site-icon.jpg">
     <script type="text/javascript" src="<?=Yii::getAlias('@web/web') ?>/js/datepicker-de.js"></script>
+    <script src="<?=Yii::getAlias ( '@web' )?>/web/js/mainlayout.js"></script>
 </head>
-<body>
+<body ng-controller="BodyController">
 <?php $this->beginBody() ?>
 
 <div class="wrap">

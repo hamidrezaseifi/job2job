@@ -15,10 +15,18 @@ class AppAsset extends AssetBundle
         'css/site.css',
     	'css/jquery-ui.min.css',
     	'css/bootstrap.css',
+        'angular/angular-material.min.css',
+        'css/icon.css'
     ];
     public $js = [
-    		'js/jquery-3.1.0.min.js',
- 		    'js/jquery-ui.min.js',
+		'js/jquery-3.1.0.min.js',
+	    'js/jquery-ui.min.js',
+        'angular/angular.min.js',
+        'angular/angular-animate.js',
+        'angular/angular-aria.min.js',
+        'angular/angular-messages.min.js',
+        'angular/angular-material.min.js',
+        'angular/angular-cookies.min.js',
     ];
     public $depends = [
         //'yii\web\YiiAsset',

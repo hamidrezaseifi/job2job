@@ -58,7 +58,12 @@ class CompanyBase extends \common\models\Company
     {
         return new CompanyQueryBase(get_called_class());
     }
-
+    
+    public static function findJob2job()
+    {
+        return CompanyBase::find()->where(['isjob2job' => 1])->one();
+    }
+    
     public function personalDecisionMakerList()
     {
         $list = PersonaldecisionmakerBase::find()->where([

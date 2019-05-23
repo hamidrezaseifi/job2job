@@ -16,6 +16,13 @@ use common\lib\CandidateBase;
 use common\lib\CandidateSearchBase;
 use common\lib\CandidateskillBase;
 use common\lib\CandidatejobapplyBase;
+use common\lib\BranchBase;
+use common\lib\VacancyBase;
+use common\lib\WorktimemodelBase;
+use common\lib\CompanyBase;
+use common\lib\SkillsBase;
+use common\lib\JobpositionskillBase;
+use common\lib\JobpositiontasksBase;
 
 /**
  * JobpositionController implements the CRUD actions for JobPositionBase model.
@@ -44,7 +51,7 @@ class JobposController extends Controller
     public function actionIndex()
     {
         $searchModel = new JobpositionBaseSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->searchBackend(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -65,9 +72,16 @@ class JobposController extends Controller
     		$fromcompany = $_GET['fromcompany'];
     	}
     	 
+    	$branchs = BranchBase::allActiveKeyList(true);
+    	$vacancies = VacancyBase::allActiveKeyList(true);
+    	$worktypes =  WorktimemodelBase::allActiveKeyList(true);
+    	
         return $this->render('view', [
             'model' 		=> $this->findModel($id),
             'fromcompany' 	=> $fromcompany,
+            'branchs' 	    => $branchs,
+            'vacancies' 	=> $vacancies,
+            'worktypes' 	=> $worktypes,
         ]);
     }
 
@@ -111,11 +125,16 @@ class JobposController extends Controller
      */
     public function actionCreate()
     {
+        $job2jobComp = CompanyBase::findJob2job();
+        
         $model = new JobpositionBase();
 
         $model->createdate = date('Y-m-d H:i:s');
         $model->updatedate = $model->createdate;
         $model->status = 1;
+        $model->country = 'Deutschland';
+        $model->companyid = $job2jobComp->id;
+        $model->duration = 0;
 
         $fromcompany = false;
         if(isset($_GET['fromcompany']) && intval($_GET['fromcompany']) > 0)
@@ -133,32 +152,91 @@ class JobposController extends Controller
         	$postdata['JobpositionBase']['subtitle'] = isset($postdata['JobpositionBase']['subtitle']) ? $postdata['JobpositionBase']['subtitle'] : '';
         	$postdata['JobpositionBase']['showdate'] = isset($postdata['JobpositionBase']['showdate']) ? $postdata['JobpositionBase']['showdate'] : date('Y-m-d');
         	$postdata['JobpositionBase']['expiredate'] = BrainHelper::dateGermanToEnglish($postdata['JobpositionBase']['expiredate']);
-        	
-        	PostcodeBase::add($postdata['JobpositionBase']['country'], $postdata['JobpositionBase']['city'], $postdata['JobpositionBase']['postcode']);
+ 
         }
         
         
         if ($model->load($postdata) && $model->save(false)) {
+            
+            if(isset($postdata['JobpositionSkills']))
+            {
+                $allskills = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1])->all();
+                $allskills = BrainHelper::mapTranslate($allskills, 'title', 'title');
+                
+                JobpositionskillBase::deleteAll(['jobid' => $model->id]);
+                
+                $skilldata = array();
+                $skilldata['JobpositionskillBase']['jobid'] = $model->id;
+                
+                foreach ($postdata['JobpositionSkills'] as $skill){
+                    $skill = trim($skill);
+                    if($skill == '') continue;
+                    $skilldata['JobpositionskillBase']['skill'] = $skill;
+                    
+                    $jobskill = new JobpositionskillBase();
+                    $jobskill->load($skilldata);
+                    $jobskill->save(false);
+                    
+                    if(!isset($allskills[$skill]))
+                    {
+                        $sdata = array();
+                        $sdata['SkillsBase']['parentid'] = 1;
+                        $sdata['SkillsBase']['title'] = $skill;
+                        $sdata['SkillsBase']['status'] = 0;
+                        
+                        $skillModel = new SkillsBase();
+                        $skillModel->load($sdata);
+                        $skillModel->save(false);
+                        
+                    }
+                }
+            }
+            
+            if(isset($postdata['JobpositionTasks']))
+            {
+                JobpositiontasksBase::deleteAll(['jobid' => $model->id]);
+                
+                $taskdata = array();
+                $taskdata['JobpositiontasksBase']['jobid'] = $model->id;
+                foreach ($postdata['JobpositionTasks'] as $task)
+                {
+                    $skill = trim($task);
+                    if($task == '') continue;
+                    $taskdata['JobpositiontasksBase']['task'] = $task;
+                    
+                    $jobtask = new JobpositiontasksBase();
+                    $jobtask->load($taskdata);
+                    $jobtask->save(false);
+                    
+                }
+                
+            }
+            
         	return $this->redirect(['view', 'id' => $model->id, 'fromcompany' => $fromcompany]);
         } else {
         	
         	$cities = CityBase::allCities();
-        	$worktypes_array = BrainStaticList::workTypeList();
-        	$jobypes_array = BrainStaticList::jobTypeList();
-        	$vacancy_array = BrainStaticList::vacancyList();
         	$countries = BrainStaticList::countryList();
         	unset($countries['Deutschland']);
         	$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
         	$countries_array = array_merge($countries_array , $countries);
         	$worktypes = BrainStaticList::workTypeList();
+        	
+        	$branchs = BranchBase::allActiveKeyList(true);
+        	$vacancies = VacancyBase::allActiveKeyList(true);
+        	$worktypes =  WorktimemodelBase::allActiveKeyList(true);
+        	$skills = SkillsBase::allChilds(1);
+        	
         	 
             return $this->render('create', [
-                		'model' 				=> $model,
-    					'jobypes' 				=> $jobypes_array,
-    					'countries' 			=> $countries_array,
-    					'cities'				=> $cities,
-    					'vacancies'				=> $vacancy_array,
-    					'worktypes'				=> $worktypes,
+                'model' 				=> $model,
+                'branchs' 				=> $branchs,
+				'countries' 			=> $countries_array,
+				'cities'				=> $cities,
+                'vacancies'				=> $vacancies,
+                'worktypes'				=> $worktypes,
+                'job2jobComp'			=> $job2jobComp,
+                'skills' 				=> $skills,
             ]);
         }
     }
@@ -187,37 +265,102 @@ class JobposController extends Controller
         	$postdata['JobpositionBase']['jobstartdate'] = '01.' . substr($postdata['JobpositionBase']['jobstartdate'], 3);
         	$postdata['JobpositionBase']['jobstartdate'] = BrainHelper::dateGermanToEnglish($postdata['JobpositionBase']['jobstartdate']);
         	
-        	PostcodeBase::add($postdata['JobpositionBase']['country'], $postdata['JobpositionBase']['city'], $postdata['JobpositionBase']['postcode']);
-        }
-        if(isset($postdata['JobpositionBase']['expiredate']))
-        {
-        	$postdata['JobpositionBase']['expiredate'] = BrainHelper::dateGermanToEnglish($postdata['JobpositionBase']['expiredate']);
+        	
         }
         
+        if(isset($postdata['JobpositionBase']['expiredate']))
+        {
+            $postdata['JobpositionBase']['expiredate'] = BrainHelper::dateGermanToEnglish($postdata['JobpositionBase']['expiredate']);
+        }
+        
+        if(isset($postdata['JobpositionBase']))
+        {
+            //print_r($postdata); exit;
+        }
+        
+        
         if ($model->load($postdata) && $model->save(false)) {
+            
+            if(isset($postdata['JobpositionSkills']))
+            {
+                $allskills = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1])->all();
+                $allskills = BrainHelper::mapTranslate($allskills, 'title', 'title');
+                
+                JobpositionskillBase::deleteAll(['jobid' => $model->id]);
+                
+                $skilldata = array();
+                $skilldata['JobpositionskillBase']['jobid'] = $model->id;
+                
+                foreach ($postdata['JobpositionSkills'] as $skill){
+                    $skill = trim($skill);
+                    if($skill == '') continue;
+                    $skilldata['JobpositionskillBase']['skill'] = $skill;
+                    
+                    $jobskill = new JobpositionskillBase();
+                    $jobskill->load($skilldata);
+                    $jobskill->save(false);
+                    
+                    if(!isset($allskills[$skill]))
+                    {
+                        $sdata = array();
+                        $sdata['SkillsBase']['parentid'] = 1;
+                        $sdata['SkillsBase']['title'] = $skill;
+                        $sdata['SkillsBase']['status'] = 0;
+                        
+                        $skillModel = new SkillsBase();
+                        $skillModel->load($sdata);
+                        $skillModel->save(false);
+                        
+                    }
+                }
+            }
+            
+            if(isset($postdata['JobpositionTasks']))
+            {
+                JobpositiontasksBase::deleteAll(['jobid' => $model->id]);
+                
+                $taskdata = array();
+                $taskdata['JobpositiontasksBase']['jobid'] = $model->id;
+                foreach ($postdata['JobpositionTasks'] as $task)
+                {
+                    $skill = trim($task);
+                    if($task == '') continue;
+                    $taskdata['JobpositiontasksBase']['task'] = $task;
+                    
+                    $jobtask = new JobpositiontasksBase();
+                    $jobtask->load($taskdata);
+                    $jobtask->save(false);
+                    
+                }
+                
+            }
+                
             return $this->redirect(['view', 'id' => $model->id, 'fromcompany' => $fromcompany]);
         } else {
 
         	$cities = CityBase::allCities();
-        	$worktypes_array = BrainStaticList::workTypeList();
-        	$jobypes_array = BrainStaticList::jobTypeList();
         	$vacancy_array = BrainStaticList::vacancyList();
         	$countries = BrainStaticList::countryList();
         	unset($countries['Deutschland']);
         	$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
         	$countries_array = array_merge($countries_array , $countries);
         	$worktypes = BrainStaticList::workTypeList();
+        	$branchs = BranchBase::allActiveKeyList(true);
+        	$job2jobComp = CompanyBase::findJob2job();
+        	$skills = SkillsBase::allChilds(1);
         	
         	$model->expiredate = BrainHelper::dateEnglishToGerman($model->expiredate);
         	$model->jobstartdate = BrainHelper::dateEnglishToGerman($model->jobstartdate);
         	 
             return $this->render('update', [
-                		'model' 				=> $model,
-    					'jobypes' 				=> $jobypes_array,
-    					'countries' 			=> $countries_array,
-    					'cities'				=> $cities,
-    					'vacancies'				=> $vacancy_array,
-    					'worktypes'				=> $worktypes,
+        		'model' 				=> $model,
+                'branchs' 				=> $branchs,
+				'countries' 			=> $countries_array,
+				'cities'				=> $cities,
+				'vacancies'				=> $vacancy_array,
+				'worktypes'				=> $worktypes,
+                'job2jobComp'			=> $job2jobComp,
+                'skills' 				=> $skills,
             ]);
         }
     }
@@ -251,9 +394,7 @@ class JobposController extends Controller
     	}
     	$title = $jobposModel->title;
     	$title = $this->properSearchTitle($title);
-    	 
-    	$titleKeyList = explode(' ', $title);
-    	
+    	     	
     	$usersModels = CandidateskillBase::find()->where(['in', 'skill', $skills])->all();
     	
     	$users = [];

@@ -45,10 +45,10 @@ class WorktimemodelBase extends \common\models\Worktimemodel
         return $worktimemodelQuery;
     }
     
-    public static function allActiveKeyList() {
+    public static function allActiveKeyList($addInitial = true) {
         $query = WorktimemodelBase::findAll (['status' => 1]);
         
-        $items = array ();
+        $items = $addInitial ? [ 0 => ''] : [];
         foreach ( $query as $item ) {
             
             $items [$item->id] = $item->title;

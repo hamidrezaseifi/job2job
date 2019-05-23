@@ -334,7 +334,7 @@ class CompanyController extends Controller
     			$skills = SkillsBase::allChilds(1);
     			$worktypes_array = BrainStaticList::workTypeList();
     			$vacancy_array = BrainStaticList::vacancyList();
-    			$branchs = BranchBase::allActiveKeyList();
+    			$branchs = BranchBase::allActiveKeyList(true);
     			$vacancies = VacancyBase::allActiveKeyList();
     			$worktypes =  WorktimemodelBase::allActiveKeyList();
     			

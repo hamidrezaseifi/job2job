@@ -18,25 +18,21 @@ class JobpositionBaseSearch extends JobpositionBase {
 	 */
 	public function rules() {
 		return [
-				[
-						[
-								'id',
-								'companyid',
-								'status'
-						],
-						'integer'
+				[ 
+				    [ 'id', 'companyid', 'status' ],
+					'integer'
 				],
 				[
-						[
-								'title',
-								'subtitle',
-								'postcode',
-								'city',
-								'country',
-								'createdate',
-								'updatedate'
-						],
-						'safe'
+					[
+						'title',
+						'subtitle',
+						'postcode',
+						'city',
+						'country',
+						'createdate',
+						'updatedate' 
+					],
+					'safe'
 				]
 		];
 	}
@@ -213,11 +209,143 @@ class JobpositionBaseSearch extends JobpositionBase {
 
 		$query->orderBy ( $order );
 
-		// echo $query->createCommand()->getRawSql(); exit;
+		 //echo $query->createCommand()->getRawSql(); exit;
 
 		return $dataProvider;
 	}
 
+	/**
+	 * Creates data provider instance with search query applied
+	 *
+	 * @param array $params
+	 *
+	 * @return ActiveDataProvider
+	 */
+	public function searchBackend($params) {
+	    $ort = isset ( $_GET ['so'] ) ? $_GET ['so'] : false;
+	    $text = isset ( $_GET ['st'] ) ? $_GET ['st'] : false;
+	    $worktype = isset ( $_GET ['wt'] ) ? $_GET ['wt'] : false;
+	    $vacancy = isset ( $_GET ['vk'] ) ? $_GET ['vk'] : false;
+	    
+	    $order = array('createdate' => SORT_DESC);
+	    
+	    if ($worktype) {
+	        $this->worktype = $worktype;
+	    }
+	    if ($vacancy) {
+	        $this->vacancy = $vacancy;
+	    }
+	    
+	    $query = JobpositionBase::find ();
+	    $query->select ( [
+	        'j2j_jobposition.*',
+	        'IFNULL((select GROUP_CONCAT(skill SEPARATOR ", ") from j2j_jobpositionskill where jobid=id ), "") as allskill'
+	    ] );
+	    // add conditions that should always apply here
+	    
+	    $dataProvider = new ActiveDataProvider ( [
+	        'query' => $query
+	    ] );
+	    
+	    $this->load ( $params );
+	    
+	    if (! $this->validate ()) {
+	        // uncomment the following line if you do not want to return any records when validation fails
+	        // $query->where('0=1');
+	        return $dataProvider;
+	    }
+	    
+	    // grid filtering conditions
+	    $query->andFilterWhere ( [
+	        'id' => $this->id,
+	        'companyid' => $this->companyid,
+	        'status' => $this->status,
+	        'branch' => $this->branch,
+	        'worktype' => $this->worktype,
+	        'vacancy' => $this->vacancy
+	    ] );
+	    
+
+	    
+	    // $query->andFilterWhere(['like', 'title', $this->title]);
+	    // ->andFilterWhere(['like', 'subtitle', $this->subtitle])
+	    // ->andFilterWhere(['like', 'postcode', $this->postcode])
+	    // ->andFilterWhere(['like', 'city', $this->city])
+	    // ->andFilterWhere(['like', 'country', $this->country]);
+	    
+	    if ($ort) {
+	        $ortlist = explode ( ',', $ort );
+	        foreach ( $ortlist as $idx => $ort ) {
+	            if (trim ( $ort ) == '')
+	                unset ( $ortlist [$idx] );
+	        }
+	        if (count ( $ortlist ) > 0) {
+	            $ortqr = array (
+	                'or'
+	            );
+	            foreach ( $ortlist as $idx => $ort ) {
+	                $ort = trim ( $ort );
+	                if (strval ( intval ( $ort ) ) == $ort) {
+	                    $ortqr [] = [
+	                        'like',
+	                        'postcode',
+	                        $ort
+	                    ];
+	                } else {
+	                    $ortqr [] = [
+	                        'like',
+	                        'country',
+	                        $ort
+	                    ];
+	                    $ortqr [] = [
+	                        'like',
+	                        'city',
+	                        $ort
+	                    ];
+	                }
+	            }
+	            
+	            $query->andFilterWhere ( $ortqr );
+	        }
+	    }
+	    
+	    $textlist = array ();
+	    if ($text) {
+	        $textlist = explode ( ',', $text );
+	        foreach ( $textlist as $idx => $text ) {
+	            if (trim ( $text ) == '')
+	                unset ( $textlist [$idx] );
+	        }
+	        if (count ( $textlist ) > 0) {
+	            $ortqr = array (
+	                'or'
+	            );
+	            foreach ( $textlist as $idx => $text ) {
+	                $text = trim ( $text );
+	                
+	                $ortqr [] = [
+	                    'like',
+	                    'title',
+	                    $text
+	                ];
+	                $ortqr [] = [
+	                    '>',
+	                    '(select count(*) from j2j_jobpositionskill where jobid=j2j_jobposition.id and skill like "%' . $text . '%")',
+	                    0
+	                ];
+	            }
+	            
+	            $query->andFilterWhere ( $ortqr );
+	        }
+	    }
+	    
+	    $query->orderBy ( $order );
+	    
+	    //echo $query->createCommand()->getRawSql(); exit;
+	    
+	    return $dataProvider;
+	}
+	
 	/**
 	 * Creates data provider instance with search query applied
 	 *

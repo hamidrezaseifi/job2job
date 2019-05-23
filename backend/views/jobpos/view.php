@@ -55,11 +55,11 @@ if($fromcompany)
     		],
         	[
         		'label' => Yii::t('app', 'Vakanz'),
-        		'value' => BrainStaticList::vacancyList(true)[$model->vacancy],
+        	    'value' => $vacancies[$model->vacancy],
     		],
         	[
         		'label' => Yii::t('app', 'Job-Beginn und Dauer'),
-        		'value' => $formatter->asDate($model->jobstartdate , 'php:F Y') . ' ,' . $model->duration . ' ' . Yii::t('app', 'Monate') . ($model->extends == 1 ? Yii::t('app', '  ,Verlängerung möglich') : ''),
+        	    'value' => $formatter->asDate($model->jobstartdate , 'php:F Y') . ' ,' . ($model->duration > 0 ? $model->duration . ' ' . Yii::t('app', 'Monate') : Yii::t('app', 'unbefristet')) . ($model->extends == 1 ? Yii::t('app', '  ,Verlängerung möglich') : ''),
     		],
         	[
         		'label' => Yii::t('app', 'Gültigkeit'),
@@ -67,11 +67,11 @@ if($fromcompany)
     		],
         	[
         		'label' => Yii::t('app', 'Arbeitszeitmodel'),
-        		'value' => BrainStaticList::workTypeList()[$model->worktype],
+        	    'value' => $worktypes[$model->worktype],
     		],
         	[
         		'label' => Yii::t('app', 'Hauptkategorie'),
-        		'value' => BrainStaticList::jobTypeList(true)[$model->jobtype],
+        	    'value' => $branchs[$model->branch],
         	],
         	[
         		'label' => Yii::t('app', 'Status'),
@@ -82,13 +82,17 @@ if($fromcompany)
         		'format' => 'html',
         		'value' => nl2br($model->comments) ,
     		],
-        	[
-        		'label' => Yii::t('app', 'Schlagworte'),
-        		'value' => implode(', ' , BrainHelper::mapTranslate($model->getSkills(), 'skill', 'skill')) ,
-        	],
-        	[
+            [
+                'label' => Yii::t('app', 'Aufgaben'),
+                'value' => implode(', ' , BrainHelper::mapTranslate($model->getJobpositiontasks(), 'task', 'task')) ,
+            ],
+            [
+                'label' => Yii::t('app', 'Qualifikationen'),
+                'value' => implode(', ' , BrainHelper::mapTranslate($model->getJobpositionskills(), 'skill', 'skill')) ,
+            ],
+            [
         		'label' => Yii::t('app', 'letzte Bearbeiten'),
-        		'value' => BrainHelper::dateEnglishToGerman($model->updatedate),
+        	    'value' => $formatter->asDate($model->updatedate , 'php:d.m.Y H:i'), 
     		],
         		
         ],

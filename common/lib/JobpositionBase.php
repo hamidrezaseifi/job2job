@@ -37,7 +37,8 @@ use Yii;
  * @property Users $user
  * @property Vacancy $vacancy0
  * @property Jobpositionseen[] $jobpositionseens
- * @property Jobpositionskill[] $jobpositionskills
+ * @property JobpositionskillBase[] $jobpositionskills
+ * @property JobpositiontasksBase[] $jobpositiontasks
  */
 class JobpositionBase extends \common\models\Jobposition
 {
@@ -86,10 +87,19 @@ class JobpositionBase extends \common\models\Jobposition
      */
     public function getCompany()
     {
-    	return $this->hasOne(CompanyBase::className(), ['id' => 'companyid'])->one();
+        return $this->hasOne(CompanyBase::className(), ['id' => 'companyid'])->one();
+    }
+    
+        /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function isCompanyJob2Job()
+    {
+        $comp = $this->getCompany();
+        return $comp ? $comp->isjob2job : 0;
     }
 
-    /**
+/**
      * @return \yii\db\ActiveQuery
      */
     public function getSkills()
