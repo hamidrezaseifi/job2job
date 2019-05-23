@@ -55,7 +55,8 @@
 	padding: 10px;
 	margin: 10px 0;
 	font-size: 16px;
-	height: 140px;
+	height: 80px;
+    text-align: center;
 }
 
 .home.home-teaser .teaser-box-container .teaser-box .teaser-link

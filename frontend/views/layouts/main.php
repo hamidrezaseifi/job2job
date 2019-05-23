@@ -93,31 +93,19 @@ $this->beginBody ()?>
 	<div class="job2jobheader">
 		<div class="top-header">
 			<div class="topheader-center">
-                <?php
-
-																if (! $user->isGuest) {
-																	?>
+                <?php if (! $user->isGuest) { ?>
                 <p><a href="<?=Yii::getAlias ( '@web' )?>/site/logout"><mat-icon class="material-icons">exit_to_app</mat-icon> abmelden</a></p>
-                <?php
-																}
-																?>
-    			<p><a href="tel:<?php
-
-							echo Yii::$app->params ["job2jobtel"] ["tel"]?>"><mat-icon class="material-icons">phone</mat-icon> <?php
-
-							echo Yii::$app->params ["job2jobtel"] ["label"]?></a></p>
+                <?php } ?>
+    			<p><a href="tel:<?php echo Yii::$app->params ["job2jobtel"] ["tel"]?>"><mat-icon class="material-icons">phone</mat-icon> 
+    			<?php echo Yii::$app->params ["job2jobtel"] ["label"]?></a></p>
                 <p><a href="<?=Yii::getAlias ( '@web' )?>/site/contact"><mat-icon class="material-icons">contact_mail</mat-icon> Kontakt</a></p>
-                <?php
-
-																if (! $user->isGuest) {
-																	?>
+                <?php if (! $user->isGuest) { ?>
                 <p><a class="myprofile" href="<?=Yii::getAlias ( '@web' ) . ($identity->isCandidate () ? '/candidate' : '/company')?>/dashboard/myprofile"><mat-icon class="material-icons">person</mat-icon> Mein Profil</a></p>
-                <?php
-																} else {
-																	?>
-                <p><a class="login" id="loginlink" href="<?=Yii::getAlias ( '@web' )?>/site/login" ><mat-icon class="material-icons">lock</mat-icon> Login</a></p><?php
-																}
-																?>
+                <?php } else { ?>
+                <?php if(false){ ?>
+                <p><a class="login" id="loginlink" href="<?=Yii::getAlias ( '@web' )?>/site/login" ><mat-icon class="material-icons">lock</mat-icon> Login</a></p>
+                <?php } ?>
+                <?php } ?>
 
 			</div>
 		</div>
@@ -259,7 +247,7 @@ $this->beginBody ()?>
                     							</li>
                     							<li id="menu-item-1561" class="no-hover ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-1561 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
                     								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/certificates">
-                    									<span class="ubermenu-target-title ubermenu-target-text">Zertifikaten</span>
+                    									<span class="ubermenu-target-title ubermenu-target-text">Zertifikate</span>
                     								</a>
                     							</li>
                     							<li id="menu-item-7490" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7490 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
@@ -349,20 +337,15 @@ $this->beginBody ()?>
 <?=$content?>
 </div>
 
-<?php
-if ($user->isGuest) {
-	?>
+<?php if ($user->isGuest && false) { ?>
 <div class="mainlogin">
 	<div class="content-center">
 		<h3 class="body-login-title"><strong>BEI MEIN JOB2JOB ANMELDEN</strong></h3>
 
-		<?php
-
-	$form = ActiveForm::begin ( [
+		<?php $form = ActiveForm::begin ( [
 			'id' => 'loginmodule',
 			'action' => Yii::getAlias ( '@web' ) . '/site/login'
-	] );
-	?>
+	   ] ); ?>
 			<div class="response-errors">
 				<div class="errormsg">
 
@@ -390,15 +373,19 @@ if ($user->isGuest) {
 	ActiveForm::end ()?>
 	</div>
 </div>
-<?php
-}
-?>
+<?php } ?>
 <div class="bottom-footer no-print" layout="row" layout-align="center center" >
 	<div class="footer-child">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
         Pyrmonter Straße 42<br>
         31789 Hameln<br>
-		+49 5151/55694-30<br>
+		<a href="tel:+4951515569430">+49 5151/55694-30</a><br>
+	</div>
+	<div class="footer-child">
+        <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
+        Lindenstraße 5 (am ZOB)<br>
+        32423 Minden<br>
+		<a href="tel:+4957140493170">+49 571/40493170</a><br>
 	</div>
 	<div class="footer-child">
         <div style="font-size:16px; text-align: center; margin-bottom: 10px;" class="center">FOLGE UNS</div>
@@ -420,7 +407,7 @@ if ($user->isGuest) {
 	<div class="footer-child footer-last">
         <div style="font-size:12px; line-height: 20px; text-align: center; margin-bottom: 10px;">Sie haben Fragen?</div>
         <div class="footer-contact button-footer">
-			<a href="<?=Yii::getAlias ( '@web' )?>/site/contact/">KONTAKTIEREN</a>
+			<a href="<?=Yii::getAlias ( '@web' )?>/site/contact/" class="contact-button">KONTAKTIEREN</a>
 		</div>
 	</div>
 </div>

@@ -26,15 +26,14 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			<div class="clear"></div>
 		</div>		
 		
-		<p>Sie möchten Teil unseres Teams werden? Bewerben Sie sich, wenn Sie ...</p>
+		<p><strong>Sie möchten Teil unseres Teams werden? Bewerben Sie sich, wenn Sie ...</strong></p>
 		
-		<div class="box-list">
-			<div class="item"> mit <strong>Herz und Leidenschaft</strong> bei der Sache sind – und mit Ihrer Arbeit etwas erreichen wollen. </div>
-			<div class="item"> <strong>sich für Ihr Team ebenso verantwortlich fühlen, wie für den betreuten Kunden.</strong></div>
-			<div class="item"> <strong>nicht nur austeilen, sondern auch einstecken können.</strong> Feedback und sachliche Kritik lassen uns wachsen – persönlich und beruflich. </div>
-			<div class="item"> gerne <strong>eigenverantwortlich arbeiten</strong> und die Entwicklung von <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> aktiv mitgestalten möchten.</div>
-			<div class="clear"></div>
-		</div>
+		<ul style="margin-left: 40px">
+			<li> mit <strong>Herz und Leidenschaft</strong> bei der Sache sind – und mit Ihrer Arbeit etwas erreichen wollen. </li>
+			<li> <strong>sich für Ihr Team ebenso verantwortlich fühlen, wie für den betreuten Kunden.</strong></li>
+			<li> <strong>nicht nur austeilen, sondern auch einstecken können.</strong> Feedback und sachliche Kritik lassen uns wachsen – persönlich und beruflich. </li>
+			<li> gerne <strong>eigenverantwortlich arbeiten</strong> und die Entwicklung von <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> aktiv mitgestalten möchten.</li>
+		</ul>
 		<br>
 		<p>Egal ob Quereinsteiger oder Akademiker: Wir lernen Sie gerne kennen. Persönlichkeit ist uns mindestens ebenso wichtig wie fachliche Qualifikation.</p>
 		

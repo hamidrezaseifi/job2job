@@ -100,10 +100,10 @@ $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View
     
         <?= $form->field($model, 'status')->radioList([0 => Yii::t('app', 'nicht bestätigt'), 1 => Yii::t('app', 'bestätigt'), 2 => Yii::t('app', 'Inaktiv')]) ?>
     
-        <?= $form->field($model, 'comments')->textarea(['rows' => 5, 'id' => 'commentstext']) ?>
+        <?= $form->field($model, 'comments')->textarea(['rows' => 5, 'id' => 'commentstext'])->label('Notiz') ?>
         
 		<div class="title"><?php echo Yii::t('app', 'Aufgaben'); ?>:*</div>
-		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Aufgaben der Stelle ein.'); ?></div>
+		<div class="desc"><?php echo Yii::t('app', 'Geben Sie die Aufgaben der Stelle ein.'); ?></div>
 		<div class="list-container">
     		<div class="">
     			<input class="add-text-item task-text-item" ng-keypress="enterTaskKeyboard($event)" >
@@ -115,7 +115,7 @@ $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View
 		</div>
 
 		<div class="title"><?php echo Yii::t('app', 'Qualifikationen'); ?>:*</div>
-		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Qualifikationen der Stelle ein.'); ?></div>
+		<div class="desc"><?php echo Yii::t('app', 'Geben Sie die Qualifikationen der Stelle ein.'); ?></div>
 		<div class="list-container">
     		<div class="">
     			<input class="add-text-item skill-text-item" ng-keypress="enterSkillKeyboard($event)" >

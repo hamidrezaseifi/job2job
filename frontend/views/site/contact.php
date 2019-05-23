@@ -11,11 +11,12 @@ use yii\captcha\Captcha;
 $this->registerCssFile("@web/web/css/braches.css", [], 'css-braches');
 $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 $this->registerCssFile("@web/web/css/contact.css", [], 'css-contact');
+$this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
 
 ?>
 
 
-<div class="site-contact-container">
+<div class="site-contact-container" ng-controller="ContactController">
 
 	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/contact-back.jpg); background-size: 100% 100%;">
 
@@ -26,16 +27,33 @@ $this->registerCssFile("@web/web/css/contact.css", [], 'css-contact');
 
 	<div class="contact-container">
 	
+		<div class="branch-button-bar">
+			<button type="button" class="contect-branch-button" style="margin-right: 10px" ng-class="{'sel' : branch == 'hameln'}" ng-click="setBranch('hameln')">Hameln</button>
+			<button type="button" class="contect-branch-button" style="margin-left: 10px" ng-class="{'sel' : branch == 'minden'}" ng-click="setBranch('minden')">Minden</button>
+		</div>
 		<div class="site-contact-detail">
-    		<div class="site-contact-detail-top">
+    		<div class="site-contact-detail-top" ng-if="branch == 'hameln'">
                 <div class="site-contact-top-left">
                     Job2Job GmbH<br>
-                	31789 Hameln<br>
                 	Pyrmonter Straße 42<br>
+                	31789 Hameln<br>
             	</div>
                 <div class="site-contact-top-right">
-                    Tel.: 05151/55694-30<br>
-                	Fax: 05151/55694-24<br>
+                    Tel.: +49 5151/55694-30<br>
+                	Fax: +49 5151/55694-24<br>
+                	Email: info@job2job-gmbh.de<br>
+            	</div>
+    			<div class="clear"></div>
+    		</div>
+
+    		<div class="site-contact-detail-top" ng-if="branch == 'minden'">
+                <div class="site-contact-top-left">
+                    Job2Job GmbH<br>
+                	Lindenstraße 5 (am ZOB)<br>
+                	32423 Minden<br>
+            	</div>
+                <div class="site-contact-top-right">
+                    Tel.: +49 571/40493170<br>
                 	Email: info@job2job-gmbh.de<br>
             	</div>
     			<div class="clear"></div>
@@ -68,7 +86,7 @@ $this->registerCssFile("@web/web/css/contact.css", [], 'css-contact');
 		</div>
 		
 		<div class="site-contact-map">
-			<iframe width="95%" height="350" style="border:0; "
+			<iframe id="googlemap" width="95%" height="350" style="border:0; "
 				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDiTNNWMEMkS_pNc0OxdVGKjfVIPnxyLKE&q=Job2Job+GmbH" >
 				</iframe>
 		

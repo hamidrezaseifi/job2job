@@ -31,7 +31,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
             Der Personalisierte Nutzerbereich ist ein für Sie kostenloser Service zur Jobsuche. Einzelheiten über die Datenschutz-Aspekte des Personalisierten Nutzerbereichs lesen Sie bitte auf unserer Datenschutzerklärung.
             </li>
             <li><strong>Wie kommt der Vertrag über die Nutzung des personalisierten Nutzerbereichs zustande?</strong><br>
-            <p style="" class="yellow-back">
+            <p style="">
             Ein Vertrag zwischen Ihnen und uns kommt folgendermaßen zustande: Sie geben auf unserer allgemeinen Registrierungsseite Ihre Zugangsdaten ein. Dann akzeptieren Sie die auf der Registrierungsseite befindliche Einverständniserklärung. Sie kontrollieren noch einmal, ob alles stimmt und klicken dann auf „speichern“. Nun haben wir einen beidseitig jederzeit widerruflichen Vertrag über die Nutzung des personalisierten Nutzerbereichs geschlossen. Sie sind als Nutzer registriert und können sich in die Lebenslaufdatenbank eintragen oder andere Job2Job GmbH Angebote nutzen.
             </p>
             </li>
@@ -48,23 +48,23 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
             Die Services des personalisierten Nutzerbereichs sind für Stellensuchende kostenlos.
             </li>
             <li><strong>Ihr Recht zum Widerruf</strong><br>
-            Sie können Ihren Lebenslauf jederzeit selbst wahlweise deaktivieren oder löschen (dann ist er nicht mehr für Unternehmen sichtbar oder ihn teilweise abschalten (<span class="yellow-back">anonym stellen</span>, so dass Arbeitgeber Ihre persönlichen Daten nicht mehr einsehen können). Sie können sich dabei auch helfen lassen – rufen Sie uns an oder schreiben Sie uns!
+            Sie können Ihren Lebenslauf jederzeit selbst wahlweise deaktivieren oder löschen (dann ist er nicht mehr für Unternehmen sichtbar oder ihn teilweise abschalten (anonym stellen, so dass Arbeitgeber Ihre persönlichen Daten nicht mehr einsehen können). Sie können sich dabei auch helfen lassen – rufen Sie uns an oder schreiben Sie uns unter <a href="mailto:info@job2job-gmbh.de">info@job2job-gmbh.de</a> und erwähnen Sie im Betreff „Rechte“ !
             </li>
             <li><strong>Wie kann ich Eingabefehler vor Absenden der Registrierung erkennen?</strong><br>
-            Wenn Sie bei der Registrierung vergessen, ein Feld auszufüllen, dann können wir den Service für Sie nicht durchführen. Daher weisen wir Sie automatisch darauf hin, falls Sie noch nicht alles ausgefüllt haben. Wenn Sie zwei verschiedene Passwörter eingeben, statt das Passwort einfach zu wiederholen oder ein zu kurzes Passwort eingegeben haben, dann weisen wir Sie darauf hin. Gleiches gilt für Ihre E-Mail, oder für den Fall, dass Ihre E-Mail ohne @ eingegeben wird oder keine logische Struktur aufweist. Wenn Sie eine falsche E-Mail-Adresse eingeben, so können Sie das nur dadurch erkennen, dass Sie keine <span class="yellow-back">elektronische Zugangsbestätigung</span> von uns erhalten. Weiterhin weisen wir Sie darauf hin, wenn der von Ihnen gewählte Username zu kurz ist oder bereits von einem anderen Nutzer des Systems gewählt wurde.
+            Wenn Sie bei der Registrierung vergessen, ein Feld auszufüllen, dann können wir den Service für Sie nicht durchführen. Daher weisen wir Sie automatisch darauf hin, falls Sie noch nicht alles ausgefüllt haben. Wenn Sie zwei verschiedene Passwörter eingeben, statt das Passwort einfach zu wiederholen oder ein zu kurzes Passwort eingegeben haben, dann weisen wir Sie darauf hin. Gleiches gilt für Ihre E-Mail, oder für den Fall, dass Ihre E-Mail ohne @ eingegeben wird oder keine logische Struktur aufweist. Wenn Sie eine falsche E-Mail-Adresse eingeben, so können Sie das nur dadurch erkennen, dass Sie keine elektronische Zugangsbestätigung von uns erhalten. Weiterhin weisen wir Sie darauf hin, wenn der von Ihnen gewählte Username zu kurz ist oder bereits von einem anderen Nutzer des Systems gewählt wurde.
             </li>
             <li><strong>Welche Sprachen stellt Job2Job GmbH zur Verfügung?</strong><br>
-            Job2Job GmbH ist national tätig. Auf unserer www.Job2Job-GmbH.de Seite finden Sie näheres hierüber. Auf der Seite www.Job2Job-GmbH.de bieten wir deutsche und <span class="yellow-back">englische</span> Sprache an.
+            Job2Job GmbH ist national tätig. Auf unserer www.job2job-gmbH.de Seite finden Sie näheres hierüber. Auf der Seite www.job2job-gmbH.bieten wir die deutsche Sprache an.
             </li>
             <li><strong>Unsere Rechte</strong><br>
-            Job2Job GmbH gewährleistet nicht, dass das Angebot zu bestimmten Zeiten zur Verfügung steht. Störungen, Unterbrechungen oder ein etwaiger Ausfall des Online-Angebots schließt Job2Job GmbH nicht aus.
-            Die Server von Job2Job GmbH werden regelmäßig sorgfältig gesichert. Soweit Daten an Job2Job GmbH – gleich in welcher Form – übermittelt werden, wird Ihnen empfohlen, Sicherheitskopien zu fertigen. Eine Haftung von Job2Job GmbH für Datenverluste ist ausgeschlossen.
+            Job2Job GmbH gewährleistet nicht, dass das Angebot zu bestimmten Zeiten zur Verfügung steht. Störungen, Unterbrechungen oder ein etwaiger Ausfall des Online-Angebots schließt Job2Job GmbH nicht aus.<br>
+            Die Server von Job2Job GmbH werden regelmäßig sorgfältig gesichert. Soweit Daten an Job2Job GmbH – gleich in welcher Form – übermittelt werden, wird Ihnen empfohlen, Sicherheitskopien zu fertigen. Eine Haftung von Job2Job GmbH für Datenverluste ist ausgeschlossen.<br>
             Job2Job GmbH behält sich vor, diesen Service jederzeit zu ändern, zu erweitern, zu beschränken oder ganz einzustellen oder Daten jederzeit und ohne weitere Mitteilung zu löschen. Sie haben keinen Anspruch auf Veröffentlichung.
         	</li>
         </ol>
         
-        <p style="font-weight: bold;">
-        Hameln, den 31. Januar 2018 <br>
+        <p style="font-weight: bold; line-height: 22px;">
+        Hameln, den 05.2019<br><br>
         Job2Job GmbH  <br>
         Pyrmonter Straße 42 <br>
         31789 Hameln  <br>

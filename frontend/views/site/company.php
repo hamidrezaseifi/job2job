@@ -24,15 +24,31 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 	
 	<div class="home home-teaser">
 		<div class="title">Unsere Geschäftsmodelle</div>
-		<?php foreach($vacancies as $vacancy){?>
+
 		<div class="teaser-box-container">
     		<div class="teaser-box">
-    			<div class="teaser-heaser"><?php echo $vacancy->title;?></div>
-    			<div class="teaser-text">Die gründliche Mitarbeitersuche bleibt erfolglos? Leider kein Einzelfall. Der „War of Talents“ wurde selten so hart geführt, wie heute. Gut, dass Sie mit Job2Job einen erfahrenen Verbündeten an Ihrer Seite wissen.</div>
-    			<div class="teaser-link-container"><a class="teaser-link" href="<?=Yii::getAlias('@web') ?>/site/<?php echo $vacancy->link;?>">Zum <?php echo $vacancy->title;?> </a></div>
+    			<div class="teaser-heaser">Arbeitnehmerüberlassung</div>
+    			<div class="teaser-text">Schnell, unkompliziert, zielorientiert <br> und so geht's ...</div>
+    			<div class="teaser-link-container"><a class="teaser-link" href="<?=Yii::getAlias('@web') ?>/site/temporarywork">Zur Arbeitnehmerüberlassung </a></div>
     		</div>
 		</div>
-		<?php } ?>
+
+		<div class="teaser-box-container">
+    		<div class="teaser-box">
+    			<div class="teaser-heaser">Personalrekrutierung</div>
+    			<div class="teaser-text">Die clevere Alternative <br> und so geht's ...</div>
+    			<div class="teaser-link-container"><a class="teaser-link" href="<?=Yii::getAlias('@web') ?>/site/personalrecruitment">Zur Personalrekrutierung </a></div>
+    		</div>
+		</div>
+
+		<div class="teaser-box-container">
+    		<div class="teaser-box">
+    			<div class="teaser-heaser">Personalübernahme</div>
+    			<div class="teaser-text">Für die Zukunft Ihres Unternehmens! <br> und so geht's ...</div>
+    			<div class="teaser-link-container"><a class="teaser-link" href="<?=Yii::getAlias('@web') ?>/site/personaladoption">Zur Personalübernahme </a></div>
+    		</div>
+		</div>
+
 		
 		<div class="clear"></div>
 	</div>
@@ -81,52 +97,7 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
                 </div>
 
     		</div>
-    
-    		<?php if(false){?>
-    		<div class="width50">
-                <div class="squarewrapper2">
-                    <div class="square2 square-fixed">
-                        <div class="csscircle circleRad2">
-                            <div class="segmentwrapper segment1 fade-in2 one start" id="seg1">
-                                <div class="segment">
-                                  <div class="inner" id="seg1">
-                                  	<p class="circle2_text txt1-2">1. Qualifikation und Chancen</p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="segmentwrapper segment2 fade-in2 two start" id="seg2">
-                                <div class="segment">
-                                	<div class="inner" id="seg2">
-                                		<p class="circle2_text txt2-2" style="max-width: 120px;">2. Vorstellung passender Stellen</p>
-                            		</div>
-                            	</div>
-                            </div>
-                            <div class="segmentwrapper segment3 fade-in2 three start" id="seg3">
-                                <div class="segment"><div class="inner" id="seg3">
-                        		<p class="circle2_text txt3-2">3. Präsentation beim Arbeitgeber</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment4 fade-in2 four start" id="seg4">
-                                <div class="segment"><div class="inner" id="seg4">
-                        		<p class="circle2_text txt4-2">4. Interviews</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment5 fade-in2 five start" id="seg5">
-                                <div class="segment"><div class="inner" id="seg5">
-                        		<p class="circle2_text txt5-2">5. Vertrag</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment6 fade-in2 six start" id="seg6">
-                                <div class="segment"><div class="inner" id="seg6">
-                        		<p class="circle2_text txt6-2">6. Be-treuung</p>
-                            </div></div>
-                            </div>
-                             <div class="cutout3"><p class="fade-in five circle_text5 start"></p></div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-			<?php } ?>
+
 			
 			<div class="width50">
 				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Pflege</span></div>			

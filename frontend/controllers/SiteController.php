@@ -172,8 +172,11 @@ class SiteController extends Controller
             
             //$allJobModels = $dataProvider->getModels();
             
-            $jobs[] = count($allJobModels) > 0 ? $allJobModels[0] : false;
+            if(count($allJobModels) > 0){
+                $jobs[] = $allJobModels[0];
+            }
         }
+        
         return $this->render('candidate', [
             "jobs" => $jobs,
             'branches' => $branches,
@@ -437,6 +440,9 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        return $this->redirect(Yii::getAlias('@web'));
+        
+        
         if (! Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -458,6 +464,8 @@ class SiteController extends Controller
 
     public function actionResetpassword()
     {
+        return $this->redirect(Yii::getAlias('@web'));
+        
         return $this->render('resetpassword', [
             'isindex' => false
         ]);
@@ -466,6 +474,8 @@ class SiteController extends Controller
     
     public function actionRegister()
     {
+        return $this->redirect(Yii::getAlias('@web'));
+        
         if (! Yii::$app->user->isGuest) {
             return $this->goHome();
         }

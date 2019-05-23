@@ -416,7 +416,8 @@ footer .contact-footer > p, footer .contact-footer a {
   top: 8px;
   width: 11px;
 }
-.bottom-footer {
+
+.bottom-footer{
   background: #19213c none repeat scroll 0 0;
   padding: 5px 40px;
   width: 100%;
@@ -424,6 +425,15 @@ footer .contact-footer > p, footer .contact-footer a {
   color: white;
   font-size: 10px;
 }
+
+.bottom-footer a:not(.contact-button){
+  color: white;
+}
+
+.bottom-footer a:not(.contact-button):hover{
+  font-weight: bold;
+}
+
 .bottom-footer > div li {
   display: table;
   float: left;
@@ -8279,6 +8289,11 @@ a:active, a:hover {
 .j2jblueback
 {
 	background-color: #1a3156;
+}
+
+.j2jbluetext
+{
+	color: #1a3156;
 }
 
 .fav-image
