@@ -64,7 +64,7 @@ class JobpositionBase extends \common\models\Jobposition
             'extends' => Yii::t('app', 'Verlängerung möglich'),
             'showdate' => Yii::t('app', 'Showdate'),
             'expiredate' => Yii::t('app', 'Gültigkeit'),
-            'branch' => Yii::t('app', 'Branch'),
+            'branch' => Yii::t('app', 'Branche'),
             'vacancy' => Yii::t('app', 'Vakanz'),
             'worktype' => Yii::t('app', 'Arbeitszeitmodel'),
             'status' => Yii::t('app', 'Status'),

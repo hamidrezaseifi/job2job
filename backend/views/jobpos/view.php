@@ -10,7 +10,7 @@ use common\helper\BrainStaticList;
 
 $fromapply = isset($fromapply) ? $fromapply : false;
 
-$this->title = Yii::t('app', 'Stellenanzeige Vorshau');
+$this->title = Yii::t('app', 'Stellenanzeige Vorschau');
 if(!$fromapply){
 	$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stellenanzeige'), 'url' => ['index']];
 	$this->params['breadcrumbs'][] = $this->title;
@@ -78,7 +78,7 @@ if($fromcompany)
         		'value' => $model->status == 1 ? Yii::t('app', 'bestätigt') : Yii::t('app', 'nicht bestätigt'),
     		],
         	[
-        		'label' => Yii::t('app', 'Beschreibung'),
+        		'label' => Yii::t('app', 'Notiz'),
         		'format' => 'html',
         		'value' => nl2br($model->comments) ,
     		],

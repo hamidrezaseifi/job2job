@@ -164,7 +164,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
                 		<li ng-repeat="skill in job.skills | limitTo:3" >{{skill}}</li>
                     </ul>
                     		
-                    <span class="location">{{job.country}} {{job.city}}</span>
+                    <span class="location">{{job.city}}</span>
                 </div>
 			</a>
 			<div class="buttons-founded-jobs">

@@ -783,7 +783,7 @@ h2 strong {
   margin-bottom: 10px;
   overflow-wrap: break-word;
   font-weight:normal;
-  max-height: 50px;
+  height: 70px;
   overflow-y: hidden;
 }
 .box-aktuelle > ul {

@@ -31,7 +31,7 @@ $showMoreFromBranch = isset($showMoreFromBranch) ? $showMoreFromBranch : false;
 				<div class="box-aktuelle" style="position:relative;" onclick="location.href='<?=Yii::getAlias ( '@web' )?>/site/jobview?id=<?php echo $jobModel->id; ?>'">
 					<h4><?php echo $jobtitle?></h4>
 					<div style="margin: 10px 0;"><?php echo $jobModel->city?></div>
-					<div style="max-height:220px; height:220px; overflow:hidden; ">
+					<div style="max-height:200px; height:220px; overflow:hidden; ">
 						<?php echo $jobModel->comments?>
 					</div>
 					<p style="margin-top: 15px;">

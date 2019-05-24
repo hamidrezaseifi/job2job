@@ -416,7 +416,8 @@
   line-height: 22px;
   margin-bottom: 5px;
   overflow-wrap: break-word;
-  min-height: 70px;
+  height: 70px;
+  overflow-y: hidden;
 }
 
 .box-founded-jobs li {
