@@ -368,11 +368,13 @@
 }
 
 .highestJobsuche > ul {
-  display: table;
+  
   width: 100%;
   color: #f4f4f4;
   min-height: 140px;
   list-style-type: none;
+  height: 190px;
+  overflow-y: hidden;
 }
 .highestJobsuche > ul {
   margin-bottom: 15px;
@@ -449,7 +451,7 @@
   font-family: AvenirLTPro-Book;
   font-size: 13px;
   line-height: 18px;
-  margin-left: 25px;
+ 
   width:auto;
   text-transform:uppercase;
 }

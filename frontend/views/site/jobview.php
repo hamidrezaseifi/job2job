@@ -80,18 +80,18 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
             
            	<div class="jobview-twinbox jobview-tasks">
            		<div class="tasks-title">Ihre Aufgaben:</div>
-           		<ul>
+           		<ul style="height: 220px; overflow-y: hidden; margin-left: -10px;">
            			<?php foreach($tasks as $task){?>
-           			<li><?php echo $task->task?></li>
+           			<li style="margin-left: 20px;"><?php echo $task->task?></li>
            			<?php } ?>
            		</ul>
             </div>
             
            	<div class="jobview-twinbox jobview-skills">
            		<div class="skills-title">Ihre Qualifikationen:</div>
-           		<ul>
+           		<ul style="height: 220px; overflow-y: hidden; margin-left: -10px;">
            			<?php foreach($skills as $skill){?>
-           			<li><?php echo $skill->skill?></li>
+           			<li style="margin-left: 20px;"><?php echo $skill->skill?></li>
            			<?php } ?>
            		</ul>
             </div>
@@ -146,7 +146,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     	</div>
     	
     </div>
-    
+    <br><br><br>
     
     
     <script type="text/javascript">

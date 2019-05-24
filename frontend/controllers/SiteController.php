@@ -664,9 +664,9 @@ class SiteController extends Controller
         $isFavorite = (isset(Yii::$app->user->identity))? CandidatefavoriteBase::isFavorite(Yii::$app->user->identity->id, $id) : false;
         $isApplied = (isset(Yii::$app->user->identity))? CandidatejobapplyBase::isApplied(Yii::$app->user->identity->id, $id) : false;
         
-        $start = BrainHelper::dateEnglishToGerman($job->jobstartdate);
-        $end = $job->duration > 0 ? BrainHelper::dateAddEnglish($job->jobstartdate, $job->duration, false, true) : 'unbefristet';
-        
+        $formatter = \Yii::$app->formatter;
+        $formatter->timeZone = 'UTC';
+                
         $tasks = $job->getJobpositiontasks();
         $skills = $job->getJobpositionskills();
         
@@ -675,8 +675,7 @@ class SiteController extends Controller
             'jobModel' => $job,
             'isFavorite' => $isFavorite,
             'isApplied' => $isApplied,
-            'startDate' => $start,
-            'endDate' => $end,
+            'startDate' => $formatter->asDate($job->jobstartdate, 'php:d.m.Y'),
             'duration' => $job->duration > 0 ? $job->duration : 'unbefristet',
             'tasks' => $tasks,
             'skills' => $skills,

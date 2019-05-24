@@ -182,7 +182,7 @@ class JobposController extends Controller
                         $sdata = array();
                         $sdata['SkillsBase']['parentid'] = 1;
                         $sdata['SkillsBase']['title'] = $skill;
-                        $sdata['SkillsBase']['status'] = 0;
+                        $sdata['SkillsBase']['status'] = $model->branch;
                         
                         $skillModel = new SkillsBase();
                         $skillModel->load($sdata);
@@ -305,7 +305,7 @@ class JobposController extends Controller
                         $sdata = array();
                         $sdata['SkillsBase']['parentid'] = 1;
                         $sdata['SkillsBase']['title'] = $skill;
-                        $sdata['SkillsBase']['status'] = 0;
+                        $sdata['SkillsBase']['status'] = $model->branch;
                         
                         $skillModel = new SkillsBase();
                         $skillModel->load($sdata);

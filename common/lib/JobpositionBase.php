@@ -73,7 +73,28 @@ class JobpositionBase extends \common\models\Jobposition
         		];
     }
 
-
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['companyid', 'title', 'subtitle', 'postcode', 'city', 'jobstartdate', 'showdate', 'expiredate', 'branch', 'vacancy', 'worktype'], 'required'],
+            [['duration', 'extends', 'status'], 'integer'],
+            [['companyid', 'branch', 'vacancy', 'worktype', 'userid'], 'integer', 'integerOnly'=>true, 'min'=>1],
+            [['comments'], 'string'],
+            [['jobstartdate', 'showdate', 'expiredate'], 'safe'],
+            [['title', 'city', 'country'], 'string', 'min' => 3, 'max' => 80],
+            [['subtitle'], 'string', 'max' => 500],
+            [['postcode'], 'string', 'max' => 20],
+            [['companyid'], 'exist', 'skipOnError' => true, 'targetClass' => CompanyBase::className(), 'targetAttribute' => ['companyid' => 'id']],
+            [['branch'], 'exist', 'skipOnError' => true, 'targetClass' => BranchBase::className(), 'targetAttribute' => ['branch' => 'id']],
+            [['userid'], 'exist', 'skipOnError' => true, 'targetClass' => UsersBase::className(), 'targetAttribute' => ['userid' => 'id']],
+            [['vacancy'], 'exist', 'skipOnError' => true, 'targetClass' => VacancyBase::className(), 'targetAttribute' => ['vacancy' => 'id']],
+        ];
+    }
+    
     /**
      * @return \yii\db\ActiveQuery
      */
