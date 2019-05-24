@@ -26,30 +26,6 @@ if($model->companyid != null)
 	}
 }
 
-$this->registerCssFile("@web/web/css/froala/froala_editor.css", [], 'css-froala_editor');
-$this->registerCssFile("@web/web/css/froala/froala_style.css", [], 'css-froala_style');
-$this->registerCssFile("@web/web/css/froala/plugins/code_view.css", [], 'css-code_view');
-$this->registerCssFile("@web/web/css/froala/plugins/colors.css", [], 'css-froala-colors');
-$this->registerCssFile("@web/web/css/froala/plugins/line_breaker.css", [], 'css-froala_line_breaker');
-$this->registerCssFile("@web/web/css/froala/plugins/char_counter.css", [], 'css-froala_char_counter');
-$this->registerCssFile("@web/web/css/froala/font-awesome.min.css", [], 'css-froala_font-awesome');
-$this->registerCssFile("@web/web/css/froala/codemirror.min.css", [], 'css-froala_codemirror');
-
-$this->registerJsFile("@web/web/js/froala/froala_editor.min.js", [], 'js-froala_editor');
-$this->registerJsFile("@web/web/js/froala/plugins/align.min.js", [], 'js-froala-align');
-$this->registerJsFile("@web/web/js/froala/plugins/char_counter.min.js", [], 'js-froala-char_counter');
-$this->registerJsFile("@web/web/js/froala/plugins/code_beautifier.min.js", [], 'js-froala-');
-$this->registerJsFile("@web/web/js/froala/plugins/code_view.min.js", [], 'js-froala-code_view');
-$this->registerJsFile("@web/web/js/froala/plugins/colors.min.js", [], 'js-froala-colors');
-$this->registerJsFile("@web/web/js/froala/plugins/draggable.min.js", [], 'js-froala-draggable');
-$this->registerJsFile("@web/web/js/froala/plugins/font_size.min.js", [], 'js-froala-font_size');
-$this->registerJsFile("@web/web/js/froala/plugins/font_family.min.js", [], 'js-froala-font_family');
-$this->registerJsFile("@web/web/js/froala/plugins/inline_style.min.js", [], 'js-froala-inline_style');
-$this->registerJsFile("@web/web/js/froala/plugins/lists.min.js", [], 'js-froala-lists');
-$this->registerJsFile("@web/web/js/froala/plugins/paragraph_format.min.js", [], 'js-froala-paragraph_format');
-$this->registerJsFile("@web/web/js/froala/plugins/paragraph_style.min.js", [], 'js-froala-paragraph_style');
-$this->registerJsFile("@web/web/js/froala/plugins/quote.min.js", [], 'js-froala-quote');
-
 $this->registerCssFile("@web/web/css/jobpos-form.css", [], 'css-jobpos-form');
 $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View::POS_END], 'js-jobpos-form');
 

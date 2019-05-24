@@ -18,7 +18,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	</div>
 
 	<div class="branch-content">
-	    <p>Bei <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> glauben wir an <strong>flache Hierarchien und direkte Entscheidungswege.</strong> Deswegen reden wir nicht gerne um den heißen Brei. Wer nicht zufrieden ist, darf sich bei uns gerne auch mal auskotzen. Soll nicht heißen, dass es bei uns besonders viel Konfliktpotenzial gibt.</p> 
+	    <p>Bei <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> glauben wir an <strong>flache Hierarchien und direkte Entscheidungswege.</strong> Deswegen reden wir nicht gerne um den heißen Brei. Wer nicht zufrieden ist, darf uns das auch gerne mal mitteilen. Soll nicht heißen, dass es bei uns besonders viel Konfliktpotenzial gibt.</p> 
 	    
 	    <div style="margin-top: 20px">
     	    <div class="width50 pad-right20"><p>Im Gegenteil: <strong>Bei uns geht es transparent, offen und herzlich zu – familiär eben.</strong> Wie es sich für eine richtige Familie gehört, dürfen dabei manchmal auch die Funken fliegen. </p></div>

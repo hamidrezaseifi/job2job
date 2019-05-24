@@ -28,12 +28,12 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	    	<div class="width50 pad-right20">Mit jedem Tag, der verstreicht, schwindet nicht nur Ihre Hoffnung, auch die Lage Ihrer Mitarbeiter spitzt sich weiter zu. Vermutlich kennen Sie die nun einsetzende Spirale allzu gut. Ein Mangel an Fachkräften führt zu:</div>
 	    	<div class="width50 pad-left20">
         		<ul>
-        			<li>zusätzlichen Überstunden für die Belegschaft führen zu </li>
-                    <li>Personal, das sich zusehends an der Belastungsgrenze bewegt führt zu </li>
-                    <li>häufigeren Krankheitstagen führen zu </li>
-                    <li>noch mehr Überstunden für das anwesende Personal führen zu </li>
-                    <li>langen Ausfallzeiten, Burnouts und Kündigungen führen zu </li>
-                    <li>einem noch stärkeren Personalbedarf. </li>
+        			<li>zusätzlichen Überstunden für die Belegschaft </li>
+                    <li>Personal, das sich zusehends an der Belastungsgrenze bewegt </li>
+                    <li>häufigeren Krankheitstagen </li>
+                    <li>noch mehr Überstunden für das anwesende Personal </li>
+                    <li>langen Ausfallzeiten, Burnouts und Kündigungen </li>
+                    <li>einem noch stärkeren Personalbedarf </li>
         		</ul>			    	
 	    	</div>
 	    	<div class="clear"></div>

@@ -31,16 +31,30 @@ if(isset($_SERVER['RDS_HOSTNAME']) && isset($_SERVER['RDS_PORT']) && isset($_SER
 	
 }
 
+
+
+if($_SERVER['SERVER_NAME'] == 'www.job2job-gmbh.de' || $_SERVER['SERVER_NAME'] == 'job2job-gmbh.de'  || $_SERVER['SERVER_NAME'] == 'adminback.job2job-gmbh.de' )
+{
+    $db = [
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=localhost;dbname=db12948538-j2jyi',
+        'username' => 'db12948538-j2jyi',
+        'password' => 'Adminjob2job',
+        'charset' => 'utf8',
+        'tablePrefix' => 'j2j_',
+    ];
+}
+
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
-	$db = [
-			'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=localhost;dbname=job2job',
-			'username' => 'job2job',
-			'password' => 'job2job',
-			'charset' => 'utf8',
-			'tablePrefix' => 'j2j_',
-		];
+    $db = [
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=localhost;dbname=job2job',
+        'username' => 'job2job',
+        'password' => 'job2job',
+        'charset' => 'utf8',
+        'tablePrefix' => 'j2j_',
+    ];
 }
 
 return [

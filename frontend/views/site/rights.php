@@ -14,7 +14,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
 	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/commercial.jpg); background-size: 100% 190%;">
 		<div class="anim-image-title">
-			Impressum
+			Information über Ihre Rechte
 		</div>
 	</div>
 
@@ -28,7 +28,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
         
         <ol>
             <li><strong>Wesentliche Merkmale des personalisierten Nutzerbereichs?</strong><br>
-            Der Personalisierte Nutzerbereich ist ein für Sie kostenloser Service zur Jobsuche. Einzelheiten über die Datenschutz-Aspekte des Personalisierten Nutzerbereichs lesen Sie bitte auf unserer Datenschutzerklärung.
+            Der Personalisierte Nutzerbereich für Sie ist ein für Sie kostenloser Service zur Jobsuche. Einzelheiten über die Datenschutz-Aspekte des Personalisierten Nutzerbereichs lesen Sie bitte auf unserer Datenschutzerklärung.
             </li>
             <li><strong>Wie kommt der Vertrag über die Nutzung des personalisierten Nutzerbereichs zustande?</strong><br>
             <p style="">
@@ -54,7 +54,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
             Wenn Sie bei der Registrierung vergessen, ein Feld auszufüllen, dann können wir den Service für Sie nicht durchführen. Daher weisen wir Sie automatisch darauf hin, falls Sie noch nicht alles ausgefüllt haben. Wenn Sie zwei verschiedene Passwörter eingeben, statt das Passwort einfach zu wiederholen oder ein zu kurzes Passwort eingegeben haben, dann weisen wir Sie darauf hin. Gleiches gilt für Ihre E-Mail, oder für den Fall, dass Ihre E-Mail ohne @ eingegeben wird oder keine logische Struktur aufweist. Wenn Sie eine falsche E-Mail-Adresse eingeben, so können Sie das nur dadurch erkennen, dass Sie keine elektronische Zugangsbestätigung von uns erhalten. Weiterhin weisen wir Sie darauf hin, wenn der von Ihnen gewählte Username zu kurz ist oder bereits von einem anderen Nutzer des Systems gewählt wurde.
             </li>
             <li><strong>Welche Sprachen stellt Job2Job GmbH zur Verfügung?</strong><br>
-            Job2Job GmbH ist national tätig. Auf unserer www.job2job-gmbH.de Seite finden Sie näheres hierüber. Auf der Seite www.job2job-gmbH.bieten wir die deutsche Sprache an.
+            Job2Job GmbH ist national tätig. Auf unserer www.job2job-gmbh.de Seite finden Sie näheres hierüber. Auf der Seite www.job2job-gmbh.bieten wir die deutsche Sprache an.
             </li>
             <li><strong>Unsere Rechte</strong><br>
             Job2Job GmbH gewährleistet nicht, dass das Angebot zu bestimmten Zeiten zur Verfügung steht. Störungen, Unterbrechungen oder ein etwaiger Ausfall des Online-Angebots schließt Job2Job GmbH nicht aus.<br>
@@ -68,8 +68,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
         Job2Job GmbH  <br>
         Pyrmonter Straße 42 <br>
         31789 Hameln  <br>
-        Geschäftsführer <br>
-        <a href="mailto:info@Job2Job-gmbh.de" style="color: #0000b5;">info@Job2Job-gmbh.de</a> <br>
+        <a href="mailto:info@job2job-gmbh.de" style="color: #0000b5;">info@job2job-gmbh.de</a> <br>
         </p>
 
         

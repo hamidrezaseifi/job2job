@@ -44,16 +44,6 @@ brainApp.controller('JobPosController', ['$scope', '$http', '$sce', '$element', 
 	      minDate: "5D"
 	    });
 	
-	$('#commentstext').froalaEditor({
-	      toolbarButtons: ['bold', 'italic', 'underline', 'fontSize', '|', 'formatUL', 'formatOL', 'paragraphStyle', 
-			        		'|', 'paragraphFormat', 'align', '|', 'insertHR', '|', 'undo', 'redo'],
-	      toolbarButtonsXS: ['bold', 'italic' , 'underline'],
-	      language: 'de',
-	      theme: 'gray',
-	      height: 150,
-	    });
-
-	
 	$scope.enterSkillKeyboard = function(keyEvent) {
 		  if (keyEvent.which === 13){
 			  $scope.addSkill();

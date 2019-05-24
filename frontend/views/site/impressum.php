@@ -47,7 +47,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
             Frau Madeleine Mohr<br>
             <br>
             Handelsregister <br>
-            Handelsregister Amtsgericht Stadt Hannover <br>
+            Handelsregister Amtsgericht Hannover <br>
             Registernummer: HRB 206404<br>
             <br>
             Ust-ID-Nr (gemäß § 27 a Umsatzsteuergesetz): DE274192060
