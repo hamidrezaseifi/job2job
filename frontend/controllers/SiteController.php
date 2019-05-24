@@ -627,7 +627,7 @@ class SiteController extends Controller
         $out = $search->searchCount($params);
         
         
-         echo json_encode($out);
+        echo json_encode($out);
         exit();
     }
     

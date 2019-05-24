@@ -633,7 +633,9 @@ class JobpositionBaseSearch extends JobpositionBase {
 	        }
 	        
 	        if(count($params["skills"])){
-	            $query->andWhere(['in', 'skill', $params["skills"]]);
+	            $skillIdList = JobpositionskillBase::findAllJobIdsForSkills($params["skills"]); 	            
+	            //print_r($skillIdList); exit;
+	            $query->andWhere(['in', 'id', $skillIdList]);
 	        }
 	        
 	        $regionFilterArray = false;

@@ -237,7 +237,7 @@ brainApp.controller('JobSearchController', function ($scope, $http, $sce, $eleme
 	    	
 	    }, function errorCallback(response) {
 	        
-	        $scope.textDebug = "error count: " + response;
+	        $scope.textDebug = "error count: " + JSON.stringify(response);
 	        alert($scope.textDebug);
 	        //$scope.test = response.data;
 	    });

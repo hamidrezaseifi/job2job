@@ -1,4 +1,3 @@
 <?php
-print_r($_SERVER);
-
-phpinfo();
+$test = ['a', 'b', 'c'];
+echo "('" . implode('\',\'' , $test) . "')";

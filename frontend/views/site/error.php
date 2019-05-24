@@ -1,6 +1,5 @@
 <?php
 
-use yii\base\Object;
 
 /* @var $this yii\web\View */
 /* @var $name string */
@@ -15,6 +14,12 @@ $this->title = $name;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+	<?php 
+	$exception = Yii::$app->errorHandler->exception;
+	if ($exception !== null) {
+	    //print_r($exception);
+	}
+	?>
     <div class="alert alert-danger">
         <?= nl2br(Html::encode($message)) ?>
     </div>
