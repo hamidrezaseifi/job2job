@@ -51,7 +51,7 @@ if (! $user->isGuest && $identity->isCompany ()) {
 			</div>
 			<?php } ?>
 			
-			<?php if($showEmployeeFinder){?>
+			<?php if($showEmployeeFinder && false){?>
 			<div class="header-banner-box header-banner-box-left-450" >
 				PERSONAL FINDEN<br><br>
 				<p><a href="<?php echo $employeefinderlink;?>" class="header-banner-link">JETZT QUALIFIZIERTES PERSONAL FINDEN</a></p>				

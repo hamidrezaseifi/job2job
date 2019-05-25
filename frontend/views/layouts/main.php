@@ -251,8 +251,8 @@ $this->beginBody ()?>
                     								</a>
                     							</li>
                     							<li id="menu-item-7490" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7490 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto">
-                    								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/ourcommitment">
-                    									<span class="ubermenu-target-title ubermenu-target-text">Unser Engagement</span>
+                    								<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="<?=Yii::getAlias ( '@web' )?>/site/partnerassociation">
+                    									<span class="ubermenu-target-title ubermenu-target-text">Partner & Verbände</span>
                     								</a>
                     							</li>
                     						</ul>
@@ -321,7 +321,7 @@ $this->beginBody ()?>
                 <li id="menu-item-3889" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3889"><a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" >Über Uns<span class="opensubmenumob"></span></a>
                 <ul class="sub-menu">
                 	<li id="menu-item-1655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1655"><a  href="<?=Yii::getAlias ( '@web' )?>/site/whoweare">ÜBER UNS – Allgemein</a></li>
-                	<li id="menu-item-7492" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7492"><a href="<?=Yii::getAlias ( '@web' )?>/unser-engagement/">Unser Engagement</a></li>
+                	<li id="menu-item-7492" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7492"><a href="<?=Yii::getAlias ( '@web' )?>/partnerassociation">Partner & Verbände</a></li>
                 	<li id="menu-item-3301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3301"><a href="<?=Yii::getAlias ( '@web' )?>/unsere-vision/">Unsere Vision</a></li>
                 	<li id="menu-item-3302" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3302"><a href="<?=Yii::getAlias ( '@web' )?>/referenzen/">Referenzen</a></li>
                 </ul>

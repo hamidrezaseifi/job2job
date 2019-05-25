@@ -700,9 +700,9 @@ class SiteController extends Controller
         return $this->render('register_resp', []);
     }
     
-    public function actionOurcommitment()
+    public function actionPartnerassociation()
     {
-        return $this->render('ourcommitment', []);
+        return $this->render('partnerassociation', []);
     }
     
     /**

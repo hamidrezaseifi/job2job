@@ -13,7 +13,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 	<div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web')?>/web/images/ourcommitment.jpg); background-size: 100vw;">
 
 			<div class="anim-image-title">
-				Unser Engagement
+				Partner & Verbände
 			</div>
 	</div>
 
