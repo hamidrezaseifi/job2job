@@ -54,7 +54,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
      			<i class="material-icons" ng-if="currentDropdown == 'region'">expand_less</i>
     		</div>	
     		<div class="list-dropdown-jobsuche" ng-show="currentDropdown == 'region'">   
-    			<ul>
+    			<ul class="list-dropdown-container">
     				<?php foreach ($regins as $country => $cities){?>
     				<li ng-class="{'active': isRegionSelected('<?php echo $country;?>', 'self')}" ng-click="toggleRegion('<?php echo $country;?>', 'self', $event)"><?php echo $country;?>
     					<ul>
@@ -77,7 +77,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
      			<i class="material-icons" ng-if="currentDropdown == 'branch'">expand_less</i>
     		</div>		
     		<div class="list-dropdown-jobsuche branches" ng-show="currentDropdown == 'branch'">    	
-    			<ul>  
+    			<ul class="list-dropdown-container">  
     				<?php foreach ($branches as $branch){?>
     				<li ng-class="{'active': isBranchSelected(<?php echo $branch->id;?>)}" ng-click="toggleBranch(<?php echo $branch->id;?>, $event)"><?php echo $branch->title;?></li>
     				<?php } ?>
@@ -94,7 +94,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
      			<i class="material-icons" ng-if="currentDropdown == 'vacancy'">expand_less</i>
     		</div>		
     		<div class="list-dropdown-jobsuche vacancy" ng-show="currentDropdown == 'vacancy'">   
-    			<ul>  
+    			<ul class="list-dropdown-container">  
     				<?php foreach ($vacances as $vacancy){?>
     				<li ng-class="{'active': isVacancySelected(<?php echo $vacancy->id;?>)}" ng-click="toggleVacancy(<?php echo $vacancy->id;?>, $event)"><?php echo $vacancy->title;?></li>
     				<?php } ?>
@@ -111,7 +111,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
      			<i class="material-icons" ng-if="currentDropdown == 'skills'">expand_less</i>
     		</div>		
     		<div class="list-dropdown-jobsuche skills" ng-show="currentDropdown == 'skills'"> 
-    			<ul>  
+    			<ul class="list-dropdown-container">  
     				<?php foreach ($skills as $skill){?>
     				<li ng-class="{'active': isSkillSelected('<?php echo $skill;?>')}" ng-click="toggleSkill('<?php echo $skill;?>', $event)"><?php echo $skill;?></li>
     				<?php } ?>

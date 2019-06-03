@@ -121,15 +121,15 @@
     background: #fff none repeat scroll 0 0;
     border: 1px solid #dadada;
     margin-top: -1px;
-    max-height: 283px;
+    height: 300px;
     padding: 20px 20px 15px;
     position: absolute;
     width: 250px;
-    height: 200px;
     z-index: 99999;
     -webkit-transition:all linear 0.4s;
   	transition:all linear 0.4s;
 }
+
 
 .site-search-job .search-job-searchlists .dropdown-jobsuche .list-dropdown-jobsuche ul {
     -webkit-transition:all linear 0.4s;
@@ -202,7 +202,6 @@
 
 .dropdown-jobsuche ul {
   display: block;
-  max-height: 195px;
   overflow-y: auto;
   width: 100%;
 }
@@ -508,3 +507,8 @@
 	height: 30px;
 }
 
+ul.list-dropdown-container {
+    height: 200px;
+}
+
+ 
