@@ -8198,8 +8198,6 @@ a:active, a:hover {
 
 .header-banner-box 
 {
-    top: 570px;
-    position: relative;
     background-color: rgba(114,168,79, 0.8);
     color: white;
     font-weight: bold;
@@ -8209,6 +8207,61 @@ a:active, a:hover {
     height: 150px;
     
 }
+
+.header-banner-box-left
+{
+    padding-top: 40px;
+	width: 550px;
+}
+
+.header-banner-box-right 
+{
+    padding-top: 40px;
+	width: 550px;
+}
+
+@media(min-width: 800px){
+  .header-banner-box 
+	{
+	    bottom: -20px;
+	    position: absolute;
+	}
+	
+	.header-banner-box-left
+	{
+	    left: calc(25vw - 175px);
+	    float: left;
+	}
+
+	.header-banner-box-right 
+	{
+	    right: calc(25vw - 175px);
+	    float: right;
+	}
+
+}
+
+@media(max-width: 799px){
+  .header-banner-box 
+	{
+	    position: absolute;
+	}
+	
+	.header-banner-box-left
+	{
+	    margin-top: 295px;
+    	left: calc(50vw - 280px);
+	}
+
+	.header-banner-box-right 
+	{
+	    right: calc(50vw - 280px);
+	    margin-top: 295px;
+	}
+
+}
+
+
 
 .header-banner-box-left-350 
 {
@@ -8248,22 +8301,6 @@ a:active, a:hover {
 {
     box-shadow: 0 0 10px rgba(10, 10, 10, 1);
     color: #5e8941 !important;
-}
-
-.header-banner-box-right 
-{
-    padding-top: 40px;
-	width: 550px;
-    right: calc(25vw - 175px);
-    float: right;
-}
-
-.header-banner-box-left
-{
-    padding-top: 40px;
-	width: 550px;
-    left: calc(25vw - 175px);
-    float: left;
 }
 
 .pad20
