@@ -1,10 +1,12 @@
-var sending = false;
 
 
 brainApp.controller('JobviewController', function ($scope, $http, $sce, $element, $compile) {
 	
 	$("#callpannel").hide();
 	$scope.isFavorite = isFavorite;
+	$scope.sending = false;
+	$scope.callrequesturl = callrequesturl;
+	$scope.sendrequest = {"fullname" : "", "tel": "", "msg": "", };
 	
 	$scope.getFavImageName = function(id){
 		
@@ -17,6 +19,10 @@ brainApp.controller('JobviewController', function ($scope, $http, $sce, $element
 		
 	};
 
+	$scope.getSendrequest = function(){
+		return JSON.stringify($scope.sendrequest);
+	};
+	
 	$scope.showCallMe = function(){
 		
 		$("#callpannel .title").hide();
@@ -35,47 +41,54 @@ brainApp.controller('JobviewController', function ($scope, $http, $sce, $element
 	      }
 	      });
 	};
+	
+	$scope.isRequestInValid = function(){
+
+		return $.trim($scope.sendrequest.fullname) == "" || $.trim($scope.sendrequest.tel) == "";
 		
+	};	
+	
+	$scope.isSendingInValid = function(){
+
+		return $scope.isRequestInValid() || $scope.sending;
+		
+	};	
+	
 	$scope.sendCallMe = function(){
 		
+		if($scope.sending) return;
 		
-		$("#callpannel .sendbutton").css("color" , "lightgray");
-		$("#callpannel .sendbutton").css("cursor" , "default");
-		
-		if(sending) return;
-		
-		var jname = $("#sendrequestform input[name='name']");
-		var jtel = $("#sendrequestform input[name='tel']");
-		var jmsg = $("#sendrequestform textarea");
-		
-		jname.val($.trim(jname.val()));
-		jtel.val($.trim(jtel.val()));
-		jmsg.val($.trim(jmsg.val()));
-		
-		var send = true;
-		$("#callpannel .desc2").css("color" , "#888888");
-		jname.css("border-color" , "inherit");
-		if(jname.val() == ""){
-			send = false;
-			jname.css("border-color" , "red");
-			$("#callpannel .desc2").css("color" , "red");
-		}
-		
-		jtel.css("border-color" , "inherit");
-		if(jtel.val() == ""){
-			send = false;
-			jtel.css("border-color" , "red");
-			$("#callpannel .desc2").css("color" , "red");
-		}
-		
-		if(!send){
-	  	  	$("#callpannel .sendbutton").css("color" , "rgb(34, 34, 34)");
-			$("#callpannel .sendbutton").css("cursor" , "pointer");
+		$scope.sendrequest.fullname = $.trim($scope.sendrequest.fullname);
+		$scope.sendrequest.tel = $.trim($scope.sendrequest.tel);
+		$scope.sendrequest.msg = $.trim($scope.sendrequest.msg);
 
-			return;
-		}
+		$scope.sending = true;
 		
-		sending = true;
+		$http({
+	        method : "POST",
+	        headers: {
+	        	'Content-type': 'application/json; charset=UTF-8',
+	        },
+	        url : $scope.callrequesturl,
+	        data : $scope.sendrequest
+	    }).then(function successCallback(response) {
+	    	//alert(JSON.stringify(response));
+	    	$scope.sending = false;
+	    	
+	    	if(response.data.res == 'ok'){
+	    		$("#callpannel").dialog("close");
+	    		$scope.sendrequest = {"fullname" : "", "tel": "", "msg": "", };
+	    	}
+	    	
+
+	    }, function errorCallback(response) {
+	        
+	        $scope.textDebug = "error search: " + response;
+	        alert("error: " + JSON.stringify(response));
+	        //$scope.test = response.data;
+	    });
+
+		
 		
 		
 		

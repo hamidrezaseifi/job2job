@@ -122,7 +122,6 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     
     <div id="callpannel">
     	<div class="sendcontainer">
-    	<?php ActiveForm::begin(['action' => Yii::getAlias('@web') . '/site/callrequest', 'id' => 'sendrequestform', 'method' => 'post'])?>
     	<div class="title"><?php echo Yii::t('app', 'Bitte um Rückruf'); ?></div>
     	<div class="desc"><?php echo Yii::t('app', 'Vielen Dank für Ihr Interesse an einer Mitarbeit bei job2job.'); ?></div>
     	<div class="desc"><?php echo Yii::t('app', 'Bitte senden Sie uns Ihre Kontaktdaten und Anfrage, wir rufen Sie gerne zurück!'); ?></div>
@@ -130,15 +129,13 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     	<div class="desc2"><?php echo Yii::t('app', 'Füllen Sie vor dem Absenden mindestens die mit * markierten Felder aus.'); ?></div>
     	
     	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihr Name*'); ?></div>
-    	<div class="data"><input name="CallrequestBase[name]" type="text" required="required" value="<?php echo $userfullname;?>" ></div>
+    	<div class="data"><input ng-model="sendrequest.fullname" type="text" required="required" value="<?php echo $userfullname;?>" ></div>
     	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Telefonnummer*'); ?></div>
-    	<div class="data"><input name="CallrequestBase[tel]" type="text" required="required" value="<?php echo $usertel;?>" ></div>
+    	<div class="data"><input ng-model="sendrequest.tel" type="text" required="required" value="<?php echo $usertel;?>" ></div>
     	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Mitteilung'); ?></div>
-    	<div class="data"><textarea name="CallrequestBase[message]"></textarea></div>
-    	<div class="sendbutton" ng-click="sendCallMe()"><?php echo Yii::t('app', 'absenden'); ?></div>
-    	<input type="hidden" name="CallrequestBase[status]" value="0">
-    	<input type="hidden" name="CallrequestBase[userid]" value="<?php echo $userid;?>">
-    	<?php ActiveForm::end()?>
+    	<div class="data"><textarea ng-model="sendrequest.msg" ></textarea></div>
+    	
+    	<div class="sendbutton" ng-class="{'sending' : isSendingInValid()}" ng-click="sendCallMe()"><?php echo Yii::t('app', 'absenden'); ?></div>
     	</div>
     	<div class="responsecontainer">
     		<div class="title2"><?php echo Yii::t('app', 'Vielen Dank für ihre Mitteilung'); ?></div>
@@ -152,6 +149,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     <script type="text/javascript">
 	    var addtofavurl = "<?php echo Yii::getAlias("@web") . "/candidate/jobfav"; ?>";
 	    var isFavorite = <?php echo $isFavorite ? 'true' : 'false';?>;
+	    var callrequesturl = "<?php echo Yii::getAlias("@web") . "/site/callrequest"; ?>";
     </script>
 
 </div>

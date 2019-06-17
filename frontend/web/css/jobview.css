@@ -159,12 +159,24 @@
 #callpannel .data input[type="text"]
 {
 	width: 95%;
+	border-color: inherit;
+	color: #888888;
 }
 
 #callpannel .data textarea
 {
 	width: 95%;
 	height: 100px;
+	border-color: inherit;
+	color: #888888;
+}
+
+
+#callpannel .data input[type="text"].ng-invalid, 
+#callpannel .data textarea.ng-invalid
+{
+	border-color: red;
+	color: red;
 }
 
 #callpannel .sendbutton
@@ -177,6 +189,13 @@
 	line-height: 45px;
 	font-size: 26px;
 	cursor: pointer;
+	color: #1a3156;
+}
+
+#callpannel .sendbutton.sending
+{
+	cursor: default;
+	color: lightgray;
 }
 
 .jobview-container

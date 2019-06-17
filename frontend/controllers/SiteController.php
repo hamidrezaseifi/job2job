@@ -25,6 +25,7 @@ use common\lib\VacancyBase;
 use common\lib\CandidatefavoriteBase;
 use common\lib\CandidatejobapplyBase;
 use common\lib\RecommendationBase;
+use common\lib\CallrequestBase;
 
 /**
  * Site controller
@@ -789,6 +790,35 @@ class SiteController extends Controller
         exit();
     }
 
+    
+    public function actionCallrequest()
+    {
+        header('Content-type: application/json');
+        $this->layout=false;
+        $out = ['res' => 'failed', ];
+        $data = Yii::$app->getRequest()->getBodyParams();
+        if (count($data) > 0) {
+            
+            $userid = Yii::$app->user->isGuest ? 0 : Yii::$app->user->identity->id;
+            
+            $callData = ['CallrequestBase' => []];
+            $callData['CallrequestBase']['userid'] = $userid;
+            $callData['CallrequestBase']['status'] = 0;
+            $callData['CallrequestBase']['tel'] = $data['tel'];
+            $callData['CallrequestBase']['name'] = $data['fullname'];
+            $callData['CallrequestBase']['message'] = $data['msg'];
+          
+            $callModel = new CallrequestBase();
+            if($callModel->load($callData) && $callModel->save(false)){
+                $out['res'] = 'ok';
+            }   
+            else{
+                $out['res'] = 'error-load';
+            }
+        }
+        echo json_encode($out);
+        exit();
+    }
     /**
      * All places as json.
      *
