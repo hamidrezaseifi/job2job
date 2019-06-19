@@ -83,7 +83,7 @@
 	{
 		width: calc(100% - 40px);
 		float: left;
-		margin: 20px 20px;
+		margin: 20px 0;
 		min-width: 370px;
 	}
 }

@@ -4693,7 +4693,7 @@ body div h2 {
   text-align: center;
   cursor: pointer;
 }
-#menu-responsive-menu a, #menu-responsive-menu-english a, #menu-responsive-menu-ch a{
+#menu-responsive-menu a{
   border-bottom: 1px solid #cdcdcd;
   color: #1a3156;
   cursor: pointer;
@@ -4703,7 +4703,18 @@ body div h2 {
   position: relative;
   text-transform: uppercase;
   width: 100%;
+  float: left;
 }
+
+#menu-responsive-menu ul li a{
+	padding-left: 40px;
+}
+
+#menu-responsive-menu ul li .title{
+	color: #8e8e8e;
+	font-weight: bold;	
+}
+
 #menu-responsive-menu .sub-menu a, #menu-responsive-menu-english .sub-menu a, #menu-responsive-menu-ch .sub-menu a{
   padding: 18px 30px 20px;
 }
@@ -4773,9 +4784,10 @@ body div h2 {
   float: left;
   height: 28px;
   margin-right: 7px;
-  position: absolute;
+  margin-left: -30px;
+  /*position: absolute;*/
   right: 15px;
-  top: 14px;
+  margin-top: 14px;
   transform: rotate(90deg);
   width: 19px;
 }
@@ -6052,7 +6064,7 @@ video {margin: 0 auto 20px;}
   .top-section {height: 200px;}
   .top-section h3 br{display: none;}
   .top-section-with-boxes {margin-bottom: 0px;}
-  .home-main-content {padding-bottom: 10px !important;}
+  .home-main-content {padding-bottom: 10px !important; margin-bottom: 160px;}
   .was_wir_machen {padding: 30px 10px;}
   .boxes-kunden .width25 {height: 100px;width: 100%;}
   .boxes-ref .width25 {height: 100px;width: 100%;}
@@ -8097,7 +8109,7 @@ a:active, a:hover {
 
 	.home-box-1
 	{
-		background-image:url('../images/home-2.jpg');
+		background-image:url('../images/home-3.jpg');
 		background-color: gray;
 	}
 	
@@ -8249,8 +8261,8 @@ a:active, a:hover {
 	
 	.header-banner-box-left
 	{
-	    margin-top: 295px;
-    	left: calc(50vw - 280px);
+	    margin-top: 200px;
+    	width: 100vw;
 	}
 
 	.header-banner-box-right 

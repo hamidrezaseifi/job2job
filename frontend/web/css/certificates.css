@@ -40,6 +40,16 @@
     background-size: 220px;
 }
 
+@media(max-width: 500px){
+	.certificates-item
+	{
+		width: calc(100% - 20px);
+	    height: 150px;
+	    float: none;
+	    margin: 20px auto;
+	}
+}
+
 .certificates-item-desc
 {
 	width: 233px;

@@ -13,9 +13,9 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 
     <div class="anim-image-header" style="background-image: url(<?=Yii::getAlias('@web') ?>/web/images/certificates.jpg); background-size: 100vw;">
     
-    		<div class="anim-image-title">
-    			<?php echo Yii::t('app', 'Zertifikate'); ?>
-    		</div>
+		<div class="anim-image-title">
+			<?php echo Yii::t('app', 'Zertifikate'); ?>
+		</div>
     </div>
         
     <div class="certificates">

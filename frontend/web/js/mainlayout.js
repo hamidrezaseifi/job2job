@@ -33,7 +33,22 @@ brainApp.controller('BodyController', function ($scope, $http, $sce, $element, $
 	
 	$scope.loginIsVisible = false;
 	
+	$scope.submenuVisible = {'candidate': false, 'company': false, 'about': false, };
+	
 	//$cookies.remove("accept-cookie-usage");
+	
+	$scope.toggleSubMenuVisible = function(submenu){
+		var visible = $scope.submenuVisible[submenu];
+		$scope.hideAllSubMenus();
+		$scope.submenuVisible[submenu] = !visible;
+	}
+	
+	$scope.hideAllSubMenus = function(){
+		for(var submenu in $scope.submenuVisible){
+			$scope.submenuVisible[submenu] = false;
+		}
+		
+	}
 	
 	$scope.acceptUsageCookieVisible = function(){ 
 		return $cookies.get("accept-cookie-usage") == undefined || $cookies.get("accept-cookie-usage") == false ;

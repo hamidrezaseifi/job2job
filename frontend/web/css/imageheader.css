@@ -19,22 +19,38 @@
     font-size: 25px;
     font-weight: bold;
     padding: 0;
-    position: relative;
     text-align: center;
-    width: 10vw;
-    opacity: 0;
-
-    -webkit-animation-name: header_crall; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 0.9s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
-    
-    animation-name: header_crall;
-    animation-duration: 0.9s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
+    width: 100vw;
     
     overflow: hidden;
+}
+
+@media(max-width: 500px){
+
+	.anim-image-header .anim-image-title
+	{
+    	height: 140px;	
+	}
+	
+}
+
+@media(min-width: 501px){
+
+	.anim-image-header .anim-image-title
+	{
+    	position: relative;
+	
+	    -webkit-animation-name: header_crall; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-duration: 0.9s; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-delay: 1s; /* Safari 4.0 - 8.0 */
+	    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+	    
+	    animation-name: header_crall;
+	    animation-duration: 0.9s;
+	    animation-delay: 1s;
+	    animation-fill-mode: forwards;
+	}
+	
 }
 
 /* Safari 4.0 - 8.0 */
