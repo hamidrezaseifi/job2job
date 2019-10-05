@@ -113,7 +113,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     	<br>
     	<div class="desc"><?php echo Yii::t('app', 'E-Mail:'); ?><br><a class="email" href="mailto:info@job2job-gmbh.de">info@job2job-gmbh.de</a></div>
     	<br>
-    	<div class="desc2"><?php echo Yii::t('app', 'Postanschrift:'); ?><br><br>Job2Job<br>Pyrmonter Straße 42<br>31789 Hameln</div>
+    	<div class="desc2"><?php echo Yii::t('app', 'Postanschrift:'); ?><br><br>Job2Job<br>Hefehof 20<br>31785 Hameln</div>
     	<div class="call-request" ng-click="showCallMe()"><?php echo Yii::t('app', 'Bitte um Rückruf'); ?></div>
     	<div class="job-print" ng-click="printjob()"><?php echo Yii::t('app', 'Stellenanzeige drucken'); ?></div>
     	<a href="mailto:?subject=<?php echo $jobModel->title; ?>&body=Folgende Stellenanzeige empfehle ich Ihnen: <?=isset($_SERVER['HTTPS']) ? "https://" : "http://" . $_SERVER['HTTP_HOST'] . Yii::getAlias('@web') ?>/site/jobview?id=<?php echo $jobModel->id;?>"><div class="job-sendemail"><?php echo Yii::t('app', 'An Freunde senden'); ?></div></a>

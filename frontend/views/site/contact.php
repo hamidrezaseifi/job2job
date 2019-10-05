@@ -35,8 +35,8 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
     		<div class="site-contact-detail-top" ng-if="branch == 'hameln'">
                 <div class="site-contact-top-left">
                     Job2Job GmbH<br>
-                	Pyrmonter Straße 42<br>
-                	31789 Hameln<br>
+                	Hefehof 20<br>
+                	31785 Hameln<br>
             	</div>
                 <div class="site-contact-top-right">
                     Tel.: +49 5151/55694-30<br>

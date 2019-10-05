@@ -363,8 +363,8 @@ $this->beginPage ()?>
 <div class="bottom-footer no-print" layout="row" layout-align="center center" >
 	<div class="footer-child">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
-        Pyrmonter Straße 42<br>
-        31789 Hameln<br>
+        Hefehof 20<br>
+        31785 Hameln<br>
 		<a href="tel:+4951515569430">+49 5151/55694-30</a><br>
 	</div>
 	<div class="footer-child">
