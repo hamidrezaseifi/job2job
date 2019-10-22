@@ -360,14 +360,14 @@ $this->beginPage ()?>
 	</div>
 </div>
 <?php } ?>
-<div class="bottom-footer no-print" layout="row" layout-align="center center" >
-	<div class="footer-child">
+<div class="bottom-footer no-print">
+	<div class="footer-child padding-rl-50px">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
         Hefehof 20<br>
         31785 Hameln<br>
 		<a href="tel:+4951515569430">+49 5151/55694-30</a><br>
 	</div>
-	<div class="footer-child">
+	<div class="footer-child padding-rl-50px">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
         Lindenstraße 5 (am ZOB)<br>
         32423 Minden<br>
@@ -384,7 +384,7 @@ $this->beginPage ()?>
 			</a>
 		</div>
 	</div>
-	<div class="footer-child">
+	<div class="footer-child padding-rl-50px">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH Rechte</b></div>
         <a class="footer-link" href="<?=Yii::getAlias ( '@web' )?>/site/impressum">Impressum</a> <br>
         <a class="footer-link" href="<?=Yii::getAlias ( '@web' )?>/site/privacypolicy">Datenschutz & Bestimmungen</a> <br>

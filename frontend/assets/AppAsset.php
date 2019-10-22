@@ -11,8 +11,10 @@ class AppAsset extends AssetBundle {
 	public $basePath = '@webroot';
 	public $baseUrl = '@web/web';
 	public $css = [
-			'css/site.css',
-			'css/menuline.css',
+	    'css/site.css',
+	    'css/banner.css',
+	    'css/footer.css',
+	    'css/menuline.css',
 			'css/jquery-ui.min.css',
 			'css/bootstrap.css',
 			'angular/angular-material.min.css',

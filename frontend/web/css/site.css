@@ -381,80 +381,14 @@ h6 {
   font-weight: normal;
   margin-bottom: 18px;
 }
-footer .contact-footer > p, footer .contact-footer a {
-  color: #878787;
-  font-size: 13px;
-  line-height: 20px;
-}
-.button-footer a {
-  background: #fff none repeat scroll 0 0;
-  color: #1a3156;
-  display: table;
-  float: right;
-  font-family: AvenirLTPro-Book;
-  font-size: 12px;
-  line-height:16px;
-  text-align:center;
-  min-width:150px;
-  padding: 10px 38px 8px;
-  position: relative;
-}
-.button-footer a:hover{
-  font-weight: bold;
-  color: #1a3156 !important;
-}
-.button-footer a::after {
-  background-image: url("img/sprite.png");
-  background-position: -27px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  content: "";
-  display: table;
-  height: 30px;
-  position: absolute;
-  right: 14px;
-  top: 8px;
-  width: 11px;
-}
 
-.bottom-footer{
-  background: #19213c none repeat scroll 0 0;
-  padding: 5px 40px;
-  width: 100%;
-  height: 100px;
-  color: white;
-  font-size: 10px;
-}
-
-.bottom-footer a:not(.contact-button){
-  color: white;
-}
-
-.bottom-footer a:not(.contact-button):hover{
-  font-weight: bold;
-}
-
-.bottom-footer > div li {
-  display: table;
-  float: left;
-  margin: 0 38px;
-}
-.footer-child
-{
-	width:220px;
-	margin: 20px 20px;
-}
-.footer-last
-{
-	margin-left: 80px;
-}
 
 .cookieusage
 {
 	position: fixed;
-    bottom: 20px;
+    top: calc(100vh - 150px);
     background-color: rgba(238,238,238,0.8);
-    height: 60px;
+    min-height: 60px;
     width: 100vw;
     z-index: 99999;
     padding: 10px 100px;
@@ -492,36 +426,6 @@ footer .contact-footer > p, footer .contact-footer a {
     text-decoration: none;
 }
 
-.bottom-footer > div li a {
-  color: #fff;
-  font-family: AvenirLTPro-Light;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-}
-.bottom-footer > div li a:hover {
-  color: #fff;
-}
-.bottom-footer > div li a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.2s ease-in-out 0s;
-  transition: all 0.2s ease-in-out 0s;
-}
-.bottom-footer > div li a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
 
 .top-section {
   background-position: center center;
@@ -4804,7 +4708,7 @@ body div h2 {
   display: table;
   float: left;
   height: 21px;
-  margin-right: 7px;
+  margin-right: 0;
   position: absolute;
   right: 15px;
   top: 14px;
@@ -5109,7 +5013,7 @@ video {
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
@@ -5155,9 +5059,6 @@ body {
 
 .slider2-content p {
   margin-bottom: -150px;
-}
-.contact-footer > p {
-  font-family: AvenirLTPro-Light;
 }
 .page-template-jobdetail-template .login form input{
   font-family:AvenirLTPro-Light !important;
@@ -5322,7 +5223,6 @@ body .boxes-aktuelle.boxesnumber3 {
   .option1:hover{background-color: #143258 !important;}
   .option1.active .eachbox:hover{background-color: #3871a1 !important;}
   .anstellungsarten-box:hover {background-color: rgba(25, 50, 87, 0.9)!important;}
-  .bottom-footer > div li a:hover {background-color: transparent!important;}
   .karriere-anstellungsarten-box:hover{background-color: transparent!important;}
   .div-select-jobsuche .jqoption:hover {background-color: transparent!important;}
 
@@ -5349,7 +5249,6 @@ body .boxes-aktuelle.boxesnumber3 {
   .two-boxes-aktuelle h4 {line-height: 23px;font-size: 20px;}
   .center-links-footer > a {margin: 0 8px;}
   body div h3.light-and-bold {font-size: 24px !important;}
-  .bottom-footer {padding: 20px 0;}
   .top-section h3 {font-size: 20px;margin-left: 20px;}
 
   /*Aktuelle RULES*/
@@ -5788,7 +5687,6 @@ body .boxes-aktuelle.boxesnumber3 {
   footer .width33:last-child {text-align: center;}
   .button-footer a {float: none;margin: 0 auto;}
   footer {padding: 30px 0;}
-  .bottom-footer > div li {margin: 0 25px;}
   .blue-section-aktuelle {padding: 50px 10px;}
   .slider-description > p {margin: 0 auto;max-width: 90%;}
   
@@ -6079,7 +5977,6 @@ video {margin: 0 auto 20px;}
   .slider2-content {font-size: 15px;line-height: 15px;}
   .slider2-content em {font-size: 15px;margin: 5px auto 0;}
   body div h3.light-and-bold {font-size: 18px !important;}
-  .bottom-footer > div li {margin: 0 15px;}
   .two-boxes-aktuelle .width50 {width: 100%;padding: 20px 0;}
   .two-boxes-aktuelle h4 {height: 40px;}
   .two-boxes-aktuelle .width50:nth-child(2){background: #e6e6e6 none repeat scroll 0 0;}
@@ -8208,113 +8105,6 @@ a:active, a:hover {
 	height: 260px;
 }
 
-.header-banner-box 
-{
-    background-color: rgba(114,168,79, 0.8);
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 20px;
-    line-height: 30px;
-    height: 150px;
-    
-}
-
-.header-banner-box-left
-{
-    padding-top: 40px;
-	width: 550px;
-}
-
-.header-banner-box-right 
-{
-    padding-top: 40px;
-	width: 550px;
-}
-
-@media(min-width: 800px){
-  .header-banner-box 
-	{
-	    bottom: -20px;
-	    position: absolute;
-	}
-	
-	.header-banner-box-left
-	{
-	    left: calc(25vw - 175px);
-	    float: left;
-	}
-
-	.header-banner-box-right 
-	{
-	    right: calc(25vw - 175px);
-	    float: right;
-	}
-
-}
-
-@media(max-width: 799px){
-  .header-banner-box 
-	{
-	    position: absolute;
-	}
-	
-	.header-banner-box-left
-	{
-	    margin-top: 200px;
-    	width: 100vw;
-	}
-
-	.header-banner-box-right 
-	{
-	    right: calc(50vw - 280px);
-	    margin-top: 295px;
-	}
-
-}
-
-
-
-.header-banner-box-left-350 
-{
-    width: 350px;
-    left: calc(25vw - 175px);
-    float: left;
-    text-align: center;
-}
-
-.header-banner-box-left-450 
-{
-    width: 450px;
-    left: calc(25vw - 175px);
-    float: left;
-    text-align: center;
-}
-
-.header-banner-box-left-350 a.header-banner-link,
-.header-banner-box-left-450 a.header-banner-link
-{
-    background-color: white;
-    text-align: center;
-    display: inline-block;
-    color: rgba(114,168,79, 1);
-    padding: 5px 10px;
-}
-
-.header-banner-box-left-350:hover a.header-banner-link,
-.header-banner-box-left-450:hover a.header-banner-link
-{
-    box-shadow: 0 0 10px rgba(10, 10, 10, 1);
-    color: #5e8941;
-}
-
-.header-banner-box-left-350 a.header-banner-link:hover,
-.header-banner-box-left-450 a.header-banner-link:hover
-{
-    box-shadow: 0 0 10px rgba(10, 10, 10, 1);
-    color: #5e8941 !important;
-}
-
 .pad20
 {
 	padding: 20px;
@@ -8381,4 +8171,9 @@ a:active, a:hover {
 
 .yellow-back{
 	background-color: yellow;
+}
+
+.padding-rl-50px{
+	padding-left: 50px; 
+	padding-right: 50px; 
 }

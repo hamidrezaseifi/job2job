@@ -113,3 +113,46 @@ button.contect-branch-button.sel
 	width: 48%;
 	float: left;
 }
+
+.site-contact-map iframe
+{
+	width: 95%;
+}
+
+@media(max-width: 479px){
+
+
+	.site-contact-detail
+	{
+		width: calc(100% - 24px);
+		float: none;
+		margin: 10px 10px;
+	}
+	
+	
+	.form-part-left
+	{
+		float: none;
+		width: calc(100% - 20px);
+	}
+	
+	.form-part-right
+	{
+		float: none;
+		width: calc(100% - 20px);
+	}
+		
+	.site-contact-map
+	{
+		width: 100%;
+		float: none;
+		margin-top: 30px;
+	}
+		
+	.site-contact-map iframe
+	{
+		width: 100%;
+	}
+	
+}
+

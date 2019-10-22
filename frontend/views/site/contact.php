@@ -86,7 +86,7 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
 		</div>
 		
 		<div class="site-contact-map">
-			<iframe id="googlemap" width="95%" height="350" style="border:0; "
+			<iframe id="googlemap" height="350"
 				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDiTNNWMEMkS_pNc0OxdVGKjfVIPnxyLKE&q=Job2Job+GmbH" >
 				</iframe>
 		

@@ -40,7 +40,14 @@
     background-size: 220px;
 }
 
-@media(max-width: 500px){
+@media(max-width: 479px){
+
+	.certificates
+	{
+		width: calc(100% - 20px);
+		margin: 10px auto 10px auto;
+	}
+	
 	.certificates-item
 	{
 		width: calc(100% - 20px);

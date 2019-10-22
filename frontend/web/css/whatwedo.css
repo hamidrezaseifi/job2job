@@ -71,7 +71,7 @@
 	}
 }
 
-@media (min-width:360px) and (max-width:700px) {
+@media (min-width:480px) and (max-width:700px) {
 	
 	.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
 	{
@@ -88,7 +88,24 @@
 	}
 }
 
-@media (min-width:100px) and (max-width:359px) {
+
+@media(max-width: 479px){
+	
+	.site-wahtwedo-content
+	{
+		max-width: 350px;
+		min-width: 350px;
+		margin: 20px auto 0 auto;
+		width: 350px;
+		padding: 5px;
+		
+	}
+	
+	.site-wahtwedo-content div
+	{
+		float: none !important;
+		
+	}
 	
 	.site-wahtwedo-content .box1, .site-wahtwedo-content .box3
 	{
