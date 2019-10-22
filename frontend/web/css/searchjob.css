@@ -511,4 +511,67 @@ ul.list-dropdown-container {
     height: 200px;
 }
 
+
+.box-founded-jobs-container
+{
+	margin-bottom: 30px;
+}
+
+.box-founded-jobs > ul {
+  margin-bottom: 25px;
+}
+
+
+@media(max-width: 479px)
+{
+
+	.site-search-job
+	{
+		width: calc(100% - 20px);
+	}	
+
+	.site-search-job .search-job-searchtext
+	{
+		width: calc(100% - 30px);
+	}
+	
+	.site-search-job .search-job-searchtext input
+	{
+	    width: calc(100% - 50px);
+	}
+
+	.site-search-job .search-job-searchlists
+	{
+		width: calc(100% - 20px);
+	}
+	
+	.site-search-job .search-job-searchlists .dropdown-jobsuche {
+	    float: none;
+	    margin: 20px auto;
+	    position: relative;
+	    width: calc(100% - 20px);
+	}
+	
+	.site-search-job .search-job-searchlists .dropdown-jobsuche .searchlist-item
+	{
+	    width: calc(100%);
+	}
+	
+   .box-founded-jobs {
+	    margin-left: 20px !important;
+	    margin-right: 20px !important;
+	    border: 0 !important;
+	    height: auto !important;
+	    margin-bottom: 25px;
+	    min-height: unset;
+	    padding-bottom: 20px;
+	    width: calc(100% - 40px);
+	}
+
+   .jobsuche-content {padding: 35px 0;}
+   .box-founded-jobs:last-child{border-bottom: none !important;}
+	
+}	
+
+
  

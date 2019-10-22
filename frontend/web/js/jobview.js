@@ -27,7 +27,7 @@ brainApp.controller('JobviewController', function ($scope, $http, $sce, $element
 		
 		$("#callpannel .title").hide();
 		$("#sendrequestform textarea").val("");
-		$("#callpannel").dialog({ width: 450, height: 500, modal: true, title: $("#callpannel .title").html(), show: {
+		$("#callpannel").dialog({ width: 360, height: 520, modal: true, title: $("#callpannel .title").html(), show: {
 	        effect: "clip",
 	        duration: 200
 	      },

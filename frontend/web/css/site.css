@@ -697,9 +697,6 @@ h2 strong {
   color: #f4f4f4;
   min-height: 150px;
 }
-.box-founded-jobs > ul {
-  margin-bottom: 25px;
-}
 .box-aktuelle > ul li {
   font-size: 15px;
   font-weight: normal;
@@ -3346,134 +3343,6 @@ div.wpcf7-response-output {
   width: 100%;
 }
 
-/*Jobsuche page rules*/
-.jobsuche-content {
-  padding: 40px 0 85px;
-}
-.jobsuche-title {
-  color: #1a3156;
-  display: table;
-  font-family: AvenirLTPro-Book;
-  font-size: 25px;
-  line-height: 30px;
-  margin: 0 auto 30px;
-  text-align: center;
-}
-.jobsuche-subtitle {
-  display: table;
-  font-size: 18px;
-}
-.jobsuche-title strong {
-  font-family: AvenirLTPro-Black;
-}
-.search-jobsuche {
-  display: table;
-  margin: 0 auto;
-  position: relative;
-}
-/* old 
-.jobsuchesearch {
-  border: 1.5px solid #1a3156;
-  color: #1a3156;
-  display: table;
-  font-size: 13px;
-  height: 39px;
-  margin-bottom: 30px;
-  padding: 10px 50px 10px 20px;
-  width: 720px;
-}
-*/
-
-/* new */
-.jobsuchesearch {
-  font-family: AvenirLTPro-Light;
-  border: 1.5px solid #1a3156;
-  color: #1a3156;
-  display: table;
-  font-size: 13px;
-  height: 39px;
-  margin-bottom: 30px;
-  padding: 0 50px 0 20px;
-  width: 680px;
-  -webkit-appearance: none !important;
-  border-radius: 0 !important;
-}
-.jobsuchesearch-btn {
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background: transparent none repeat scroll 0 0;
-  border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color #1a3156;
-  border-image: none;
-  border-style: none none none solid;
-  border-width: medium medium medium 1px;
-  font-size: 0;
-  height: 32px;
-  position: absolute;
-  right: 0;
-  top: 3px;
-  width: 55px;
-  z-index: 999;
-  cursor: pointer;
-}
-.bg-btn-jobsuche::after {
-  background-color: transparent;
-  background-image: url("img/sprite.png");
-  background-position: -26px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  border: medium none;
-  cursor: pointer;
-  display: table;
-  font-size: 0;
-  height: 18px;
-  position: absolute;
-  right: 19px;
-  top: 10px;
-  width: 15px;
-  content: "";
-  z-index: 99;
-}
-.dropdown-jobsuche {
-  color: #1a3156;
-  display: table;
-  float: left;
-  font-size: 13px;
-  margin: 0 10px;
-  position: relative;
-  width: 235px;
-}
-.title-dropdown-jobsuche {
-  background: #f6f6f6 none repeat scroll 0 0;
-  border: 1px solid #dadada;
-  display: table;
-  padding: 13px 40px 13px 20px;
-  text-transform: uppercase;
-  position: relative;
-  width: 100%;
-  cursor: pointer;
-  z-index: 99;
-}
-.title-dropdown-jobsuche::after {
-  background-color: transparent;
-  background-image: url("img/sprite.png");
-  background-position: -26px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  border: medium none;
-  content: "";
-  cursor: pointer;
-  display: table;
-  font-size: 0;
-  height: 18px;
-  position: absolute;
-  right: 15px;
-  top: 12px;
-  transform: rotate(90deg);
-  width: 15px;
-  z-index: 9999;
-}
 .table-selects {
   display: table;
   margin: 0 auto 20px;
@@ -3688,22 +3557,7 @@ div.wpcf7-response-output {
 .weitere-laden-btn:hover{
   box-shadow: 0 0 5px rgba(10, 10, 10, 1);
 }
-#foundedjobsnr {
-  float: left;
-  margin-right: 6px;
-}
-.title-subbdropdown-jobsuche {
-  padding-right: 25px;
-}
-.founded-jobs {
-  margin-top: 45px;
-}
-.list-jobdetail-2columns > li {
-  display: block;
-  width: 100%;
-  float: left;
-  font-family: AvenirLTPro-Light;
-}
+
 .width50 .sharingicons {
   margin-bottom: 30px;
 }
@@ -4819,83 +4673,6 @@ body div h2 {
   margin-top: 0 !important;
 }
 
-.title-subbdropdown-jobsuche.title-after-ajax::before {
-  border: 1px solid #ccc;
-  color: #ccc !important;
-    cursor: not-allowed !important;
-    pointer-events: none !important;
-}
-.title-subbdropdown-jobsuche.title-after-ajax.child-active::before {
-  border: 1px solid #1a3156;
-  color: #ccc !important;
-    cursor: not-allowed !important;
-    pointer-events: none !important;
-}
-.title-subbdropdown-jobsuche.active.title-after-ajax::before {
-  background: #ccc none repeat scroll 0 0;
-}
-.title-subbdropdown-jobsuche.active.title-after-ajax.child-active::before {
-  background: #1a3156 none repeat scroll 0 0;
-}
-
-/*mobile menu*/
-.mobilejobsuche {
-  background-color: #72a84f;
-  color: #fff;
-  display: table;
-  width: 100%;
-}
-.mobilejobsuche a {
-  box-sizing: border-box;
-  color: #fff;
-  float: left;
-  font-size: 12px;
-  padding: 18px 20px 20px;
-  width: 100%;
-  font-weight:600;
-}
-.mobilejobsuche a::after {
-  background-image: url("img/sprite.png");
-  background-position: -2px -19px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  content: "";
-  height: 30px;
-  margin-left: 25px;
-  margin-top: -3px;
-  position: absolute;
-  width: 10px;
-}
-.mobilemeinaristo  a::before {
-  background-image: url("img/sprite.png");
-  background-position: -35px -4px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  content: "";
-  display: table;
-  float: left;
-  height: 11px;
-  margin-right: 10px;
-  position: relative;
-  width: 10px;
-}
-.mobilephoneitem a::before {
-  background-image: url("img/sprite.png");
-  background-position: -21px -4px;
-  background-repeat: no-repeat;
-  background-size: 346.5px auto;
-  content: "";
-  display: table;
-  float: left;
-  height: 11px;
-  margin-right: 9px;
-  position: relative;
-  width: 12px;
-  margin-left: -1px;
-}
-#mobileheaderphone{
-  display:none;
-}
 .headerstickyactive header#masthead {
   left: 0;
   position: fixed;
@@ -5203,16 +4980,11 @@ body .boxes-aktuelle.boxesnumber3 {
   .list-jobdetail-2columns {font-size: 16px;line-height: 27px;margin-bottom: 25px;}
   .width50 .blue-long-button {margin-bottom: 50px;margin-top: 55px;}
   
-  .box-founded-jobs {  padding: 16px 12px 5px;}
-
   .title-post-name {margin-bottom: 20px;}
   .text-post > p {margin-bottom: 15px;}
   .text-post {padding: 30px 30px 15px;}
 
   .pagination2 {bottom: 37%;}  
-
-  .dropdown-jobsuche {width: 208px;}
-  .dropdown-jobsuche .list-dropdown-jobsuche::before {width: 206px;}
   
   .logged-in .menu-merkliste-top > div li{width:150px;}
 }
@@ -5224,7 +4996,6 @@ body .boxes-aktuelle.boxesnumber3 {
   .option1.active .eachbox:hover{background-color: #3871a1 !important;}
   .anstellungsarten-box:hover {background-color: rgba(25, 50, 87, 0.9)!important;}
   .karriere-anstellungsarten-box:hover{background-color: transparent!important;}
-  .div-select-jobsuche .jqoption:hover {background-color: transparent!important;}
 
 
   #ubermenu-main-2, #ubermenu-main-18, #ubermenu-main-37 {display: table !important;margin-top: 0;}
@@ -5278,8 +5049,6 @@ body .boxes-aktuelle.boxesnumber3 {
     .about-part > p {font-size: 15px;line-height: 20px;margin-bottom: 15px;}
     .engagement-part {padding: 50px 0;}
     .engagement-part-right .left-part {margin-left: 25px;}
-    /*Jobsuche RULES*/
-   .box-founded-jobs { border-right: medium none;  margin: 10px 1% 20px !important;  padding-left: 20px !important;  width: 31.33%;}
     .ul-iconseen-merkliste > li {display: block;}
 
     /*Kandidaten RULES*/
@@ -5395,15 +5164,12 @@ body .boxes-aktuelle.boxesnumber3 {
 .right-header { margin-top: -31px;  width: 100%;  margin-bottom: 8px;}
 .logo { float: none;  margin-left: auto;  margin-right: auto;  position: relative;  z-index: 99999;}
 
-.dropdown-jobsuche {width: 230px;}
 .width100-unsere:last-child {margin-top: -125px;}
 
 .pagination2 {bottom: 32%;}
 
 
-  .dropdown-jobsuche {margin-bottom: 15px;width: 47%;}
   .table-selects {margin: 0 auto;width: 670px;}
-  .dropdown-jobsuche .list-dropdown-jobsuche {width: 100%;}
   .dropdown-jobsuche .list-dropdown-jobsuche::before {width: 313px;}
   body #masthead .ubermenu-responsive-collapse{display:none !important;}
   
@@ -5474,11 +5240,8 @@ body .boxes-aktuelle.boxesnumber3 {
     .left-part > img {margin-bottom: 0;}
 
     /*Jobsuche RULES*/
-    .jobsuchesearch {width: 620px;}
     .dropdown-jobsuche .list-dropdown-jobsuche {padding: 20px 12px 15px;width: 220px;}
     .dropdown-jobsuche {margin: 0 4px;}
-    .box-founded-jobs { margin-left: 1%;  margin-right: 1%;  min-height: 340px;  width: 48%;}
-    .box-founded-jobs:nth-child(3n+2) {border-left: medium none;border-right: medium none;}
     .jobsuche-content {padding: 50px 0;}
     .dropdown-jobsuche .list-dropdown-jobsuche {position: relative;}
 
@@ -6036,9 +5799,6 @@ video {margin: 0 auto 20px;}
    .div-select-jobsuche .jqselect {width: 200px;}
    .div-select-jobsuche .jqselect-wrap {float: none;margin: 0 auto;}
    .title-founded-jobs {margin-bottom: 15px;width: 100%;}
-   .box-founded-jobs {margin-left:0 !important; margin-right:0 !important; borde: 0 !important;height: auto !important;margin-bottom: 25px;min-height: unset;padding-bottom: 20px;width: 100%;}
-   .jobsuche-content {padding: 35px 0;}
-   .box-founded-jobs:last-child{border-bottom: none !important;}
    .ul-iconseen-merkliste > li {display: table;}
 
    /*Jobticker RULES*/
@@ -7809,11 +7569,6 @@ a:hover, a:focus {
 }
 a:active, a:hover {
     outline: inherit !important;
-}
-
-.box-founded-jobs-container
-{
-	margin-bottom: 30px;
 }
 
 .home-box-1

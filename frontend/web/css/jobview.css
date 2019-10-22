@@ -275,3 +275,44 @@
 	cursor: pointer;
 }
 
+@media(max-width: 479px)
+{
+
+	.jobview-pagetitle 
+	{
+	    margin-top: 20px;
+	    float: none;
+	    width: calc(100%);
+	    text-align: center;
+	    padding: 0 10px;
+	}
+	
+	.jobview-container
+	{
+	    width: calc(100% - 20px);
+	    margin-top: 40px;
+	    margin-left: 10px;
+	    margin-right: 10px;
+	}
+
+	.jobview-rightpanel {
+		position: inherit;
+	    width: calc(100% - 20px);
+	    margin-top: 20px;
+	    margin-left: 10px;
+	    margin-right: 10px;
+	}
+	
+	.jobview-twinbox
+	{
+		float: none !important;
+	    padding: 20px;
+	    height: 300px;
+	    overflow: hidden;
+	    width: calc(100%);
+	    margin-top: 20px;
+	}
+	
+	
+}
+
