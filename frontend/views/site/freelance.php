@@ -17,7 +17,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content margintop-minus40">
 	    
 	    <div style="margin-top: 20px">
 			<div class="width50 pad-left20"><p>Hätten Sie es gewusst? Zeitarbeit kann Ihnen ganz neue Perspektiven eröffnen. <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> macht es möglich. </p></div>

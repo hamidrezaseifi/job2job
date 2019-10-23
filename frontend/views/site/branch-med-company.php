@@ -19,7 +19,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content margintop-60">
 	    <p><strong>Gerade in der Gesundheitsbranche ist qualifiziertes Personal schwer zu finden. Dabei wird es dringendst gebraucht, um den Betrieb am Laufen zu halten.<br> <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> vermittelt Ihnen die passenden Bewerber!</strong></p>
 	    <div style="margin-top: 20px">
 			<div class="width50 pad-right20"><p>Sie sind im Management eines Krankenhauses, Altenheims oder einer Pflegeeinrichtung tätig? Dann fühlen Sie sich mitunter sicherlich als Protagonist/in eines absurden Theaterstücks. Sie warten tage-, wochen- und monatelang auf qualifizierte Bewerber, doch die Suche bleibt ergebnislos. </p></div>

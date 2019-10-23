@@ -17,7 +17,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content margintop-80">
 	    <p>Überlastete Lagerarbeiter am Rande ihrer Kräfte, 60-Stunden-Wochen, psychischer Druck. Schluss mit dem Wahnsinn zur Weihnachtszeit! <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> vermittelt Ihnen Aushilfskräfte für Auftragsspitzen – schnell, unkompliziert und zuverlässig.</p>
 	    <div style="margin-top: 20px">
 			<div class="width50 pad-right20"><p>Sie unterhalten ein Lager, betreiben ein Logistik-Unternehmen oder besetzen hier eine führende Position? Dann treibt Ihnen der Gedanke an die Vorweihnachtszeit sicherlich die Schweißperlen auf die Stirn. Obwohl sich solche saisonalen Auftragsspitzen Jahr für Jahr wiederholen, bleiben sie vor allem eines: anstrengend. </p></div>

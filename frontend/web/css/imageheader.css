@@ -25,11 +25,17 @@
     overflow: hidden;
 }
 
-@media(max-width: 500px){
+@media(max-width: 479px){
 
+	.anim-image-header{
+		height: 120px !important;
+		margin-bottom: 40px;
+	}
+	
 	.anim-image-header .anim-image-title
 	{
-    	height: 140px;	
+    	height: 140px;
+    	padding: 5px 10px;
 	}
 	
 }

@@ -72,3 +72,21 @@
 	
 }
 	
+
+@media(max-width: 479px){
+
+	.margintop-minus40{
+		margin-top: -40px !important;
+	}
+
+	.margintop-80{
+		margin-top: 80px !important;
+	}
+	
+	.margintop-60{
+		margin-top: 60px !important;
+	}
+	
+}
+	
+	

@@ -20,7 +20,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content  margintop-80">
 	    <p>
 	    	<strong>In Produktion und Gewerbe werden immer wieder motivierte Hilfskräfte gesucht. Sie sind auf der Suche nach einer neuen Herausforderung und wollen in unterschiedliche Branchen reinschnuppern? <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> hilft Ihnen dabei!</strong>
 	    </p>

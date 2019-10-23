@@ -17,7 +17,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content margintop-minus40">
 	    <p>Maue Jobausbeute trotz monatelangem Bewerbungsstress? Meilenweit vom Traumjob entfernt? Mangelnde Flexibilität im Job? Maximaler Einsatz, minimales Gehalt? Schluss damit! Geben Sie die Jobsuche in professionelle Hände.</p>
 	    <p><strong> Bei <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> sind Sie richtig, weil...</strong></p> 
 
