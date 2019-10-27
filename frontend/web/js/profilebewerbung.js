@@ -42,6 +42,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
 
     $scope.showskillbrower = false;
     $scope.loadingshow = true;
+    $scope.showAvaileableFrom = showAvaileableFrom;
     $scope.workPermissionValue = workPermissionValue + "" ;
     
     $scope.$watch('workPermissionValue', function() {
@@ -49,11 +50,12 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         	
             setTimeout(() => {
             	$("#workpermissionlimit").datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                    minDate: "6M", maxDate: "10Y",
+        	        format: "dd.mm.yyyy",
+        	        language: "de",
+        	        autoclose: true,
+        	        todayHighlight: true,
                 });
-    		}, 1000);
+    		}, 500);
         	
         }
     });
@@ -87,16 +89,39 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
 
     };
     
-    $.datepicker.setDefaults($.datepicker.regional["de"]);
+    
+    $scope.toggleAvaileableFrom = function () {
+    	$scope.showAvaileableFrom = $("input[name='CandidateBase[availability]']:checked").val() == 'availeable';
+    	
+    	if($scope.showAvaileableFrom){
+    		
+    		setTimeout(() => {
+    			$("input[name='CandidateBase[availablefrom]']").datepicker({
+        	        format: "dd.mm.yyyy",
+        	        language: "de",
+        	        autoclose: true,
+        	        todayHighlight: true,
+        	    });
+    		}, 1000);
+    		
+    		
+    	}
+    }
+    
     $("input[name='UsersBase[bdate]']").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        minDate: "-100Y", maxDate: 2,
+        format: "dd.mm.yyyy",
+        language: "de",
+        autoclose: true,
+        todayHighlight: true,
     });
+    
+    
     
     $(".hideedit").hide();
     $(".applyedit").hide();
 
+    
+    
     $("span.check").click(function () {
         $(this).prev().click();
     });
@@ -106,27 +131,19 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         $(this).prev().prev().click();
     });
 
+    $(".imgopen").click(function () {
 
-    $(".open-close-button").click(function () {
+        $(".register-bewerbung-teil").each(function (index, item) {
+            toggle_profile_item(false, $(item));
 
-        var stat = $(this).parent().data("status");
+        });
 
-        if (stat == "close" || stat == undefined) {
+        toggle_profile_item(true, $(this).parent().parent());
+    });
 
-            $(".register-bewerbung-teil").each(function (index, item) {
-                if ($(item).data("status") == "open") {
-                    toggle_profile_item(false, $(item));
-                }
+    $(".imgclose").click(function () {
 
-            });
-
-            toggle_profile_item(true, $(this).parent());
-
-        }
-        else {
-
-            toggle_profile_item(false, $(this).parent());
-        }
+        toggle_profile_item(false, $(this).parent().parent());
     });
 
     $(".showedit").click(function () {
@@ -253,25 +270,6 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
             }
         }
         //alert($(this).parent().parent().children(".items-edit").children("form").html());		
-    });
-
-
-    $("#available_Aktuell_nicht_verfügber , #available_Verfügber").change(function () {
-
-        if ($("#available_Verfügber:checked").length == 0) {
-            $("#availability_date_li").remove();
-        }
-        else {
-            if ($("#availability_date_li").length == 0) {
-                var ulo = $("#available_Verfügber").parent().parent();
-                $(availe_date_row).appendTo(ulo);
-                $("input[name='CandidateBase[availablefrom]']").datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                    minDate: 0, maxDate: "+5Y"
-                });
-            }
-        }
     });
 
     $("input[name='CandidateBase[jobtype]']").change(function () {
@@ -453,16 +451,13 @@ function toggle_profile_item(show, item)
 	if(!show){
 		toggle_profile_item_edit(false , item);
 		item.children(".register-bewerbung-teil-items-container").slideUp();
-		item.data("status" , "close");
-		
-		item.children(".open-close-button").children("img.imgopen").show();
-		item.children(".open-close-button").children("img.imgclose").hide();	
+		item.children(".register-bewerbung-teil-title").children("img.imgopen").show();
+		item.children(".register-bewerbung-teil-title").children("img.imgclose").hide();	
 	}
 	else {
 		item.children(".register-bewerbung-teil-items-container").slideDown();
-		item.data("status" , "open");
-		item.children(".open-close-button").children("img.imgopen").hide();
-		item.children(".open-close-button").children("img.imgclose").show();
+		item.children(".register-bewerbung-teil-title").children("img.imgopen").hide();
+		item.children(".register-bewerbung-teil-title").children("img.imgclose").show();
 	}
 		
 	
@@ -496,4 +491,3 @@ function toggle_profile_item_edit(show, item)
 		
 	
 }
-

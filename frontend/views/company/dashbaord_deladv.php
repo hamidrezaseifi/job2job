@@ -31,7 +31,7 @@ $formatter = \Yii::$app->formatter;
     
     <div class="job-adv-list">
     	
-    	<div style="font-size: 16px;"><?php echo Yii::t('app', 'Sind Sie sicher diese Job-Anzeigen:?') . '<br>' . $jobModel->title . '<br>' . Yii::t('app', 'zu löchen?'); ?></div>
+    	<div style="font-size: 16px; padding:7px;"><?php echo Yii::t('app', 'Sind Sie sicher diese Job-Anzeigen:?') . '<br>' . $jobModel->title . '<br>' . Yii::t('app', 'zu löchen?'); ?></div>
     	
 		<div style="margin-top: 20px; height: 20px;">
      <?php $form = ActiveForm::begin(['options' =>['id' => 'formnewadv']])?>

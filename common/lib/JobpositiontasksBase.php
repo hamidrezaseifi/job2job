@@ -38,4 +38,13 @@ class JobpositiontasksBase extends \common\models\Jobpositiontasks
     {
         return new JobpositiontasksQueryBase(get_called_class());
     }
+    
+    public  static function findAllJobTasks($jobid){
+        $selectedJobTask = JobpositiontasksBase::find()->select(['task'])->where(['jobid' => $jobid])->all();
+        $list = [];
+        foreach ($selectedJobTask as $model){
+            $list[] = $model->task;
+        }
+        return $list;
+    }
 }

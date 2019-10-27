@@ -1,14 +1,72 @@
 
 var photo_file = false;
 
-$(document).ready(function(){
+brainApp.service('companyFileUpload', ['$http',  function($http) {
+		    
+	this.uploadFileToUrl = function(file, part_name , jForm, $scope) {
+		
+		
+		
+	   var formData = new FormData();
+	   formData.append(part_name, file);
+	   formData.append('MAX_FILE_SIZE', 2242880);
+	   formData.append('part', part_name);
+	   formData.append('_csrf-frontend', jForm.children("input[name='_csrf-frontend']").val());
 	
-	$.datepicker.setDefaults($.datepicker.regional["de"]);
+	   
+	   $http.post(jForm.attr("action"), formData, {
+	  transformRequest: angular.identity,
+	  headers: {'Content-Type': undefined}
+	   }).then(function(response){
+         // success callback
+		   $scope.loadingshow = false;
+		   
+		   if(response.data == 'ok'){
+				window.location = window.location;
+			}
+			else{
+				alert("Error : " + response.data);
+			}
+		   
+       }, 
+       function(response){
+         // failure callback
+    	   $scope.loadingshow = false;
+       });
+	   
+	   
+	};
+}]);
+
+
+brainApp.controller('CompanyContentController', ['$scope', '$http', '$element', '$sce', 'companyFileUpload', '$httpParamSerializerJQLike', function ($scope, $http, $element, $sce, companyFileUpload, $httpParamSerializerJQLike) {
+
+	$scope.hasSdp = hasSdp;
+	
+    $scope.$watch('hasSdp', function() {
+        if($scope.hasSdp == true){
+        	
+            setTimeout(() => {
+            	$("input[name='UsersBaseSV[bdate]']").datepicker({
+        	        format: "dd.mm.yyyy",
+        	        language: "de",
+        	        autoclose: true,
+        	        todayHighlight: true,
+                });
+    		}, 500);
+        	
+        }
+    });
+    
+
+    
 	$("input.calender-icon").datepicker({
-	      changeMonth: true,
-	      changeYear: true,
-	      
-	    });
+        format: "dd.mm.yyyy",
+        language: "de",
+        autoclose: true,
+        todayHighlight: true,  
+	});
+	
 	$(".hideedit").hide();
 	$(".applyedit").hide();
 	$("#newcompany").hide();
@@ -23,27 +81,21 @@ $(document).ready(function(){
 	});
 
 
-	$(".open-close-button").click(function(){
-		
-		var stat = $(this).parent().data("status");
-		
-		if(stat == "close" || stat == undefined){
-			
-			$(".register-bewerbung-teil").each(function(index , item){
-				if($(item).data("status") == "open"){
-					toggle_profile_item(false, $(item));
-				}
-				
-			});
-			
-			toggle_profile_item(true , $(this).parent());
-			
-		}
-		else{
-			
-			toggle_profile_item(false , $(this).parent());
-		}
-	});
+
+    $(".imgopen").click(function () {
+
+        $(".register-bewerbung-teil").each(function (index, item) {
+            toggle_profile_item(false, $(item));
+
+        });
+
+        toggle_profile_item(true, $(this).parent().parent());
+    });
+
+    $(".imgclose").click(function () {
+
+        toggle_profile_item(false, $(this).parent().parent());
+    });
 	
 	$(".showedit").click(function(){
 		
@@ -174,7 +226,12 @@ $(document).ready(function(){
 					//alert(data);
 					if(idata == 'ok'){
 						if( part == "company"){
-							upload_files('company_logo' , 'company_logo' , form);
+							if(typeof $scope.company_logo != "undefined"){
+								companyFileUpload.uploadFileToUrl($scope.company_logo, 'company_logo', form, $scope);	  
+								return;
+							}
+
+							//upload_files('company_logo' , 'company_logo' , form);
 						}
 						else {
 							window.location = window.location;
@@ -197,21 +254,6 @@ $(document).ready(function(){
 		//alert($(this).parent().parent().children(".items-edit").children("form").html());		
 	});
 	
-	
-
-	$("#stellvertreter0").change(function(){
-		
-		if($("#stellvertreter0:checked").length == 1)
-		{
-			$(".register-bewerbung-kontakt-teil").css("height" , 828);
-			$(".stelcertreter").removeClass("nodisplay");
-		}
-		else{
-			
-			$(".register-bewerbung-kontakt-teil").css("height" , 448);
-			$(".stelcertreter").removeClass("nodisplay").addClass("nodisplay");
-		}
-	});
 
 	$("#available_0 , #available_1").change(function(){
 		
@@ -226,10 +268,11 @@ $(document).ready(function(){
 			var ulo = $("#available_1").parent().parent();
 			$(availe_date_row).appendTo(ulo);
 			$("input[name='CandidateBase[availablefrom]']").datepicker({
-			      changeMonth: true,
-			      changeYear: true,
-			      minDate: 0, maxDate: "2Y",
-			    });
+			        format: "dd.mm.yyyy",
+			        language: "de",
+			        autoclose: true,
+			        todayHighlight: true,
+			});
 		}
 	});
 	
@@ -312,7 +355,7 @@ $(document).ready(function(){
 	$("#stellvertreter0").change();
 	$("input[name='UsersBase[fname]']").focus();
 	
-});
+}]);
 
 
 
@@ -470,16 +513,13 @@ function toggle_profile_item(show, item)
 	if(!show){
 		toggle_profile_item_edit(false , item);
 		item.children(".register-bewerbung-teil-items-container").slideUp();
-		item.data("status" , "close");
-		
-		item.children(".open-close-button").children("img.imgopen").show();
-		item.children(".open-close-button").children("img.imgclose").hide();	
+		item.children(".register-bewerbung-teil-title").children("img.imgopen").show();
+		item.children(".register-bewerbung-teil-title").children("img.imgclose").hide();	
 	}
 	else {
 		item.children(".register-bewerbung-teil-items-container").slideDown();
-		item.data("status" , "open");
-		item.children(".open-close-button").children("img.imgopen").hide();
-		item.children(".open-close-button").children("img.imgclose").show();
+		item.children(".register-bewerbung-teil-title").children("img.imgopen").hide();
+		item.children(".register-bewerbung-teil-title").children("img.imgclose").show();
 	}
 		
 	

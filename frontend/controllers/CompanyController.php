@@ -8,7 +8,6 @@ use yii\filters\AccessControl;
 use common\lib\SkillsBase;
 use common\lib\UsersBase;
 use common\lib\CompanyBase;
-use common\lib\CountryBase;
 use common\lib\WorktimemodelBase;
 use common\helper\BrainHelper;
 use common\lib\BranchBase;
@@ -20,8 +19,6 @@ use \common\lib\JobpositionBaseSearch;
 use common\lib\JobpositionskillBase;
 use common\lib\VacancyBase;
 use common\helper\BrainStaticList;
-use common\lib\PostcodeBase;
-use common\lib\CityBase;
 use common\lib\ConnectedcompanyBase;
 use common\lib\FrontlogBase;
 use common\lib\JobpositiontasksBase;
@@ -212,6 +209,7 @@ class CompanyController extends Controller
     	
     	$pdmModel = isset($plist[0]) ? $plist[0] : new PersonaldecisionmakerBase();
     	$pdmModelSecond = isset($plist[1]) ? $plist[1] : new PersonaldecisionmakerBase();
+    	$pdmModelSecondExists = isset($plist[1]);
     	
     	$model = $pdmModel->isNewRecord ? new UsersBase() : $pdmModel->getUser();
     	$modelSecond = $pdmModelSecond->isNewRecord ? new UsersBase() : $pdmModelSecond->getUser();
@@ -227,8 +225,8 @@ class CompanyController extends Controller
     		$logo_approved= false;
     	}
     	
-    	//$postcodes = PostcodeBase::allPostcodes(true);
-    	//$cities = CityBase::allCities(true);
+    	$founddate = Yii::$app->formatter->asDate($companyModel->founddate, 'dd.MM.Y');
+    	$petbdate = Yii::$app->formatter->asDate($pdmModel->getUser()->bdate, 'dd.MM.Y');
     	
     	switch ($action)
     	{
@@ -272,24 +270,27 @@ class CompanyController extends Controller
     			}
     			
     			$subpageContent = $this->renderPartial('dashbaord_profile' , [
-    					'model' 				=> $model,
-    					'modelSecond' 			=> $modelSecond,
-    					'companyModel' 			=> $companyModel,
-    					'pdmModel'	 			=> $pdmModel,
-    					'pdmModelSecond'		=> $pdmModelSecond,
-    					//'skills' 				=> $skill_array,
-    					'nationalities' 		=> $nationalities_array,
-    					'distances' 			=> $distances_array,
-    					'companytypes'			=> $companytype_array,
-    					'cellphoneList'			=> explode('-' , $pdmModel->cellphone),
-    					'telList'				=> explode('-' , $pdmModel->tel),
-    					'cellphoneList2'		=> explode('-' , $pdmModelSecond->cellphone),
-    					'telList2'				=> explode('-' , $pdmModelSecond->tel),
-    					'reachabilityList'		=> BrainStaticList::reachabilityList(),
-    					'employeecountList'		=> $employeecount_array,
-    					'connectedCompanies'	=> $connectedCompanies,
-    					'photopath'				=> $logopath,
-    					'photo_approved'		=> $logo_approved,
+					'model' 				=> $model,
+					'modelSecond' 			=> $modelSecond,
+					'companyModel' 			=> $companyModel,
+					'pdmModel'	 			=> $pdmModel,
+					'pdmModelSecond'		=> $pdmModelSecond,
+					//'skills' 				=> $skill_array,
+					'nationalities' 		=> $nationalities_array,
+					'distances' 			=> $distances_array,
+					'companytypes'			=> $companytype_array,
+					'cellphoneList'			=> explode('-' , $pdmModel->cellphone),
+					'telList'				=> explode('-' , $pdmModel->tel),
+					'cellphoneList2'		=> explode('-' , $pdmModelSecond->cellphone),
+					'telList2'				=> explode('-' , $pdmModelSecond->tel),
+					'reachabilityList'		=> BrainStaticList::reachabilityList(),
+					'employeecountList'		=> $employeecount_array,
+					'connectedCompanies'	=> $connectedCompanies,
+					'photopath'				=> $logopath,
+    			    'photo_approved'		 => $logo_approved,
+    			    'founddate'		         => $founddate,
+    			    'petbdate'		         => $petbdate,
+    			    'pdmModelSecondExists'   => $pdmModelSecondExists,
     			]);
     			
     			break;
@@ -316,12 +317,18 @@ class CompanyController extends Controller
     			break;    
     			
     		case 'savejob' :
-    		    $jobModel = new JobpositionBase();
     		    header('Content-type: application/json');
     		    $this->layout=false;
     		    
     		    $params = Yii::$app->getRequest()->getBodyParams();
+    		    $jobModel = new JobpositionBase();
     		    
+    		    if(isset($params['id']) && $params['id'] > 0)
+    		    {
+    		        $jobid = $params['id'];
+    		        $jobModel = JobpositionBase::findOne(['id' => $jobid]);
+    		        
+    		    }
     		    
     		    $this->edit_jobadv($params , $jobModel);
     		    
@@ -330,16 +337,12 @@ class CompanyController extends Controller
     		case 'newjob' :
     		    
     		    $jobModel = new JobpositionBase();
-    			    			
-    			$skills = SkillsBase::allChilds(1);
-    			$worktypes_array = BrainStaticList::workTypeList();
-    			$vacancy_array = BrainStaticList::vacancyList();
+    		    
+    		    $jobModel->country = 'Deutschland';
+    		    
     			$branchs = BranchBase::allActiveKeyList(true);
-    			$vacancies = VacancyBase::allActiveKeyList();
+    			$vacancies = VacancyBase::allActiveKeyList(false);
     			$worktypes =  WorktimemodelBase::allActiveKeyList();
-    			
-    			$jobModel->country = 'Deutschland';
-    			//$jobModel->jobstartdate = 
     			
     			Yii::$app->formatter->locale = 'de-DE';
     			
@@ -373,6 +376,9 @@ class CompanyController extends Controller
     			$jobAttributes["status"] = 0;
     			unset($jobAttributes["createdate"]);
     			unset($jobAttributes["updatedate"]);
+    			$jobAttributes['jobStartYear'] = 1 ;
+    			$jobAttributes['jobStartMonth'] = 1 ;
+    			
     			
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [
     			    'jobModel' 				=> $jobModel,
@@ -383,9 +389,10 @@ class CompanyController extends Controller
 					'companyModel' 			=> $companyModel,
 					'pdmModel'	 			=> $pdmModel,
 					'pdmModelSecond'		=> $pdmModelSecond,
-					'skills' 				=> $skills,
-					'selectedSkills' 		=> array(),
-			        'vacancies'				=> $vacancies,
+					//'skills' 				=> $skills,
+    			    'selectedSkills' 		=> array(),
+    			    'selectedTasks' 		=> array(),
+    			    'vacancies'				=> $vacancies,
     			    'branchs'				=> $branchs,
     			    'worktypes'				=> $worktypes,
     			    
@@ -401,37 +408,48 @@ class CompanyController extends Controller
     				return $this->redirect(['site/invalidpage' , 'msg' => Yii::t('app', 'ungültig Stellenanzeige!')]);
     			}
     			
-    			if(isset($_POST['job']))
+    			$branchs = BranchBase::allActiveKeyList(true);
+    			$vacancies = VacancyBase::allActiveKeyList(false);
+    			$worktypes =  WorktimemodelBase::allActiveKeyList();
+    			
+    			$selectedJobskill = JobpositionskillBase::findAllJobSkills($jobid);
+    			$selectedJobTask = JobpositiontasksBase::findAllJobTasks($jobid);
+    			    			
+    			$jobAttributes = $jobModel->attributes;
+    			$jobAttributes['jobStartYear'] = Yii::$app->formatter->asDate($jobAttributes['jobstartdate'], 'Y') ;
+    			$jobAttributes['jobStartMonth'] = Yii::$app->formatter->asDate($jobAttributes['jobstartdate'], 'M') ;
+    			$jobAttributes['expiredate'] = Yii::$app->formatter->asDate($jobModel->expiredate, 'dd.M.Y');
+    			
+    			$jobAttributes['extends'] = $jobModel->extends == 1;
+    			unset($jobAttributes["createdate"]);
+    			unset($jobAttributes["updatedate"]);
+    			
+    			
+    			Yii::$app->formatter->locale = 'de-DE';
+    			
+    			$startmonth = '';
+    			$startdate = $jobModel->jobstartdate;
+    			if(strlen($startdate) >= 10 )
     			{
-    				$this->edit_jobadv($_POST , $jobModel);
+    			    $startmonth= intval(substr($startdate , 0 , 4)) . "-" . intval(substr($startdate , 5 , 2));
     			}
     			
-    			$worktypes =  WorktimemodelBase::findAll(['status' => 1]);
-    			$selectedJobskill = JobpositionskillBase::findAll(['jobid' => $jobid]); 
-    			$skills1 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 1])->orderBy('title')->all();
-    			$skills2 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 2])->orderBy('title')->all();
-    			$skills3 = SkillsBase::find()->where(['parentid' => 1 , 'status' => 1 , 'jobtype' => 3])->orderBy('title')->all();
     			
-    			$skills1 = BrainHelper::mapTranslate($skills1, 'id', 'title');
-    			$skills2 = BrainHelper::mapTranslate($skills2, 'id', 'title');
-    			$skills3 = BrainHelper::mapTranslate($skills3, 'id', 'title');
-    			
-    			$skills = array(1 => $skills1 , 2 => $skills2, 3 => $skills3);
-    			$worktypes_array = array(0 => '');
-    			$worktypes_array = array_merge($worktypes_array , BrainHelper::mapTranslate($worktypes, 'id', 'title'));
-    			$vacancy_array = BrainStaticList::vacancyList();
-    			 
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [
-    					'jobModel' 				=> $jobModel,
-    					'userModel' 			=> $model,
-    					'userModelSecond' 		=> $modelSecond,
-    					'companyModel' 			=> $companyModel,
-    					'pdmModel'	 			=> $pdmModel,
-    					'pdmModelSecond'		=> $pdmModelSecond,
-    					'skills' 				=> $skills,
-    					'selectedSkills' 		=> $selectedJobskill,
-    					'vacancies'				=> $vacancy_array,
-    						
+    			    'jobModel' 				=> $jobModel,
+    			    'startmonth' 			=> $startmonth,
+    			    'jobAttributes'			=> $jobAttributes,
+    			    'userModel' 			=> $model,
+    			    'userModelSecond' 		=> $modelSecond,
+    			    'companyModel' 			=> $companyModel,
+    			    'pdmModel'	 			=> $pdmModel,
+    			    'pdmModelSecond'		=> $pdmModelSecond,
+    			    'selectedTasks' 		=> $selectedJobTask,
+    			    'selectedSkills' 		=> $selectedJobskill,
+    			    'vacancies'				=> $vacancies,
+    			    'branchs'				=> $branchs,
+    			    'worktypes'				=> $worktypes,
+    			    
     			]);
     			
     			break;
@@ -676,28 +694,26 @@ class CompanyController extends Controller
     	
     	$data = array();
     	$data['JobpositionBase'] = array();
-    	//"id":0,"companyid":0,"title":"tttttttt","subtitle":"","postcode":"1111111","city":"oooooooo","country":"Deutschland","comments":"wwwwwwwwwwwwwwwwwwwwwwwww","jobstartdate":"","duration":12,"extends":true,"showdate":"","expiredate":"2019-06-20T22:00:00.000Z","branch":"1","vacancy":"3","worktype":"3","userid":0,"status":0,"taskList":["aaaaaaa","bbbbbbbbbbbbbb"],"skillList":["sssssssss","fffffffffff"],"vacance":-1,"jobStartMonth":"2019-04-30T22:00:00.000Z"
     	
     	foreach ($jobModel->attributes as $key => $value){
     	    $data['JobpositionBase'][$key] = isset($inData[$key]) ? $inData[$key] : ''; 
     	}
     	
+    	Yii::$app->formatter->dateFormat = 'd.M.Y';
+    	$data['JobpositionBase']['expiredate'] = Yii::$app->formatter->asDate($data['JobpositionBase']['expiredate'], 'Y-M-d') ;
+    	//print($data['JobpositionBase']['expiredate']); exit; 
+    	
     	$data['JobpositionBase']['companyid'] = $companyModel->id;
     	$data['JobpositionBase']['expiredate'] = substr ($data['JobpositionBase']['expiredate'], 0, 10);
-    	$data['JobpositionBase']['jobstartdate'] = substr ($inData['jobStartMonth'], 0, 7) . "-01";
-    	//$data['JobpositionBase']['subtitle'] = isset($inData['subtitle']) ? $inData['subtitle'] : '';
-    	//$data['JobpositionBase']['postcode'] = isset($inData['postcode']) ? $inData['postcode'] : '';
+    	//$data['JobpositionBase']['jobstartdate'] = $inData['jobStartYear'] . '-' . $inData['jobStartMonth'] . "-01";
     	$data['JobpositionBase']['showdate'] = isset($inData['showdate']) ? $inData['showdate'] : date('Y-m-d');
-    	//$data['JobpositionBase']['expiredate'] = isset($inData['expiredate']) ? BrainHelper::dateGermanToEnglish($inData['expiredate']) : date('Y-m-d');
-    	
-    	
+    	    	
     	if($isnew)
     	{
     	    $data['JobpositionBase']['userid'] = Yii::$app->user->identity->id;
+    	    echo  'isnew: ';
     	}
-    	else{
-    	    $data['JobpositionBase']['updatedate'] = date('Y-m-d H:i:s');
-    	}
+    	
     	
     	$data['JobpositionBase']['status'] = 2;
     	
@@ -706,6 +722,8 @@ class CompanyController extends Controller
     	    	
     	$jobModel->load($data); 
     	$jobModel->save(false);
+    	
+    	//print($data['JobpositionBase']['expiredate']); exit; 
     	
     	JobpositionskillBase::deleteAll(['jobid' => $jobModel->id]);
     	
@@ -726,11 +744,10 @@ class CompanyController extends Controller
     	    if(!isset($allskills[$skill]))
     	    {
     	        $sdata = array();
+    	        $sdata['SkillsBase'] = array();
     	        $sdata['SkillsBase']['parentid'] = 1;
     	        $sdata['SkillsBase']['title'] = $skill;
     	        $sdata['SkillsBase']['status'] = 0;
-    	        $sdata['SkillsBase']['createdate'] = $skilldata['JobpositionskillBase']['created'];
-    	        $sdata['SkillsBase']['updatedate'] = $skilldata['JobpositionskillBase']['created'];
     	        
     	        $skillModel = new SkillsBase();
     	        $skillModel->load($sdata);
@@ -739,6 +756,8 @@ class CompanyController extends Controller
     	    }
     	    
     	}
+    	
+    	JobpositiontasksBase::deleteAll(['jobid' => $jobModel->id]);
     	
     	$taskdata = array();
     	$taskdata['JobpositiontasksBase']['jobid'] = $jobModel->id;

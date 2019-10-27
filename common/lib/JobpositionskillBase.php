@@ -45,4 +45,13 @@ class JobpositionskillBase extends \common\models\Jobpositionskill
         
         return $skillIdList;
     }
+    
+    public  static function findAllJobSkills($jobid){
+        $selectedJobTask = JobpositionskillBase::find()->where(['jobid' => $jobid])->all();
+        $list = [];
+        foreach ($selectedJobTask as $model){
+            $list[] = $model->skill;
+        }
+        return $list;
+    }
 }

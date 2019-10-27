@@ -72,14 +72,12 @@
 
 .register-bewerbung-teil-title
 {
-	float: left;
 	font-size: 15px;
-	width: 185px;
+	width: 100%;
 }
 
 .register-bewerbung-teil-items-container
 {
-	float: left;
 	font-size: 13px;
 	font-family : Arial;
 	margin-left: 20px;
@@ -107,9 +105,11 @@
 	height: 25px;
 }
 
-.register-bewerbung-kontakt-teil
+.register-bewerbung-teil-items-container .item.item-letter
 {
-	
+	height: auto;
+	max-height: 150px;
+	overflow-y: auto;
 }
 
 .register-bewerbung-teil-items-container .item input[type="text"]
@@ -228,22 +228,14 @@
 #skills .brows-button
 {
 	cursor: pointer;
-	height: 14px;
-	width: 14px;
+	height: 16px;
+	width: 16px;
 	float: right;
 	margin-top: 3px;
 	margin-right: -15px;
 	background-image: url(../images/folder_add2.png);
-	background-size: 14px 14px;
-}
-
-.register-bewerbung-teil-items-container .item input[name="CandidateBase[availablefrom]"]
-{
-	width: 72px;	
-	border:2px solid #aaaaaa; 
-	border-right:none; 
-	margin-left: 2px;
-	padding-left:3px;
+	background-size: 16px 16px;
+	border: none;
 }
 
 #availability_date_li
@@ -266,12 +258,6 @@
 	border-left:none; 	
 }
 
-.register-bewerbung-beruffvorstellung-teil
-{
-	
-	
-}
-
 .register-bewerbung-teil-items-container .item input[name="CandidateBase[desiredjobpcode]"]
 {
 	width: 80px;	
@@ -281,11 +267,6 @@
 {
 	margin-left: 3px;	
 	width: 247px;	
-}
-
-.register-bewerbung-anschreiben-teil
-{
-	height: 240px;
 }
 
 .register-bewerbung-anschreiben-teil .item textarea[name="CandidateBase[coverletter]"]
@@ -411,8 +392,6 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	float: left;
 	outline: none;
 	border:1px solid #bbbbbb;
-	border-right: none;
-	border-left: none;
 	
 }
 
@@ -437,7 +416,7 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	text-align: left;	
 }
 
-#skillbrowser
+#skillbrowser1
 {
 	position: absolute; 
 	left: 0; 
@@ -477,14 +456,16 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 #addskill
 {
 	width: 90px;
-	height: 30px;
-	border: none; 
-	background-color: #1a3156;
-	float: right;
-	font-family : Arial;
-	margin-right: 20px;
-	margin-top: 5px;
-	margin-bottom: auto;
+    height: 30px;
+    border: none;
+    background-color: #f9f6c9;
+    float: right;
+    font-family: Arial;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: auto;
+    font-weight: bold;
+    color: #1a3156;
 }
 
 #addskill:disabled
@@ -598,5 +579,156 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 .showedit
 {
 	background-image: url(../images/Actions-document-edit-icon.png);
+}
+
+.image-section-toggle{
+	float: right;
+	margin-right: 10px;	
+	cursor: pointer;
+}
+
+@media(max-width: 479px)
+{
+	.register-bewerbung
+	{
+		width: calc(100%);
+		margin-left: 0;
+		border: 2px solid #aaaaaa;
+		margin-bottom: 30px;
+	}
+	
+	.register-bewerbung-title
+	{
+		width: 100%;
+		padding-left: 20px;
+	}
+	
+	.register-bewerbung-logo
+	{
+		width: 100%;
+		height: auto;
+	}
+
+	.register-bewerbung-teil
+	{
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		padding-bottom: 20px;
+	}
+	
+	.register-bewerbung-teil-items-container .item
+	{
+		width: 100%;
+		background: #efefef;
+	    margin-top: 0;
+	    margin-bottom: 10px;
+	}
+
+	.register-bewerbung-teil-items-container .item-title
+	{
+		width: 100%;
+	    float: none;
+	    text-align: left;
+	    font-weight: bold;
+	    height: 20px;
+	    line-height: 20px;
+	    margin-top: 20px;
+	}
+	
+	.register-bewerbung-teil-items-container
+	{
+		width: calc(100% - 30px);
+	    float: none;
+	    text-align: left;
+	}
+	
+	.register-bewerbung-teil-items-container .item input[type="text"]
+	{
+		width: 100%;
+		height: 24px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item select
+	{
+		width: 100%;
+		height: 24px;	
+	}
+
+	.register-bewerbung-teil-title
+	{
+		float: none;
+		font-size: 15px;
+		width: 100%;
+		padding-left: 10px;
+	}
+	
+	.register-bewerbung-logo div{
+		float: none;
+	}
+	
+
+	.register-bewerbung-anschreiben-teil .item textarea[name="CandidateBase[coverletter]"]
+	{
+		width: 100%;	
+		height: 130px;	
+	}
+
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[desiredjobpcode]"]
+	{
+		width: 80px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[desiredjobcity]"]
+	{
+		margin-left: 3px;	
+		width: calc(100% - 83px);	
+	}
+
+	#skills
+	{
+		width: 100%; 
+	}
+
+	.register-bewerbung-teil-items-container .item input[name="tel1"] , .register-bewerbung-teil-items-container .item input[name="ctel1"]
+	{
+		width: 80px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="tel2"] , .register-bewerbung-teil-items-container .item input[name="ctel2"]
+	{
+		width: 80px;	
+		margin-left: 3px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="tel3"] , .register-bewerbung-teil-items-container .item input[name="ctel3"]
+	{
+		margin-left: 3px;	
+		width: calc(100% - 166px);	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[pcode]"]
+	{
+		width: 80px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[city]"]
+	{
+		margin-left: 3px;	
+		width: calc(100% - 83px);	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[homenumber]"]
+	{
+		margin-left: 3px;	
+		width: 80px;	
+	}
+	
+	.register-bewerbung-teil-items-container .item input[name="CandidateBase[street]"]
+	{
+		width: calc(100% - 87px);	
+	}
+	
 }
 

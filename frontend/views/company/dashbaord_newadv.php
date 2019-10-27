@@ -37,65 +37,65 @@ $this->registerCssFile("@web/web/css/profileunternehmen.css", [], 'css-profileun
 $this->registerCssFile("@web/web/css/jobadv.css", [], 'css-jobadv');
 $this->registerCssFile("@web/web/css/styleradio.css", [], 'css-style-radio');
 $this->registerCssFile("@web/web/css/stylecheckbox.css", [], 'css-style-checkbox');
-//$this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileunternehmen');
 $this->registerJsFile("@web/web/js/jobadvnew.js", [], 'js-jobadvnew');
 $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 
 
-
+$currentYear = date('Y');
 
 ?>
+
 <div class="register-bewerbung" style="padding-bottom: 20px;" ng-controller="NewAdvController">
     
     <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Neue Anzeige'); ?>
     </div>
     
-    <div class="top-wizard-nave">
-    	<div class="nav-item">
-    		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 1</div>
-    		<div class="desc"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>
+    <ul class="nav nav-pills mb-2 newjob-tab" id="pills-tab" role="tablist">
+  		<li class="nav-item">
     	
-    	</div>
+    		<a class="nav-link active newjob-tab" id="step1-tab" data-toggle="pill" href="#step1-content" role="tab" aria-controls="step1-content" aria-selected="true">
+        		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 1</div>
+        		<div class="desc"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>			
+			</a>    		
+    	</li>
     	
-    	<div class="nav-item-sep"></div>
+    	<li class="nav-item">
+    		<a class="nav-link newjob-tab" id="step2-tab" data-toggle="pill" href="#step2-content" role="tab" aria-controls="step2-content" aria-selected="false">
+        		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 2</div>
+        		<div class="desc"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
+			</a>    		
+    	</li>
     	
-    	<div class="nav-item">
-    		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 2</div>
-    		<div class="desc"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
     	
-    	</div>
     	
-    	<div class="clear"></div>
-    	
-    </div>
+    </ul>
 <?php $form = ActiveForm::begin(['options' =>['id' => 'formnewadv']])?>
-    <div class="job-adv-wizard-container">
+    <div class="job-adv-wizard-container tab-content"  id="steps-tabContent">
     	
-	    <div class="job-adv-wizard-item wizard-item1">
+	    <div class="tab-pane fade show active" id="step1-content" role="tabpanel" aria-labelledby="step1-tab">
 	    	<div class="item-title"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Betreff'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie einen aussagekraftigen Title für Ihre Anzeigeausschreibung ein.'); ?></div>
-	    		<div class="item"><input type="text" maxlength="80" ng-model="jobposition.title"></div>
+	    		<div class="item"><input class="form-control" type="text" maxlength="80" ng-model="jobposition.title"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Land'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'In welchem Land ist der Jobstandort.'); ?></div>
-	    		<div class="item"><input type="text" ng-model="jobposition.country" disabled></div>
+	    		<div class="item"><input class="form-control" type="text" ng-model="jobposition.country" disabled></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Ort'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Standort der Stelle ein.'); ?></div>
-	    		<div class="item"><input type="text" ng-model="jobposition.city"></div>
+	    		<div class="item"><input class="form-control" type="text" ng-model="jobposition.city"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Postleitzahl'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie die Postleitzahl der Stelle ein.'); ?></div>
-	    		<div class="item"><input type="text" ng-model="jobposition.postcode"></div>
+	    		<div class="item"><input class="form-control" type="text" ng-model="jobposition.postcode"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Branchen'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Branch der Stelle ein.'); ?></div>
 	    		<div class="item">
-                    <select name="branch" ng-model="jobposition.branch" >
-                    	<option value="0"></option>
+                    <select class="custom-select custom-select-sm" name="branch" ng-model="jobposition.branch" >
                     	<option ng-repeat="(key, value) in branchs" value="{{key}}">{{value}}</option>
                     </select>	    		
 	    		</div>
@@ -104,8 +104,8 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Aufgaben der Stelle ein.'); ?></div>
 	    		<div class="item">
     	    		<div class="">
-    	    			<input class="add-text-item task-text-item" >
-    	    			<button type="button" class="addbutton" ng-click="addTask()"><b style="font-size: 18px">+</b>  <?php echo Yii::t('app', 'hinzufügen'); ?></button>
+    	    			<input class="form-control add-text-item task-text-item" >
+    	    			<button type="button" class="btn addbutton" ng-click="addTask()"><i class="material-icons">playlist_add</i></button>
     	    		</div>
 	    			<div class="task-item-container">
 	    				<div ng-repeat="task in jobposition.taskList" class="task-item">{{task}} <i ng-click="deleteTask(task)" class="material-icons">delete</i></div>
@@ -116,44 +116,73 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Qualifikationen der Stelle ein.'); ?></div>
 	    		<div class="item">
     	    		<div class="">
-    	    			<input class="add-text-item skill-text-item" >
-    	    			<button type="button" class="addbutton" ng-click="addSkill()"><b style="font-size: 18px">+</b>  <?php echo Yii::t('app', 'hinzufügen'); ?></button>
+    	    			<input class="form-control add-text-item skill-text-item" >
+    	    			<button type="button" class="btn addbutton" ng-click="addSkill()"><i class="material-icons">playlist_add</i></button>
     	    		</div>
 	    			<div class="task-item-container">
 	    				<div ng-repeat="skill in jobposition.skillList" class="task-item">{{skill}} <i ng-click="deleteSkill(skill)" class="material-icons">delete</i></div>
 	    			</div>
 	    		</div>
-
 	    		
 
 	    	</div>
 	    </div>
     	
-	    <div class="job-adv-wizard-item wizard-item2">
+	    <div class="tab-pane fade" id="step2-content" role="tabpanel" aria-labelledby="step2-tab">
+	    
 	    	<div class="item-title"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Aktuelle Vakanzen'); ?>:*</div>
-	    		<div class="item">
+	    		<div class="item" style="padding-bottom: 10px;">
 	    		<?php foreach($vacancies as $id => $title) {?>
-	    			<label class="vakancy-title"><?php echo $title; ?></label><input ng-model="jobposition.vacancy" class="vakancy-item" type="radio" value="<?php echo $id; ?>" />
+                    <div class="custom-control custom-radio custom-control-inline vacany-item">
+                      <input type="radio" id="vacancy<?php echo $id; ?>" <?=($id == $jobModel->vacancy ? 'checked' : '')?>  ng-checked="jobposition.vacancy == <?php echo $id; ?>" name="vacancy" class="custom-control-input form-check-input" value="<?php echo $id; ?>" ng-model="jobposition.vacancy">
+                      <label class="custom-control-label" for="vacancy<?php echo $id; ?>"><?php echo $title; ?></label>
+                    </div>
+	    		
 	    		<?php } ?>
-	    			<label class="vakancy-title">Sonstige</label><input class="vakancy-item" disabled ng-click="otherVacancySelected()" ng-model="jobposition.vacance" type="radio" value="0" name ="vacancy" />
-	    			<input ng-show="selectedVacance == 0" class="other-vacancy" >
+                    <div class="custom-control custom-radio custom-control-inline vacany-item">
+                      <input type="radio" id="vacancySonstige" disabled name="vacancy" class="custom-control-input" value="0" ng-model="jobposition.vacancy" ng-click="otherVacancySelected()">
+                      <label class="custom-control-label" for="vacancySonstige">Sonstige</label>
+                    </div>
 	    		</div>
 	    		
 				<div class="h-divider"></div>
 				
 	    		<div class="title"><?php echo Yii::t('app', 'Job-Beginn und Dauer'); ?>:*</div>
 	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie den Job-Beginn und die geplante Dauer an.'); ?></div>
-	    		<div class="" style="padding-left: 30px; padding-top: 5px; margin-bottom: 10px;">
-	    			<div>
+	    		<div class="" style="padding-top: 5px; margin-bottom: 10px;">
+	    			<div class="custom-control custom-control-inline deadline-item">
 		    			<label style="width:50px;"><?php echo Yii::t('app', 'Start'); ?></label>&nbsp;
-		    			<input type="month" ng-model="jobposition.jobStartMonth" min="<?php echo date("Y-m-d"); ?>">
+		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartMonth">
+		    				<option value="1">Januar</option>
+		    				<option value="2">Februar</option>
+		    				<option value="3">März</option>
+		    				<option value="4">April</option>
+		    				<option value="5">May</option>
+		    				<option value="6">Juni</option>
+		    				<option value="7">Juli</option>
+		    				<option value="8">August</option>
+		    				<option value="9">September</option>
+		    				<option value="10">Oktober</option>
+		    				<option value="11">November</option>
+		    				<option value="12">Dezember</option>
+		    			</select>
+		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartYear">
+		    				<?php for($year=$currentYear; $year < $currentYear + 11; $year++){?>
+		    				<option value="<?=$year ?>"><?=$year ?></option>
+		    				<?php } ?>
+		    			</select>
 	    			</div>
-	    			<div style="margin-top: 6px;">
-		    			<label style="width:50px; "><?php echo Yii::t('app', 'Dauer'); ?></label>&nbsp;
-		    			<input ng-model="jobposition.duration" type="number" style="width:100px; height: 26px;">&nbsp;<label style="width:120px;"><?php echo Yii::t('app', 'Monate'); ?></label>
-		    			<input ng-model="jobposition.extends" type="checkbox" name="extends" value="1"> &nbsp;<?php echo Yii::t('app', 'Verlängerung möglich'); ?>
+	    			<div class="custom-control custom-control-inline deadline-item" style="margin-top: 6px;">
+    	    			<div class="custom-control custom-control-inline deadline-item">
+    		    			<label style="margin-right: 10px;"><?php echo Yii::t('app', 'Dauer'); ?></label>
+    		    			<input ng-model="jobposition.duration" type="number" class="form-control" style="width:70px; height: 26px;">&nbsp;<label><?php echo Yii::t('app', 'Monate'); ?></label>
+		    			</div>
+                        <div class="custom-control custom-checkbox custom-control-inline deadline-item" style="margin-left: 30px;">
+                          <input type="checkbox" class="custom-control-input" id="jobpositionextends" ng-model="jobposition.extends" name="extends" > 
+                          <label class="custom-control-label" for="jobpositionextends"><?php echo Yii::t('app', 'Verlängerung möglich'); ?></label>
+                        </div>
 	    			</div>
 	    		</div>
 
@@ -162,8 +191,7 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 	    		<div class="title"><?php echo Yii::t('app', 'Arbeitszeitmodel'); ?>:*</div>
 	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte wählen Sie den Arbeitszeitmodel der Stelle aus'); ?></div>
 	    		<div class="item" style="margin-bottom: 10px;">
-                    <select ng-model="jobposition.worktype">
-                        <option value="0"></option>
+                    <select class="custom-select custom-select-sm" ng-model="jobposition.worktype">
                         <option ng-repeat="(key, value) in worktypes" value="{{key}}">{{value}}</option>
                     </select>	    			
 	    		</div>
@@ -174,36 +202,41 @@ $this->registerJsFile("@web/web/js/utils.js", [], 'js-utils');
 	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Im folgenden können Sie ein Gültigkeitsdatum eintragen. Nach diesem Datum wird Ihr Stellenanzeige nicht mehr im Verzeichnis gelistet'); ?></div>
 	    		<div class="item" style="padding-bottom: 10px;">
 	    			<label style="width:100px; "><?php echo Yii::t('app', 'Gültigkeit: '); ?></label>&nbsp;
-	    			<input ng-model="jobposition.expiredate" min="<?php echo date("Y-m-d"); ?>" type="date" style="width:140px; height: 26px;">
+	    			<input ng-model="jobposition.expiredate" id="jobpositionexpiredate" type="text" style="width:140px; height: 26px;">
 	    		</div>
 
 				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Notiz'); ?>:</div>
 	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte geben Sie den Notiz. der Stelle an.'); ?></div>
-	    		<div class="item">
+	    		<div class="item" style="padding-bottom: 10px;">
 					<textarea ng-model="jobposition.comments" style="width:90%; height: 150px;"></textarea>	    			
 	    		</div>
-	    		
+
+				<div class="h-divider"></div>
+
+        		<?php if($jobModel->isNewRecord) {?>
+            	<div class="apply-condition1">
+            		<div class="custom-control custom-checkbox">
+            			<input type="checkbox" class="custom-control-input" id="checkcondition" name="checkcondition" ng-model="checkcondition" />
+            		    <label ng-class="{ 'condition-disbaled': checkcondition == false,  'condition-enabled': checkcondition == true}" for="checkcondition" class="custom-control-label"><?php echo Yii::t('app', 'Ja, ich habe die <a href="#">Nutzungsbedingungen</a> gelesen und stimme diesen zu. Die <a href="#">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.'); ?></label>
+        			</div>
+            	</div>
+            	<?php } ?>
 
 	    	</div>
 	    </div>
-    	
-    	<div class="nav-button-set">
-    		<div class="button cancel" ng-click="cancelAdv()"><?php echo Yii::t('app', 'abbrechen'); ?></div>
-    		<div class="button prev" ng-click="prevWizard()"><?php echo Yii::t('app', 'zurück'); ?></div>
-    		<div class="button next" ng-click="nextWizard()"><?php echo Yii::t('app', 'weiter'); ?></div>
-    		<div class="buttonapply" ng-click="createAdv()"><?php echo Yii::t('app', 'Stellenanzeige speichern und veröffentlichen'); ?></div>
-    		<?php if($jobModel->isNewRecord) {?>
-	    	<div class="apply-condition">
-    			<input class="checkboxstyleone" type="checkbox" id="checkcondition" name="checkcondition" />
-			    <label for="reachemail"><?php echo Yii::t('app', 'Ja, ich habe die <a href="#">Nutzungsbedingungen</a> gelesen und stimme diesen zu. Die <a href="#">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.'); ?></label>
-	    		<span class="checkone"><span class="inside"></span></span>
-
-	    	</div>
-	    	<?php } ?>
-    	</div>
+    	    	
     </div>
+    
+	<div class="nav-button-set">
+		<div class="button cancel" ng-click="cancelAdv()"><?php echo Yii::t('app', 'abbrechen'); ?></div>
+		<div class="button next" ng-click="nextWizard()"><?php echo Yii::t('app', 'weiter'); ?></div>
+		<div class="button prev" ng-click="prevWizard()"><?php echo Yii::t('app', 'zurück'); ?></div>
+		<div class="buttonapply" ng-click="createAdv()"><?php echo Yii::t('app', 'Stellenanzeige speichern und veröffentlichen'); ?></div>
+		<div class="clear"></div>
+	</div>
+    
 <?php ActiveForm::end() ?>
 
 </div>
@@ -236,9 +269,10 @@ var advsaveurl = "<?php echo YII::getAlias('@web')?>/company/dashboard/savejob";
 
 var allskils = new Array();
 var skilltypelist = new Array();
-<?php foreach ($skills as $id => $skill){?>
-allskils.push("<?php echo $skill;?>");
-<?php } ?>
+
+var taskList = [<?php echo ('"' . implode('","', $selectedTasks) . '"');  ?>];
+var skillList = [<?php echo ('"' . implode('","', $selectedSkills) . '"');  ?>];
+
   
 </script>
 

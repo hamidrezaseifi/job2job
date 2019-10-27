@@ -145,8 +145,11 @@ class CandidateController extends Controller
         }
 
         $model = Yii::$app->user->identity;
-        // $candidateModel = CandidateBase::findOne(['userid' => $model->id]);
         $candidateModel = Yii::$app->user->identity->candidate();
+        
+        $bdate = Yii::$app->formatter->asDate($model->bdate, 'dd.MM.Y');
+        $availablefrom = Yii::$app->formatter->asDate($candidateModel->availablefrom, 'dd.MM.Y');
+        
 
         $skillModel = CandidateskillBase::findAll([
             'candidateid' => $candidateModel->userid
@@ -155,6 +158,9 @@ class CandidateController extends Controller
         $postcodes = PostcodeBase::allPostcodes(true);
         $cities = CityBase::allCities(true);
 
+        $candidateModel->desiredjobcountry = 'Deutschland';
+        $candidateModel->country = 'Deutschland';
+        
         switch ($action) {
             case 'myprofile':
 
@@ -200,9 +206,7 @@ class CandidateController extends Controller
                 if (strlen($candidateModel->cellphone) < 2) {
                     $candidateModel->cellphone = '--';
                 }
-                
-                $candidateModel->desiredjobcountry = 'Deutschland';
-
+                                
                 $subpageContent = $this->renderPartial('dashbaord_profile',
                     [
                         'model' => $model,
@@ -222,7 +226,9 @@ class CandidateController extends Controller
                         'photo_approved' => $photo_approved,
                         'docFiles' => $docApproved,
                         'cities' => $cities,
-                        'postcodes' => $postcodes
+                        'postcodes' => $postcodes,
+                        'bdate' => $bdate,
+                        'availablefrom' => $availablefrom
                     ]);
 
                 break;
@@ -352,20 +358,28 @@ class CandidateController extends Controller
     {
         $message = 'ok';
         
-        $data['CandidateBase']['updatedate'] = date('Y-m-d');
-        $data['UsersBase']['updatedate'] = date('Y-m-d');
-
-        if($data['CandidateBase']['workpermission'] == 2 && (!isset($data['CandidateBase']['workpermissionlimit']) || $data['CandidateBase']['workpermissionlimit'] == null)){
-            echo "ungültige Arbeitserlaubnis-Frist";
-            exit;
-        }
-        
         $model = UsersBase::findOne([
             'id' => Yii::$app->user->identity->id
-        ]); // Yii::$app->user->identity;
+        ]);
+        
         $candidateModel = CandidateBase::findOne([
             'userid' => $model->id
         ]);
+        
+        
+        $data['CandidateBase']['updatedate'] = date('Y-m-d');
+        $data['UsersBase']['updatedate'] = date('Y-m-d');
+        
+        if(isset($data['CandidateBase']['workpermission']) &&
+            $data['CandidateBase']['workpermission'] == 2 &&
+            (!isset($data['CandidateBase']['workpermissionlimit']) || $data['CandidateBase']['workpermissionlimit'] == null)){
+                echo "ungültige Arbeitserlaubnis-Frist";
+                exit;
+        }
+        
+        if(isset($data['CandidateBase']['availablefrom']) && $data['CandidateBase']['availablefrom'] != ''){
+            $data['CandidateBase']['availablefrom'] = BrainHelper::dateGermanToEnglish($data['CandidateBase']['availablefrom']);
+        }
         
         
 
@@ -774,115 +788,121 @@ class CandidateController extends Controller
      *
      * @return mixed
      */
-    public function actionMyprofile()
+    public function actionMyprofile($index = '')
     {
-        $model = new UsersBase();
-        $candidateModel = new CandidateBase();
-
-        $skills = SkillsBase::allTree();
-        $skills = SkillsBase::find()->where([
-            'parentid' => 1,
-            'status' => 1
-        ])
-            ->orderBy('title')
-            ->all();
-
-        if (count($_POST) && isset($_POST['checkcondition'])) {
-            $_POST['CandidateBase']['tel'] = $_POST['tel1'] . $_POST['tel2'] . $_POST['tel3'];
-            $_POST['CandidateBase']['cellphone'] = $_POST['ctel1'] . $_POST['ctel2'] .
-                $_POST['ctel3'];
-            $reachtel = isset($_POST['reachtel']) ? 'tel,' : '';
-            $reachemail = isset($_POST['reachemail']) ? 'email,' : '';
-            $_POST['CandidateBase']['reachability'] = $reachtel . $reachemail;
-            $_POST['CandidateBase']['createdate'] = date('Y-m-d');
-
-            // $_POST['CandidateBase']['availablefrom'] = isset($_POST['CandidateBase']['availablefrom']) ? $_POST['CandidateBase']['availablefrom'] : null;
-
-            $_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
-            $_POST['UsersBase']['password_hash'] = '';
-            $_POST['UsersBase']['usertype'] = 3;
-            $_POST['UsersBase']['createdate'] = date('Y-m-d');
-            $_POST['UsersBase']['group'] = 2;
-            $_POST['UsersBase']['permission'] = 2;
-            $_POST['UsersBase']['status'] = 4;
-
-            $model->load($_POST);
-            $model->save(false);
-
-            $userid = $model->id;
-            $_POST['CandidateBase']['userid'] = $userid;
-            $candidateModel->load($_POST);
-            $candidateModel->save(false);
-
-            if (isset($_POST['skill']) && is_array($_POST['skill'])) {
-                foreach ($_POST['skill'] as $skillitem) {
-                    $skillModel = new CandidateskillBase();
-                    $skillModel->userid = $userid;
-                    $skillModel->skill = $skillitem;
-                    $skillModel->save(false);
-                }
-            }
-
-            $this->redirect([
-                'site/index'
-            ]);
+        $after_verify = isset($index) && $index == 'ok' ? true : false;
+                
+        $photopath = self::personal_photo();
+        $docfiles = self::personal_documents();
+        $docApproved = array();
+        $docwebpathlist = array();
+        $docappcount = 0;
+        foreach ($docfiles as $doc) {
+            $docApproved[$doc['web']] = array(
+                'app' => true,
+                'name' => $doc['name'],
+                'web' => $doc['web']
+            );
+            $docwebpathlist[] = $doc['web'];
+            $docappcount ++;
         }
-
-        $nationalities = NationalityBase::findAll([
-            'status' => 1
-        ]);
-        $countries = CountryBase::findAll([
-            'status' => 1
-        ]);
-        $distances = DistanceBase::findAll([
-            'status' => 1
-        ]);
-        $titles = ContantsBase::findAll([
-            'const_type' => 'title2'
-        ]);
-        $worktypes = WorktimemodelBase::findAll([
-            'status' => 1
-        ]);
         
-
+        $filemodels = UploadedfilesBase::findAll([
+            'file' => $docwebpathlist
+        ]);
+        foreach ($filemodels as $filemodel) {
+            $docApproved[$filemodel->file]['app'] = false;
+            $docappcount --;
+        }
+        
+        $photo_approved = true;
+        $filemodel = UploadedfilesBase::findOne([
+            'file' => $photopath
+        ]);
+        if ($filemodel != null) {
+            $photo_approved = false;
+        }
+        
+        $model = Yii::$app->user->identity;
+        // $candidateModel = CandidateBase::findOne(['userid' => $model->id]);
+        $candidateModel = Yii::$app->user->identity->candidate();
+        
+        
+        $postcodes = PostcodeBase::allPostcodes(true);
+        $cities = CityBase::allCities(true);
+        
+       
+                
+        if (isset($_POST['part'])) {
+            $this->update_profile($_POST['part'], $_POST);
+        }
+        
+        $model->bdate = BrainHelper::dateEnglishToGerman($model->bdate);
+        $candidateModel->workpermissionlimit = BrainHelper::dateEnglishToGerman($candidateModel->workpermissionlimit);
+        
+        $skills = SkillsBase::find()->where(
+        [
+            'parentid' => 1,
+            'status' => 1,
+        ])
+        ->orderBy('title')
+        ->all();
+        
+        $candidSkills = CandidateskillBase::findAll(
+            [
+                'candidateid' => $candidateModel->userid
+            ]);
+        
         $skill_array = BrainHelper::mapTranslate($skills, 'id', 'title');
-        $nationalities_array = array(
-            '' => ''
-        );
-        $nationalities_array = array_merge($nationalities_array,
-            BrainHelper::mapTranslate($nationalities, 'title', 'title'));
-        $countries_array = array(
-            '' => ''
-        );
-        $countries_array = array_merge($countries_array,
-            BrainHelper::mapTranslate($countries, 'title', 'title'));
-        $distances_array = array(
-            '' => ''
-        );
-        $distances_array = array_merge($distances_array,
-            BrainHelper::mapTranslate($distances, 'title', 'title'));
-        $titles_array = array(
-            '' => ''
-        );
-        $titles_array = array_merge($titles_array,
-            BrainHelper::mapTranslate($titles, 'value', 'value'));
-        $worktypes_array = array(
-            0 => ''
-        );
-        $worktypes_array = array_merge($worktypes_array,
-            BrainHelper::mapTranslate($worktypes, 'id', 'title'));
-
-        return $this->render('myprofile',
+        
+        $nationalities_array = BrainStaticList::nationalityList(true);
+        $countries_array = BrainStaticList::countryList(true);
+        $distances_temp = BrainStaticList::distanceList();
+        $worktypes_array = BrainStaticList::workTypeList();
+        $candidSkills_array = BrainHelper::mapTranslate($candidSkills, 'skill', 'skill');
+        
+        $distances_array = array();
+        foreach ($distances_temp as $key => $dist) {
+            if ($key == 0 || $key == '')
+                continue;
+                $distances_array[$dist] = $dist . ' km';
+        }
+        
+        if (strlen($candidateModel->tel) < 2) {
+            $candidateModel->tel = '--';
+        }
+        
+        if (strlen($candidateModel->cellphone) < 2) {
+            $candidateModel->cellphone = '--';
+        }
+        
+        $candidateModel->desiredjobcountry = 'Deutschland';
+        $candidateModel->country = 'Deutschland';
+        
+        return $this->renderPartial('dashbaord_profile',
             [
                 'model' => $model,
                 'candidateModel' => $candidateModel,
-                'skills' => $skill_array,
+                'skills' => $candidSkills_array,
+                'allskills' => $skill_array,
                 'nationalities' => $nationalities_array,
                 'countries' => $countries_array,
                 'distances' => $distances_array,
-                'titles' => $titles_array,
                 'worktypes' => $worktypes_array,
+                'cellphoneList' => explode('-', $candidateModel->cellphone),
+                'telList' => explode('-', $candidateModel->tel),
+                'reachabilityList' => BrainStaticList::reachabilityList(),
+                'accessableList' => BrainStaticList::accessableList(),
+                'after_verify' => $after_verify,
+                'photopath' => $photopath,
+                'photo_approved' => $photo_approved,
+                'docFiles' => $docApproved,
+                'cities' => $cities,
+                'postcodes' => $postcodes
             ]);
+        
+       
+        
     }
 
     /**

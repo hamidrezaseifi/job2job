@@ -4,10 +4,9 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 	$scope.currentWizardIndex = 1;
 
 	$scope.jobposition = jobposition ;
-	$scope.jobposition.taskList = [];
-	$scope.jobposition.skillList = [];
-	$scope.jobposition.vacance = -1;
-	$scope.jobposition.jobStartMonth = jobStartMonth;
+	$scope.jobposition.taskList = taskList;
+	$scope.jobposition.skillList = skillList;
+	//$scope.jobposition.jobStartMonth = jobStartMonth;
 
 	$scope.jobposition.branch = "" + $scope.jobposition.branch;
 	$scope.jobposition.worktype = "" + $scope.jobposition.worktype;
@@ -15,6 +14,19 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 	$scope.allskils = allskils;
 	$scope.branchs = branchs;
 	$scope.worktypes = worktypes;
+	
+	$scope.checkcondition = false;
+	
+	$("#jobpositionexpiredate").datepicker({
+        format: "dd.mm.yyyy",
+        language: "de",
+        autoclose: true,
+        todayHighlight: true,
+        startDate: new Date(),
+        calendarWeeks: true,
+        defaultViewDate :jobposition.expiredate,
+    });
+
 	
 	$scope.addTask = function(){
 		var task = $(".add-text-item.task-text-item").val();
@@ -69,6 +81,35 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 	
 	
 	$scope.nextWizard = function(){
+		showLastTab();
+		
+		$('#pills-tab li:last-child a').tab('show');
+	}
+	
+	$('#pills-tab a').on('click', function (e) {
+		  e.preventDefault();
+		  if($(this).hasClass("active")){
+			  return;
+		  }
+		  
+		  $(this).tab('show');
+		  if($(this).prop("id") == "step1-tab"){
+			  showPrevTab();
+		  }
+		  if($(this).prop("id") == "step2-tab"){
+			  showLastTab();
+		  }
+		  
+	});
+
+	$scope.prevWizard = function(){
+		
+		showPrevTab();
+		
+		$('#pills-tab li:first-child a').tab('show');
+	}
+	
+	function showLastTab(){
 		var next = $scope.currentWizardIndex + 1;
 		
 		$(".wizard-item" + $scope.currentWizardIndex).slideUp();
@@ -87,9 +128,10 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 			$(".nav-button-set .prev").show();
 			$(".nav-button-set .cancel").hide();
 		}
+
 	}
 
-	$scope.prevWizard = function(){
+	function showPrevTab(){
 		var next = $scope.currentWizardIndex - 1;
 		
 		$(".wizard-item" + $scope.currentWizardIndex).slideUp();
@@ -111,14 +153,12 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		}
 		
 	}
-	
-	
-	$.datepicker.setDefaults($.datepicker.regional["de"]);
-	
+
 	$("input.calender-icon[name='expiredate']").datepicker({
-	      changeMonth: true,
-	      changeYear: true,
-	      minDate: "+5D", maxDate: "+1Y"
+	        format: "dd.mm.yyyy",
+	        language: "de",
+	        autoclose: true,
+	        todayHighlight: true,
 	    });
 
 	$(".wizard-item2").hide();
@@ -129,7 +169,7 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 	
 	setToNavColor();	
 	
-	$(".add-text-item.skill-text-item").autocomplete({source: allskils});
+	//$(".add-text-item.skill-text-item").autocomplete({source: allskils});
 	
 	function setToNavColor()
 	{
@@ -206,7 +246,7 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 			return;
 		}
 		
-		if(checkIsNullOrEmpty(jobPos.jobStartMonth) || checkIsNullOrZero(jobPos.duration)){
+		if(checkIsNullOrEmpty(jobPos.jobStartMonth) || checkIsNullOrEmpty(jobPos.jobStartYear) || checkIsNullOrZero(jobPos.duration)){
 			alert(jobdate_msg);
 			return;
 		}

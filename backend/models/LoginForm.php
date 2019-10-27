@@ -43,6 +43,7 @@ class LoginForm extends Model
      */
     public function validatePassword($attribute, $params)
     {
+        //echo $this->password; exit;
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
@@ -74,6 +75,7 @@ class LoginForm extends Model
     {
         if ($this->_user === false) {
             $this->_user = BackendUserModel::findByUsername($this->username);
+            
         }
 
         return $this->_user;

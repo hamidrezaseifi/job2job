@@ -41,23 +41,21 @@ class BrainRadioBoxRenderer extends Widget
 	
 		$body = '';
 		
-		$body .= '	<ul class="radiostyle">';
-				
+		$attr = '';
+		foreach ($this->input_attributes as $ia_key => $ia_value){
+		    $attr .= ' ' . $ia_key . '="' . $ia_value . '" ';
+		}
+		
 		foreach ($this->items as $key => $listvalue)
 		{
-			$id = $this->id_prefix . str_replace(' ', '_', $key);
-    		$body .= '		<li>';
-    		$body .= '			<input class="radiostyle" type="radio" id="' . $id . '" name="' . $this->name . '" ' . BrainHelper::getCheckedFromValue($key , $this->value) . ' value="' . $key . '"';
-    		foreach ($this->input_attributes as $ia_key => $ia_value){
-    		    $body .= ' ' . $ia_key . '="' . $ia_value . '" '; 
-    		}
-    		$body .= '>';
-    		$body .= '			<label for="' . $id . '">' . $listvalue . '</label>';
-    		$body .= '			<span class="check"><span class="inside"></span></span>';
-    		$body .= '		</li>';
+		    $id = $this->id_prefix . str_replace(' ', '_', $key);
+		    $body .= '		<div class="custom-control custom-radio custom-control-inline">';
+		    $body .= '		<input type="radio" id="' . $id . '" name="' . $this->name . '" ' . $attr . ' class="custom-control-input" ' . BrainHelper::getCheckedFromValue($key , $this->value) . ' value="' . $key . '">';
+		    $body .= '		<label class="custom-control-label" for="' . $id . '">' . $listvalue . '</label>';
+            $body .= '		</div>';
+
 		}				  
-						  
-		$body .= '	</ul>';
+						 
 				
 		return $body;
 	}

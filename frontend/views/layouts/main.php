@@ -50,7 +50,6 @@ $this->beginPage ()?>
     <link rel="stylesheet" href="<?=Yii::getAlias ( '@web' )?>/web/css/jquery.lightbox.min.css">
 
     <script src="<?=Yii::getAlias ( '@web' )?>/web/js/mainlayout.js"></script>
-    <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/datepicker-de.js"></script>
     <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/isInViewport.min.js"></script>
     <script type="text/javascript" src="<?=Yii::getAlias ( '@web/web' )?>/js/utils.js"></script>
 
@@ -76,9 +75,9 @@ $this->beginPage ()?>
                 <?php if (! $user->isGuest) { ?>
                 <p><a class="myprofile" href="<?=Yii::getAlias ( '@web' ) . ($identity->isCandidate () ? '/candidate' : '/company')?>/dashboard/myprofile"><mat-icon class="material-icons">person</mat-icon> Mein Profil</a></p>
                 <?php } else { ?>
-                <?php if(false){ ?>
+                
                 <p><a class="login" id="loginlink" href="<?=Yii::getAlias ( '@web' )?>/site/login" ><mat-icon class="material-icons">lock</mat-icon> Login</a></p>
-                <?php } ?>
+                
                 <?php } ?>
 
 			</div>
@@ -138,6 +137,53 @@ $this->beginPage ()?>
                     				</li>
                     			</ul>
                     		</li>
+                    		
+                    		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
+                    			<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile" tabindex="0">
+                    				<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
+                    			</a>
+                    			<ul class="ubermenu-submenu ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width ubermenu-submenu-content-align-center">
+                    				<li class=" ubermenu-autocolumn  ubermenu-column ubermenu-column-1-2 ubermenu-has-submenu-stack ubermenu-item-type-column">
+                    					<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
+                    						<li class="ubercolumn-specialclass ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack ubermenu-item-type-column">
+                    							<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">DASHBOARD</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/markedjob" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">GEMERKTE ANZEIGEN</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/applyjob" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">BEWORBENE STELLENANZEIGEN</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/messages" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">NACHRICHTEN</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/site/logout" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">ABMELDEN</span>
+                    									</a>
+                    								</li>
+                    							</ul>
+                    						</li>
+                    					</ul>
+                    				</li>
+                    			</ul>
+                    		</li>
+                    		
                     		<?php }
 							if ($user->isGuest || $identity->isCompany ()) { ?>
                     		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
@@ -200,6 +246,48 @@ $this->beginPage ()?>
                     			</li>
                     		</ul>
                     		</li>
+                    		
+                    		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
+                    			<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile" tabindex="0">
+                    				<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
+                    			</a>
+                    			<ul class="ubermenu-submenu ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width ubermenu-submenu-content-align-center">
+                    				<li class=" ubermenu-autocolumn  ubermenu-column ubermenu-column-1-2 ubermenu-has-submenu-stack ubermenu-item-type-column">
+                    					<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
+                    						<li class="ubercolumn-specialclass ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack ubermenu-item-type-column">
+                    							<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">DASHBOARD</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/jobs" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">JOB ANZEIGEN</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/messages" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">NACHRICHTEN</span>
+                    									</a>
+                    								</li>
+                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
+                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/site/logout" >
+                    										<span class="ubermenu-target-title ubermenu-target-text">ABMELDEN</span>
+                    									</a>
+                    								</li>
+                    							</ul>
+                    						</li>
+                    					</ul>
+                    				</li>
+                    			</ul>
+                    		</li>
+                     		
                     		<?php } ?>
 
                     	<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page  ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
@@ -270,13 +358,23 @@ $this->beginPage ()?>
 
     	<div class="all-menu-mobile1">
     	 	<div class="title-menu-mobile" ng-click="closeMobileMenu()"></div>
-    	 	<div class="mobilejobsuche">
-    	 		<p><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">JOB SUCHEN</a></p>
+    	 	<div class="mobilejobsearch">
+    	 		<p><?php if ($user->isGuest || $identity->isCandidate ()) { ?><a href="<?=Yii::getAlias ( '@web' )?>/site/searchjobs">JOB SUCHEN</a><?php } ?></p>
     	 	</div>
+    	 	<?php if ($user->isGuest) { ?>
+    	 	<div class="mobilelogin">
+    	 		<p><a href="<?=Yii::getAlias ( '@web' )?>/site/login">Anmelden</a></p>
+    	 	</div>
+    	 	<?php }  else { ?>
+    	 	<div class="mobilelogin">
+    	 		<p><a href="<?=Yii::getAlias ( '@web' )?>/site/logout">Abmelden</a></p>
+    	 	</div>
+    	 	<?php } ?>
     		<div class="menu-responsive-menu-container"><ul id="menu-responsive-menu" class="menu">
     			<li><a href="<?=Yii::getAlias ( '@web' )?>/">STARTSEITE</a></li>
+    			<?php if ($user->isGuest || $identity->isCandidate ()) { ?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/site/candidate">FÜR BEWERBER</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('candidate')"></span><span class="clear"></span>
-                <ul ng-show="submenuVisible['candidate']" >
+                <ul ng-show="submenuVisible['candidate']">
                 	<li><a class="title" >BRANCHEN</a></li>
 					
                 	<li  ng-repeat="branch in branchs "><a href="<?=Yii::getAlias ( '@web' )?>/site/branchview/candidate/{{branch.shortcut}}">{{branch.label}}</a></li>
@@ -288,6 +386,17 @@ $this->beginPage ()?>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/site/carrier">KARRIERE</a></li>
                 </ul>
                 </li>
+                <li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('candidateprofile')"></span><span class="clear"></span>
+                <ul ng-show="submenuVisible['candidateprofile']">
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard">Mein DASHBOARD</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile">MEIN PROFIL</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/markedjob">GEMERKTE ANZEIGEN</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/applyjob">BEWORBENE STELLENANZEIGEN</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/messages">NACHRICHTEN</a></li>
+                </ul>
+                </li>
+                <?php } ?>
+                <?php if ($user->isGuest || $identity->isCompany ()) { ?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/site/company">FÜR UNTERNEHMER</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('company')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['company']">
                 	<li><a class="title" >BRANCHEN</a></li>
@@ -302,6 +411,15 @@ $this->beginPage ()?>
 
                 </ul>
                 </li>
+                <li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('companyprofile')"></span><span class="clear"></span>
+                <ul ng-show="submenuVisible['companyprofile']">
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard">Mein DASHBOARD</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile">MEIN PROFIL</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/jobs">JOB ANZEIGEN</a></li>
+                	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/messages">NACHRICHTEN</a></li>
+                </ul>
+                </li>
+                <?php } ?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" >Über Uns</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('about')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['about']">
                 	<li><a class="title">ÜBER UNS</a></li>

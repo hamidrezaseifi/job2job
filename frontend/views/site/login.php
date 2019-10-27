@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<a class="passreset-open"href="<?php echo Yii::getAlias('@web');?>/site/resetpassword">Passwort vergessen?</a>
 				</div>
 				
-				<div class="button-form float-left button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>
+				<div class="button-form button-form-login-ajax" ng-click="doLogin()">ANMELDEN</div>
 				<input type="submit" value="go" style="display:none;">
 			<?php ActiveForm::end() ?>
 		</div>		

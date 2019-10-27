@@ -9,6 +9,12 @@
 	background-color: rgba(230,235,230,0.5);
 }
 
+.dashbaord-top-panel
+{
+	display: none;
+	margin-top: -30px;
+}
+
 .dashbaord-left-panel div.dashbaord-link
 {
 	text-align: center;
@@ -26,13 +32,29 @@
 	background-color: #e7fc92;
 }
 
-
-.personal-info
+.dashbaord-left-panel div.dashbaord-link a
 {
+	color: gray;
+}
+
+.dashbaord-left-panel div.dashbaord-link:hover a,
+.dashbaord-left-panel div.dashbaord-link a:hover
+{
+	color: #333333;
+}
+	
+.dashbaord-left-panel .personal-info{
 	padding: 15px;	
 	padding-top: 15px;	
 	height: 80px;
 	margin-bottom: 60px;
+}
+
+.dashbaord-top-panel .personal-info{
+	padding: 15px;	
+	padding-top: 15px;	
+	height: 90px;
+	margin-bottom: 10px;
 }
 
 img.personalphoto2 {
@@ -185,4 +207,26 @@ img.notapproved
 	width: 600px;
 	margin-left: 220px;
 }
+
+@media(max-width: 479px)
+{
+	.dashbaord-left-panel
+	{
+		display: none;
+	}
+	
+	.dashbaord-top-panel
+	{
+		display: block;
+	}
+	
+	.candidate_dashboard_parent
+	{
+		float: none; 
+		width: calc(100vw - 10px); 
+		margin: 5px;
+	}
+	
+}
+
 

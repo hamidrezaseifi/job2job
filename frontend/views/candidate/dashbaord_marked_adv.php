@@ -34,14 +34,15 @@ $formatter = \Yii::$app->formatter;
     	
 		<div ng-if="markedlist.length == 0"><?php echo Yii::t('app', 'keine gemerkte Stellenanzeigen!');?></div>    	
     	<div class="job-adv-list-item" ng-class="{ 'job-adv-list-item-notapp' : item.status != 1 }" ng-repeat="item in markedlist">
-    		<div class="title">{{item.jobtitle}}</div>
+    		<div class="title data">{{item.jobtitle}}</div>
+    		<div class="status data"><span ng-if="item.status == 1" ><?php echo Yii::t('app', 'bestätigt');?></span><span ng-if="item.status != 1" ><?php echo Yii::t('app', 'nicht bestätigt');?></span></div>
+    		<div class="date data">{{item.jobstartdate}}</div>
+    		<div class="place data">{{item.country}}/{{item.city}}</div>
+    		<div class="edit" title="<?php echo Yii::t('app', 'Ansehen'); ?>"><a href="<?=Yii::getAlias('@web') ?>/site/jobview?id={{item.id}}" target="_blank" class="view"><i class="material-icons">details</i></a></div>
     		<div class="delete" title="<?php echo Yii::t('app', 'Löschen'); ?>"><a href="<?=Yii::getAlias('@web') ?>/candidate/dashboard/deletemarkedjob?id={{item.id}}" class="delete"></a></div>
-    		<div class="edit" title="<?php echo Yii::t('app', 'Ansehen'); ?>"><a href="<?=Yii::getAlias('@web') ?>/site/jobview?id={{item.id}}" target="_blank" ><span class="glyphicon glyphicon-new-window"></span></a></div>
-    		<div class="status"><span ng-if="item.status == 1" ><?php echo Yii::t('app', 'bestätigt');?></span><span ng-if="item.status != 1" ><?php echo Yii::t('app', 'nicht bestätigt');?></span></div>
-    		<div class="date">{{item.jobstartdate}}</div>
-    		<div class="place">{{item.country}}/{{item.city}}</div>
+    		<div class="clear"></div>
     	</div>
-    	<div class="clear"></div>
+    	
     	
     </div>
      

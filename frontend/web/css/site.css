@@ -238,7 +238,11 @@ header {
   float: right;
   margin-left: 115px;
 }
-.button-header a  {
+.mobilejobsearch {
+  display: table;
+  float: right;
+}
+.button-header a, .mobilejobsearch a  {
   background: #72a84f none repeat scroll 0 0;
   color: #fff;
   display: table;
@@ -249,10 +253,10 @@ header {
   padding: 10px 38px 9px;
   position: relative;
 }
-.button-header a:hover {
+.button-header a:hover, .mobilejobsearch a:hover {
   box-shadow: 0 0 5px rgba(10, 10, 10, 1);
 }
-.button-header a::after {
+.button-header a::after, .mobilejobsearch a::after {
   background-image: url("img/sprite.png");
   background-position: -2px -19px;
   background-repeat: no-repeat;
@@ -265,6 +269,22 @@ header {
   top: 9px;
   width: 11px;
 }
+.mobilelogin {
+  display: table;
+  float: left;
+}
+.mobilelogin a  {
+  background-color: #486cae;
+  color: #fff;
+  display: table;
+  font-family: AvenirLTPro-Book;
+  font-size: 12px;
+  line-height:16px;
+  margin: 0 auto;
+  padding: 10px 38px 9px;
+  position: relative;
+}
+
 #ubermenu-nav-main-2 > li > a {
   color: #1a3156 !important;
   font-family: AvenirLTPro-Light !important;
@@ -429,12 +449,20 @@ h6 {
 	    margin: 0 auto;
 	}
 	
+	.button-form-login-ajax {
+	  display: table;
+	  margin: 0 auto;
+	  position: relative;
+	  float: none !important;
+	}
+	
+	
 }
 
 
 .cookieusage .cookie-button a {
     background: #1a3156 none repeat scroll 0 0;
-    color: #fff;
+    color: #fff !important;
     display: table;
     font-family: AvenirLTPro-Book;
     font-size: 12px;
@@ -2148,6 +2176,7 @@ body .ubermenu-submenu .ubercolumn-image > ul .no-href-link a{
   margin: 0 auto;
   padding: 10px 35px 9px;
   position: relative;
+  float: left;
 }
 .button-form-login-ajax::after {
   background-image: url("img/sprite.png");
@@ -7956,4 +7985,42 @@ a:active, a:hover {
 .padding-rl-50px{
 	padding-left: 50px; 
 	padding-right: 50px; 
+}
+
+.custom-radio .custom-control-label::before,
+.custom-checkbox .custom-control-label::before{
+    background-color: #fff;  
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: #101d27;  
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E); 
+    border-radius: 50%;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-color: #101d27;  
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E); 
+    border-radius: .25rem;
+}
+
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-radio .custom-control-input:active ~ .custom-control-label::before,
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: #386789; /* red */
+}
+
+.modal-header {
+    background-color: #021348 !important;
+    color: #f7f7c9 !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 12px !important;
+}
+
+.modal-backdrop{
+	z-index: 10 !important;
 }

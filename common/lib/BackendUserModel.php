@@ -130,7 +130,7 @@ class BackendUserModel extends UsersBase implements  IdentityInterface
      */
     public function validatePassword($password)
     {
-    	$myhash = Yii::$app->getSecurity()->generatePasswordHash($password);
+        $myhash = Yii::$app->getSecurity()->generatePasswordHash($password); //echo $myhash; exit;
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 

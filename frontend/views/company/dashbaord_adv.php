@@ -39,18 +39,19 @@ $formatter = \Yii::$app->formatter;
     		$jobtitle = strlen($jobadv->title) > 22 ? substr($jobadv->title , 0 , 20) . ' ...' : $jobadv->title;
     		?>
     	<div class="job-adv-list-item<?php echo $jobadv->status == 1 ? '' : ' job-adv-list-item-notapp';?>">
-    		<div class="title"><?php echo $jobtitle;?></div>
+    		<div class="title data"><?php echo $jobtitle;?></div>
+    		<div class="status data"><?php echo $jobadv->status == 1 ? Yii::t('app', 'bestätigt') : Yii::t('app', 'nicht bestätigt');?></div>
+    		<div class="date data"><?php echo $formatter->asDate($jobadv->jobstartdate, 'php:d.m.Y');?></div>
+    		<div class="place data"><?php echo $jobadv->country . '/' . $jobadv->city;?></div>
+
     		<div class="delete" title="<?php echo Yii::t('app', 'Löschen'); ?>"><a href="<?=Yii::getAlias('@web') ?>/company/dashboard/deletejob?id=<?php echo $jobadv->id ?>" class="delete"></a></div>
     		<div class="edit" title="<?php echo Yii::t('app', 'Bearbeiten'); ?>"><a href="<?=Yii::getAlias('@web') ?>/company/dashboard/editjob?id=<?php echo $jobadv->id ?>" class="edit"></a></div>
-    		<div class="status"><?php echo $jobadv->status == 1 ? Yii::t('app', 'bestätigt') : Yii::t('app', 'nicht bestätigt');?></div>
-    		<div class="date"><?php echo $formatter->asDate($jobadv->jobstartdate, 'php:d.m.Y');?></div>
-    		<div class="place"><?php echo $jobadv->country . '/' . $jobadv->city;?></div>
+			<div class="clear"></div>
     	</div>
     	<div class="clear"></div>
     	<?php } ?>
     </div>
      
-
 </div>
 
 

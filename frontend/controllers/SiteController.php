@@ -441,7 +441,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        return $this->redirect(Yii::getAlias('@web'));
+        //return $this->redirect(Yii::getAlias('@web'));
         
         
         if (! Yii::$app->user->isGuest) {
@@ -475,7 +475,7 @@ class SiteController extends Controller
     
     public function actionRegister()
     {
-        return $this->redirect(Yii::getAlias('@web'));
+        //return $this->redirect(Yii::getAlias('@web'));
         
         if (! Yii::$app->user->isGuest) {
             return $this->goHome();

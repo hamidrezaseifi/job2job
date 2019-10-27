@@ -126,12 +126,12 @@ class BrainStaticList
 	
 	public static function employeementList()
 	{
-		return array(1 => Yii::t('app', 'Aktuell beschäftigt') , 0 => Yii::t('app', 'Aktuell nicht beschäftigt'));
+		return array(1 => Yii::t('app', 'Beschäftigt') , 0 => Yii::t('app', 'Nicht beschäftigt'));
 	}
 
 	public static function accessableList()
 	{
-		return array(Yii::t('app', 'Aktuell nicht verfügber') => Yii::t('app', 'Aktuell nicht verfügber') , Yii::t('app', 'Verfügber') => Yii::t('app', 'Verfügber'));
+		return array(Yii::t('app', 'notavaileable') => Yii::t('app', 'Nicht verfügber') , Yii::t('app', 'availeable') => Yii::t('app', 'Verfügber'));
 	}
 
 	public static function vacancyList($novacancy = true, $novacancytitle = '')

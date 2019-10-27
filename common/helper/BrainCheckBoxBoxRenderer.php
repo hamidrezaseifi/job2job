@@ -38,20 +38,16 @@ class BrainCheckBoxBoxRenderer extends Widget
 	
 		$body = '';
 		
-		$body .= '	<ul class="checkboxstyle">';
-		
 		foreach ($this->items as $key => $listvalue)
 		{
 			$key = trim($key);
 			$id = $this->id_prefix . str_replace(' ', '_', $key);
-		$body .= '		<li>';
-		$body .= '			<input class="checkboxstyle" type="checkbox" id="' . $id . '" name="' . $this->name . '[' . $key . ']" ' . BrainHelper::getCheckedFromValue($key , $this->value) . ' value="' . $key . '">';
-		$body .= '			<label for="' . $id . '">' . $listvalue . '</label>';
-		$body .= '			<span class="check"><span class="inside"></span></span>';
-		$body .= '		</li>';
+			
+			$body .= '		<div class="custom-control custom-checkbox custom-control-inline">';
+			$body .= '		<input type="checkbox" class="custom-control-input" id="' . $id . '"  name="' . $this->name . '[' . $key . ']" ' . BrainHelper::getCheckedFromValue($key , $this->value) . ' value="' . $key . '">';
+			$body .= '		<label class="custom-control-label" for="' . $id . '">' . $listvalue . '</label>';
+			$body .= '		</div>';
 		}				  
-						  
-		$body .= '	</ul>';
 		
 		return $body;
 	}

@@ -191,3 +191,5 @@ function removeskill(span)
 {
 	$(span).parent().remove();
 }
+
+
