@@ -6,6 +6,24 @@
 	padding-right: 10vw;
 }
 
+.register-selectform {
+  color: #1a3156;
+  cursor: pointer;
+  display: table;
+  float: left;
+  font-family: AvenirLTPro-Black;
+  font-size: 19px;
+  margin: 0 5px;
+  padding: 13px 34px;
+  width: 280px;
+  text-align: center;
+}
+.register-selectform.active {
+  background: #1a3156 none repeat scroll 0 0;
+  color: #fff;
+}
+
+
 md-checkbox.accept-checkbox .md-container.md-ink-ripple
 {
 	top: 10px;
@@ -167,6 +185,62 @@ md-checkbox.accept-checkbox.md-checked .md-icon {
   border: 1px solid #1a3156;
   color: #fff;
   background: #1a3156;
+}
+
+.register-column-inputs {
+  display: table;
+  float: left;
+  width: 270px;
+}
+.register-column-inputs:nth-child(2) {
+  margin: 0 107px;
+}
+
+@media(max-width: 479px)
+{
+	
+	.register-column-inputs {
+	  display: block;
+	  float: none;
+	  width: calc(100% - 20px);
+	  margin: 20px 10px;
+	}
+	.register-column-inputs:nth-child(2) {
+	  margin: 20px 10px;
+	}
+	
+	.site-register {
+	    margin-top: 30px;
+	    margin-left: 20px;
+	    margin-right: 20px;
+	    padding: 0;
+	}	
+	
+	.extrafields-registration {
+	    float: none;
+	    width: 100%;
+	    margin: 0;
+	}		
+
+	.accept-check-container {		
+	  display: block;		
+	  float: none;		
+	  margin: 0 ;		
+	  width: 100%;		
+	  max-width: 100%;		
+	  padding-top: 18px;		
+	}		
+
+	.register-type {
+	  display: block;
+	  width: 100%;
+	  margin: 2px auto 10px auto;
+	}
+	
+	.register-selectform {
+	  margin: 0 calc(50% - 140px);
+	}
+	
 }
 
 

@@ -14,13 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-register" ng-controller="RegisterController">
 
-
-    <div class="content-center">
-
         <div class="top-text-form">
 			<div class="buttons-form-select">
-				<div class="selectform form1-regis cont_2" ng-class="{'active' : !active_register}" ng-click="active_register=false;">BEREITS REGISTRIERT</div>
-				<div class="selectform cont_1" ng-class="{'active' : active_register}" ng-click="active_register=true;">REGISTRIEREN</div>
+				<div class="register-selectform form1-regis cont_2" ng-class="{'active' : !active_register}" ng-click="active_register=false;">BEREITS REGISTRIERT</div>
+				<div class="register-selectform cont_1" ng-class="{'active' : active_register}" ng-click="active_register=true;">REGISTRIEREN</div>
 			</div>
 
 			<p class="content1" ng-show="active_register">Erstellen Sie sich Ihr Benutzerkonto und sichern Sie sich alle Vorteile einer <br>Zusammenarbeit.</p>
@@ -88,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="inputs-form">
 
-                	<div class="each-column-inputs">
+                	<div class="register-column-inputs">
                 		<div class="inputform">
                 			<label>*Anrede:</label>
                 			<div class="mr-mrs">
@@ -109,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 		</div>
                 	</div>
 
-                	<div class="each-column-inputs">
+                	<div class="register-column-inputs">
                 		<div class="inputform">
                 			<label>*E-Mail:</label>
                 			<input id="emailaddressreg" type="email" name="data[email]" ng-class="{'invalid-data' : !registerDataValidation.email}" ng-model="registerData.email">
@@ -126,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 		</div>
                 	</div>
 
-                	<div class="each-column-inputs">
+                	<div class="register-column-inputs">
                 		<div class="inputform">
                 			<label>Telefon:</label>
                 			<input id="telefon" type="text" name="data[tel]" name="telefon" ng-class="{'invalid-data' : !registerDataValidation.tel}" ng-model="registerData.tel">
@@ -193,7 +190,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ActiveForm::end()?>
 		</div>
 
-	</div>
+
 </div>
 <script type="text/javascript">
 var loginUrl = "<?=Yii::getAlias('@web') . '/site/login'?>";
