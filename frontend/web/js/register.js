@@ -17,8 +17,8 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	$scope.registerData.homenumber = "";
 	$scope.registerData.city = "";
 	$scope.registerData.postcode = "";
-	$scope.registerData.workModel = 0;
-	$scope.registerData.branch = 0;
+	$scope.registerData.workModel = "0";
+	$scope.registerData.branch = "0";
 	$scope.registerData.companyname = "";
 	
 	$scope.registerDataValidation = {};
@@ -37,6 +37,7 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	$scope.registerDataValidation.workModel = true;
 	$scope.registerDataValidation.branch = true;
 	$scope.registerDataValidation.companyname = true;
+	
 	
 	$scope.LoginData = {};
 	$scope.LoginData.LoginForm = {};
@@ -102,7 +103,7 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	}
 	
 	function doValidateRegisterData() {
-
+		
 		var res = "";
 		if(!$scope.registerData.accept){
 			res += " -" + acceptMessage + "\n";

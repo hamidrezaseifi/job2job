@@ -239,6 +239,7 @@ md-checkbox.accept-checkbox.md-checked .md-icon {
 	
 	.register-selectform {
 	  margin: 0 calc(50% - 140px);
+	  display: block;
 	}
 	
 }

@@ -149,23 +149,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 	<div class="extrafields-registration div-select-jobsuche" >
                 		<div class="inputform registerasstellungart" ng-show="registerData.regtype == 1">
                 			<label>Anstellungart *:</label>
-            				<md-select ng-model="registerData.workModel" ng-class="{'invalid-data' : !registerDataValidation.workModel}" class="custom-select" selectdiv="registerbranche" name="data[jobtype]" placeholder="wählen Sie einen Anstellungart">
+                			<select ng-model="registerData.workModel" class="custom-select" name="data[jobtype]">
+                				<option value="0" selected >wählen Sie einen Anstellungart</option>
             					<?php
 
                 foreach ($workModels as $workModel) {
                     ?>
-            					<md-option ng-value="<?=$workModel->id?>"><?=$workModel->title?></md-option>
+            					<option value="<?=$workModel->id?>"><?=$workModel->title?></option>
             					<?php
                 }
                 ?>
-            				</<md-select>
+            				</select>
 
                 		</div>
                     	<div class="inputform registerbranche" ng-show="registerData.regtype == 1">
                     		<label>Branche *:</label>
-            				<md-select ng-model="registerData.branch" ng-class="{'invalid-data' : !registerDataValidation.branch}" class="custom-select" selectdiv="registerbranche" name="data[branch]" placeholder="wählen Sie ein Branch">
-            					<md-option ng-repeat="branch in branchs" ng-value="branch.id">{{branch.label}}</md-option>
-            				</<md-select>
+                    		<select ng-model="registerData.branch" class="custom-select" name="data[branch]">
+                				<option value="0" selected >wählen Sie ein Branch</option>
+            					<option ng-repeat="branch in branchs" ng-value="branch.id">{{branch.label}}</option>
+            				</select>
                     	</div>
                     	<div class="inputform registerbranche" ng-show="registerData.regtype == 2">
                     		<label>Firmenname *:</label>
@@ -189,7 +191,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ActiveForm::end()?>
 		</div>
-
+		
 
 </div>
 <script type="text/javascript">
