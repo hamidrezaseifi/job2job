@@ -1,7 +1,7 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
-    'registerresponse_sender_email' => 'info@brainidea.de',
+    'adminEmail' => 'j2jadmin@job2job-gmbh.de',
+    'registerresponse_sender_email' => 'mohr@job2job-gmbh.de',
     'registerresponse_sender_title' => 'Verifay E-Mail ...',
     'sitetitle' => 'job2job',
     'job2jobtel' => ["label" => '+49 5151/55694-30', 'tel' => '051515569430'],

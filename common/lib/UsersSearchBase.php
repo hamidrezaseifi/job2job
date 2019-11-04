@@ -43,8 +43,6 @@ class UsersSearchBase extends UsersBase
     {
         $query = UsersBase::find();
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -52,15 +50,13 @@ class UsersSearchBase extends UsersBase
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'usertype' => $this->usertype,
+            //'usertype' => $this->usertype,
             'createdate' => $this->createdate,
             'updatedate' => $this->updatedate,
             'group' => $this->group,
@@ -75,6 +71,7 @@ class UsersSearchBase extends UsersBase
             ->andFilterWhere(['like', 'fname', $this->fname])
             ->andFilterWhere(['like', 'lname', $this->lname]);
 
+            //echo $query->createCommand()->getRawSql(); exit;
         return $dataProvider;
     }
 }

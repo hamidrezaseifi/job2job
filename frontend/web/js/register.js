@@ -55,6 +55,9 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	
 	$scope.doRegister = function() {
 		
+		alert($scope.validatePassword($scope.registerData.password));
+		return;
+		
 		var msg = doValidateRegisterData();
 		if(msg != ""){
 			alert(msg);
@@ -94,7 +97,7 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	}
 	
 	$scope.validatePassword = function (text) {
-	    return (/[A-Z]/.test(text) && /[0-9]/.test(text) && /[a-z]/.test(text) && /[@#$%&]/.test(text));
+	    return (/[A-Z]/.test(text) && /[0-9]/.test(text) && /[a-z]/.test(text) && /[@#$%&!\(\)\"\?\§\=\']/.test(text));
 	};
 	
 	$scope.validateEmail = function (email) {
