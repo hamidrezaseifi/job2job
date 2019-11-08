@@ -400,7 +400,15 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	padding-left: 30px;
 	cursor: pointer;
 	float: right;
+	
 }
+
+
+.verify-bewerbung-senden:hover
+{
+	background-color: #315ca4;
+}
+
 
 .verify-bewerbung-cancel
 {
@@ -572,3 +580,65 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	border: none;
 }
 
+@media(max-width: 479px){
+	
+	.register-bewerbung
+	{
+		width: 100%;
+		margin: auto;
+	}
+	
+	.register-bewerbung-logo
+	{
+		width: 100%;
+		height: auto;
+	}
+	
+	.register-bewerbung-teil
+	{
+		width: 100%;
+	}
+	
+	.register-bewerbung-title
+	{
+		width: 100%;
+		padding: 0;
+    	text-align: center;		
+	}
+	
+	.register-bewerbung-personamgabe-teil
+	{
+		height: auto;	
+	}
+	
+	.register-bewerbung-teil-items-container
+	{
+		float: none;
+	}	
+	
+	.register-bewerbung-teil-items-container .item-title{
+		width: auto;
+		text-align: left;
+		float: none;
+	}
+	
+	.register-bewerbung-teil-items-container .item{
+		width: auto;
+		float: none;
+	}
+	
+	.verify-bewerbung-senden{
+		margin-left: auto;
+	    margin-right: auto;
+	    text-align: center;
+	    padding: 0;
+	    margin-bottom: 20px;
+	    float: none;
+	}
+
+	.register-bewerbung-logo div
+	{
+		float: none;
+	}
+	
+}

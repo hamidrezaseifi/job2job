@@ -575,9 +575,16 @@ class SiteController extends Controller
             $empfaenger = $_POST["data"]['email'];
             $betreff = Yii::$app->params['registerresponse_sender_title'];
 
-            $header = 'From: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" . 'Reply-To: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" . 'Content-Type: text/html; charset=UTF-8\r\n' . 'X-Mailer: PHP/' . phpversion();
-
-            mail($empfaenger, $betreff, $emailbody, $header);
+            $headers = array();
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            
+            // Additional headers
+            //$headers[] = 'To: Mary <mary@example.com>, Kelly <kelly@example.com>';
+            //$headers[] = 'From: Birthday Reminder <birthday@example.com>';
+            
+            mail($empfaenger, $betreff, $emailbody, implode("\r\n", $headers));
+            
 
             FrontlogBase::addLog('Register:' . $userid, $userid, true);
 
@@ -604,7 +611,8 @@ class SiteController extends Controller
 
     public function actionRegistered()
     {
-        return $this->render('register_resp', []);
+        
+        return $this->render('register_resp', ['adminemail' => Yii::$app->params['adminEmail']]);
     }
 
     public function actionEmailcheck($email)
@@ -968,19 +976,31 @@ class SiteController extends Controller
 
         return $jobModels;
     }
-
+    
     public static function doLogin($loginData, $model = false)
     {
         $model = $model ? $model : new LoginForm();
-
+        
         if (count($loginData) > 0) {
             if ($model->load($loginData)) {
-
+                
                 if ($model->login()) {
                     return true;
                 }
             }
         }
+        return false;
+    }
+    
+    public static function doLoginUseruame($username, $model = false)
+    {
+        $model = $model ? $model : new LoginForm();
+        
+        
+        if ($model->loginUser($username)) {
+            return true;
+        }
+        
         return false;
     }
     

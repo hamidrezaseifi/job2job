@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\LoginForm */
+/* @var $adminemail string */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     	<div class="register-bewerbung-response-title1"><?=Yii::t('app', 'AKTIVIEREN SIE JETZT NOCH IHR PROFIL'); ?></div>
    		<div class="register-bewerbung-response-title2"><?=Yii::t('app', 'Sie erhalten in Kürze eine E-Mail mit einem Aktivierungslink, um Ihr Profil freizuschalten.'); ?></div>
    		<div class="register-bewerbung-response-text1"><?=Yii::t('app', 'Falls Sie keine E-Mail von uns erhalten, überprüfen Sie bitte den Spam Ordner Ihres E-Mail-Postfaches. <br>(Tipp: Wenn Sie unsere Absender-Adresse Ihrem E-Mail-Adressbuch hinzufügen, können Sie dieses Problem zukünftig vermeiden).'); ?></div>
-   		<div class="register-bewerbung-response-text1"><?=Yii::t('app', 'Sollten Sie trotzdem keine E-Mail mit einem Aktivierungslink erhalten, kontaktieren Sie uns unter '); ?><a href="mailto:info@job2job-gmbh.de" class="j2jgreentext">info@job2job-gmbh.de</a></div>
+   		<div class="register-bewerbung-response-text1"><?=Yii::t('app', 'Sollten Sie trotzdem keine E-Mail mit einem Aktivierungslink erhalten, kontaktieren Sie uns unter '); ?><a href="mailto:<?php echo $adminemail; ?>" class="j2jgreentext"><?php echo $adminemail; ?></a></div>
     	<br><br>
        	<div class="register-bewerbung-response-title1"><?=Yii::t('app', 'NÄCHSTE SCHRITTE'); ?></div>
     	<div class="register-bewerbung-response-down-container">

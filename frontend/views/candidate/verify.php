@@ -35,7 +35,7 @@ function render_skills($list , $ischild = false)
 ?>
 <div class="register-bewerbung">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jbluebacktext">
     	<?php echo Yii::t('app', 'Personaldaten Überprüfen'); ?>
     </div>
     
@@ -72,18 +72,10 @@ function render_skills($list , $ischild = false)
 	    	<div class="item requireditem">
 	    		<?=Html::textInput('UsersBase[bdate]', $model->bdate  , ['pattern' => '(?=.*[0-9]).{4,}' , 'title' => 'Bitte geben Sie ihr Geburtsdatum an!']) ?>
 	    	</div>
-	    	<div class="item-title"><?php echo Yii::t('app', 'Kennwort'); ?></div>
-	    	<div class="item requireditem">
-				<?=Html::passwordInput('UsersBase[password_hash]', '' , ['pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}' , 'id' => 'password' ]) ?>  	
-	    	</div>
-	    	<div class="item-title"><?php echo Yii::t('app', 'Kennwort bestätigen'); ?></div>
-	    	<div class="item requireditem">
-				<?=Html::passwordInput('UsersBase[password_hash_verify]', '' , ['pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}' , 'id' => 'confirm_password' , 'pattern' => '(?=.*[a-zA-Z0-9]).{4,}' ]) ?>  	
-	    	</div>
 
 	    </div>
     	<div style="clear:both;"></div>
-    	<div class="verify-bewerbung-senden j2jgreenback" onclick="submitverify();">
+    	<div class="verify-bewerbung-senden j2jbluebacktext" onclick="submitverify();">
     		<?php echo Yii::t('app', 'ÜBERPRÜFEN'); ?>
     	</div>
     	
@@ -93,6 +85,7 @@ function render_skills($list , $ischild = false)
  	    
     <?php ActiveForm::end() ?>
 </div>
+<div class="clear"></div>
 
 <?php $form = ActiveForm::begin(['id' => 'checkform' , 'action' => Yii::getAlias('@web/candidate/check')])?>
 <input type="hidden" id="hdncheckmode" name="mode" />

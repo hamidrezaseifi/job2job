@@ -27,7 +27,7 @@ $this->registerJsFile("@web/web/js/regunternehmen.js", [], 'js-bewerbung')
 ?>
 <div class="register-bewerbung">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jblueback">
     	<?php echo Yii::t('app', 'Registrierung'); ?>
     </div>
     

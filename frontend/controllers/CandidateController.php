@@ -575,87 +575,6 @@ class CandidateController extends Controller
     }
 
     /**
-     * Displays register page.
-     *
-     * @return mixed
-     */
-    public function actionRegister()
-    {
-        $model = new UsersBase();
-        $model->bdate = '1980-01-01';
-        $candidateModel = new CandidateBase();
-
-        if (count($_POST) && isset($_POST['checkcondition'])) {
-            $_POST['CandidateBase']['createdate'] = date('Y-m-d');
-
-            $_POST['UsersBase']['bdate'] = (isset($_POST['UsersBase']['bdate'])) ? BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']) : '';
-            $_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
-            $_POST['UsersBase']['password_hash'] = '';
-            $_POST['UsersBase']['usertype'] = UsersBase::UserTypeCandidate;
-            $_POST['UsersBase']['createdate'] = date('Y-m-d');
-            $_POST['UsersBase']['group'] = 2;
-            $_POST['UsersBase']['permission'] = 2;
-            $_POST['UsersBase']['status'] = UsersBase::UserStatusApprove;
-
-            $model->load($_POST);
-            $model->save(false);
-
-            $userid = $model->id;
-            $_POST['CandidateBase']['userid'] = $userid;
-            $candidateModel->load($_POST);
-            $candidateModel->save(false);
-
-            if (isset($_POST['skill']) && is_array($_POST['skill'])) {
-                foreach ($_POST['skill'] as $skillitem) {
-                    $skillModel = new CandidateskillBase();
-                    $skillModel->userid = $userid;
-                    $skillModel->skill = $skillitem;
-                    $skillModel->save(false);
-                }
-            }
-
-            $verifydata = array();
-            $verifydata['uid'] = $userid;
-            $verifydata['utp'] = UsersBase::UserTypeCandidate;
-
-            $verifydataa = serialize($verifydata);
-            $verifydataa = base64_encode($verifydataa);
-
-            $verifydata['checkubd'] = $_POST['UsersBase']['bdate'];
-            $verifydata['checkuca'] = $_POST['UsersBase']['createdate'];
-
-            $verifydatab = serialize($verifydata);
-            $verifydatab = base64_encode($verifydatab);
-
-            $verifyurl = "http://" . $_SERVER['HTTP_HOST'] .
-                str_replace('/register', '/verify', $_SERVER['REDIRECT_URL']);
-            $verifyurl .= '?a=' . urlencode($verifydataa) . '&b=' . urlencode($verifydatab);
-            $verifytextfile = dirname(__DIR__) . '/views/candidate/verifytext.php';
-            $emailbody = file_get_contents($verifytextfile);
-            $emailbody = str_replace('%link', $verifyurl, $emailbody);
-
-            $empfaenger = $_POST['CandidateBase']['email'];
-            $betreff = Yii::$app->params['registerresponse_sender_title'];
-
-            $header = 'From: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" .
-                'Reply-To: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" .
-                'Content-Type: text/html; charset=UTF-8\r\n' . 'X-Mailer: PHP/' . phpversion();
-
-            mail($empfaenger, $betreff, $emailbody, $header);
-
-            FrontlogBase::addLog('Register:' . $userid, $userid, true);
-
-            return $this->render('register_resp', []);
-        }
-
-        return $this->render('register',
-            [
-                'model' => $model,
-                'candidateModel' => $candidateModel
-            ]);
-    }
-
-    /**
      * Displays verify data page.
      *
      * @return mixed
@@ -672,9 +591,6 @@ class CandidateController extends Controller
             $_POST['CandidateBase']['updatedate'] = date('Y-m-d');
             $_POST['UsersBase']['updatedate'] = date('Y-m-d');
 
-            // $_POST['CandidateBase']['availablefrom'] = isset($_POST['CandidateBase']['availablefrom']) ? $_POST['CandidateBase']['availablefrom'] : null;
-
-            $password_original = $_POST['UsersBase']['password_hash'];
             $_POST['UsersBase']['bdate'] = (isset($_POST['UsersBase']['bdate'])) ? BrainHelper::dateGermanToEnglish(
                 $_POST['UsersBase']['bdate']) : '';
             $_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
@@ -693,13 +609,12 @@ class CandidateController extends Controller
             $loginData = array();
             $loginData['_csrf-frontend'] = $_POST['_csrf-frontend'];
             $loginData['LoginForm']['username'] = $_POST['UsersBase']['uname'];
-            $loginData['LoginForm']['password'] = $password_original;
             $loginData['LoginForm']['rememberMe'] = 1;
 
-            if (SiteController::doLogin($loginData)) {
+            if (SiteController::doLoginUseruame($_POST['UsersBase']['uname'])) {
                 FrontlogBase::addLog('Verify', $userid, true);
 
-                return $this->redirect('dashboard?verify=ok');
+                return $this->redirect('dashboard/myprofile');
             }
         }
 
@@ -713,6 +628,10 @@ class CandidateController extends Controller
         $verifydatab = base64_decode($b);
         $verifydataa = base64_decode($a);
 
+        //print_r($verifydataa);
+        //echo '<hr>';
+        //print_r($verifydatab);
+        //exit;
         if (! $verifydatab || ! $verifydataa) {
             return $this->redirect('../site/invalidpage?msg=22222');
         }
@@ -732,6 +651,7 @@ class CandidateController extends Controller
             return $this->redirect('../site/invalidpage?msg=5555');
         }
 
+        $verifydatab['checkuca'] = strlen($verifydatab['checkuca'] > 10) ? substr($verifydatab['checkuca'], 0 , 10) : $verifydatab['checkuca'];
         $date = date_create_from_format('Y-m-d', $verifydatab['checkuca']);
         if (! $date) {
             // echo $verifydatab['checkuca'];
@@ -740,7 +660,7 @@ class CandidateController extends Controller
         $interval = date_diff($date, date_create());
 
         if (intval($interval->format('%a')) > 1) {
-            // $this->redirect(['/site/invalidpage' , 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!'))] );
+            $this->redirect(['/site/invalidpage' , 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!'))] );
         }
 
         $userid = intval($verifydataa['uid']);
@@ -760,16 +680,8 @@ class CandidateController extends Controller
             return $this->redirect('../site/invalidpage?msg=' . $userid . ' : c');
         }
 
-        $dbdate = $model->bdate;
-        $dbdate = trim(str_replace('00:00:00', '', $dbdate));
-        // $model->bdate = $dbdate;
-        $model->bdate = BrainHelper::dateEnglishToGerman($model->bdate);
-
-        $chkdate = trim(str_replace('00:00:00', '', $verifydatab['checkubd']));
-
-        if ($dbdate != $chkdate) {
-            return $this->redirect('../site/invalidpage');
-        }
+        $formatter = \Yii::$app->formatter;        
+        $model->bdate = $formatter->asDate($model->bdate , 'php:d.m.Y');        
 
         if ($model->status != 4) {
             // $this->redirect(['site/invalidpage', 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!<br>Benutzer ist aktuell verifikatet!'))]);

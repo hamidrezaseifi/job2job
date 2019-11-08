@@ -1,13 +1,13 @@
 
 $(document).ready(function(){
+		
 	
-	$.datepicker.setDefaults($.datepicker.regional["de"]);
 	$("input[name='UsersBase[bdate]']").datepicker({
-	      changeMonth: true,
-	      changeYear: true,
-	      
-	    });
-	
+        format: "dd.mm.yyyy",
+        language: "de",
+        autoclose: true,
+        todayHighlight: true,
+    });
 	
 	
 	$("span.check").click(function(){
@@ -64,36 +64,6 @@ function submitverify()
 		$("input[name='CandidateBase[email]']").focus();
 		alert(email_invalid_msg);
 		return;
-	}
-	
-	if($("#password").val() == ""){
-		$("#password").focus();
-		alert(password_format_msg);
-		return;		
-	}
-	
-	if($("#confirm_password").val() == ""){
-		$("#confirm_password").focus();
-		alert(password_format_msg);
-		return;		
-	}
-	
-	if(!$("#password")[0].checkValidity()){
-		$("#password").focus();
-		alert(password_format_msg);
-		return false;
-	}
-	
-	if(!$("#confirm_password")[0].checkValidity()){
-		$("#confirm_password").focus();
-		alert(password_format_msg);
-		return false;
-	}
-	
-	if($("#password").val() != $("#confirm_password").val()){
-		$("#password").focus();
-		alert(password_confirm_msg);
-		return;		
 	}
 
 	$("#hdncheckmode").val("email_exists");

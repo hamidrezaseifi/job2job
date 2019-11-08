@@ -407,7 +407,7 @@ h6 {
 {
 	position: fixed;
     bottom: 60px;
-    background-color: rgba(238,238,238,0.8);
+    background-color: rgba(238,238,238);
     min-height: 60px;
     width: 100vw;
     z-index: 99999;
@@ -7937,6 +7937,12 @@ a:active, a:hover {
 .j2jblueback
 {
 	background-color: #1a3156;
+}
+
+.j2jbluebacktext
+{
+	background-color: #1a3156;
+	color: #ffffe6;
 }
 
 .j2jbluetext

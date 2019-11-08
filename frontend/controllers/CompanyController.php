@@ -84,113 +84,6 @@ class CompanyController extends Controller
     }
 
     /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionRegister()
-    {
-    	$model = new UsersBase();
-    	$companyModel = new CompanyBase();
-    	$pdmModel  = new PersonaldecisionmakerBase();
-    	 
-    
-        if(count($_POST) && isset($_POST['checkcondition']))
-    	{
-    		
-    		$_POST['UsersBase']['password_hash'] = '';
-    		$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCompany;
-    		$_POST['UsersBase']['createdate'] = date('Y-m-d');
-    		$_POST['UsersBase']['bdate'] = '1980-01-01';
-    		$_POST['UsersBase']['group'] = 2;
-    		$_POST['UsersBase']['permission'] = 2;
-    		$_POST['UsersBase']['status'] = UsersBase::UserStatusApprove;
-    		
-    		$model->load($_POST);
-    		$model->save(false);
-    
-    		$userid = $model->id;
-    		
-
-    		$_POST['CompanyBase']['createdate'] = date('Y-m-d');
-    		$_POST['CompanyBase']['founddate'] = '2000-01-01';
-    		$_POST['CompanyBase']['companytype'] = 0;
-    		$_POST['CompanyBase']['steueid'] = '';
-    		$_POST['CompanyBase']['employeecount'] = 0;
-    		$_POST['CompanyBase']['status'] = 1;
-    		
-    		$companyModel->load($_POST);
-    		$companyModel->save(false);
-
-    		$companyid = $companyModel->id;
-    		
-    		$_POST['PersonaldecisionmakerBase']['userid'] = $userid;
-    		$_POST['PersonaldecisionmakerBase']['companyid'] = $companyid;
-    		$_POST['PersonaldecisionmakerBase']['fname'] = '';
-    		$_POST['PersonaldecisionmakerBase']['lname'] = '';
-    		$_POST['PersonaldecisionmakerBase']['isdeputy'] = 0;
-    		$_POST['PersonaldecisionmakerBase']['email'] = $_POST['UsersBase']['uname'];
-    		$_POST['PersonaldecisionmakerBase']['createdate'] = date('Y-m-d');
-    		$pdmModel->load($_POST);
-    		$pdmModel->save(false);
-    		
-    		if(isset($_POST['skill']) && is_array($_POST['skill']))
-    		{
-    			foreach ($_POST['skill'] as $skillitem)
-    			{
-    				$skillModel = new CandidateskillBase();
-    				$skillModel->userid = $userid;
-    				$skillModel->skill = $skillitem;
-    				$skillModel->save(false);
-    			}
-    		}
-    
-    		$verifydata = array();
-    		$verifydata['uid'] = $userid;
-    		$verifydata['utp'] = UsersBase::UserTypeCompany;
-    		
-    		$verifydataa = serialize($verifydata);
-    		$verifydataa = base64_encode($verifydataa);
-    		
-    		$verifydata['checkubd'] = '1970-01-01';
-    		$verifydata['checkuca'] = $_POST['UsersBase']['createdate'];
-
-    		$verifydatab = serialize($verifydata);
-    		$verifydatab = base64_encode($verifydatab);
-    		
-    		$verifyurl =  "http://" . $_SERVER['HTTP_HOST'] . str_replace('/register' , '/verify' , $_SERVER['REDIRECT_URL']);
-    		$verifyurl .= '?a=' . urlencode($verifydataa) . '&b=' . urlencode($verifydatab);
-    		$verifytextfile = dirname(__DIR__). '/views/candidate/verifytext.php';
-    		$emailbody = file_get_contents($verifytextfile);
-    		$emailbody = str_replace('%link', $verifyurl, $emailbody);
-    		$emailbody = str_replace('%link', $verifyurl, $emailbody);
-    		
-    		
-    		$empfaenger = $_POST['PersonaldecisionmakerBase']['email'];
-    		$betreff = Yii::$app->params['registerresponse_sender_title'];
-
-    		$header = 'From: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" .
-    				'Reply-To: ' . Yii::$app->params['registerresponse_sender_email'] . "\r\n" .
-    				'Content-Type: text/html; charset=UTF-8\r\n'.
-    				'X-Mailer: PHP/' . phpversion();
-
-    		mail($empfaenger, $betreff, $emailbody, $header);
-    		
-    		FrontlogBase::addLog('Register:' . $userid . ':' . $companyModel->id, $userid, false);
-    		
-    		return $this->render('register_resp' , []);
-    		
-    		
-    	}
-    
-    	return $this->render('register' , [
-    			'model' 			=> $model,
-    			'companyModel' 		=> $companyModel,
-    			'pdmModel'	 		=> $pdmModel,
-    	]);
-    }
-
-    /**
      * Displays homepage.
      *
      * @return mixed
@@ -868,10 +761,8 @@ class CompanyController extends Controller
     		$_POST['CompanyBase']['updatedate'] = date('Y-m-d H:i:s');
     		$_POST['UsersBase']['updatedate'] = date('Y-m-d H:i:s');
     		 
-    		$password_original = $_POST['UsersBase']['password_hash'];
     		$_POST['CompanyBase']['founddate'] = (isset($_POST['CompanyBase']['founddate'])) ? BrainHelper::dateGermanToEnglish($_POST['CompanyBase']['founddate']) : '';
     		$_POST['PersonaldecisionmakerBase']['email'] = $_POST['UsersBase']['uname'];
-    		$_POST['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST['UsersBase']['password_hash']);
     		$_POST['UsersBase']['status'] = UsersBase::UserStatusActive;
     		 
     		$model->load($_POST);
@@ -888,18 +779,13 @@ class CompanyController extends Controller
     		$loginData = array();
     		$loginData['_csrf-frontend'] = $_POST['_csrf-frontend'];
     		$loginData['LoginForm']['username'] = $_POST['UsersBase']['uname'];
-    		$loginData['LoginForm']['password'] = $password_original;
     		$loginData['LoginForm']['rememberMe'] = 1;
     
-    		if(SiteController::doLogin($loginData))
-    		{
-    			FrontlogBase::addLog('Verify:' . $companyid, $userid, false);
-    			 
-    			return $this->redirect('dashboard?verify=ok');
+    		if (SiteController::doLoginUseruame($_POST['UsersBase']['uname'])) {
+    		    FrontlogBase::addLog('Verify', $userid, true);
+    		    
+    		    return $this->redirect('dashboard/myprofile');
     		}
-    
-    
-    		 
     		 
     	}
     	 
@@ -938,6 +824,7 @@ class CompanyController extends Controller
     		return $this->redirect(['/site/invalidpage' , 'msg' => '5'] );
     	}
     
+    	$verifydatab['checkuca'] = strlen($verifydatab['checkuca'] > 10) ? substr($verifydatab['checkuca'], 0 , 10) : $verifydatab['checkuca'];
     	$date = date_create_from_format('Y-m-d', $verifydatab['checkuca']);
     	if(!$date)
     	{
@@ -962,25 +849,12 @@ class CompanyController extends Controller
     		return $this->redirect(['/site/invalidpage' , 'msg' => 'u:' . $userid] );
     	}
     
-    	//print_r($companyModel); exit;
-    	/*$dbdate = $model->bdate;
-    	$dbdate = trim(str_replace('00:00:00', '', $dbdate));
-    	//$model->bdate = $dbdate;
-    	$model->bdate = BrainHelper::dateEnglishToGerman($model->bdate);
-    	 
-    	$chkdate = trim(str_replace('00:00:00', '', $verifydatab['checkubd']));
-    
-    	if($dbdate != $chkdate)
-    	{
-    		return $this->redirect(['/site/invalidpage' , 'msg' => '9: ' . $dbdate. ' : ' . $chkdate] );
-    	}*/
-    
-    	if($model->status != 4)
-    	{
-    		//$this->redirect(['site/invalidpage', 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!<br>Benutzer ist aktuell verifikatet!'))]);
+    	$formatter = \Yii::$app->formatter;
+    	$companyModel->founddate = $formatter->asDate($companyModel->founddate , 'php:d.m.Y');
+    	
+    	if ($model->status != 4) {
+    	    // $this->redirect(['site/invalidpage', 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!<br>Benutzer ist aktuell verifikatet!'))]);
     	}
-    	 
-    	$companyModel->founddate = BrainHelper::dateEnglishToGerman($companyModel->founddate);
     	 
     	return $this->render('verify' , [
     			'model' 			=> $model,

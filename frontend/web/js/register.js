@@ -54,10 +54,7 @@ brainApp.controller('RegisterController', function ($scope, $http, $sce, $elemen
 	
 	
 	$scope.doRegister = function() {
-		
-		alert($scope.validatePassword($scope.registerData.password));
-		return;
-		
+				
 		var msg = doValidateRegisterData();
 		if(msg != ""){
 			alert(msg);
