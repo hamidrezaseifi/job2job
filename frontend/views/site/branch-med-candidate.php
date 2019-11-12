@@ -21,7 +21,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content margintop-60">
+	<div class="branch-content margintop-100">
 	    <p>
     	    Es ist kein Geheimnis: Qualifizierte Pflegekräfte werden händeringend gesucht. Kein Beruf ist in unserer alternden Gesellschaft wichtiger.<br> 
     	    <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> vermittelt Sie an die Arbeitgeber, die Ihre Arbeit zu schätzen wissen.

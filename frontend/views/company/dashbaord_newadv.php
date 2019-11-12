@@ -63,7 +63,7 @@ $currentYear = date('Y');
     	<li class="nav-item">
     		<a class="nav-link newjob-tab" id="step2-tab" data-toggle="pill" href="#step2-content" role="tab" aria-controls="step2-content" aria-selected="false">
         		<div class="title"><?php echo Yii::t('app', 'Schritt'); ?> 2</div>
-        		<div class="desc"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
+        		<div class="desc"><?php echo Yii::t('app', 'Rahmenbedingungen'); ?></div>
 			</a>    		
     	</li>
     	
@@ -77,7 +77,7 @@ $currentYear = date('Y');
 	    	<div class="item-title"><?php echo Yii::t('app', 'Ihre Anforderung'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Betreff'); ?>:*</div>
-	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie einen aussagekraftigen Title für Ihre Anzeigeausschreibung ein.'); ?></div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Bitte geben Sie einen aussagekräftigen Titel für Ihre Stellenanzeige ein.'); ?></div>
 	    		<div class="item"><input class="form-control" type="text" maxlength="80" ng-model="jobposition.title"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Land'); ?>:*</div>
@@ -93,7 +93,7 @@ $currentYear = date('Y');
 	    		<div class="item"><input class="form-control" type="text" ng-model="jobposition.postcode"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Branchen'); ?>:*</div>
-	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Branch der Stelle ein.'); ?></div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie die Branche der Stelle ein.'); ?></div>
 	    		<div class="item">
                     <select class="custom-select custom-select-sm" name="branch" ng-model="jobposition.branch" >
                     	<option ng-repeat="(key, value) in branchs" value="{{key}}">{{value}}</option>
@@ -101,7 +101,7 @@ $currentYear = date('Y');
 	    		</div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Aufgaben'); ?>:*</div>
-	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Aufgaben der Stelle ein.'); ?></div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie stichpunktartig die Aufgaben der Stelle ein.'); ?></div>
 	    		<div class="item">
     	    		<div class="">
     	    			<input class="form-control add-text-item task-text-item" >
@@ -113,7 +113,7 @@ $currentYear = date('Y');
 	    		</div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Qualifikationen'); ?>:*</div>
-	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie den Qualifikationen der Stelle ein.'); ?></div>
+	    		<div class="desc"><?php echo Yii::t('app', 'Geben Sie stichpunktartig die Qualifikationen der Stelle ein.'); ?></div>
 	    		<div class="item">
     	    		<div class="">
     	    			<input class="form-control add-text-item skill-text-item" >
@@ -130,7 +130,7 @@ $currentYear = date('Y');
     	
 	    <div class="tab-pane fade" id="step2-content" role="tabpanel" aria-labelledby="step2-tab">
 	    
-	    	<div class="item-title"><?php echo Yii::t('app', 'Raumen Bedingungen'); ?></div>
+	    	<div class="item-title"><?php echo Yii::t('app', 'Rahmenbedingungen'); ?></div>
 	    	<div class="content">
 	    		<div class="title"><?php echo Yii::t('app', 'Aktuelle Vakanzen'); ?>:*</div>
 	    		<div class="item" style="padding-bottom: 10px;">
@@ -155,6 +155,7 @@ $currentYear = date('Y');
 	    			<div class="custom-control custom-control-inline deadline-item">
 		    			<label style="width:50px;"><?php echo Yii::t('app', 'Start'); ?></label>&nbsp;
 		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartMonth">
+		    				<option value="0">Monat</option>
 		    				<option value="1">Januar</option>
 		    				<option value="2">Februar</option>
 		    				<option value="3">März</option>
@@ -169,6 +170,7 @@ $currentYear = date('Y');
 		    				<option value="12">Dezember</option>
 		    			</select>
 		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartYear">
+		    				<option value="0">Jahr</option>
 		    				<?php for($year=$currentYear; $year < $currentYear + 11; $year++){?>
 		    				<option value="<?=$year ?>"><?=$year ?></option>
 		    				<?php } ?>
@@ -189,7 +191,7 @@ $currentYear = date('Y');
 				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Arbeitszeitmodel'); ?>:*</div>
-	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte wählen Sie den Arbeitszeitmodel der Stelle aus'); ?></div>
+	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte wählen Sie ein Arbeitszeitmodel für die Stelle aus'); ?></div>
 	    		<div class="item" style="margin-bottom: 10px;">
                     <select class="custom-select custom-select-sm" ng-model="jobposition.worktype">
                         <option ng-repeat="(key, value) in worktypes" value="{{key}}">{{value}}</option>
@@ -199,7 +201,7 @@ $currentYear = date('Y');
 				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Gültigkeit'); ?>:*</div>
-	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Im folgenden können Sie ein Gültigkeitsdatum eintragen. Nach diesem Datum wird Ihr Stellenanzeige nicht mehr im Verzeichnis gelistet'); ?></div>
+	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Im folgenden können Sie ein Gültigkeitsdatum eintragen. Nach diesem Datum wird Ihre Stellenanzeige nicht mehr im Verzeichnis gelistet'); ?></div>
 	    		<div class="item" style="padding-bottom: 10px;">
 	    			<label style="width:100px; "><?php echo Yii::t('app', 'Gültigkeit: '); ?></label>&nbsp;
 	    			<input ng-model="jobposition.expiredate" id="jobpositionexpiredate" type="text" style="width:140px; height: 26px;">
@@ -208,7 +210,7 @@ $currentYear = date('Y');
 				<div class="h-divider"></div>
 
 	    		<div class="title"><?php echo Yii::t('app', 'Notiz'); ?>:</div>
-	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Bitte geben Sie den Notiz. der Stelle an.'); ?></div>
+	    		<div class="desc" style="margin-bottom: 10px;"><?php echo Yii::t('app', 'Geben Sie eine Notiz für die Stelle an. Diese wird nur für Job2Job Mitarbeiter sichtbar sein.'); ?></div>
 	    		<div class="item" style="padding-bottom: 10px;">
 					<textarea ng-model="jobposition.comments" style="width:90%; height: 150px;"></textarea>	    			
 	    		</div>
@@ -219,7 +221,7 @@ $currentYear = date('Y');
             	<div class="apply-condition1">
             		<div class="custom-control custom-checkbox">
             			<input type="checkbox" class="custom-control-input" id="checkcondition" name="checkcondition" ng-model="checkcondition" />
-            		    <label ng-class="{ 'condition-disbaled': checkcondition == false,  'condition-enabled': checkcondition == true}" for="checkcondition" class="custom-control-label"><?php echo Yii::t('app', 'Ja, ich habe die <a href="#">Nutzungsbedingungen</a> gelesen und stimme diesen zu. Die <a href="#">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.'); ?></label>
+            		    <label ng-class="{ 'condition-disbaled': checkcondition == false,  'condition-enabled': checkcondition == true}" for="checkcondition" class="custom-control-label">Ja, ich habe die <a href="#">Nutzungsbedingungen</a> gelesen und stimme diesen zu. Die <a target="_blank" href="<?php echo Yii::getAlias("@web") ?>/site/privacypolicy">Datenschutzerklärung</a> habe ich zur Kenntnis genommen.</label>
         			</div>
             	</div>
             	<?php } ?>
@@ -249,20 +251,20 @@ var jobStartMonth = "<?php print $startmonth ; ?>";
 
 var branchs = <?php print (json_encode ( $branchs )) ; ?>;
 var worktypes = <?php print (json_encode ( $worktypes )) ; ?>;
-var title_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Title für Ihre Anzeigeausschreibung beim ersten Schritt ein!'); ?>";
+var title_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Titel für Ihre Stellenanzeige im ersten Schritt ein!'); ?>";
 var country_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie das Land der Stelle beim ersten Schritt aus!'); ?>";
 var city_msg = "<?php echo Yii::t('app', 'Geben Sie den Standort der Stelle beim ersten Schritt ein!'); ?>";
 var postcode_msg = "<?php echo Yii::t('app', 'Geben Sie die Postleitzahl der Stelle beim ersten Schritt ein!'); ?>";
-var comment_msg = "<?php echo Yii::t('app', 'Beschreiben Sire Ihre Stelle beim ersten Schritt nun möglichst detailliert!'); ?>";
+var comment_msg = "<?php echo Yii::t('app', 'Bitte beschreiben Sie Ihre Stelle beim ersten Schritt möglichst detailliert!'); ?>";
 var vacancy_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie die Vakanz der Stelle beim zweiten Schritt aus!'); ?>";
-var worktype_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie den Arbeitszeitmodel der Stelle aus!'); ?>";
+var worktype_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie ein Arbeitszeitmodel für die Stelle aus!'); ?>";
 var jobdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Job-Beginn und die geplante Dauer beim zweiten Schritt an!'); ?>";
 var expire_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Gültigkeit der Stellenanzeige beim zweiten Schritt an!'); ?>";
-var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!'); ?>";
-var skill_exists_msg = '<?php echo Yii::t('app', 'Das Schlagwort "%" existiert in der liste!'); ?>';
-var skill_msg = '<?php echo Yii::t('app', 'Bitte geben Sie mindestens eine Qualifikation beim ersten Schritt ein!'); ?>';
-var task_msg = '<?php echo Yii::t('app', 'Bitte geben Sie mindestens eine Aufgabe beim ersten Schritt ein!'); ?>';
-var branch_msg = "<?php echo Yii::t('app', 'Geben Sie den Branch der Stelle beim ersten Schritt ein!'); ?>";
+var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie den Nutzungsbedingungen und der Datenschutzerklärung zu!'); ?>";
+var skill_exists_msg = '<?php echo Yii::t('app', 'Das Schlagwort "%" existiert bereits in der Liste!'); ?>';
+var skill_msg = '<?php echo Yii::t('app', 'Bitte geben Sie mindestens eine Qualifikation im ersten Schritt ein!'); ?>';
+var task_msg = '<?php echo Yii::t('app', 'Bitte geben Sie mindestens eine Aufgabe im ersten Schritt ein!'); ?>';
+var branch_msg = "<?php echo Yii::t('app', 'Geben Sie die Branche der Stelle beim ersten Schritt ein!'); ?>";
 
 var advlisturl = "<?php echo YII::getAlias('@web')?>/company/dashboard/jobs";
 var advsaveurl = "<?php echo YII::getAlias('@web')?>/company/dashboard/savejob";

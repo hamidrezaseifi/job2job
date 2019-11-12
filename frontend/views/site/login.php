@@ -29,9 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		     <li><span>Reichen Sie Ihren CV ein und nehmen Sie selbst Einfluss auf Ihr Bewerbungsverfahren</span></li>
 		     	
 		 						
-		     <li><span>In Kürze: Erstellen Sie Ihren eigenen Lebenslauf mit unserem "CV Tool"</span></li>
-		     	
-		 						
 		     <li><span>Erstellen Sie Ihre persönliche Merkliste mit für Sie interessanten Jobangeboten</span></li>
 		     	
 		 		</ul>

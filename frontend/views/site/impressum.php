@@ -23,10 +23,10 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
         <strong>Job2Job GmbH IMPRESSUM</strong>
         
         <div class="impresum-content">
-            <p>
+            <p>        
                 <strong>Job2Job GmbH</strong> <br> 
-                Pyrmonter Straße 42 <br>
-                31789 Hameln <br>
+                Hefehof 20 <br>
+                31785 Hameln <br>
                 Email: <a href="mailto:info@job2job-gmbh.de">info@job2job-gmbh.de</a><br>
                 Internet: <a href="https://www.job2job-gmbh.de">www.job2job-gmbh.de</a><br>
                 Telefon: +49 5151 556 94-30 <br>

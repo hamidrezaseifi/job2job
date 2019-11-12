@@ -20,7 +20,7 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
 			</div>
 	</div>
 
-	<div class="branch-content">
+	<div class="branch-content  margintop-80">
 	    <p><strong>Handwerker und Industrie-Arbeiter sind fachlich hochqualifiziert, berufliche Perspektive und gute Bezahlung aber sind nicht überall die Regel. <br>Es sei denn <a href="<?php echo Yii::getAlias('@web');?>"><b>Job2Job</b></a> übernimmt die Vermittlung. </strong></p>
 	    
 	    <p>Vom Schweißer zum Schlosser, vom Maler zum Modellbauer, vom Koch zum Klempner – Industrie und Handwerk bieten vielen hundert Berufen ein Zuhause. Eines haben jedoch alle Angehörigen der Branche gemeinsam: Sie bringen ein erhebliches Maß an fachlichem Know-how mit. Das wird von Arbeitgebern geschätzt – aber nicht immer wertgeschätzt.</p>

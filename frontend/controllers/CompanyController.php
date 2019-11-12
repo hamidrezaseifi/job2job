@@ -162,6 +162,7 @@ class CompanyController extends Controller
     				$pdmModelSecond->cellphone = '--';
     			}
     			
+    			$pdmModel->tel = '1-2-3';
     			$subpageContent = $this->renderPartial('dashbaord_profile' , [
 					'model' 				=> $model,
 					'modelSecond' 			=> $modelSecond,
@@ -239,7 +240,7 @@ class CompanyController extends Controller
     			
     			Yii::$app->formatter->locale = 'de-DE';
     			
-    			$startmonth = '';
+    			$startmonth = '0';
     			$startdate = $jobModel->jobstartdate;
     			if(strlen($startdate) >= 10 )
     			{
@@ -269,8 +270,8 @@ class CompanyController extends Controller
     			$jobAttributes["status"] = 0;
     			unset($jobAttributes["createdate"]);
     			unset($jobAttributes["updatedate"]);
-    			$jobAttributes['jobStartYear'] = 1 ;
-    			$jobAttributes['jobStartMonth'] = 1 ;
+    			$jobAttributes['jobStartYear'] = 0 ;
+    			$jobAttributes['jobStartMonth'] = 0 ;
     			
     			
     			$subpageContent = $this->renderPartial('dashbaord_newadv' , [

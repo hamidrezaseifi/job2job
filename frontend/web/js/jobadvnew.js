@@ -1,11 +1,17 @@
 
+function checkNotEmty(item) {
+  return item !== "";
+}
+
 brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', function ($scope, $http, $sce, $element) {
 
 	$scope.currentWizardIndex = 1;
 
 	$scope.jobposition = jobposition ;
-	$scope.jobposition.taskList = taskList;
-	$scope.jobposition.skillList = skillList;
+	$scope.jobposition.taskList = taskList.filter(checkNotEmty);
+	$scope.jobposition.skillList = skillList.filter(checkNotEmty);
+	$scope.jobposition.jobStartMonth = $scope.jobposition.jobStartMonth + "";
+	$scope.jobposition.jobStartYear = $scope.jobposition.jobStartYear + "";
 	//$scope.jobposition.jobStartMonth = jobStartMonth;
 
 	$scope.jobposition.branch = "" + $scope.jobposition.branch;
@@ -247,6 +253,11 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		}
 		
 		if(checkIsNullOrEmpty(jobPos.jobStartMonth) || checkIsNullOrEmpty(jobPos.jobStartYear) || checkIsNullOrZero(jobPos.duration)){
+			alert(jobdate_msg);
+			return;
+		}
+		
+		if(checkIsNullOrZero(jobPos.jobStartMonth) || checkIsNullOrZero(jobPos.jobStartYear)){
 			alert(jobdate_msg);
 			return;
 		}

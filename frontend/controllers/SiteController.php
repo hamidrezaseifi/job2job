@@ -596,16 +596,16 @@ class SiteController extends Controller
         return $this->render('register', [
             // 'model' => $model,
             'workModels' => WorktimemodelBase::allActive(),
-            'emailMessage' => "Das E-Mail ist ungültig. Bitte geben Sie ihr E-Mail an!",
-            'emailExistsMessage' => "Das E-Mail existiert in unserem Datenbank. Bitte geben Sie anderes E-Mail an!",
-            'passwordMessage' => "Kennwort Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben und mindestens 6 oder mehr Zeichen enthalten!",
+            'emailMessage' => "Die E-Mail-Adresse ist ungültig. Bitte geben Sie eine gültige E-Mail an!",
+            'emailExistsMessage' => "Die E-Mail-Adresse existiert bereits. Bitte geben Sie eine andere E-Mail an!",
+            'passwordMessage' => "Das Kennwort muss mindestens eine Zahl, sowie einen Groß- und Kleinbuchstaben und mindestens 6 oder mehr Zeichen enthalten!",
             'password2Message' => "Die Passwörter stimmen nicht überein!",
-            'acceptMessage' => "Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!",
-            'fnameMessage' => "Bitte geben Sie ihre Vorname an!",
-            'lnameMessage' => "Bitte geben Sie ihre Vorname an!",
-            'emptypeMessage' => "Bitte geben Sie ihre gewünschte Anstellungart an!",
-            'branchMessage' => "Bitte geben Sie ihre gewünschte Branche an!",
-            'companynameMessage' => "Bitte geben Sie den Firmenname an!"
+            'acceptMessage' => "Bitte stimmen Sie den Nutzungsbedingungen und der Datenschutzerklärung zu!",
+            'fnameMessage' => "Bitte geben Sie Ihren Vornamen an!",
+            'lnameMessage' => "Bitte geben Sie Ihren Nachnamen an!",
+            'emptypeMessage' => "Bitte geben Sie Ihre gewünschte Anstellungsart an!",
+            'branchMessage' => "Bitte geben Sie Ihre gewünschte Branche an!",
+            'companynameMessage' => "Bitte geben Sie den Firmennamen an!"
         ]);
     }
 

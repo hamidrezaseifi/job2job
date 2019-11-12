@@ -281,13 +281,6 @@
 }	
 
 
-@media(max-width: 600px)
-{
-
-	
-
-	
-}	
 
 .title-karriere {
   color: #1a3156;
@@ -324,4 +317,12 @@
   right: 6px;
   top: -1px;
   width: 11px;
+}
+
+.was_wir_machen .content-center{
+	padding: 0 10px;
+}
+
+.recruitment_content{
+	min-height: 140px;
 }

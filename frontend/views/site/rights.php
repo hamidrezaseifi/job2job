@@ -66,12 +66,10 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
         <p style="font-weight: bold; line-height: 22px;">
         Hameln, den 05.2019<br><br>
         Job2Job GmbH  <br>
-        Pyrmonter Straße 42 <br>
-        31789 Hameln  <br>
+        Hefehof 20 <br>
+        31785 Hameln  <br>
         <a href="mailto:info@job2job-gmbh.de" style="color: #0000b5;">info@job2job-gmbh.de</a> <br>
         </p>
-
-        
 
 		<br><br><br>
 

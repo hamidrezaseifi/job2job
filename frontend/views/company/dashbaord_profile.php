@@ -42,7 +42,7 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 <div class="register-bewerbung" ng-controller="CompanyContentController">
     
     <div class="register-bewerbung-title j2jblueback">
-    	<?php echo Yii::t('app', 'Mein Profil'); ?>
+    	<?php echo Yii::t('app', 'Firmenprofil'); ?>
     </div>
     
     <div class="register-bewerbung-logo">
@@ -75,8 +75,8 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item "><?php echo $companyModel->homepage;?></div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Anzahl der Mitarbeiter'); ?></div>
 		    	<div class="item  top-margin-15"> <?= $employeecountList[$companyModel->employeecountindex]; ?> </div>
-		    	<div class="item-title" style="line-height: 80px;"><?php echo Yii::t('app', 'Logo'); ?></div>
-		    	<div class="item <?=($photo_approved ? '' : 'notapprovedparent')?>" style="line-height: 80px;"><?=($photopath ? '<img src="' . $photopath . '" class="personalphoto3 ' . ($photo_approved ? '' : 'notapproved') . '" >' : '-') ?></div>	  
+		    	<div class="item-title"><?php echo Yii::t('app', 'Logo'); ?></div>
+		    	<div class="item <?=($photo_approved ? '' : 'notapprovedparent')?>"><?=($photopath ? '<img src="' . $photopath . '" class="personalphoto3 ' . ($photo_approved ? '' : 'notapproved') . '" >' : '-') ?></div>	  
 	    	
 	    	</div>
 	    	
@@ -111,7 +111,7 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    		<input type="text" name="CompanyBase[homepage]" value="<?php echo $companyModel->homepage;?>" />
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Anzahl der Mitarbeiter'); ?></div>
-		    	<div class="item top-margin-15">
+		    	<div class="item top-margin-15 company-persons">
 		    	<?= BrainRadioBoxRenderer::widget([
 						'name' => 'CompanyBase[employeecountindex]' , 
 		    			'value' => $companyModel->employeecountindex, 
@@ -135,7 +135,7 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <?php echo Yii::t('app', 'Verbindete Firma hinzufügen'); ?>
+                        <?php echo Yii::t('app', 'Verbundene Firma hinzufügen'); ?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -365,26 +365,26 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 
 
 <script type="text/javascript">
-var company_name_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Vorname der Firma an!'); ?>";
+var company_name_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Firmennamen an!'); ?>";
 var company_bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie das Gründungsdatum der Firma an!'); ?>";
-var company_taxid_msg = "<?php echo Yii::t('app', 'Bitte geben Sie das Steuer-ID der Firma an!'); ?>";
+var company_taxid_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Steuer-ID der Firma an!'); ?>";
 var anrede_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie eine Anrede aus!'); ?>";
-var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Vorname an!'); ?>";
-var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Nachname an!'); ?>";
-var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr Geburtsdatum an!'); ?>";
-var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr E-Mail an!'); ?>";
-var email_invalid_msg = "<?php echo Yii::t('app', 'Das E-Mail ist ungültig.\nBitte geben Sie ihr E-Mail an!'); ?>";
-var email_exists_msg = "<?php echo Yii::t('app', 'Das E-Mail existiert in unserem Datenbank.\nBitte geben Sie anderes E-Mail an!'); ?>";
+var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Vornamen an!'); ?>";
+var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Nachnamen an!'); ?>";
+var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihr Geburtsdatum an!'); ?>";
+var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihre E-Mail-Adresse an!'); ?>";
+var email_invalid_msg = "<?php echo Yii::t('app', 'Die E-Mail-Adresse ist ungültig.\nBitte geben Sie eine gültige E-Mail an!'); ?>";
+var email_exists_msg = "<?php echo Yii::t('app', 'Die E-Mail existiert bereits.\nBitte geben Sie eine andere E-Mail-Adresse an!'); ?>";
 var curstatus_msg = "<?php echo Yii::t('app', 'Bitte erklären Sie ihre Beschäftigung!'); ?>";
-var avail_msg = "<?php echo Yii::t('app', 'Bitte erklären Sie ihre Verfügberkeit!'); ?>";
+var avail_msg = "<?php echo Yii::t('app', 'Bitte nennen Sie uns Ihre aktuelle Verfügbarkeit!'); ?>";
 var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!'); ?>";
 
 var anrede_sv_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie eine Anrede für den Stellvertreter aus!'); ?>";
-var fname_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Vorname des Stellvertreters an!'); ?>";
-var lname_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Nachname des Stellvertreters an!'); ?>";
+var fname_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Vornamen des Stellvertreters an!'); ?>";
+var lname_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Nachnamen des Stellvertreters an!'); ?>";
 var bdate_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie das Geburtsdatum des Stellvertreters an!'); ?>";
-var email_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie das E-Mail des Stellvertreters an!'); ?>";
-var email_sv_invalid_msg = "<?php echo Yii::t('app', 'Das E-Mail für den Stellvertreter ist ungültig.\nBitte geben Sie das E-Mail des Stellvertreters an!'); ?>";
+var email_sv_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die E-Mail-Adresse des Stellvertreters an!'); ?>";
+var email_sv_invalid_msg = "<?php echo Yii::t('app', 'Die E-Mail-Adresse für den Stellvertreter ist ungültig.\nBitte geben Sie eine gültige E-Mail des Stellvertreters an!'); ?>";
 var hasSdp = <?php echo $pdmModelSecondExists ? 'true' : 'false'; ?>;
 
 

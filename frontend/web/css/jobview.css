@@ -284,8 +284,9 @@
 	    float: none;
 	    width: calc(100%);
 	    text-align: center;
-	    padding: 0 10px;
-	}
+		padding: 10px 10px;
+    	line-height: 40px;
+   	}
 	
 	.jobview-container
 	{

@@ -15,15 +15,19 @@ $photopath = false;
 
 $user = Yii::$app->user;
 $identity = Yii::$app->user->identity;
+$isCompany = false;
+$isCandidate = false;
 
 if (! $user->isGuest) {
 	$photopath = false;
 	if ($identity->isCandidate ()) {
 		$photopath = CandidateController::personal_photo ( true );
+		$isCandidate = true;
 	}
 
 	if ($identity->isCompany ()) {
 		$photopath = CompanyController::company_logo ( true );
+		$isCompany = true;
 	}
 
 	if ($photopath) {
@@ -137,7 +141,7 @@ $this->beginPage ()?>
                     				</li>
                     			</ul>
                     		</li>
-                    		
+                    		<?php if($isCandidate){?>
                     		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     			<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile" tabindex="0">
                     				<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
@@ -184,7 +188,7 @@ $this->beginPage ()?>
                     			</ul>
                     		</li>
                     		
-                    		<?php }
+                    		<?php } }
 							if ($user->isGuest || $identity->isCompany ()) { ?>
                     		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     			<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/site/company" tabindex="0">
@@ -246,7 +250,7 @@ $this->beginPage ()?>
                     			</li>
                     		</ul>
                     		</li>
-                    		
+                    		<?php if($isCompany){?>
                     		<li class="ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     			<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile" tabindex="0">
                     				<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
@@ -288,7 +292,7 @@ $this->beginPage ()?>
                     			</ul>
                     		</li>
                      		
-                    		<?php } ?>
+                    		<?php } } ?>
 
                     	<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page  ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                     		<a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" class="ubermenu-target " tabindex="0">
@@ -386,6 +390,7 @@ $this->beginPage ()?>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/site/carrier">KARRIERE</a></li>
                 </ul>
                 </li>
+                <?php if($isCandidate){?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('candidateprofile')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['candidateprofile']">
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard">Mein DASHBOARD</a></li>
@@ -395,7 +400,7 @@ $this->beginPage ()?>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/messages">NACHRICHTEN</a></li>
                 </ul>
                 </li>
-                <?php } ?>
+                <?php } } ?>
                 <?php if ($user->isGuest || $identity->isCompany ()) { ?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/site/company">FÜR UNTERNEHMER</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('company')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['company']">
@@ -411,6 +416,7 @@ $this->beginPage ()?>
 
                 </ul>
                 </li>
+                <?php if($isCompany){?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('companyprofile')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['companyprofile']">
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard">Mein DASHBOARD</a></li>
@@ -419,7 +425,7 @@ $this->beginPage ()?>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/messages">NACHRICHTEN</a></li>
                 </ul>
                 </li>
-                <?php } ?>
+                <?php } } ?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/site/whoweare" >Über Uns</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('about')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['about']">
                 	<li><a class="title">ÜBER UNS</a></li>

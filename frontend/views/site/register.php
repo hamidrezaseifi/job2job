@@ -148,9 +148,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 	<div class="extrafields-registration div-select-jobsuche" >
                 		<div class="inputform registerasstellungart" ng-show="registerData.regtype == 1">
-                			<label>Anstellungart *:</label>
+                			<label>Anstellungsart *:</label>
                 			<select ng-model="registerData.workModel" class="custom-select" name="data[jobtype]">
-                				<option value="0" selected >wählen Sie einen Anstellungart</option>
+                				<option value="0" selected >Wählen Sie eine Anstellungsart</option>
             					<?php
 
                 foreach ($workModels as $workModel) {
@@ -165,7 +165,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     	<div class="inputform registerbranche" ng-show="registerData.regtype == 1">
                     		<label>Branche *:</label>
                     		<select ng-model="registerData.branch" class="custom-select" name="data[branch]">
-                				<option value="0" selected >wählen Sie ein Branch</option>
+                				<option value="0" selected >Wählen Sie eine Branche</option>
             					<option ng-repeat="branch in branchs" ng-value="branch.id">{{branch.label}}</option>
             				</select>
                     	</div>
@@ -192,8 +192,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ActiveForm::end()?>
 		</div>
 		
-
+	<div class="clear"></div>
 </div>
+<div class="clear"></div>
+
 <script type="text/javascript">
 var loginUrl = "<?=Yii::getAlias('@web') . '/site/login'?>";
 var registerUrl = "<?=Yii::getAlias('@web') .'/site/register'?>";

@@ -36,7 +36,7 @@ function render_skills($list , $ischild = false)
 <div class="register-bewerbung">
     
     <div class="register-bewerbung-title j2jbluebacktext">
-    	<?php echo Yii::t('app', 'Personaldaten Überprüfen'); ?>
+    	<?php echo Yii::t('app', 'Personaldaten überprüfen'); ?>
     </div>
     
     <div class="register-bewerbung-logo">
@@ -81,7 +81,7 @@ function render_skills($list , $ischild = false)
 	    </div>
     	<div style="clear:both;"></div>
     	<div class="verify-bewerbung-senden j2jbluebacktext" onclick="submitverify();">
-    		<?php echo Yii::t('app', 'ÜBERPRÜFEN'); ?>
+    		<?php echo Yii::t('app', 'WEITER'); ?>
     	</div>
     	
     	<div style="clear:both;"></div>
@@ -100,16 +100,16 @@ function render_skills($list , $ischild = false)
 
 <script>
 
-	var company_name_msg = "<?php echo Yii::t('app', 'Bitte geben Sie die Vorname der Firma an!'); ?>";
+	var company_name_msg = "<?php echo Yii::t('app', 'Bitte geben Sie den Firmennamen an!'); ?>";
 	var company_bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie das Gründungsdatum der Firma an!'); ?>";
 	var anrede_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie eine Anrede aus!'); ?>";
-	var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Vorname an!'); ?>";
-	var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Nachname an!'); ?>";
-	var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr Geburtsdatum an!'); ?>";
-	var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr E-Mail an!'); ?>";
-	var email_invalid_msg = "<?php echo Yii::t('app', 'Das E-Mail ist ungültig.\nBitte geben Sie ihr E-Mail an!'); ?>";
-	var email_exists_msg = "<?php echo Yii::t('app', 'Das E-Mail existiert in unserem Datenbank.\nBitte geben Sie anderes E-Mail an!'); ?>";
-	var password_format_msg = "<?php echo Yii::t('app', 'Kennwort Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben und mindestens 6 oder mehr Zeichen enthalten!'); ?>";	
+	var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Vornamen an!'); ?>";
+	var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Nachnamen an!'); ?>";
+	var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihr Geburtsdatum an!'); ?>";
+	var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihre E-Mail-Adresse an!'); ?>";
+	var email_invalid_msg = "<?php echo Yii::t('app', 'Die E-Mail-Adresse ist ungültig.\nBitte geben Sie eine gültige E-Mail an!'); ?>";
+	var email_exists_msg = "<?php echo Yii::t('app', 'Die E-Mail existiert bereits.\nBitte geben Sie eine andere E-Mail-Adresse an!'); ?>";
+	var password_format_msg = "<?php echo Yii::t('app', 'Das Kennwort muss mindestens eine Zahl, sowie einen Groß- und Kleinbuchstaben und mindestens 6 oder mehr Zeichen enthalten!'); ?>";	
 	var password_confirm_msg = "<?php echo Yii::t('app', 'Die Passwörter stimmen nicht überein!'); ?>";
 	
 	var basepath = "<?php echo Yii::getAlias('@web/candidate/'); ?>";

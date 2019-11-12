@@ -118,16 +118,12 @@ $this->registerCssFile("@web/web/css/imageheader.css", [], 'css-imageheader');
         
         <p>
         <strong>Job2Job GmbH</strong> <br>
-        Pyrmonter Straße 42 <br>
-        31789 Hameln <br>
+        Hefehof 20 <br>
+        31785 Hameln <br>
         <a href="mailto:info@job2job-gmbh.de">info@job2job-gmbh.de</a> <br>
         Stand dieser Datenschutzbestimmungen: Mai 2018 <br>
         </p> 
 		<br>
-         
-         
-        
-        
 
 		<br><br><br>
 

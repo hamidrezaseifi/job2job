@@ -718,6 +718,7 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	{
 		width: 100%;
 		padding-left: 20px;
+		font-size: 20px;
 	}
 	
 	.register-bewerbung-logo
@@ -855,6 +856,17 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	{
 		width: calc(100% - 87px);	
 	}
+	
+	.company-persons{
+		padding: 5px;
+		height: auto !important;
+	}
+	
+	.company-persons .custom-control-inline {
+	    display: -ms-block;
+	    display: block;
+	}
+
 	
 }
 

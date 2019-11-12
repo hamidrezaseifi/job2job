@@ -119,3 +119,16 @@
 }
 
 
+@media(max-width: 479px)
+{
+	.title-text {
+	    margin-top: 20px;
+	}
+	
+	.register-bewerbung-response-content {
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+		
+}
+

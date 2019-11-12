@@ -41,30 +41,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
     		<div class="register-bewerbung-response-down-item">
     			<div><img alt="" src="<?=Yii::getAlias('@web/web/images/') ?>green-buble.png" width="80"><br></div>
-    			<div class="down-title-text"><?=Yii::t('app', '1. ANFRAGEN ERHALTEN'); ?></div>
-    			<div class="down-text"><?=Yii::t('app', 'Warten Sie ab. Passt Ihr Profil zu einem Einsatz, erhalten Sie per E-Mail eine Einsatzanfrage.'); ?></div>
-    		</div>
-
-    		<div class="register-bewerbung-response-down-item">
-    			<div><img alt="" src="<?=Yii::getAlias('@web/web/images/') ?>green-hand-ok.png" width="80"><br></div>
-    			<div class="down-title-text"><?=Yii::t('app', '3. ZU- ODER ABSAGEN'); ?></div>
-    			<div class="down-text"><?=Yii::t('app', 'Auf Anfragen können Sie Ihr Interesse bekunden oder absagen. Einfach per Klick auf den entsprechenden Button im Mail.'); ?></div>
+    			<div class="down-title-text"><?=Yii::t('app', '2. ANFRAGEN ERHALTEN'); ?></div>
+    			<div class="down-text"><?=Yii::t('app', 'Warten Sie ab. Passt Ihr Profil zu einem Einsatz, erhalten Sie per E-Mail oder per Telefon eine Einsatzanfrage.'); ?></div>
     		</div>
 
     		<div class="register-bewerbung-response-down-item">
     			<div><img alt="" src="<?=Yii::getAlias('@web/web/images/') ?>green-users.png" width="80"><br></div>
-    			<div class="down-title-text"><?=Yii::t('app', '4. ARBEITEN'); ?></div>
+    			<div class="down-title-text"><?=Yii::t('app', '3. ARBEITEN'); ?></div>
     			<div class="down-text"><?=Yii::t('app', 'Wenn der Arbeitgeber Sie annimmt, erhalten Sie eine Zusage per Mail inkl. Vertrag. Der Einsatz kann beginnen!'); ?></div>
     		</div>
 
     	</div>
     	<div class="clear" style="border-bottom: 1px solid #eeeeee;"></div>
     	<br>
-    	<div>
-    		<a class="j2jgreentext start-page-button ui-button ui-corner-all ui-widget" style="float: right; color: #a9cb14; padding: 10px; padding-left: 15px; padding-right: 15px; font-size: 14px;" role="button" href="#" id="manualjobsearch"><?=Yii::t('app', 'Zur manuellen Jobsuche  >>  '); ?></a>
-    	</div>
     </div>
- 
+	<div class="clear"></div> 
 
 </div>
 

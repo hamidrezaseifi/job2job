@@ -200,7 +200,7 @@ $titles = BrainStaticList::titleList(false);
 		    		<input type="text" name="CandidateBase[street]" value="<?=$candidateModel->street?>" />
 		    		<input type="text" name="CandidateBase[homenumber]" value="<?=$candidateModel->homenumber?>" />
 		    	</div>
-		    	<div class="item-title"><?php echo Yii::t('app', 'zusätzliche Adress');  ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'zusätzliche Adresse');  ?></div>
 		    	<div class="item">
 		    		<input type="text" name="CandidateBase[address1]" value="<?=$candidateModel->address1?>" />
 		    	</div>
@@ -212,7 +212,7 @@ $titles = BrainStaticList::titleList(false);
 		    	<div class="item">
 		    		<input type="text" name="tel1" value="<?=$telList[0]?>" /><input type="text" name="tel2" value="<?=$telList[1]?>" /><input type="text" name="tel3" value="<?=$telList[2]?>" />
 		    	</div>
-		    	<div class="item-title"><?php echo $model->attributeLabels()['receive_backend_email'];  ?></div>
+		    	<div class="item-title"><?php echo Yii::t('app', 'E-Mail von Job2Job erhalten');  ?></div>
 		    	<div class="item top-margin-15">
 		    		<?=BrainRadioBoxRenderer::widget(['name' => 'UsersBase[receive_backend_email]','value' => $model->receive_backend_email,'id_prefix' => 'receive-email','items' => BrainStaticList::janeinList(false)]);?>
 		    	</div>
@@ -426,7 +426,7 @@ $titles = BrainStaticList::titleList(false);
     		<img src="<?=Yii::getAlias('@web')?>/web/images/arrow_up_blue.png" class="imgclose image-section-toggle" style="width:20px; display:none;" />
     		<div class="clear"></div>
 			<div class="anlagen-notiz"><?php echo Yii::t('app',
-    'Sie haben die möglichkeit Anschreiben, Lebensläufe, Zeugnisse und andere Anlagen anzuhängen. Die einzelnen Dateien dürfen 8 MB nicht überschreiten. Insgesamt düren maximal 20 MB hochgelagen werden. Erlaubte Dateiformate sind .pdf und .doc(.docx , .rtf).'); ?> </div>
+    'Sie haben die Möglichkeit Anschreiben, Lebensläufe, Zeugnisse und andere Anlagen anzuhängen. Die einzelnen Dateien dürfen 8 MB nicht überschreiten. Insgesamt düren maximal 20 MB hochgelagen werden. Erlaubte Dateiformate sind .pdf.'); ?> </div>
 	    </div>
 	 	<div class="register-bewerbung-teil-items-container">
 
@@ -497,18 +497,18 @@ ActiveForm::end()?>
 	var skills_id = <?php echo json_encode(array_keys($allskills)); ?>;
 
 	var anrede_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie eine Anrede aus!'); ?>";
-	var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Vorname an!'); ?>";
-	var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Nachname an!'); ?>";
-	var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr Geburtsdatum an!'); ?>";
-	var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr E-Mail an!'); ?>";
-	var email_invalid_msg = "<?php echo Yii::t('app', 'Das E-Mail ist ungültig.\nBitte geben Sie ihr E-Mail an!'); ?>";
-	var email_exists_msg = "<?php echo Yii::t('app', 'Das E-Mail existiert in unserem Datenbank.\nBitte geben Sie anderes E-Mail an!'); ?>";
-	var curstatus_msg = "<?php echo Yii::t('app', 'Bitte erklären Sie ihre Beschäftigung!'); ?>";
-	var avail_msg = "<?php echo Yii::t('app', 'Bitte erklären Sie ihre Verfügberkeit!'); ?>";
-	var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie die Nutzungsbedingungen und die Datenschutzerklärung!'); ?>";
-    var skill_exists_msg = "<?php echo Yii::t('app', 'Fähigkeit existiert in der liste!'); ?>";
+	var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Vornamen an!'); ?>";
+	var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihren Nachnamen an!'); ?>";
+	var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihr Geburtsdatum an!'); ?>";
+	var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie Ihre E-Mail-Adresse an!'); ?>";
+	var email_invalid_msg = "<?php echo Yii::t('app', 'Die E-Mail-Adresse ist ungültig.\nBitte geben Sie eine gültige E-Mail an!'); ?>";
+	var email_exists_msg = "<?php echo Yii::t('app', 'Die E-Mail existiert bereits.\nBitte geben Sie eine andere E-Mail-Adresse an!'); ?>";
+	var curstatus_msg = "<?php echo Yii::t('app', 'Bitte nennen Sie uns Ihre aktuelle Beschäftigung!'); ?>";
+	var avail_msg = "<?php echo Yii::t('app', 'Bitte nennen Sie uns Ihre aktuelle Verfügbarkeit!'); ?>";
+	var condition_msg = "<?php echo Yii::t('app', 'Bitte stimmen Sie den Nutzungsbedingungen und der Datenschutzerklärung zu!'); ?>";
+    var skill_exists_msg = "<?php echo Yii::t('app', 'Diese Fähigkeit existiert bereits in der Liste!'); ?>";
     
-    var workpermission_limit_msg = "<?php echo Yii::t('app', 'Das Arbeitserlaubnis-Frist ist ungültig.\nBitte geben Sie ihr Arbeitserlaubnis-Frist an!'); ?>";
+    var workpermission_limit_msg = "<?php echo Yii::t('app', 'Die Arbeitserlaubnis-Frist ist ungültig.\nBitte geben Sie Ihre Arbeitserlaubnis-Frist an!'); ?>";
 
 	var basepath = "<?php echo Yii::getAlias('@web/candidate/'); ?>";
 	var skillurl = "<?php echo Yii::getAlias('@web/candidate/skills'); ?>";
