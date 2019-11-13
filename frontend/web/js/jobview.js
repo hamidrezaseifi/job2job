@@ -23,23 +23,19 @@ brainApp.controller('JobviewController', function ($scope, $http, $sce, $element
 		return JSON.stringify($scope.sendrequest);
 	};
 	
+	$('#callpannel').on('shown.bs.modal', function (e) {
+		$("#callreqname").focus();  
+	});
+	
 	$scope.showCallMe = function(){
 		
-		$("#callpannel .title").hide();
-		$("#sendrequestform textarea").val("");
-		$("#callpannel").dialog({ width: 360, height: 520, modal: true, title: $("#callpannel .title").html(), show: {
-	        effect: "clip",
-	        duration: 200
-	      },
-	      hide: {
-	        effect: "fade",
-	        duration: 200
-	      },
-	      open : function(){
-	    	  $("#callpannel .sendcontainer").show();
-	    	  $("#callpannel .responsecontainer").hide();
-	      }
-	      });
+		$scope.sendrequest = {"fullname" : "", "tel": "", "msg": "", };
+		
+		$("#callpannel .sendcontainer").show();
+  	  	$("#callpannel .responsecontainer").hide();
+  	  
+		$('#callpannel').modal();
+		
 	};
 	
 	$scope.isRequestInValid = function(){
@@ -76,7 +72,7 @@ brainApp.controller('JobviewController', function ($scope, $http, $sce, $element
 	    	$scope.sending = false;
 	    	
 	    	if(response.data.res == 'ok'){
-	    		$("#callpannel").dialog("close");
+	    		$('#callpannel').modal("hide");
 	    		$scope.sendrequest = {"fullname" : "", "tel": "", "msg": "", };
 	    	}
 	    	

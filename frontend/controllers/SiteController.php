@@ -217,7 +217,7 @@ class SiteController extends Controller
             'isindex' => false
         ]);
     }
-
+        
     /**
      * Displays about.
      *
@@ -800,7 +800,7 @@ class SiteController extends Controller
 
     
     public function actionCallrequest()
-    {
+    {        
         header('Content-type: application/json');
         $this->layout=false;
         $out = ['res' => 'failed', ];

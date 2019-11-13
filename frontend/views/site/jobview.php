@@ -119,29 +119,43 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     </div>
     <div class="clear"></div>
     
-    <div id="callpannel">
-    	<div class="sendcontainer">
-    	<div class="title"><?php echo Yii::t('app', 'Bitte um Rückruf'); ?></div>
-    	<div class="desc"><?php echo Yii::t('app', 'Vielen Dank für Ihr Interesse an einer Mitarbeit bei job2job.'); ?></div>
-    	<div class="desc"><?php echo Yii::t('app', 'Bitte senden Sie uns Ihre Kontaktdaten und Anfrage, wir rufen Sie gerne zurück!'); ?></div>
-    	<br>
-    	<div class="desc2"><?php echo Yii::t('app', 'Füllen Sie vor dem Absenden mindestens die mit * markierten Felder aus.'); ?></div>
-    	
-    	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihr Name*'); ?></div>
-    	<div class="data"><input ng-model="sendrequest.fullname" type="text" required="required" value="<?php echo $userfullname;?>" ></div>
-    	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Telefonnummer*'); ?></div>
-    	<div class="data"><input ng-model="sendrequest.tel" type="text" required="required" value="<?php echo $usertel;?>" ></div>
-    	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Mitteilung'); ?></div>
-    	<div class="data"><textarea ng-model="sendrequest.msg" ></textarea></div>
-    	
-    	<div class="sendbutton" ng-class="{'sending' : isSendingInValid()}" ng-click="sendCallMe()"><?php echo Yii::t('app', 'absenden'); ?></div>
-    	</div>
-    	<div class="responsecontainer">
-    		<div class="title2"><?php echo Yii::t('app', 'Vielen Dank für ihre Mitteilung'); ?></div>
-    		<div class="j2jgreentext"><?php echo Yii::t('app', 'Wir melden uns so bald wie möglich zurück'); ?></div>
-    	</div>
-    	
+    <div class="modal fade" id="callpannel" tabindex="-1" role="dialog" aria-labelledby="callpannelTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Bitte um Rückruf</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+        	<div class="sendcontainer">
+            	<div class="title"><?php echo Yii::t('app', 'Bitte um Rückruf'); ?></div>
+            	<div class="desc"><?php echo Yii::t('app', 'Vielen Dank für Ihr Interesse an einer Mitarbeit bei job2job.'); ?></div>
+            	<div class="desc"><?php echo Yii::t('app', 'Bitte senden Sie uns Ihre Kontaktdaten und Anfrage, wir rufen Sie gerne zurück!'); ?></div>
+            	<br>
+            	<div class="desc2"><?php echo Yii::t('app', 'Füllen Sie vor dem Absenden mindestens die mit * markierten Felder aus.'); ?></div>
+            	
+            	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihr Name*'); ?></div>
+            	<div class="data"><input ng-model="sendrequest.fullname" id="callreqname" type="text" required="required" value="<?php echo $userfullname;?>" ></div>
+            	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Telefonnummer*'); ?></div>
+            	<div class="data"><input ng-model="sendrequest.tel" type="text" required="required" value="<?php echo $usertel;?>" ></div>
+            	<div class="j2jgreentext"><?php echo Yii::t('app', 'Ihre Mitteilung'); ?></div>
+            	<div class="data"><textarea ng-model="sendrequest.msg" ></textarea></div>
+            	
+            	<button class="sendbutton" ng-class="{'sending' : isSendingInValid()}" ng-click="sendCallMe()"><?php echo Yii::t('app', 'absenden'); ?></button>
+        	</div>
+        	<div class="responsecontainer">
+        		<div class="title2"><?php echo Yii::t('app', 'Vielen Dank für ihre Mitteilung'); ?></div>
+        		<div class="j2jgreentext"><?php echo Yii::t('app', 'Wir melden uns so bald wie möglich zurück'); ?></div>
+        	</div>
+            
+          </div>
+        </div>
+      </div>
     </div>
+
     <br><br><br>
     
     

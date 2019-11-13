@@ -190,6 +190,14 @@
 	font-size: 26px;
 	cursor: pointer;
 	color: #1a3156;
+	border: 1px solid gray;
+    border-radius: 7px;	
+    background-color: #ffffff;	
+}
+
+#callpannel .sendbutton:not(.sending):hover
+{
+	background-color: #fff2e8;	
 }
 
 #callpannel .sendbutton.sending
