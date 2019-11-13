@@ -503,6 +503,12 @@
     height: 26px;
 }
 
+button.fromnow{
+	border-radius: 5px;
+	padding: 0 10px;
+	background-color: #f8f8f8;
+}
+
 @media(max-width: 479px)
 {
 
@@ -553,6 +559,11 @@
 	.job-adv-list-item div.delete {
 		margin-right: 10px;
 		float: right;
+	}
+	
+	button.fromnow{
+		margin-top: 10px;
+		width: calc(100%)
 	}
 	
 }

@@ -175,6 +175,10 @@ $currentYear = date('Y');
 		    				<option value="<?=$year ?>"><?=$year ?></option>
 		    				<?php } ?>
 		    			</select>
+		    			
+	    			</div>
+	    			<div class="custom-control custom-control-inline deadline-item">
+	    				<button type="button" class="fromnow" ng-click="setJobstartNow();">Ab sofort</button>
 	    			</div>
 	    			<div class="custom-control custom-control-inline deadline-item" style="margin-top: 6px;">
     	    			<div class="custom-control custom-control-inline deadline-item">
