@@ -28,7 +28,6 @@ $percent = round( ($percentCalc * 100) / $percentTotal );;
         </div>		
 	</div>
 	
-	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/company/dashboard/index') ?>"><?php echo Yii::t('app', 'Dashboard'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/company/dashboard/myprofile') ?>"><?php echo Yii::t('app', 'Profil'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/company/dashboard/jobs') ?>"><?php echo Yii::t('app', 'Job Anzeigen'); ?></a></div>
 	<div class="dashbaord-link"><a href="<?php echo Yii::getAlias('@web/company/dashboard/messages') ?>"><?php echo Yii::t('app', 'Nachrichten'); ?></a></div>

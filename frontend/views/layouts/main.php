@@ -152,11 +152,6 @@ $this->beginPage ()?>
                     						<li class="ubercolumn-specialclass ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack ubermenu-item-type-column">
                     							<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
                     								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard" >
-                    										<span class="ubermenu-target-title ubermenu-target-text">DASHBOARD</span>
-                    									</a>
-                    								</li>
-                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
                     									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile" >
                     										<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
                     									</a>
@@ -260,11 +255,6 @@ $this->beginPage ()?>
                     					<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
                     						<li class="ubercolumn-specialclass ubermenu-item ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack ubermenu-item-type-column">
                     							<ul class="ubermenu-submenu ubermenu-submenu-type-stack">
-                    								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
-                    									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard" >
-                    										<span class="ubermenu-target-title ubermenu-target-text">DASHBOARD</span>
-                    									</a>
-                    								</li>
                     								<li class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-auto ubermenu-item-normal  ubermenu-column ubermenu-column-auto">
                     									<a class="ubermenu-target " href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile" >
                     										<span class="ubermenu-target-title ubermenu-target-text">MEIN PROFIL</span>
@@ -393,7 +383,6 @@ $this->beginPage ()?>
                 <?php if($isCandidate){?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('candidateprofile')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['candidateprofile']">
-                	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard">Mein DASHBOARD</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/myprofile">MEIN PROFIL</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/markedjob">GEMERKTE ANZEIGEN</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/candidate/dashboard/applyjob">BEWORBENE STELLENANZEIGEN</a></li>
@@ -419,7 +408,6 @@ $this->beginPage ()?>
                 <?php if($isCompany){?>
                 <li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile">MEIN PROFIL</a><span class="opensubmenumob" ng-click="toggleSubMenuVisible('companyprofile')"></span><span class="clear"></span>
                 <ul ng-show="submenuVisible['companyprofile']">
-                	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard">Mein DASHBOARD</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/myprofile">MEIN PROFIL</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/jobs">JOB ANZEIGEN</a></li>
                 	<li><a href="<?=Yii::getAlias ( '@web' )?>/company/dashboard/messages">NACHRICHTEN</a></li>
