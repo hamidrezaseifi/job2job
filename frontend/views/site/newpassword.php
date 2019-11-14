@@ -13,15 +13,14 @@ $this->registerJsFile("@web/web/js/newpassword.js", [], 'js-newpassword');
 //$skills
 
 ?>
-<div class="register-bewerbung">
+<div class="register-bewerbung" ng-controller="NewPasswordController">
     
-    <div class="register-bewerbung-title j2jgreenback">
+    <div class="register-bewerbung-title j2jbluebacktext">
     	<?php echo Yii::t('app', 'Neue Passwort'); ?>
     </div>
     
     <div class="register-bewerbung-logo">
     	<div><img id="mainlogo" alt="" src="<?=Yii::getAlias('@web') ?>/web/images/logo.png"></div>
-    	<div><?php echo Yii::t('app', 'Felder mit einem <span class="pflichtfeld-sep j2jgreentext j2jgreenback">&nbsp;</span> sind Pflichtfelder und müssen ausgefüllt sein!'); ?></div>
     </div>
     
     <div style="clear:both;"></div>
@@ -36,18 +35,17 @@ $this->registerJsFile("@web/web/js/newpassword.js", [], 'js-newpassword');
 
 	    	<div class="item-title"><?php echo Yii::t('app', 'Kennwort'); ?></div>
 	    	<div class="item requireditem">
-				<?=Html::passwordInput('UsersBase[password_hash]', '' , ['required' => 'required', 'id' => 'password' , 'onchange' => '$("#confirm_password").prop("pattern" , this.value);',  ]) ?>  	
+				<?=Html::passwordInput('UsersBase[password_hash]', '' , ['required' => 'required', 'ng-model' => 'password', 'id' => 'password',  ]) ?>  	
 	    	</div>
 	    	<div class="item-title"><?php echo Yii::t('app', 'Kennwort bestätigen'); ?></div>
 	    	<div class="item requireditem">
-				<?=Html::passwordInput('', '' , ['required' => 'required', 'pattern' => '' , 'id' => 'confirm_password' , ]) ?>  	
+				<?=Html::passwordInput('', '' , ['required' => 'required', 'ng-model' => 'passwordconfirm', 'id' => 'confirm_password' , ]) ?>  	
 	    	</div>
 
 	    </div>
     	<div style="clear:both;"></div>
-    	<div class="register-bewerbung-teil-items-container"  style=" float: right; width: 50%; margin-top: 40px;">
-			<button type="submit" class="newpassword-senden j2jgreenback"><?php echo Yii::t('app', 'ÜBERPRÜFEN'); ?></button>
-
+    	<div class="newpassword-senden-container" ">
+			<button type="button" class="newpassword-senden j2jbluebacktext" ng-click="dosubmit()"><?php echo Yii::t('app', 'ÜBERPRÜFEN'); ?></button>
 	 	</div>
 	 	
     	
@@ -59,13 +57,6 @@ $this->registerJsFile("@web/web/js/newpassword.js", [], 'js-newpassword');
 
 <script>
 
-	var anrede_msg = "<?php echo Yii::t('app', 'Bitte wählen Sie eine Anrede aus!'); ?>";
-	var fname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Vorname an!'); ?>";
-	var lname_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihre Nachname an!'); ?>";
-	var bdate_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr Geburtsdatum an!'); ?>";
-	var email_msg = "<?php echo Yii::t('app', 'Bitte geben Sie ihr E-Mail an!'); ?>";
-	var email_invalid_msg = "<?php echo Yii::t('app', 'Das E-Mail ist ungültig.\nBitte geben Sie ihr E-Mail an!'); ?>";
-	var email_exists_msg = "<?php echo Yii::t('app', 'Das E-Mail existiert in unserem Datenbank.\nBitte geben Sie anderes E-Mail an!'); ?>";
 	var password_format_msg = "<?php echo Yii::t('app', 'Kennwort Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben und mindestens 6 oder mehr Zeichen enthalten!'); ?>";	
 	var password_confirm_msg = "<?php echo Yii::t('app', 'Die Passwörter stimmen nicht überein!'); ?>";
 	

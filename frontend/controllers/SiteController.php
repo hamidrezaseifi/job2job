@@ -443,15 +443,23 @@ class SiteController extends Controller
     {
         //return $this->redirect(Yii::getAlias('@web'));
         
+        $model = new LoginForm();
+        if(isset($_GET['u'])){
+            $verifydataStrHash = $_GET['u'];
+            $verifydataSer = base64_decode($verifydataStrHash);
+            $verifydata = unserialize($verifydataSer);
+            $model->username = $verifydata['uem'];
+            $model->password = $verifydata['p'];
+        }
+        
+        
+        //$verifydata['uid'] = $userModel->id;
+        //$verifydata['uem'] = $email;
+        //$verifydata['dt'] = date('c');
+        
         
         if (! Yii::$app->user->isGuest) {
             return $this->goHome();
-        }
-
-        $model = new LoginForm();
-
-        if (Yii::$app->request->post()) {
-            // print_r(Yii::$app->request->post()); exit;
         }
 
         if (self::doLogin(Yii::$app->request->post(), $model)) {
@@ -525,6 +533,46 @@ class SiteController extends Controller
         
     }
     
+    
+    public function actionNewpassword()
+    {
+        $verifydataStrHash = $_GET['a'];
+        $verifydataSer = base64_decode($verifydataStrHash);
+        $verifydata = unserialize($verifydataSer);
+        
+        
+        //$verifydata['uid'] = $userModel->id;
+        //$verifydata['uem'] = $email;
+        //$verifydata['dt'] = date('c');
+        $userModel = UsersBase::findOne(['uname' => $verifydata['uem']]);
+        
+        //print_r($verifydata); exit;
+        
+        if (count($_POST) > 0) {
+            
+            $password = $_POST['UsersBase']['password_hash'];
+            $_POST['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST["UsersBase"]['password_hash']);
+             
+            $userModel->load($_POST);
+            if($userModel->save(false)){
+                
+                $verifydata['p'] = $password;
+                $verifydataSer = serialize($verifydata);
+                $verifydataStrHash = base64_encode($verifydataSer);
+                
+                return $this->redirect("login?u=" . $verifydataStrHash);
+                
+                
+            }
+            
+           
+        }
+        
+        return $this->render('newpassword', [
+            'model' => $userModel,
+        ]);
+        
+    }
     
     public function actionRegister()
     {

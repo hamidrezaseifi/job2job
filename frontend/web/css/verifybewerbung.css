@@ -32,7 +32,7 @@
 .register-bewerbung-logo
 {
 	margin-top: 30px;
-	border-bottom: 2px solid #a9cb14;
+	border-bottom: 2px solid #1a3156;
 	height: 100px;
 	width: 900px;
 	margin-left: auto;
@@ -128,7 +128,7 @@
 .requireditem li:first-child , .requireditem input[type="text"]:first-child 
 , .requireditem input[type="email"]:first-child , .requireditem input[type="password"]:first-child 
 {
-	border-left: 3px solid #a9cb14;	
+	border-left: 3px solid #1a3156;	
 }
 
 .register-bewerbung-teil-items-container .item input[type="button"],
@@ -580,6 +580,18 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	border: none;
 }
 
+
+.newpassword-senden-container
+{
+	font-size: 13px;
+	font-family : Arial;
+	margin-left: 20px;
+	float: right; 
+	width: 50%; 
+	margin-top: 40px;
+}
+
+
 @media(max-width: 479px){
 	
 	.register-bewerbung
@@ -592,6 +604,7 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	{
 		width: 100%;
 		height: auto;
+		padding-bottom: 10px;
 	}
 	
 	.register-bewerbung-teil
@@ -639,6 +652,13 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	.register-bewerbung-logo div
 	{
 		float: none;
+	}
+	
+	.newpassword-senden-container
+	{
+		margin: 50px 10px 30px;
+		float: none; 
+		width: calc(100% - 20px); 
 	}
 	
 }
