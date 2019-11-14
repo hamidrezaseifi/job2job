@@ -6969,6 +6969,7 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
   margin-bottom: 37px;
   padding-left: 43px;
   position: relative;
+  list-style-type: none;
 }
 .passreset-steps > li:last-child {
   margin-bottom: 0;
@@ -7005,7 +7006,7 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
 .rpcontainer {
   clear: both;
   float: left;
-  margin-bottom: 52px;
+  margin-bottom: 12px;
   margin-top: 10px;
   width: 100%;
 }
@@ -7017,13 +7018,21 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
   width: 100%;
   color:#193257;
 }
+
+.rightpopup .alert-danger{
+	padding: 4px 6px;
+    font-size: 14px;
+    margin: 5px 0 0;	
+    float: left;
+}
+
 .resetpassword.button-form {
   font-size: 13px;
   padding-left: 15px;
 }
 .resetpass-field {
   border: 1px solid #193257;
-  padding: 7px 5px;
+  padding: 2px 4px;
   width: 100%;
 }
 .resetpass.container {
@@ -7061,8 +7070,6 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  opacity:0;  	
-  visibility:hidden;
 }
 .successreset, .resetpass-popup .leftpopup, .resetpass-popup .rightpopup{
  -webkit-transition: all 0.5s ease-in-out;
@@ -7095,7 +7102,7 @@ box-shadow: 0 -2px 12px -2px rgba(0, 0, 0, 0.45);
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 10;
 }
 
 /* ch search popup customizations */
@@ -8029,4 +8036,13 @@ a:active, a:hover {
 
 .modal-backdrop{
 	z-index: 10 !important;
+}
+
+.modal-open .modal {
+    z-index: 99999 !important;
+}
+
+.not-visible-opaq0{
+	visibility: hidden;	
+	opacity: 0;
 }

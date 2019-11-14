@@ -131,7 +131,11 @@ class BrainStaticList
 
 	public static function accessableList()
 	{
-		return array(Yii::t('app', 'notavaileable') => Yii::t('app', 'Nicht verfügbar') , Yii::t('app', 'availeable') => Yii::t('app', 'Verfügbar'));
+		return array('notavaileable' => Yii::t('app', 'Nicht verfügbar') ,
+		    'availeable' => Yii::t('app', 'Verfügbar'),
+		    '' => Yii::t('app', 'Keine Eingabe'),
+		    
+		);
 	}
 
 	public static function vacancyList($novacancy = true, $novacancytitle = '')

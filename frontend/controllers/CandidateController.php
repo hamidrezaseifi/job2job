@@ -198,14 +198,6 @@ class CandidateController extends Controller
                         continue;
                     $distances_array[$dist] = $dist . ' km';
                 }
-
-                if (strlen($candidateModel->tel) < 2) {
-                    $candidateModel->tel = '--';
-                }
-
-                if (strlen($candidateModel->cellphone) < 2) {
-                    $candidateModel->cellphone = '--';
-                }
                                 
                 $subpageContent = $this->renderPartial('dashbaord_profile',
                     [
@@ -217,8 +209,8 @@ class CandidateController extends Controller
                         'countries' => $countries_array,
                         'distances' => $distances_array,
                         'worktypes' => $worktypes_array,
-                        'cellphoneList' => explode('-', $candidateModel->cellphone),
-                        'telList' => explode('-', $candidateModel->tel),
+                        //'cellphoneList' => explode('-', $candidateModel->cellphone),
+                        //'telList' => explode('-', $candidateModel->tel),
                         'reachabilityList' => BrainStaticList::reachabilityList(),
                         'accessableList' => BrainStaticList::accessableList(),
                         'after_verify' => $after_verify,
@@ -438,10 +430,6 @@ class CandidateController extends Controller
             }
 
             $data['UsersBase']['uname'] = $data['CandidateBase']['email'];
-
-            $data['CandidateBase']['cellphone'] = $data['ctel1'] . '-' . $data['ctel2'] . '-' .
-                $data['ctel3'];
-            $data['CandidateBase']['tel'] = $data['tel1'] . '-' . $data['tel2'] . '-' . $data['tel3'];
 
             $data['reachability'] = isset($data['reachability']) && is_array($data['reachability']) ? $data['reachability'] : array();
             $data['CandidateBase']['reachability'] = '';
@@ -779,15 +767,7 @@ class CandidateController extends Controller
                 continue;
                 $distances_array[$dist] = $dist . ' km';
         }
-        
-        if (strlen($candidateModel->tel) < 2) {
-            $candidateModel->tel = '--';
-        }
-        
-        if (strlen($candidateModel->cellphone) < 2) {
-            $candidateModel->cellphone = '--';
-        }
-        
+                
         $candidateModel->desiredjobcountry = 'Deutschland';
         $candidateModel->country = 'Deutschland';
         
@@ -801,8 +781,8 @@ class CandidateController extends Controller
                 'countries' => $countries_array,
                 'distances' => $distances_array,
                 'worktypes' => $worktypes_array,
-                'cellphoneList' => explode('-', $candidateModel->cellphone),
-                'telList' => explode('-', $candidateModel->tel),
+                //'cellphoneList' => explode('-', $candidateModel->cellphone),
+                //'telList' => explode('-', $candidateModel->tel),
                 'reachabilityList' => BrainStaticList::reachabilityList(),
                 'accessableList' => BrainStaticList::accessableList(),
                 'after_verify' => $after_verify,

@@ -12,20 +12,13 @@
 /* @var $distances array */
 /* @var $companytypes array */
 /* @var $worktypes \common\lib\WorktimemodelBase */
-/* @var $cellphoneList array */
-/* @var $telList array */
-/* @var $cellphoneList2 array */
-/* @var $telList2 array */
 /* @var $reachabilityList array */
 /* @var $connectedCompanies array */
 /* @var $founddate string */
 /* @var $petbdate string */
 /* @var $pdmModelSecondExists bool */
-/* @var $cellphoneList2 array */
-/* @var $cellphoneList2 array */
 /* @var $companytypes array */
 /* @var $employeecountList array */
-/* @var $telList array */
 
 use yii\helpers\Html;
 use common\helper\BrainRadioBoxRenderer;
@@ -191,9 +184,9 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item-title">&nbsp;</div>
 		    	<div class="item">&nbsp;</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Mobiltelefon'); ?></div>
-		    	<div class="item"><?=$cellphoneList[0] ?> - <?=$cellphoneList[1] ?> - <?=$cellphoneList[2] ?></div>
+		    	<div class="item"><?=$pdmModel->cellphone ?></div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Festnetznummer'); ?></div>
-		    	<div class="item"><?=$telList[0] ?> - <?=$telList[1] ?> - <?=$telList[2] ?> </div>
+		    	<div class="item"><?=$pdmModel->tel ?> </div>
 		    	<div class="item-title" style="margin-top:15px;"><?php echo Yii::t('app', 'Erreichbarkeit'); ?></div>
 		    	<div class="item" style="margin-top:15px;"><?=$pdmModel->reachability?></div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Wann dürfen wir Sie kontaktieren?'); ?></div>
@@ -218,9 +211,9 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item-title">&nbsp;</div>
 		    	<div class="item">&nbsp;</div>
 		    	<div class="item-title stelcertreter nodisplay"><?php echo Yii::t('app', 'S. Mobiltelefon'); ?></div>
-		    	<div class="item stelcertreter nodisplay"> <?=$cellphoneList2[0] ?> - <?=$cellphoneList2[1] ?> - <?=$cellphoneList2[2] ?> </div>
+		    	<div class="item stelcertreter nodisplay"> <?=$pdmModelSecond->cellphone ?> </div>
 		    	<div class="item-title stelcertreter nodisplay"><?php echo Yii::t('app', 'S. Festnetznummer'); ?></div>
-		    	<div class="item stelcertreter nodisplay"> <?=$telList2[0] ?> - <?=$telList2[1] ?> - <?=$telList2[2] ?> </div>
+		    	<div class="item stelcertreter nodisplay"> <?=$pdmModelSecond->tel ?> </div>
 		    	<div class="item-title stelcertreter nodisplay" style="margin-top:15px;"><?php echo Yii::t('app', 'S. Erreichbarkeit'); ?></div>
 		    	<div class="item stelcertreter nodisplay" style="margin-top:15px;"> <?=$pdmModelSecond->reachability?> </div>
 		    	<div class="item-title stelcertreter nodisplay"><?php echo Yii::t('app', 'S. Wann dürfen wir Sie kontaktieren?'); ?></div>
@@ -264,11 +257,11 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item">&nbsp;</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Mobiltelefon'); ?></div>
 		    	<div class="item">
-		    		<input type="text" name="ctel1" value="<?=$cellphoneList[0] ?>" /><input type="text" name="ctel2" value="<?=$cellphoneList[1] ?>" /><input type="text" name="ctel3" value="<?=$cellphoneList[2] ?>" />
+		    		<input type="text" name="PersonaldecisionmakerBase[cellphone]" value="<?php echo $pdmModel->cellphone;?>" />
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Festnetznummer'); ?></div>
 		    	<div class="item">
-		    		<input type="text" name="tel1" value="<?=$telList[0] ?>" /><input type="text" name="tel2" value="<?=$telList[1] ?>" /><input type="text" name="tel3" value="<?=$telList[2] ?>" />
+		    		<input type="text" name="PersonaldecisionmakerBase[tel]" value="<?php echo $pdmModel->tel;?>" />
 		    	</div>
 		    	<div class="item-title" style="margin-top:15px;"><?php echo Yii::t('app', 'Erreichbarkeit'); ?></div>
 		    	<div class="item" style="margin-top:15px;">
@@ -323,12 +316,12 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
     
     		    	<div class="item-title stelcertreter nodisplay"><?php echo Yii::t('app', 'S. Mobiltelefon'); ?></div>
     		    	<div class="item stelcertreter nodisplay">
-    		    		<input type="text" name="ctel1SV" value="<?=$cellphoneList2[0] ?>" /><input type="text" name="ctel2SV" value="<?=$cellphoneList2[1] ?>" /><input type="text" name="ctel3SV" value="<?=$cellphoneList2[2] ?>" />
+    		    		<input type="text" name="PersonaldecisionmakerBaseSV[cellphone]" value="<?php echo $pdmModelSecond->cellphone;?>" />
     		    	</div>
     		    	<div class="item-title stelcertreter nodisplay"><?php echo Yii::t('app', 'S. Festnetznummer'); ?></div>
     		    	<div class="item stelcertreter nodisplay">
-    		    		<input type="text" name="tel1SV" value="<?=$telList2[0] ?>" /><input type="text" name="tel2SV" value="<?=$telList2[1] ?>" /><input type="text" name="tel3SV" value="<?=$telList2[2] ?>" />
-    		    	</div>
+     		    		<input type="text" name="PersonaldecisionmakerBaseSV[tel]" value="<?php echo $pdmModelSecond->tel;?>" />
+   		    	</div>
     		    	<div class="item-title stelcertreter nodisplay" style="margin-top:15px;"><?php echo Yii::t('app', 'S. Erreichbarkeit'); ?></div>
     		    	<div class="item stelcertreter nodisplay" style="margin-top:15px;">
     		    	<?=BrainCheckBoxBoxRenderer::widget([

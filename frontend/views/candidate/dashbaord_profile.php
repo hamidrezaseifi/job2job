@@ -206,11 +206,11 @@ $titles = BrainStaticList::titleList(false);
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Mobiltelefon');  ?></div>
 		    	<div class="item">
-		    		<input type="text" name="ctel1" value="<?=$cellphoneList[0]?>" /><input type="text" name="ctel2" value="<?=$cellphoneList[1]?>" /><input type="text" name="ctel3" value="<?=$cellphoneList[2]?>" />
+		    		<input type="text" name="CandidateBase[cellphone]" value="<?=$candidateModel->cellphone?>" />
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Festnetznummer');  ?></div>
 		    	<div class="item">
-		    		<input type="text" name="tel1" value="<?=$telList[0]?>" /><input type="text" name="tel2" value="<?=$telList[1]?>" /><input type="text" name="tel3" value="<?=$telList[2]?>" />
+		    		<input type="text" name="CandidateBase[tel]" value="<?=$candidateModel->tel?>" />
 		    	</div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'E-Mail von Job2Job erhalten');  ?></div>
 		    	<div class="item top-margin-15">

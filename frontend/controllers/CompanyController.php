@@ -141,28 +141,7 @@ class CompanyController extends Controller
     			$distances_array = BrainStaticList::distanceList();
     			$companytype_array = BrainStaticList::companyTypeList();
     			$employeecount_array = BrainStaticList::employeeCountList();
-    			
-    			if(strlen($pdmModel->tel) < 2)
-    			{
-    				$pdmModel->tel = '--';
-    			}
-    			
-    			if(strlen($pdmModel->cellphone) < 2)
-    			{
-    				$pdmModel->cellphone = '--';
-    			}
-    			
-    			if(strlen($pdmModelSecond->tel) < 2)
-    			{
-    				$pdmModelSecond->tel = '--';
-    			}
-    			
-    			if(strlen($pdmModelSecond->cellphone) < 2)
-    			{
-    				$pdmModelSecond->cellphone = '--';
-    			}
-    			
-    			$pdmModel->tel = '1-2-3';
+    			    			    			
     			$subpageContent = $this->renderPartial('dashbaord_profile' , [
 					'model' 				=> $model,
 					'modelSecond' 			=> $modelSecond,
@@ -173,10 +152,10 @@ class CompanyController extends Controller
 					'nationalities' 		=> $nationalities_array,
 					'distances' 			=> $distances_array,
 					'companytypes'			=> $companytype_array,
-					'cellphoneList'			=> explode('-' , $pdmModel->cellphone),
-					'telList'				=> explode('-' , $pdmModel->tel),
-					'cellphoneList2'		=> explode('-' , $pdmModelSecond->cellphone),
-					'telList2'				=> explode('-' , $pdmModelSecond->tel),
+					//'cellphoneList'			=> explode('-' , $pdmModel->cellphone),
+					//'telList'				=> explode('-' , $pdmModel->tel),
+					//'cellphoneList2'		=> explode('-' , $pdmModelSecond->cellphone),
+					//'telList2'				=> explode('-' , $pdmModelSecond->tel),
 					'reachabilityList'		=> BrainStaticList::reachabilityList(),
 					'employeecountList'		=> $employeecount_array,
 					'connectedCompanies'	=> $connectedCompanies,
@@ -459,8 +438,6 @@ class CompanyController extends Controller
     		}
     		
     		$data['PersonaldecisionmakerBase']['email'] = $data['UsersBase']['uname'];
-    		$data['PersonaldecisionmakerBase']['cellphone'] = $data['ctel1'] . '-' . $data['ctel2'] . '-' . $data['ctel3'];
-    		$data['PersonaldecisionmakerBase']['tel'] = $data['tel1'] . '-' . $data['tel2'] . '-' . $data['tel3'];
     		
     		
     		$model->load($data);
@@ -480,8 +457,6 @@ class CompanyController extends Controller
     			$data['reachabilitySV'] = isset($data['reachabilitySV']) && is_array($data['reachabilitySV']) ? $data['reachabilitySV'] : array();
     			
     			$data['PersonaldecisionmakerBaseSV']['email'] = $data['UsersBaseSV']['uname'];
-    			$data['PersonaldecisionmakerBaseSV']['cellphone'] = $data['ctel1SV'] . '-' . $data['ctel2SV'] . '-' . $data['ctel3SV'];
-    			$data['PersonaldecisionmakerBaseSV']['tel'] = $data['tel1SV'] . '-' . $data['tel2SV'] . '-' . $data['tel3SV'];
 
     			$data['PersonaldecisionmakerBaseSV']['reachability'] = '';
     			$ar = BrainStaticList::reachabilityList();

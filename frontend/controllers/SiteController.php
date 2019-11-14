@@ -465,11 +465,64 @@ class SiteController extends Controller
 
     public function actionResetpassword()
     {
-        return $this->redirect(Yii::getAlias('@web'));
+        //return $this->redirect(Yii::getAlias('@web'));
         
-        return $this->render('resetpassword', [
-            'isindex' => false
-        ]);
+        //return $this->render('resetpassword', [
+        //    'isindex' => false
+        //]);
+        
+        $params = Yii::$app->getRequest()->getBodyParams();
+        
+        $res = ['res' => 'ok'];
+        
+        $email = $params['email'];
+        //echo json_encode($params);
+        //exit;
+        
+        $userModel = UsersBase::findOne(['uname' => $email]);
+        if($userModel == false){
+            $res['res'] = 'noemail';
+        }
+        else{
+         
+            $verifydata = array();
+            $verifydata['uid'] = $userModel->id;
+            $verifydata['uem'] = $email;
+            $verifydata['dt'] = date('c');
+            
+            $verifydataSer = serialize($verifydata);
+            $verifydataStrHash = base64_encode($verifydataSer);
+            
+            
+            $verifyurl = "http://" . $_SERVER['HTTP_HOST'] . Yii::getAlias("@web") . '/site/newpassword';
+            $verifyurl .= '?a=' . urlencode($verifydataStrHash);
+            
+            $verifytextfile = dirname(__DIR__) . '/views/site/resetpasstext.php';
+            $emailbody = file_get_contents($verifytextfile);
+            $emailbody = str_replace('%link', $verifyurl, $emailbody);
+            
+            $betreff = Yii::$app->params['passwordreset_sender_title'];
+            
+            $headers = array();
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+            
+            // Additional headers
+            //$headers[] = 'To: Mary <mary@example.com>, Kelly <kelly@example.com>';
+            //$headers[] = 'From: Birthday Reminder <birthday@example.com>';
+            
+            mail($email, $betreff, $emailbody, implode("\r\n", $headers));
+            
+            
+            FrontlogBase::addLog('Password Reset:' . $email, $userModel->id, true);
+            
+        }
+        
+        header('Content-type: application/json');
+        $this->layout=false;
+        echo json_encode($res);
+        exit;
+        
     }
     
     
@@ -694,7 +747,10 @@ class SiteController extends Controller
     
     public function actionTest()
     {
-        echo Yii::$app->getSecurity()->generatePasswordHash("Firma123&");
+        //echo Yii::$app->getSecurity()->generatePasswordHash("Firma123&");
+        
+        
+        echo date('c');
         exit;
         return $this->render('test', []);
     }
