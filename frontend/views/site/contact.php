@@ -63,15 +63,15 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
                 <form action="" >
                 	<div class="form-part-left" ng-if="!messageIsSent">
                      	<label>Name/Firma</label><br>
-                    	<input type="text" name="name" ng-model="message.name" placeholder="<?= Yii::t('app' , 'Name') ?>" class="contect-name"><br>
+                    	<input type="text" required="required" name="name" ng-model="message.name" placeholder="<?= Yii::t('app' , 'Name') ?>" class="contect-name"><br>
                     	<label>E-Mail</label><br>
-                    	<input type="text" name="email" ng-model="message.email" placeholder="<?= Yii::t('app' , 'E-Mail-Adresse') ?>" class="contect-email"><br>
+                    	<input type="text" required="required" name="email" ng-model="message.email" placeholder="<?= Yii::t('app' , 'E-Mail-Adresse') ?>" class="contect-email"><br>
                     	<label>Betreff</label><br>
-                    	<input type="text" name="title" ng-model="message.title" placeholder="<?= Yii::t('app' , 'Betreff') ?>" class="contect-title"><br>               	
+                    	<input type="text" required="required" name="title" ng-model="message.title" placeholder="<?= Yii::t('app' , 'Betreff') ?>" class="contect-title"><br>               	
                 	</div>
                 	<div class="form-part-right" ng-if="!messageIsSent">
                      	<label>Nachricht</label><br>
-                		<textarea name="text" ng-model="message.message" placeholder="<?= Yii::t('app' , 'Nachricht') ?>" maxlength="200" class="contect-text"></textarea><br>
+                		<textarea name="text" required="required" ng-model="message.message" placeholder="<?= Yii::t('app' , 'Nachricht') ?>" maxlength="200" class="contect-text"></textarea><br>
                 		
                 	</div>
             		<div class="message-sent-message"  ng-show="messageIsSent">
@@ -81,7 +81,8 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
                 	
                 	<div class="clear"></div>                	
                 	<div class="form-send">
-                     	<button type="button" ng-click="sendMessage();" class="contect-send"><?= Yii::t('app' , 'Senden') ?></button>
+                     	<button type="button" ng-if="!messageIsSent" ng-click="sendMessage();" class="contect-send"><?= Yii::t('app' , 'Senden') ?></button>
+                     	<button type="button" ng-if="messageIsSent" ng-click="resetMessage();" class="contect-send"><?= Yii::t('app' , 'Weitere Nachricht') ?></button>
                 	</div>
                 	
                 </form>

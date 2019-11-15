@@ -19,6 +19,9 @@ brainApp.controller('ContactController', ['$scope', '$http', '$sce', '$element',
 	
 	$scope.sendMessage = function(){
 		
+		if(!isMessageValid()){
+			return;
+		}
 		
 		$http({
 	        method : "POST",
@@ -35,6 +38,43 @@ brainApp.controller('ContactController', ['$scope', '$http', '$sce', '$element',
 	    });
 		
 	};
+	
+	$scope.resetMessage = function(){
+		
+		$scope.messageIsSent = false;
+		
+	};
+	
+	function isMessageValid(){
+		$scope.message.title = $scope.message.title.trim();
+		$scope.message.name = $scope.message.name.trim();
+		$scope.message.email = $scope.message.email.trim();
+		$scope.message.message = $scope.message.message.trim();
+		
+		var msg = "";
+		if($scope.message.name === ''){
+			msg += "ungültiger Name!\r\n";
+		}
+		
+		if($scope.message.title === ''){
+			msg += "ungültiger Titel!\r\n";
+		}
+
+		if($scope.message.email === ''){
+			msg += "ungültige E-Mail-Adresse!\r\n";
+		}
+
+		if($scope.message.message === ''){
+			msg += "ungültige Nachricht!\r\n";
+		}
+		
+		if(msg != ''){
+			alert(msg);
+			
+		}
+		
+		return msg === '';
+	}
 
 }]);
 
