@@ -43,6 +43,21 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 	$($(".teaser-box-container")[2]).delay(800).fadeIn();
 	$(".twobox-container .branch-box-company").delay(1100).fadeIn();
 	
+	$scope.activeProcessItem = function(item){
+		$(".process-item.active").removeClass("active")
+		
+		if($scope.lastctiveProcess !== item){
+			$("."+ item).addClass("active")			
+			$scope.lastctiveProcess = item;
+		}
+		else{
+			$scope.lastctiveProcess = "";
+		}
+		
+		$(".showcontent").removeClass("showcontent").hide();
+		$(".content_" + $scope.lastctiveProcess).addClass("showcontent").slideDown();
+	}
+	
 	$scope.activeProcess = function(item){
 		$(".triangle.up").removeClass("up")
 		
@@ -116,7 +131,7 @@ brainApp.controller('CandidateController', function ($scope, $http, $sce, $eleme
 	
 	function checkPiramid(){
 		
-		if ($(".was_wir_machen_bottom").data("show") == "0" && $(".was_wir_machen_bottom").is( ':in-viewport' ) ) {
+		if ($(".was_wir_machen_bottom").data("show") == "0" && $(".was_wir_machen_bottom").is(':in-viewport') ) {
 			$(".triangle.trapezoid5").delay(1700).fadeIn();
 			$(".triangle.trapezoid4").delay(1400).fadeIn();
 			$(".triangle.trapezoid3").delay(1100).fadeIn();

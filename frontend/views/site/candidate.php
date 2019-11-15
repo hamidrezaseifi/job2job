@@ -149,43 +149,42 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
     		<div class="width50">
 				<h2>UNSER VERMITTLUNGSPROZESS<br><strong>FÜR BEWERBER</strong></h2>
 
-                <div class="content_ showcontent">
-                    <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
-                </div>
-      
                 <div class="recruitment_content">
-                            
-                    <div class="hiddenj2j content_trapezoid5" style="display: block;">
+                    <div class="content_ showcontent">
+                        <p>Stein für Stein: Job2Job baut an Ihrer Zukunft. Warum wir uns gerne als Baumeister Ihrer beruflichen Träume sehen, verdeutlicht unser Pyramiden-Modell. Gemeinsam entwickeln wir einen Plan für Ihre persönliche berufliche Perspektive. Sie haben die Vision, wir das Know-how und die Beziehungen, um Sie Realität werden zu lassen. </p>
+                    </div>
+                                  
+                    <div class="hiddenj2j content_trapezoid5 content_process-item6" style="display: none;">
                       <div class="text-title-bewerber">1. Qualifikation und Chancen</div><br>
                       <p>  Gemeinsam mit Ihnen entwerfen wir das Gerüst für Ihren perfekten Job. Auf Basis Ihrer beruflichen Ziele, Gehaltsvorstellungen, Qualifikationen und Co. geben wir Ihnen eine realistische Einschätzung Ihrer Job-Chancen. 
                       </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_trapezoid4" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid4 content_process-item5" style="display: none;">
                       <div class="text-title-bewerber">2. Vorstellung passender Stellen</div><br>
                        <p> Was wünscht der Kunde von künftigen Mitarbeitern? Wie arbeitet es sich im entsprechenden Unternehmen? Gibt es Bonuszahlungen? Bekomme ich einen Firmenwagen? Wir stellen Ihnen nicht nur auf Sie zugeschnittene Positionen vor, sondern beantworten Ihnen alle wichtigen Fragen zur möglichen Stelle. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_trapezoid3" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid3 content_process-item4" style="display: none;">
                       <div class="text-title-bewerber">3. Präsentation beim Arbeitgeber </div><br>
                        <p> Sobald wir die passende Stelle für Sie gefunden haben, optimieren wir Ihre Bewerbungsunterlagen und stellen Sie beim Kunden vor. Unsere qualifizierte Vermittlung verschafft Ihnen einen entscheidenden Wettbewerbsvorteil gegenüber Ihren Mitbewerbern. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_trapezoid2" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid2 content_process-item3" style="display: none;">
                       <div class="text-title-bewerber">4. Interviews</div><br>
                        <p> Als aussichtsreicher Kandidat werden Sie zum Interview bei Ihrem potenziellen Arbeitgeber geladen. Wir sorgen dafür, dass Sie bestmöglich auf das Gespräch vorbereitet sind. Im Anschluss analysieren wir das Interview und geben Ihnen Tipps für künftige Gespräche mit auf den Weg. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_trapezoid1" style="display: none;">
+                    <div class="hiddenj2j content_trapezoid1 content_process-item2" style="display: none;">
                       <div class="text-title-bewerber">5. Vertrag</div><br>
                       <p>  Auch bei den Vertragsverhandlungen stehen wir Ihnen zur Seite. Wir führen die Verhandlungen und unterbreiten Ihnen das Angebot des Kunden. Zu einem Abschluss kommt es nur, wenn Sie rundum zufrieden sind. 
                         </p>
                     </div>  
                  
-                    <div class="hiddenj2j content_triangle-up" style="display: none;">
+                    <div class="hiddenj2j content_triangle-up content_process-item1" style="display: none;">
                       <div class="text-title-bewerber">6. Pflege</div><br>
                        <p> Eine ganzheitliche und nachhaltige Betreuung steht bei uns an oberster Stelle. Wir weichen Ihnen während des gesamten Recruitment-Prozesses nicht von der Seite und begleiten Sie auch darüber hinaus. 
                         </p>
@@ -194,54 +193,11 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 
     		</div>
     
-    		<?php if(false){?>
-    		<div class="width50">
-                <div class="squarewrapper2">
-                    <div class="square2 square-fixed">
-                        <div class="csscircle circleRad2">
-                            <div class="segmentwrapper segment1 fade-in2 one start" id="seg1">
-                                <div class="segment">
-                                  <div class="inner" id="seg1">
-                                  	<p class="circle2_text txt1-2">1. Qualifikation und Chancen</p>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="segmentwrapper segment2 fade-in2 two start" id="seg2">
-                                <div class="segment">
-                                	<div class="inner" id="seg2">
-                                		<p class="circle2_text txt2-2" style="max-width: 120px;">2. Vorstellung passender Stellen</p>
-                            		</div>
-                            	</div>
-                            </div>
-                            <div class="segmentwrapper segment3 fade-in2 three start" id="seg3">
-                                <div class="segment"><div class="inner" id="seg3">
-                        		<p class="circle2_text txt3-2">3. Präsentation beim Arbeitgeber</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment4 fade-in2 four start" id="seg4">
-                                <div class="segment"><div class="inner" id="seg4">
-                        		<p class="circle2_text txt4-2">4. Interviews</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment5 fade-in2 five start" id="seg5">
-                                <div class="segment"><div class="inner" id="seg5">
-                        		<p class="circle2_text txt5-2">5. Vertrag</p>
-                            </div></div>
-                            </div>
-                            <div class="segmentwrapper segment6 fade-in2 six start" id="seg6">
-                                <div class="segment"><div class="inner" id="seg6">
-                        		<p class="circle2_text txt6-2">6. Be-treuung</p>
-                            </div></div>
-                            </div>
-                             <div class="cutout3"><p class="fade-in five circle_text5 start"></p></div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-			<?php } ?>
 			
-			<div class="width50">
-				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up"><span class="triangle_content">Pflege</span></div>			
+			<div class="width50 no-mobile-item">
+				<div ng-click="activeProcess('triangle-up')" class="triangle triangle-up">
+					<span class="triangle_content">Pflege</span>
+				</div>			
 
 				<div ng-click="activeProcess('trapezoid1')" class="triangle trapezoid1">
 					<span class="triangle_content">Vertrag</span>
@@ -264,10 +220,38 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
 				</div>			
 			</div>
 			
-              <br>
-              <br>
+			<div class="width50 mobile-item">
+				<div ng-click="activeProcessItem('process-item6')" class="process-item process-item6">
+					<span class="triangle_content">1. Qualifikation und Chancen</span>
+				</div>			
+
+				<div ng-click="activeProcessItem('process-item5')" class="process-item process-item5">
+					<span class="triangle_content">2. Vorstellung passender Stellen</span>
+				</div>			
+
+				<div ng-click="activeProcessItem('process-item4')" class="process-item process-item4">
+					<span class="triangle_content">3. Präsentation beim Arbeitgeber</span>
+				</div>			
+
+				<div ng-click="activeProcessItem('process-item3')" class="process-item process-item3">
+					<span class="triangle_content">4. Interviews</span>
+				</div>			
+
+				<div ng-click="activeProcessItem('process-item2')" class="process-item process-item2">
+					<span class="triangle_content">5. Vertrag</span>
+				</div>			
+
+				<div ng-click="activeProcessItem('process-item1')" class="process-item process-item1">
+					<span class="triangle_content">6. Pflege</span>
+				</div>			
+
+			</div>
+			
+            <br>
+            <br>
               
           </div>
+          <div class="clear"></div>
 		<div class="was_wir_machen_bottom" data-show="0"> </div>          
     </div>
     
@@ -276,17 +260,6 @@ $this->registerJsFile ( "@web/web/js/recommandation-slider.js", [ ], 'js-recomma
     ?>
 
  
- 	<?php if(false){?>
-    <div class="boxes-ref">
-		<div class="content-center statistic-anim" >
-			<div class="width25" ng-repeat="statistc in numberStatictics">
-				<div class="vertical-align">
-					<h5 class="count_up finished">{{Math.round(statistc.currentValue)}}</h5><h5><em>{{statistc.label}}</em></h5>
-				</div>
-			</div>
-		</div>
-    </div>
-    <?php } ?>
 </div>	
 
 

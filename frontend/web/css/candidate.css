@@ -126,6 +126,27 @@
 	padding: 2px;
 }
 
+.process-item{
+    margin: 0 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    color: #fffff4;
+    background-color: #4b87bc;
+}
+
+.process-item.active{
+    margin: 0 !important;
+}
+
+.process-item:nth-child(odd){
+    background-color: #4b87bc;
+}
+
+.process-item:nth-child(even){
+    background-color: #3c71a0;
+}
+
 .triangle 
 {
     border-left: 40px solid transparent;
@@ -246,6 +267,16 @@
     margin-top: -10px;
 }    
 
+.no-mobile-item
+{
+	display: block !important;	
+}
+
+.mobile-item
+{
+	display: none !important;	
+}
+
 @media(max-width: 1350px)
 {
 
@@ -269,6 +300,28 @@
 		margin-left: calc(50vw - 175px);
 		margin-right: calc(50vw - 175px);
 		float: none;	
+	}
+	
+	.twobox-container .job-box
+	{
+		margin-left: calc(50vw - 175px);
+		margin-right: calc(50vw - 175px);
+		float: none;	
+	}
+	
+}	
+
+@media(max-width: 470px)
+{
+
+	.no-mobile-item
+	{
+		display: none !important;	
+	}
+	
+	.mobile-item
+	{
+		display: block !important;	
 	}
 	
 	.twobox-container .job-box
@@ -324,5 +377,5 @@
 }
 
 .recruitment_content{
-	min-height: 140px;
+	min-height: 230px;
 }

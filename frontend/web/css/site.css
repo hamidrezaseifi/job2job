@@ -456,6 +456,9 @@ h6 {
 	  float: none !important;
 	}
 	
+	.recommendations-slider{
+		display: none !important;
+	}
 	
 }
 
