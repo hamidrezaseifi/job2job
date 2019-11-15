@@ -45,7 +45,7 @@ $drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
 	    } else {
 	    	$allowed_nav = BrainSiteUserManager::getAllowedNavigationList();
 	    	//print_r($allowed_nav);
-	    	$menuItems = NavigationBase::listNavigation('en', 'backend' , 0 , $allowed_nav);
+	    	$menuItems = NavigationBase::listNavigation('de', 'backend' , 0 , $allowed_nav);
 	    	
 	        $menuItems[] = array('label' => 'Logout', 'url' => array('/site/logout') , 'image'=>'glyphicon glyphicon-log-out');
 	    }

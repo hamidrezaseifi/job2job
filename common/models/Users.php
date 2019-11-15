@@ -51,7 +51,7 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['uname', 'fname', 'lname', 'createdate'], 'required'],
+            [['uname', 'fname', 'lname', 'password_hash'], 'required'],
             [['bdate', 'createdate', 'updatedate'], 'safe'],
             [['usertype', 'group', 'permission', 'receive_backend_email', 'status'], 'integer'],
             [['uname', 'fname', 'lname'], 'string', 'max' => 45],

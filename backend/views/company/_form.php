@@ -3,16 +3,22 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\helper\BrainHelper;
+use backend\components\TelephonPreview;
 
 /* @var $this yii\web\View */
 /* @var $model common\lib\CompanyBase */
-/* @var $form yii\widgets\ActiveForm */
 /* @var $companytypeList array */
 /* @var $employeecountList array */
-/* @var $personalEntscheider common\lib\PersonaldecisionmakerBase */
-/* @var $stellVertreter common\lib\PersonaldecisionmakerBase */
-/* @var $logopath string */
 /* @var $logoModel common\lib\UploadedfilesBase */
+/* @var $personalEntscheiderModel common\lib\PersonaldecisionmakerBase */
+/* @var $stellVertreterModel common\lib\PersonaldecisionmakerBase */
+/* @var $personalEntscheiderUserModel common\lib\UsersBase */
+/* @var $stellVertreterUserModel common\lib\UsersBase */
+/* @var $connectedCompanies array */
+/* @var $logopath string */
+/* @var $titleList array */
+/* @var $title2List array */
+/* @var $reachabiltyList array */
 
 $this->registerCssFile("@web/web/css/company-form.css", [], 'css-company-form');
 $this->registerJsFile("@web/web/js/company-form.js", [], 'js-company-form');
@@ -20,14 +26,7 @@ $this->registerJsFile("@web/web/js/company-form.js", [], 'js-company-form');
 $showlogopath = $logopath ? $logopath : Yii::getAlias('@web') . '/web/images/person.png';
 $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
 
-$personalEntscheiderName = $personalEntscheider ? $personalEntscheider->title . ' ' . $personalEntscheider->getUser()->fullname() : Yii::t('app', 'nicht eingestellt');
-$personalEntscheiderID = $personalEntscheider ? $personalEntscheider->userid : 0;
 
-$stellVertreterName = $stellVertreter ? $stellVertreter->title . ' ' . $stellVertreter->getUser()->fullname() : Yii::t('app', 'nicht eingestellt');
-$stellVertreterID = $stellVertreter ? $stellVertreter->userid : 0;
-
-//echo $model->founddate; exit;
-$model->founddate = BrainHelper::dateEnglishToGerman($model->founddate);
 ?>
 <style>
   
@@ -40,7 +39,7 @@ $model->founddate = BrainHelper::dateEnglishToGerman($model->founddate);
  
 <div style="clear: both;"></div>
   
-<div class="company-base-form">
+<div class="company-base-form" ng-controller="CompanyController">
 	<?php if(!$model->isNewRecord) {?>
     <?php $form = ActiveForm::begin(['id' => 'logoform', 'action' => $logochangeurl, 'options' =>['enctype' => 'multipart/form-data'],]); ?>
 	<input type="hidden" name="setlogo" value="1">
@@ -89,7 +88,7 @@ $model->founddate = BrainHelper::dateEnglishToGerman($model->founddate);
 
     <?= $form->field($model, 'companytype')->dropDownList($companytypeList) ?>
 
-    <?= $form->field($model, 'founddate')->textInput(['class' => 'form-control calender-icon']) ?>
+    <?= $form->field($model, 'founddate')->textInput(['class' => 'form-control calender-icon founddate']) ?>
 
     <?= $form->field($model, 'taxid')->textInput(['maxlength' => true]) ?>
 
@@ -101,20 +100,72 @@ $model->founddate = BrainHelper::dateEnglishToGerman($model->founddate);
 
     <?= $form->field($model, 'status')->radioList([0 => Yii::t('app', 'Inaktiv'), 1 => Yii::t('app', 'Aktiv')], ['class' => 'form-control', ]) ?>
 
-	<div class="form-group field-pet" style="height: 55px;">
+	<div class="form-group form-control personal-container">
 		<label class="control-label" for="companybase-employeecountindex"><?=Yii::t('app', 'Personalentscheider')?></label>
-		<div id="companybase-pet" class="form-control" style="float: left;" ><?=$personalEntscheiderName ?></div>
-		<a href="javascript:browsPdt(0)" class="browspdt" title=""><span class="glyphicon glyphicon-search"></span></a>
-		<a href="javascript:clearPdt()" class="removepdt" title=""><span class="glyphicon glyphicon-remove"></span></a>
-		<input type="hidden" id="companybase-pet-id" name="petid" value="<?=$personalEntscheiderID ?>">
+		
+		<div class="personal-data">
+       
+            <?= $form->field($personalEntscheiderModel, 'title')->dropDownList($titleList, ['name' => 'PET[title]']) ?>
+        
+            <?= $form->field($personalEntscheiderModel, 'title2')->dropDownList($title2List, ['name' => 'PET[title2]']) ?>
+        
+            <?= $form->field($personalEntscheiderUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PETUsersBase[fname]' ]) ?>
+        
+            <?= $form->field($personalEntscheiderUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'PETUsersBase[lname]' ]) ?>
+        
+            <?= $personalEntscheiderUserModel->isNewRecord ? $form->field($personalEntscheiderUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'required' => true  , 'name' => 'PETUsersBase[password_hash]']) : '' ?>
+        
+            <?= $form->field($personalEntscheiderUserModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon petbdate' , 'name' => 'PETUsersBase[bdate]']) ?>
+        
+            <?= $form->field($personalEntscheiderModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PET[email]']) ?>
+        
+            <?= $form->field($personalEntscheiderModel, 'cellphone')->textInput(['maxlength' => true, 'name' => 'PET[cellphone]']) ?>
+
+            <?= $form->field($personalEntscheiderModel, 'tel')->textInput(['maxlength' => true, 'name' => 'PET[tel]']) ?>
+            
+            <?= $form->field($personalEntscheiderModel, 'reachability')->checkboxList($reachabiltyList , ['name' => 'PET[reachability]', ]) ?>
+        
+            <?= $form->field($personalEntscheiderModel, 'contacttime')->textInput(['maxlength' => true, 'name' => 'PET[contacttime]']) ?>
+        
+            <?= $form->field($personalEntscheiderUserModel, 'status')->radioList([0 => Yii::t('app', 'Inaktiv'), 1 => Yii::t('app', 'Aktiv')], ['class' => 'form-control', 'name' => 'PETUsersBase[status]' ]) ?>
+                
+	
+		</div>
 	</div>
 
-	<div class="form-group field-st" style="height: 55px;">
+	<div class="form-group form-control personal-container">
 		<label class="control-label" for="companybase-employeecountindex"><?=Yii::t('app', 'Stellvertreter')?></label>
-		<div id="companybase-sv" class="form-control" style="float: left;" ><?=$stellVertreterName ?></div>
-		<a href="javascript:browsPdt(1)" class="browssv" title=""><span class="glyphicon glyphicon-search"></span></a>
-		<a href="javascript:clearSv()" class="removesv" title=""><span class="glyphicon glyphicon-remove"></span></a>
-		<input type="hidden" id="companybase-sv-id" name="svid" value="<?=$stellVertreterID ?>">
+		<input type="checkbox" ng-checked="!deputy.isNew" ng-model="showDeputy">
+		<input type="hidden" name="SV[set]" ng-value="showDeputy">
+		<div class="personal-data" ng-if="showDeputy">
+         
+            
+        
+            <?= $form->field($stellVertreterModel, 'title')->dropDownList($titleList, ['name' => 'SV[title]']) ?>
+        
+            <?= $form->field($stellVertreterModel, 'title2')->dropDownList($title2List, ['name' => 'SV[title2]']) ?>
+        
+            <?= $form->field($stellVertreterUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[fname]' ]) ?>
+        
+            <?= $form->field($stellVertreterUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[lname]' ]) ?>
+        
+            <?= $stellVertreterUserModel->isNewRecord ? $form->field($stellVertreterUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[password_hash]']) : '' ?>
+        
+            <?= $form->field($stellVertreterUserModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon svbdate' , 'name' => 'SVUsersBase[bdate]' , 'id' => 'svuserbdate']) ?>
+        
+            <?= $form->field($stellVertreterModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'SV[email]']) ?>
+        
+            <?= $form->field($stellVertreterModel, 'cellphone')->textInput(['maxlength' => true, 'name' => 'SV[cellphone]']) ?>
+
+            <?= $form->field($stellVertreterModel, 'tel')->textInput(['maxlength' => true, 'name' => 'SV[tel]']) ?>
+            
+            <?= $form->field($stellVertreterModel, 'reachability')->checkboxList($reachabiltyList , ['name' => 'SV[reachability]', ]) ?>
+        
+            <?= $form->field($stellVertreterModel, 'contacttime')->textInput(['maxlength' => true, 'name' => 'SV[contacttime]']) ?>
+        
+            <?= $form->field($stellVertreterUserModel, 'status')->radioList([0 => Yii::t('app', 'Inaktiv'), 1 => Yii::t('app', 'Aktiv')], ['class' => 'form-control', 'name' => 'SVUsersBase[status]' ]) ?>
+	
+		</div>
 	</div>
     
 	<div class="form-group">
@@ -146,4 +197,20 @@ $model->founddate = BrainHelper::dateEnglishToGerman($model->founddate);
 		</ul>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+var companyModel = <?php echo json_encode($model->getAttributes());?>;
+companyModel.isNew = <?php echo $model->isNewRecord == 1 ? 'true' : 'false';?>;
+
+var personaldecisionmaker = <?php echo json_encode($personalEntscheiderModel->getAttributes());?>;
+
+var personaldecisionmakerUser = <?php echo json_encode($personalEntscheiderUserModel->getAttributes());?>;
+
+var deputy = <?php echo json_encode($stellVertreterModel->getAttributes());?>;
+deputy.isNew = <?php echo $stellVertreterModel->isNewRecord == 1 ? 'true' : 'false';?>;
+
+var deputyUser = <?php echo json_encode($stellVertreterUserModel->getAttributes());?>;
+
+</script>
 

@@ -56,7 +56,7 @@ class UsersSearchBase extends UsersBase
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            //'usertype' => $this->usertype,
+            'usertype' => $this->usertype,
             'createdate' => $this->createdate,
             'updatedate' => $this->updatedate,
             'group' => $this->group,

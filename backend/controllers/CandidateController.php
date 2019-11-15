@@ -122,7 +122,8 @@ class CandidateController extends Controller
         	$_POST['UsersBase']['status'] = UsersBase::UserStatusActive;
         	$_POST['UsersBase']['group'] = 2;
         	$_POST['UsersBase']['permission'] = 2;
-        	 
+        	$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCandidate;
+        	
         	$_POST['UsersBase']['createdate'] = date('Y-m-d H:i:s');
         	$_POST['UsersBase']['updatedate'] = $_POST['UsersBase']['createdate'];
         	$_POST['CandidateBase']['createdate'] = $_POST['UsersBase']['createdate'];
@@ -211,6 +212,7 @@ class CandidateController extends Controller
     		
     		$_POST['UsersBase']['bdate'] = BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']);
     		$_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
+    		$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCandidate;
     		
     		//print_r($_POST['UsersBase']); exit;
     		

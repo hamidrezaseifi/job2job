@@ -24,17 +24,13 @@ foreach ($allconnected as $comp)
 
 $personal = $model->personalDecisionMakerList();
 
-$pd1 = [
-		'label' => Yii::t('app', 'Personalentscheider'),
+$pd1 = ['label' => Yii::t('app', 'Personalentscheider'),
 		'format' => 'raw',
-		'value' => Yii::t('app', 'nicht eingestellt') ,
-];
+		'value' => Yii::t('app', 'nicht eingestellt') ,];
 
-$pd2 = [
-			'label' => Yii::t('app', 'Stellvertreter'),
+$pd2 = ['label' => Yii::t('app', 'Stellvertreter'),
 			'format' => 'raw',
-			'value' => Yii::t('app', 'nicht eingestellt') ,
-		];
+			'value' => Yii::t('app', 'nicht eingestellt') ,];
 
 
 //print_r($personal); exit;
@@ -59,13 +55,6 @@ foreach ($personal as $ped)
 <?php if(!$fromapply){?>
     <p>
         <?= Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
     </p>
 <?php } ?>
     <?= DetailView::widget([

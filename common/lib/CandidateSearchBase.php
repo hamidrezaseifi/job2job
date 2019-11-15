@@ -19,8 +19,7 @@ class CandidateSearchBase extends CandidateBase
     public function rules()
     {
         return [
-            [['userid', 'employment', 'jobtype', 'desiredjobregion'], 'integer'],
-            [['title', 'title2', 'nationality', 'photo', 'email', 'pcode', 'city', 'country', 'address', 'cellphone', 'tel', 'reachability', 'contacttime', 'availability', 'availablefrom', 'desiredjobpcode', 'desiredjobcity', 'desiredjobcountry', 'coverletter', 'createdate', 'updatedate'], 'safe'],
+            [['userid', 'employment', 'desiredjobregion'], 'integer'],
         ];
     }
 
@@ -59,17 +58,16 @@ class CandidateSearchBase extends CandidateBase
     	}
     
     	// grid filtering conditions
-    	$query->andFilterWhere([
+    	/*$query->andFilterWhere([
     			'userid' => $this->userid,
     			'employment' => $this->employment,
-    			'jobtype' => $this->jobtype,
     			'availablefrom' => $this->availablefrom,
     			'desiredjobregion' => $this->desiredjobregion,
     			'createdate' => $this->createdate,
     			'updatedate' => $this->updatedate,
-    	]);
+    	]);*/
     
-    	$query->andFilterWhere(['like', 'title', $this->title])
+    	/*$query->andFilterWhere(['like', 'title', $this->title])
     	->andFilterWhere(['like', 'title2', $this->title2])
     	->andFilterWhere(['like', 'nationality', $this->nationality])
     	->andFilterWhere(['like', 'photo', $this->photo])
@@ -86,7 +84,7 @@ class CandidateSearchBase extends CandidateBase
     	->andFilterWhere(['like', 'desiredjobpcode', $this->desiredjobpcode])
     	->andFilterWhere(['like', 'desiredjobcity', $this->desiredjobcity])
     	->andFilterWhere(['like', 'desiredjobcountry', $this->desiredjobcountry])
-    	->andFilterWhere(['like', 'coverletter', $this->coverletter]);
+    	->andFilterWhere(['like', 'coverletter', $this->coverletter]);*/
     
     	return $dataProvider;
     }

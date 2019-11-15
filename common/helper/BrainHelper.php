@@ -8,7 +8,27 @@ use yii\base\InvalidParamException;
 
 class BrainHelper 
 {
-
+    
+    public static function dateAsEnglish($idate)
+    {
+        if($idate == '' || $idate == null) return $idate;
+        
+        $formatter = \Yii::$app->formatter;
+        $formatter->timeZone = 'UTC';
+        return $formatter->asDate($idate, 'php:Y-m-d');
+        
+    }
+    
+    public static function dateAsGerman($idate)
+    {
+        if($idate == '' || $idate == null) return $idate;
+        
+        $formatter = \Yii::$app->formatter;
+        $formatter->timeZone = 'UTC';
+        return $formatter->asDate($idate, 'php:d.m.Y');
+        
+    }
+    
 	public static function dateGermanToEnglish($idate)
 	{
 		if($idate == '' || $idate == null) return $idate;
@@ -42,47 +62,7 @@ class BrainHelper
 		return $formatter->asDate($idate, 'php:'.$outformat);
 	}
 	
-	/**
-	 * Builds a map (key-value pairs) from a multidimensional array or an array of objects.
-	 * The `$from` and `$to` parameters specify the key names or property names to set up the map.
-	 * Optionally, one can further group the map according to a grouping field `$group`.
-	 *
-	 * For example,
-	 *
-	 * ```php
-	 * $array = [
-	 *     ['id' => '123', 'name' => 'aaa', 'class' => 'x'],
-	 *     ['id' => '124', 'name' => 'bbb', 'class' => 'x'],
-	 *     ['id' => '345', 'name' => 'ccc', 'class' => 'y'],
-	 * ];
-	 *
-	 * $result = ArrayHelper::map($array, 'id', 'name');
-	 * // the result is:
-	 * // [
-	 * //     '123' => 'aaa',
-	 * //     '124' => 'bbb',
-	 * //     '345' => 'ccc',
-	 * // ]
-	 *
-	 * $result = ArrayHelper::map($array, 'id', 'name', 'class');
-	 * // the result is:
-	 * // [
-	 * //     'x' => [
-	 * //         '123' => 'aaa',
-	 * //         '124' => 'bbb',
-	 * //     ],
-	 * //     'y' => [
-	 * //         '345' => 'ccc',
-	 * //     ],
-	 * // ]
-	 * ```
-	 *
-	 * @param array $array
-	 * @param string $from
-	 * @param string $to
-	 * @param string $group
-	 * @return array
-	 */
+	
 	public static function mapTranslate($array, $from, $to, $mapvalue = true, $mapkey = false)
 	{
 		$result = [];

@@ -122,7 +122,8 @@ class PdtController extends Controller
         	$_POST['UsersBase']['bdate'] = BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']);
         	$_POST['UsersBase']['group'] = 2;
         	$_POST['UsersBase']['permission'] = 2;
-        	 
+        	$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCompany;
+        	
         	$userModel->load($_POST);
         	if($userModel->save(false))
         	{
@@ -188,7 +189,8 @@ class PdtController extends Controller
         	$_POST['UsersBase']['bdate'] = BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']);
         	$_POST['UsersBase']['group'] = 2;
         	$_POST['UsersBase']['permission'] = 2;
-        	 
+        	$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCompany;
+        	
 		    $_POST['PersonaldecisionmakerBase']['reachability'] = '';
         	$_POST['reachability'] = isset($_POST['reachability']) && is_array($_POST['reachability']) ? $_POST['reachability'] : array();
         	foreach ($_POST['reachability'] as $reach)

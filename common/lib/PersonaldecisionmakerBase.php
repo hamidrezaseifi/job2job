@@ -73,7 +73,6 @@ class PersonaldecisionmakerBase extends \common\models\Personaldecisionmaker
      */
     public function getUsers()
     {
-    	//return UsersBase::find()->where(['id' => $this->userid])->one();
     	return $this->hasOne(UsersBase::className(), ['id' => 'userid']);
     }
     

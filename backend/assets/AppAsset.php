@@ -29,8 +29,7 @@ class AppAsset extends AssetBundle
         'angular/angular-cookies.min.js',
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        
     ];
     
     public $jsOptions = ['position' => 1];

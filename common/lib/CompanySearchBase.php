@@ -19,7 +19,6 @@ class CompanySearchBase extends CompanyBase
     {
         return [
             [['id', 'companytype', 'employeecountindex', 'status'], 'integer'],
-            [['companyname', 'founddate', 'adress', 'taxid', 'homepage', 'logo', 'createdate', 'updatedate'], 'safe'],
         ];
     }
 
@@ -58,7 +57,7 @@ class CompanySearchBase extends CompanyBase
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
+        /*$query->andFilterWhere([
             'id' => $this->id,
             'companytype' => $this->companytype,
             'founddate' => $this->founddate,
@@ -72,7 +71,7 @@ class CompanySearchBase extends CompanyBase
             ->andFilterWhere(['like', 'adress', $this->adress])
             ->andFilterWhere(['like', 'taxid', $this->taxid])
             ->andFilterWhere(['like', 'homepage', $this->homepage])
-            ->andFilterWhere(['like', 'logo', $this->logo]);
+            ->andFilterWhere(['like', 'logo', $this->logo]);*/
 
         return $dataProvider;
     }

@@ -1,14 +1,51 @@
 
-$(document).ready(function(){
+
+brainApp.controller('CompanyController', function ($scope, $http, $sce, $element) {
+
+	$scope.companyModel = companyModel;
+
+	$scope.personaldecisionmaker = personaldecisionmaker;
+
+	$scope.personaldecisionmakerUser = personaldecisionmakerUser;
+
+	$scope.deputy = deputy;
+
+	$scope.deputyUser = deputyUser;
+
+	$scope.showDeputy = !$scope.deputy.isNew;
+
 	
+
 	$("#dvbrowspdt").hide();
 
 	$.datepicker.setDefaults($.datepicker.regional["de"]);
-	$("input.calender-icon").datepicker({
+
+    $("input.founddate").datepicker({
 	      changeMonth: true,
 	      changeYear: true,
 	      maxDate: "0D"
-	    });
+    });
+    
+    $("input.petbdate").datepicker({
+	      changeMonth: true,
+	      changeYear: true,
+	      maxDate: "0D"
+    });
+
+	$scope.$watch('showDeputy', function (newValue, oldValue, scope) {
+	    //alert("new: " + newValue + "\r\nold: " + oldValue);
+		
+		setTimeout(function(){ 
+		    $("input.svbdate").datepicker({
+			      changeMonth: true,
+			      changeYear: true,
+			      maxDate: "0D"
+		    });
+
+		}, 500);
+	});
+	
+	
 
 	$("#deleteconnectedcompany").hide();
 	$("#newconcompany").hide();
@@ -45,8 +82,7 @@ $(document).ready(function(){
 		selected: function(){ 
 			$("#deleteconnectedcompany").show();
 		}
-	});
-	
+	});	
 });
 
 function browsPdt(isdep)
