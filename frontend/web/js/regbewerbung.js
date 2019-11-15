@@ -3,10 +3,12 @@ $(document).ready(function(){
 	
 	$.datepicker.setDefaults($.datepicker.regional["de"]);
 	$("input[name='UsersBase[bdate]']").datepicker({
-	      changeMonth: true,
-	      changeYear: true,
-	      
-	    });
+        format: "dd.mm.yyyy",
+        language: "de",
+        autoclose: true,
+        todayHighlight: true,
+        endDate: new Date(),
+    });
 	
 	
 	

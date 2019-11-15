@@ -50,10 +50,12 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         	
             setTimeout(() => {
             	$("#workpermissionlimit").datepicker({
-        	        format: "dd.mm.yyyy",
-        	        language: "de",
-        	        autoclose: true,
-        	        todayHighlight: true,
+                    format: "dd.mm.yyyy",
+                    language: "de",
+                    autoclose: true,
+                    todayHighlight: true,
+                    startView: 1,
+                    startDate: new Date(),
                 });
     		}, 500);
         	
@@ -97,11 +99,12 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
     		
     		setTimeout(() => {
     			$("input[name='CandidateBase[availablefrom]']").datepicker({
-        	        format: "dd.mm.yyyy",
-        	        language: "de",
-        	        autoclose: true,
-        	        todayHighlight: true,
-        	    });
+    		        format: "dd.mm.yyyy",
+    		        language: "de",
+    		        autoclose: true,
+    		        todayHighlight: true,
+    		        startDate: new Date(),
+    		    });
     		}, 1000);
     		
     		
@@ -113,6 +116,7 @@ brainApp.controller('CandidateContentController', ['$scope', '$http', '$element'
         language: "de",
         autoclose: true,
         todayHighlight: true,
+        endDate: new Date(),
     });
     
     

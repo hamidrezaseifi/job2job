@@ -28,9 +28,8 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
         language: "de",
         autoclose: true,
         todayHighlight: true,
+        startView: 1,
         startDate: new Date(),
-        calendarWeeks: true,
-        defaultViewDate :jobposition.expiredate,
     });
 
 	
@@ -165,13 +164,7 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 		}
 		
 	}
-
-	$("input.calender-icon[name='expiredate']").datepicker({
-	        format: "dd.mm.yyyy",
-	        language: "de",
-	        autoclose: true,
-	        todayHighlight: true,
-	    });
+	
 
 	$(".wizard-item2").hide();
 	$(".wizard-item3").hide();

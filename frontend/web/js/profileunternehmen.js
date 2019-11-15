@@ -52,6 +52,7 @@ brainApp.controller('CompanyContentController', ['$scope', '$http', '$element', 
         	        language: "de",
         	        autoclose: true,
         	        todayHighlight: true,
+        	        endDate: new Date(),
                 });
     		}, 500);
         	
@@ -272,6 +273,7 @@ brainApp.controller('CompanyContentController', ['$scope', '$http', '$element', 
 			        language: "de",
 			        autoclose: true,
 			        todayHighlight: true,
+			        startDate: new Date(),
 			});
 		}
 	});

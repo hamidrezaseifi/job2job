@@ -7,6 +7,7 @@ $(document).ready(function(){
         language: "de",
         autoclose: true,
         todayHighlight: true,
+        endDate: new Date(),
     });
 	
 	
