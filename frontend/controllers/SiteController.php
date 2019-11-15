@@ -26,6 +26,8 @@ use common\lib\CandidatefavoriteBase;
 use common\lib\CandidatejobapplyBase;
 use common\lib\RecommendationBase;
 use common\lib\CallrequestBase;
+use frontend\modules\ControllerHelper;
+use common\lib\ContactmessageBase;
 
 /**
  * Site controller
@@ -446,8 +448,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if(isset($_GET['u'])){
             $verifydataStrHash = $_GET['u'];
-            $verifydataSer = base64_decode($verifydataStrHash);
-            $verifydata = unserialize($verifydataSer);
+            $verifydata = ControllerHelper::readHash($verifydataStrHash);
             $model->username = $verifydata['uem'];
             $model->password = $verifydata['p'];
         }
@@ -472,13 +473,7 @@ class SiteController extends Controller
     }
 
     public function actionResetpassword()
-    {
-        //return $this->redirect(Yii::getAlias('@web'));
-        
-        //return $this->render('resetpassword', [
-        //    'isindex' => false
-        //]);
-        
+    {       
         $params = Yii::$app->getRequest()->getBodyParams();
         
         $res = ['res' => 'ok'];
@@ -498,9 +493,7 @@ class SiteController extends Controller
             $verifydata['uem'] = $email;
             $verifydata['dt'] = date('c');
             
-            $verifydataSer = serialize($verifydata);
-            $verifydataStrHash = base64_encode($verifydataSer);
-            
+            $verifydataStrHash = ControllerHelper::createHash($verifydata);            
             
             $verifyurl = "http://" . $_SERVER['HTTP_HOST'] . Yii::getAlias("@web") . '/site/newpassword';
             $verifyurl .= '?a=' . urlencode($verifydataStrHash);
@@ -534,31 +527,49 @@ class SiteController extends Controller
     }
     
     
+    public function actionContactmessage()
+    {
+        $params = Yii::$app->getRequest()->getBodyParams();
+        
+        $res = ['res' => 'error'];
+        
+        $data = [];
+        $data['ContactmessageBase'] = [];
+        $data['ContactmessageBase']['name'] = $params['name'];
+        $data['ContactmessageBase']['email'] = $params['email'];
+        $data['ContactmessageBase']['title'] = $params['title'];
+        $data['ContactmessageBase']['message'] = $params['message'];
+        
+        $model = new ContactmessageBase();
+        $model->load($data);
+        if($model->save(false)){
+            $res['res'] = 'ok';
+        }
+                
+        header('Content-type: application/json');
+        $this->layout=false;
+        echo json_encode($res);
+        exit;
+        
+    }
+    
     public function actionNewpassword()
     {
         $verifydataStrHash = $_GET['a'];
         $verifydataSer = base64_decode($verifydataStrHash);
         $verifydata = unserialize($verifydataSer);
         
-        
-        //$verifydata['uid'] = $userModel->id;
-        //$verifydata['uem'] = $email;
-        //$verifydata['dt'] = date('c');
         $userModel = UsersBase::findOne(['uname' => $verifydata['uem']]);
-        
-        //print_r($verifydata); exit;
         
         if (count($_POST) > 0) {
             
-            $password = $_POST['UsersBase']['password_hash'];
+            $verifydata['p'] = $_POST['UsersBase']['password_hash'];
             $_POST['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST["UsersBase"]['password_hash']);
              
             $userModel->load($_POST);
             if($userModel->save(false)){
                 
-                $verifydata['p'] = $password;
-                $verifydataSer = serialize($verifydata);
-                $verifydataStrHash = base64_encode($verifydataSer);
+                $verifydataStrHash = ControllerHelper::createHash($verifydata);
                 
                 return $this->redirect("login?u=" . $verifydataStrHash);
                 
@@ -576,8 +587,6 @@ class SiteController extends Controller
     
     public function actionRegister()
     {
-        //return $this->redirect(Yii::getAlias('@web'));
-        
         if (! Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -654,21 +663,20 @@ class SiteController extends Controller
                 $pdmModel->save(false);
             }
 
-            $verifydata = array();
-            $verifydata['uid'] = $userid;
-            $verifydata['utp'] = $_POST['UsersBase']['usertype'];
+            
+            $verifyDataArray = array();
+            $verifyDataArray['uid'] = $userid;
+            $verifyDataArray['utp'] = $_POST['UsersBase']['usertype'];
 
-            $verifydataa = serialize($verifydata);
-            $verifydataa = base64_encode($verifydataa);
+            $verifyDataHashA = ControllerHelper::createHash($verifyDataArray);
 
-            $verifydata['checkubd'] = $_POST['UsersBase']['bdate'];
-            $verifydata['checkuca'] = $_POST['UsersBase']['createdate'];
+            $verifyDataArray['checkubd'] = $_POST['UsersBase']['bdate'];
+            $verifyDataArray['checkuca'] = $_POST['UsersBase']['createdate'];
 
-            $verifydatab = serialize($verifydata);
-            $verifydatab = base64_encode($verifydatab);
-
+            $verifyDataHashB = ControllerHelper::createHash($verifyDataArray);
+            
             $verifyurl = "http://" . $_SERVER['HTTP_HOST'] . str_replace('/site/register', '/' . ($_POST["data"]["regtype"] == 1 ? 'candidate' : 'company') . '/verify', $_SERVER['REDIRECT_URL']);
-            $verifyurl .= '?a=' . urlencode($verifydataa) . '&b=' . urlencode($verifydatab);
+            $verifyurl .= '?a=' . urlencode($verifyDataHashA) . '&b=' . urlencode($verifyDataHashB);
             $verifytextfile = dirname(__DIR__) . '/views/site/verifytext.php';
             $emailbody = file_get_contents($verifytextfile);
             $emailbody = str_replace('%link', $verifyurl, $emailbody);

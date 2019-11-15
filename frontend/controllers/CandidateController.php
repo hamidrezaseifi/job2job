@@ -24,6 +24,7 @@ use common\lib\CandidatejobapplyBase;
 use common\lib\JobpositionBaseSearch;
 use common\lib\CandidatejobapplyBaseSearch;
 use common\lib\FrontlogBase;
+use frontend\modules\ControllerHelper;
 
 /**
  * Site controller
@@ -606,52 +607,12 @@ class CandidateController extends Controller
             }
         }
 
-        $a = isset($_GET['a']) ? $_GET['a'] : false;
-        $b = isset($_GET['b']) ? $_GET['b'] : false;
-
-        if (! $a || ! $b) {
-            return $this->redirect('../site/invalidpage?msg=1111');
+        $res = ControllerHelper::readVerificationData(UsersBase::UserTypeCandidate);
+        if($res['msg']){
+            return $this->redirect(['/site/invalidpage' , 'msg' => urlencode($res['msg'])] );
         }
-
-        $verifydatab = base64_decode($b);
-        $verifydataa = base64_decode($a);
-
-        //print_r($verifydataa);
-        //echo '<hr>';
-        //print_r($verifydatab);
-        //exit;
-        if (! $verifydatab || ! $verifydataa) {
-            return $this->redirect('../site/invalidpage?msg=22222');
-        }
-
-        $verifydatab = unserialize($verifydatab);
-        $verifydataa = unserialize($verifydataa);
-
-        if (! $verifydatab || ! $verifydataa) {
-            return $this->redirect('../site/invalidpage?msg=3333');
-        }
-
-        if (intval($verifydataa['uid']) <= 0 || $verifydataa['uid'] != $verifydatab['uid']) {
-            return $this->redirect('../site/invalidpage?msg=4444');
-        }
-
-        if (intval($verifydataa['utp']) != UsersBase::UserTypeCandidate) {
-            return $this->redirect('../site/invalidpage?msg=5555');
-        }
-
-        $verifydatab['checkuca'] = strlen($verifydatab['checkuca'] > 10) ? substr($verifydatab['checkuca'], 0 , 10) : $verifydatab['checkuca'];
-        $date = date_create_from_format('Y-m-d', $verifydatab['checkuca']);
-        if (! $date) {
-            // echo $verifydatab['checkuca'];
-            return $this->redirect('../site/invalidpage?msg=6666');
-        }
-        $interval = date_diff($date, date_create());
-
-        if (intval($interval->format('%a')) > 1) {
-            $this->redirect(['/site/invalidpage' , 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!'))] );
-        }
-
-        $userid = intval($verifydataa['uid']);
+        
+        $userid = $res['userid'];
 
         $model = UsersBase::find()->where([
             'id' => $userid
@@ -660,19 +621,16 @@ class CandidateController extends Controller
             'userid' => $userid
         ])->one();
 
-        if (! $model) {
-            return $this->redirect('../site/invalidpage?msg=' . $userid . ' : u');
+        if(!$model || !$candidateModel)
+        {
+            return $this->redirect(['/site/invalidpage' , 'msg' => urlencode('ungültige Benutzer Daten ')] );
         }
-
-        if (! $candidateModel) {
-            return $this->redirect('../site/invalidpage?msg=' . $userid . ' : c');
-        }
-
+ 
         $formatter = \Yii::$app->formatter;        
         $model->bdate = $formatter->asDate($model->bdate , 'php:d.m.Y');        
 
         if ($model->status != 4) {
-            // $this->redirect(['site/invalidpage', 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!<br>Benutzer ist aktuell verifikatet!'))]);
+            $this->redirect(['site/invalidpage', 'msg' => urlencode(Yii::t('app', 'ungültige verifikation link!<br>Benutzer ist aktuell verifikatet!'))]);
         }
 
         return $this->render('verify',

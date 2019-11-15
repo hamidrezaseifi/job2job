@@ -119,6 +119,19 @@ button.contect-branch-button.sel
 	width: 95%;
 }
 
+.message-sent-message{
+	height: 240px; 
+	padding-top: 30px;	
+}
+
+.message-sent-message h4{
+	text-align: center;	
+}
+
+.message-sent-message img{
+	margin: 20px calc(50% - 37px);
+}
+
 @media(max-width: 479px){
 
 

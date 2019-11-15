@@ -61,22 +61,27 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
     		
     		<div class="site-contact-form">
                 <form action="" >
-                	<div class="form-part-left">
+                	<div class="form-part-left" ng-if="!messageIsSent">
                      	<label>Name/Firma</label><br>
-                    	<input type="text" name="name" placeholder="<?= Yii::t('app' , 'Name') ?>" class="contect-name"><br>
+                    	<input type="text" name="name" ng-model="message.name" placeholder="<?= Yii::t('app' , 'Name') ?>" class="contect-name"><br>
                     	<label>E-Mail</label><br>
-                    	<input type="text" name="email" placeholder="<?= Yii::t('app' , 'E-Mail-Adresse') ?>" class="contect-email"><br>
+                    	<input type="text" name="email" ng-model="message.email" placeholder="<?= Yii::t('app' , 'E-Mail-Adresse') ?>" class="contect-email"><br>
                     	<label>Betreff</label><br>
-                    	<input type="text" name="title" placeholder="<?= Yii::t('app' , 'Betreff') ?>" class="contect-title"><br>               	
+                    	<input type="text" name="title" ng-model="message.title" placeholder="<?= Yii::t('app' , 'Betreff') ?>" class="contect-title"><br>               	
                 	</div>
-                	<div class="form-part-right">
+                	<div class="form-part-right" ng-if="!messageIsSent">
                      	<label>Nachricht</label><br>
-                		<textarea name="text" placeholder="<?= Yii::t('app' , 'Nachricht') ?>" maxlength="200" class="contect-text"></textarea><br>
+                		<textarea name="text" ng-model="message.message" placeholder="<?= Yii::t('app' , 'Nachricht') ?>" maxlength="200" class="contect-text"></textarea><br>
                 		
                 	</div>
+            		<div class="message-sent-message"  ng-show="messageIsSent">
+            			<h4>Ihre Nachricht wurde erfolgreich verschickt!</h4>
+            			<img src="https://aristo-group.com/wp-content/themes/aristo/img/passresetcheck.gif">
+            		</div>
+                	
                 	<div class="clear"></div>                	
                 	<div class="form-send">
-                     	<button type="button" class="contect-send"><?= Yii::t('app' , 'Senden') ?></button>
+                     	<button type="button" ng-click="sendMessage();" class="contect-send"><?= Yii::t('app' , 'Senden') ?></button>
                 	</div>
                 	
                 </form>
@@ -143,6 +148,9 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
 			</tr>
 		</table>
 
+	<script type="text/javascript">
+	var messageurl = "<?php echo Yii::getAlias("@web") ?>/site/contactmessage";
+	</script>
 	
 	</div>
 </div>
