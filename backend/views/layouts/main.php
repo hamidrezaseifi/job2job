@@ -17,6 +17,10 @@ AppAsset::register($this);
 
 $drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
 
+//print_r($this->params['breadcrumbs']); exit;
+
+$this->params['breadcrumbs'] = isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : array();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -51,19 +55,42 @@ $drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
 	    }
 	
 	    echo BrainNavbar::widget(['items' => $menuItems , 'navid' => 'dvleftmenu' , 
-	    		'navclass' => 'navbar-inverse' , 
-	    		'navstyle' => 'float: left; width: 200px;  ' , 
+	    		'navclass' => 'navbar-inverse backend-navbar' , 
+	    		 
 	    ]);
     }
     
     ?>
 
 	
-	<div class="container" style="float: left; width: calc(100vw - 220px); ">
+	<div class="container backend-container" style=" ">
 	
-        <?= $drawmenu ? Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) : '' ?>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+          	<?php foreach ($this->params['breadcrumbs'] as $index => $breadcrumb) { 
+          	    $isactive = $index == count($this->params['breadcrumbs']) - 1 ? 'active' : '';
+          	    $iscurrent = $index == count($this->params['breadcrumbs']) - 1 ? 'aria-current="page"' : '';
+          	    
+          	    $bcontent = '';
+          	    
+          	    if(is_string($breadcrumb)){
+          	        $bcontent = $breadcrumb;
+          	    }
+          	    else {
+          	        if(isset($breadcrumb['url']) && isset($breadcrumb['label'])){
+          	            $bcontent = Html::a($breadcrumb['label'], $breadcrumb['url']);
+          	        }
+          	        
+          	    }
+          	    
+          	    
+          	    
+          	    ?>
+          	    <li class="breadcrumb-item <?php echo $isactive?>" <?php echo $iscurrent?>><?php echo $bcontent?></li>
+          	<?php } ?>
+          </ol>
+        </nav>
+	
         <?= $drawmenu ? Alert::widget() : '' ?>
         <?= $content ?>
 	</div>

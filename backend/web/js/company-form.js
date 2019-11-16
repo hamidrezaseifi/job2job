@@ -14,10 +14,6 @@ brainApp.controller('CompanyController', function ($scope, $http, $sce, $element
 
 	$scope.showDeputy = !$scope.deputy.isNew;
 
-	
-
-	$("#dvbrowspdt").hide();
-
 	$.datepicker.setDefaults($.datepicker.regional["de"]);
 
     $("input.founddate").datepicker({
@@ -25,6 +21,37 @@ brainApp.controller('CompanyController', function ($scope, $http, $sce, $element
 	      changeYear: true,
 	      maxDate: "0D"
     });
+    
+    $scope.submitForm = function(){
+    	var form = $("#companyform")[0];
+    	//if (form.checkValidity() === true) {
+    		//$("#companyform").submit();
+        //}
+    	//form.checkValidity();
+    	var inputs = $("input[aria-required='true']");
+    	var valid = true;
+    	for(var i=0; i< inputs.length ; i++){
+    		var input = inputs[i];
+    		
+    		$(input).parent().removeClass("has-error");
+    		$(input).attr("aria-invalid" , false); 
+    		
+    		if (!input.checkValidity()) {
+    			valid = false;
+    		    $(input).next().html(input.validationMessage);
+    		    $(input).parent().addClass("has-error"); 
+    		    $(input).attr("aria-invalid" , true); 
+    		    
+    		    
+    		    //alert(input.id);
+    		}
+    	}
+    	
+    	if (valid) {
+    		$("#companyform").submit();
+        }
+    	
+    };
     
     $("input.petbdate").datepicker({
 	      changeMonth: true,
@@ -35,16 +62,20 @@ brainApp.controller('CompanyController', function ($scope, $http, $sce, $element
 	$scope.$watch('showDeputy', function (newValue, oldValue, scope) {
 	    //alert("new: " + newValue + "\r\nold: " + oldValue);
 		
-		setTimeout(function(){ 
-		    $("input.svbdate").datepicker({
-			      changeMonth: true,
-			      changeYear: true,
-			      maxDate: "0D"
-		    });
+		if($scope.showDeputy){
+			
+			setTimeout(function(){ 
+			    $("input.svbdate").datepicker({
+				      changeMonth: true,
+				      changeYear: true,
+				      maxDate: "0D"
+			    });
+			    
 
 		}, 500);
+			
+		}
 	});
-	
 	
 
 	$("#deleteconnectedcompany").hide();
@@ -52,10 +83,10 @@ brainApp.controller('CompanyController', function ($scope, $http, $sce, $element
 
 	$("#addconnectedcompany").click(function(){
 		$("#newconcompany").dialog({
-			width: 350, height: 170, modal: true, title: "Verbundene Unternehmen",
+			width: 350, height: 190, modal: true, title: "Verbundene Unternehmen",
 			buttons: [
 			          {
-				          text: "Addieren",
+				          text: "Hinzufügen",
 				          //class: "glyphicon-plus",
 				          click: function(){
 						  		var comname = $.trim($("#concompanyname").val());

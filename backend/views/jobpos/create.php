@@ -2,9 +2,15 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model common\lib\JobPositionBase */
+/* @var $countries array */
+/* @var $vacancies array */
+/* @var $worktypes array */
+/* @var $branchs array */
+/* @var $job2jobComp common\lib\CompanyBase */
+/* @var $skills array */
+/* @var $companies array */
 
 $this->title = Yii::t('app', 'Neue Stellenanzeige erstellen');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stellenanzeige'), 'url' => ['index']];
@@ -18,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
 		'model' 				=> $model,
         'branchs' 				=> $branchs,
 		'countries' 			=> $countries,
-		'cities'				=> $cities,
 		'vacancies'				=> $vacancies,
 		'worktypes'				=> $worktypes,
         'job2jobComp'			=> $job2jobComp,
         'skills' 				=> $skills,
+        'companies' 			=> $companies,
     ]) ?>
 
 </div>

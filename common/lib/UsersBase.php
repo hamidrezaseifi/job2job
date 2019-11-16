@@ -106,6 +106,14 @@ class UsersBase extends \common\models\Users
     	return CandidateBase::find()->where(['userid' => $this->id])->one();
     }
     
+    public function isCompany(){
+        return $this->usertype == self::UserTypeCompany;
+    }
+    
+    public function isCandidate(){
+        return $this->usertype == self::UserTypeCandidate;
+    }
+    
     public function personalDecisionMaker()
     {
     	return PersonaldecisionmakerBase::find()->where(['userid' => $this->id])->one();

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\helper\BrainHelper;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\lib\JobPositionBaseSearch */
@@ -10,6 +11,22 @@ use common\helper\BrainHelper;
 
 $this->title = Yii::t('app', 'Stellenanzeige');
 $this->params['breadcrumbs'][] = $this->title;
+
+$helper = new HtmlHelper(['controllerName' => 'jobpos']);
+
+
+/*[
+'class' => 'yii\grid\ActionColumn',
+'headerOptions' => ['style' => 'width : 70px;'],
+'template' => '{find} {update} {view} {delete}',
+'buttons' => [
+    'find' => function ($url, $model, $key) {
+    
+    return '<a href="' . Yii::getAlias('@web') . '/jobpos/findcandidate?id=' . $model->id . '" title="' . Yii::t('app', 'Passende Bewerber-Liste') . '" ><span class="glyphicon glyphicon-search"></span></a>';
+    },
+    ],
+    ],*/
+
 ?>
 <div class="job-position-base-index">
 
@@ -55,17 +72,8 @@ $this->params['breadcrumbs'][] = $this->title;
         			'headerOptions' => ['style' => 'width : 80px;'],
         			'value' => function($model){ return $model->status == 1 ? Yii::t('app', 'bestätigt') : Yii::t('app', 'nicht bestätigt');}
         		],
-        		[
-        		'class' => 'yii\grid\ActionColumn',
-        		'headerOptions' => ['style' => 'width : 70px;'],
-        		'template' => '{find} {update} {view} {delete}',
-        		'buttons' => [
-        				'find' => function ($url, $model, $key) {
-        				
-        				return '<a href="' . Yii::getAlias('@web') . '/jobpos/findcandidate?id=' . $model->id . '" title="' . Yii::t('app', 'Passende Bewerber-Liste') . '" ><span class="glyphicon glyphicon-search"></span></a>';
-        				},
-        				],
-        				],
+        		$helper->run()
+        		
             
         ],
     ]); ?>

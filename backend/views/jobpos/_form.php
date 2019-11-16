@@ -6,6 +6,13 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\lib\JobPositionBase */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $countries array */
+/* @var $vacancies array */
+/* @var $worktypes array */
+/* @var $branchs array */
+/* @var $job2jobComp common\lib\CompanyBase */
+/* @var $skills array */
+/* @var $companies array */
 
 $companyName = '';
 $companyID = 0;
@@ -39,15 +46,8 @@ $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View
     
     	<div class="form-group field-st" style="height: 55px;">
     		<label class="control-label" disabled for="companybase-employeecountindex"><?=Yii::t('app', 'Unternehmer')?></label>
-    		<input type="radio" name="isjob2job" value="0" ng-checked="!isJob2Job" ng-click="setJob2Job(false)" >
-    		&nbsp; &nbsp; &nbsp; 
-    		<label class="control-label" for="companybase-employeecountindex"><?=Yii::t('app', 'Job2Job')?></label>
-    		<input type="radio" name="isjob2job" value="1" ng-checked="isJob2Job" ng-click="setJob2Job(true)" >
     		<div id="jobpositionbase-company" class="form-control" style="float: left;" ><?=$companyName ?></div>
-    		<?php if($canSelectCompany) {?>
-    		<a ng-click="browsCompany()" class="brows" ng-if="!isJob2Job" title=""><span class="glyphicon glyphicon-search"></span></a>
-    		<a href="javascript:clearCompany()" class="remove" ng-if="!isJob2Job && companyId > 0" title=""><span class="glyphicon glyphicon-remove"></span></a>
-    		<?php } ?>
+    		<a ng-click="browsCompany()" class="brows" title=""><i class="fa fa-search"></i></a>
     		<div class="clear"></div>
     		<input type="hidden" id="jobpositionbase-companyid" name="JobpositionBase[companyid]" value="<?=$companyID ?>">
     	</div>
@@ -110,30 +110,38 @@ $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View
     	<input type="hidden" ng-repeat="task in jobposition.taskList" name="JobpositionTasks[]" value="{{task}}">
     
         <?php ActiveForm::end(); ?>
+
+
     
+    
+        
     </div>
+
+    <div class="modal fade" id="browsCompaniesModel" tabindex="-1" role="dialog" aria-labelledby="browsCompaniesModelTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Unternehmer auswählen</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
     
-    <div id="dvbrowscompany">
-    	<div class="text-container">
-    		<?php $form = ActiveForm::begin(['method' => 'GET', 'action' => Yii::getAlias('@web') . '/company/search' ]); ?>
-    		<input id="txtbrowscompany" class="form-control" name="name" onkeyup="searchList(this);" maxlength="30">
-    		<?php ActiveForm::end(); ?>
-    	</div>
-    	<div class="form-control listcontainer">
-    		<img alt="" class="loading" src="<?php echo Yii::getAlias('@web') ?>/web/images/loading.gif" >
-    		<ul class="list">
-    		</ul>
-    	</div>
+            <div class="list-group">
+            <?php foreach ($companies as $company){?>
+              <button type="button" class="list-group-item list-group-item-action" ng-click="selectCompany(<?php echo $company->id;?>, '<?php echo $company->companyname;?>')"><?php echo $company->companyname?></button>
+             <?php } ?>
+            </div>    
+    
+          </div>
+        </div>
+      </div>
     </div>
-    
+        
     
     
     <script>
-    $(document).ready(function(){
-    	<?php if($companyID == 0) {?>
-    	$("a.remove").hide();
-    	<?php } ?>
-    });
 
     var isJob2Job = <?php echo $model->isCompanyJob2Job() ? 'true' : 'false';?>;
     var job2JobId = <?php echo $job2jobComp->id;?>;

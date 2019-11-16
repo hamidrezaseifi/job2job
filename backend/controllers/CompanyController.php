@@ -153,13 +153,14 @@ class CompanyController extends Controller
                     $data['PersonaldecisionmakerBase']['userid'] = $userModel->id;
                     $data['PersonaldecisionmakerBase']['companyid'] = $model->id;
                     $data['PersonaldecisionmakerBase']['isdeputy'] = 0;
+                    $data['PersonaldecisionmakerBase']['reachability'] = is_array($data['PersonaldecisionmakerBase']['reachability'])? implode(',', $data['PersonaldecisionmakerBase']['reachability']) : '';
                     
                     $petModel = new PersonaldecisionmakerBase();
                     $petModel->load($data);
                     $petModel->save(false);
                 }
                 
-                if(isset($postdata['SV']['set']) && $postdata['SV']['set'])
+                if(isset($postdata['SV']['set']) && isset($postdata['SVUsersBase']))
                 {
                     $data = [];
                     $data['UsersBase'] = $postdata['SVUsersBase'];
@@ -176,6 +177,7 @@ class CompanyController extends Controller
                         $data['PersonaldecisionmakerBase']['userid'] = $userModel->id;
                         $data['PersonaldecisionmakerBase']['companyid'] = $model->id;
                         $data['PersonaldecisionmakerBase']['isdeputy'] = 1;
+                        $data['PersonaldecisionmakerBase']['reachability'] = is_array($data['PersonaldecisionmakerBase']['reachability'])? implode(',', $data['PersonaldecisionmakerBase']['reachability']) : '';
                         
                         $petModel = new PersonaldecisionmakerBase();
                         $petModel->load($data);
@@ -202,6 +204,12 @@ class CompanyController extends Controller
     	$titleList = BrainStaticList::titleList();
     	$title2List = BrainStaticList::title2List();
     	$reachabiltyList = BrainStaticList::reachabilityList();
+    	$personalEntscheiderUserModel = $this->createCompanyUser();
+    	$stellVertreterUserModel = $this->createCompanyUser();
+    	
+    	$model->founddate = BrainHelper::dateAsGerman($model->founddate);
+    	$personalEntscheiderUserModel->bdate = BrainHelper::dateAsGerman($personalEntscheiderUserModel->bdate);
+    	$stellVertreterUserModel->bdate = BrainHelper::dateAsGerman($stellVertreterUserModel->bdate);
     	
         return $this->render('create', [
             'model' 				=> $model,
@@ -209,8 +217,8 @@ class CompanyController extends Controller
 			'employeecountList'		=> $employeecount_array,
             'personalEntscheiderModel'	=> $this->createPersonaldecisionmaker(false),
             'stellVertreterModel'		=> $this->createPersonaldecisionmaker(true),
-            'personalEntscheiderUserModel'	=> $this->createCompanyUser(),
-            'stellVertreterUserModel'		=> $this->createCompanyUser(),
+            'personalEntscheiderUserModel'	=> $personalEntscheiderUserModel,
+            'stellVertreterUserModel'		=> $stellVertreterUserModel,
             'connectedCompanies'	=> [],
         	'logopath'				=> false,
         	'logoModel'				=> null,
@@ -298,7 +306,7 @@ class CompanyController extends Controller
                     $personalEntscheiderModel->save(false);
                 }
                 
-                if(isset($postdata['SV']['set']) && $postdata['SV']['set'])
+                if(isset($postdata['SV']['set']) && isset($postdata['SVUsersBase']))
                 {
                     unset($postdata['SV']['set']);
                     $data = [];
@@ -431,7 +439,33 @@ class CompanyController extends Controller
         return $this->redirect(Yii::getAlias('@web') . '/company/update?id=' . $companyid);
     }
 
-/**
+    
+    public function actionPassword($id)
+    {
+        $message = '';
+        
+        $model = UsersBase::findOne($id);
+        
+        $postdata = $_POST;
+        if(count($postdata))
+        {
+            $postdata['UsersBase']['updatedate'] = date('y-m-d H:i:s');
+            $postdata['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST['UsersBase']['password_hash']);
+            if ($model->load($postdata) && $model->save()) {
+                return $this->redirect(['index']);
+            }
+        }
+        
+        return $this->render('password', [
+            'model' 		=> $model,
+            'message' 		=> $message,
+        ]);
+        
+        
+    }
+    
+    
+    /**
      * Finds the CompanyBase model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id

@@ -71,14 +71,14 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
 
     <?php ActiveForm::end(); ?>
 	<?php } ?>
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['enableClientValidation' => false, 'id' => 'companyform']); ?>
 
-    <?= $form->field($model, 'companyname')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'companyname')->textInput(['maxlength' => true , 'required' => true, 'id' => 'companyform' ]) ?>
 
 	<div class="form-group">
 		<label><?=Yii::t('app', 'Verbundene Unternehmen') ?></label>&nbsp;&nbsp;&nbsp;
-		<a href="javascript:void()" title="Löschen" id="addconnectedcompany"><span class="glyphicon glyphicon-plus"></span></a>
-		<a href="javascript:void()" title="Löschen" id="deleteconnectedcompany"><span class="glyphicon glyphicon-trash"></span></a>
+		<a href="javascript:void()" title="Hinzufügen" id="addconnectedcompany"><i class="fa fa-plus"></i></a>
+		<a href="javascript:void()" title="Löschen" id="deleteconnectedcompany"><i class="fa fa-trash"></i></a>
 		<div class="connectedcompanylist-container form-group">
 			<ol id="connectedcompanylist">
 			<?php foreach ($connectedCompanies as $connectedCompany){?><li class="ui-state-default"><?php echo $connectedCompany->name; ?><input type="hidden" name="connectedcompanies[]" value="<?php echo $connectedCompany->name; ?>" /></li> <?php } ?>
@@ -109,15 +109,15 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
         
             <?= $form->field($personalEntscheiderModel, 'title2')->dropDownList($title2List, ['name' => 'PET[title2]']) ?>
         
-            <?= $form->field($personalEntscheiderUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PETUsersBase[fname]' ]) ?>
+            <?= $form->field($personalEntscheiderUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PETUsersBase[fname]' , 'id' => 'petfname' ]) ?>
         
-            <?= $form->field($personalEntscheiderUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'PETUsersBase[lname]' ]) ?>
+            <?= $form->field($personalEntscheiderUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PETUsersBase[lname]' , 'id' => 'petlname' ]) ?>
         
-            <?= $personalEntscheiderUserModel->isNewRecord ? $form->field($personalEntscheiderUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'required' => true  , 'name' => 'PETUsersBase[password_hash]']) : '' ?>
+            <?= $personalEntscheiderUserModel->isNewRecord ? $form->field($personalEntscheiderUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'required' => true, 'name' => 'PETUsersBase[password_hash]' , 'id' => 'petpassword']) : '' ?>
         
             <?= $form->field($personalEntscheiderUserModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon petbdate' , 'name' => 'PETUsersBase[bdate]']) ?>
         
-            <?= $form->field($personalEntscheiderModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PET[email]']) ?>
+            <?= $form->field($personalEntscheiderModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'PET[email]' , 'id' => 'petemail']) ?>
         
             <?= $form->field($personalEntscheiderModel, 'cellphone')->textInput(['maxlength' => true, 'name' => 'PET[cellphone]']) ?>
 
@@ -138,22 +138,20 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
 		<input type="checkbox" ng-checked="!deputy.isNew" ng-model="showDeputy">
 		<input type="hidden" name="SV[set]" ng-value="showDeputy">
 		<div class="personal-data" ng-if="showDeputy">
-         
-            
         
             <?= $form->field($stellVertreterModel, 'title')->dropDownList($titleList, ['name' => 'SV[title]']) ?>
         
             <?= $form->field($stellVertreterModel, 'title2')->dropDownList($title2List, ['name' => 'SV[title2]']) ?>
         
-            <?= $form->field($stellVertreterUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[fname]' ]) ?>
+            <?= $form->field($stellVertreterUserModel, 'fname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'SVUsersBase[fname]' , 'id' => 'svfname' ]) ?>
         
-            <?= $form->field($stellVertreterUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[lname]' ]) ?>
+            <?= $form->field($stellVertreterUserModel, 'lname')->textInput(['maxlength' => true , 'required' => true, 'name' => 'SVUsersBase[lname]' , 'id' => 'svlname' ]) ?>
         
-            <?= $stellVertreterUserModel->isNewRecord ? $form->field($stellVertreterUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'required' => true , 'name' => 'SVUsersBase[password_hash]']) : '' ?>
+            <?= $stellVertreterUserModel->isNewRecord ? $form->field($stellVertreterUserModel, 'password_hash')->passwordInput(['maxlength' => true , 'name' => 'SVUsersBase[password_hash]' , 'id' => 'svpassword']) : '' ?>
         
-            <?= $form->field($stellVertreterUserModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon svbdate' , 'name' => 'SVUsersBase[bdate]' , 'id' => 'svuserbdate']) ?>
+            <?= $form->field($stellVertreterUserModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon svbdate' , 'required' => true, 'name' => 'SVUsersBase[bdate]' , 'id' => 'svuserbdate']) ?>
         
-            <?= $form->field($stellVertreterModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'SV[email]']) ?>
+            <?= $form->field($stellVertreterModel, 'email')->textInput(['maxlength' => true , 'required' => true, 'name' => 'SV[email]' , 'id' => 'svemail']) ?>
         
             <?= $form->field($stellVertreterModel, 'cellphone')->textInput(['maxlength' => true, 'name' => 'SV[cellphone]']) ?>
 
@@ -170,9 +168,9 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
     
 	<div class="form-group">
 		<?php if($model->isNewRecord){?>
-        <button type="submit" class="btn btn-success"><?=Yii::t('app', 'Erstellen')?></button>
+        <button type="button" ng-click="submitForm()" class="btn btn-success"><?=Yii::t('app', 'Erstellen')?></button>
         <?php } else {?>
-        <button type="submit" class="btn btn-primary"><?=Yii::t('app', 'Speichern')?></button>
+        <button type="button" ng-click="submitForm()" class="btn btn-primary"><?=Yii::t('app', 'Speichern')?></button>
         <?php }?>    
     </div>    
 
@@ -183,19 +181,6 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
 <div class="form-group" id="newconcompany">
 	<label class="control-label">Firmenname</label>
 	<input type="text" id="concompanyname" class="form-control" maxlength="80">
-</div>
-
-<div id="dvbrowspdt">
-	<div class="text-container">
-		<?php $form = ActiveForm::begin(['method' => 'GET', 'action' => Yii::getAlias('@web') . '/pdt/search' ]); ?>
-		<input id="txtbrowsbrowspdt" data-isdep="0" class="form-control" name="name" onkeyup="searchList(this);" maxlength="30">
-		<?php ActiveForm::end(); ?>
-	</div>
-	<div class="form-control listcontainer">
-		<img alt="" class="loading" src="<?php echo Yii::getAlias('@web') ?>/web/images/loading.gif" >
-		<ul class="list">
-		</ul>
-	</div>
 </div>
 
 <script type="text/javascript">

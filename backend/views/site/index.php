@@ -12,10 +12,10 @@ $this->title = 'My Yii Application';
         
     </div>
 
-    <div class="body-content">
+    <div class="body-content container">
 
         <div class="row">
-            <div class="col-lg-1">
+            <div class="col-sm">
 	            <div class="col-in">
 	                <span class="head"><?=Yii::t('app', 'Statistiken') ?></span>
 	
@@ -27,7 +27,7 @@ $this->title = 'My Yii Application';
 	                </p>
 	            </div>
             </div>
-            <div class="col-lg-1">
+            <div class="col-sm">
             	<div class="col-in">
 	                <span class="head"><?=Yii::t('app', 'Matchmaking') ?></span>
 	
@@ -35,7 +35,7 @@ $this->title = 'My Yii Application';
 
                 </div>
             </div>
-            <div class="col-lg-1">
+            <div class="col-sm">
             	<div class="col-in">
 	                <span class="head"><?=Yii::t('app', 'Messages') ?></span>
 	

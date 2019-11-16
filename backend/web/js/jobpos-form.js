@@ -17,12 +17,17 @@ brainApp.controller('JobPosController', ['$scope', '$http', '$sce', '$element', 
 	    $("#jobpositionbase-company").html($scope.isJob2Job ? job2JobTitle : "");
 	};
 
+	$scope.selectCompany = function(companyId, companyName){
+		$scope.isJob2Job = false;
+
+	    $("#jobpositionbase-companyid").val(companyId);
+	    $("#jobpositionbase-company").html(companyName);
+	    $("#browsCompaniesModel").modal("hide");
+	};
+
 	$scope.browsCompany = function()
 	{
-		//$("#txtbrowscompany").prop("readonly" , false);
-		//$("#txtbrowscompany").val("");
-		//$(".listcontainer .list").html("");
-		//$("#dvbrowscompany").dialog({modal: true, width: 300, height: 400, title: "Unternehmen-Liste ..."});
+		$("#browsCompaniesModel").modal();
 	};
 	
 	$scope.submitForm = function()
@@ -30,8 +35,6 @@ brainApp.controller('JobPosController', ['$scope', '$http', '$sce', '$element', 
 		$("#jobposform").submit();
 	};
 	
-	$("#dvbrowscompany").hide();
-
 	$("#jobstartdate.calender-icon").datepicker({
 	      changeMonth: true,
 	      changeYear: true,

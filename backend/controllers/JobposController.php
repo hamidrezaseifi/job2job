@@ -125,8 +125,7 @@ class JobposController extends Controller
      */
     public function actionCreate()
     {
-        $job2jobComp = CompanyBase::findJob2job();
-        
+        $job2jobComp = CompanyBase::findJob2job();        
         $model = new JobpositionBase();
 
         $model->createdate = date('Y-m-d H:i:s');
@@ -215,28 +214,24 @@ class JobposController extends Controller
         	return $this->redirect(['view', 'id' => $model->id, 'fromcompany' => $fromcompany]);
         } else {
         	
-        	$cities = CityBase::allCities();
-        	$countries = BrainStaticList::countryList();
-        	unset($countries['Deutschland']);
         	$countries_array = array('' => '' , 'Deutschland' => 'Deutschland' , );
-        	$countries_array = array_merge($countries_array , $countries);
         	$worktypes = BrainStaticList::workTypeList();
         	
         	$branchs = BranchBase::allActiveKeyList(true);
         	$vacancies = VacancyBase::allActiveKeyList(true);
         	$worktypes =  WorktimemodelBase::allActiveKeyList(true);
         	$skills = SkillsBase::allChilds(1);
+        	$companies = CompanyBase::find()->where(['status' => 1])->orderBy('companyname')->all();
         	
-        	 
             return $this->render('create', [
                 'model' 				=> $model,
                 'branchs' 				=> $branchs,
 				'countries' 			=> $countries_array,
-				'cities'				=> $cities,
                 'vacancies'				=> $vacancies,
                 'worktypes'				=> $worktypes,
                 'job2jobComp'			=> $job2jobComp,
                 'skills' 				=> $skills,
+                'companies' 			=> $companies,
             ]);
         }
     }
@@ -348,9 +343,10 @@ class JobposController extends Controller
         	$branchs = BranchBase::allActiveKeyList(true);
         	$job2jobComp = CompanyBase::findJob2job();
         	$skills = SkillsBase::allChilds(1);
+        	$companies = CompanyBase::find()->where(['status' => 1])->orderBy('companyname')->all();
         	
-        	$model->expiredate = BrainHelper::dateEnglishToGerman($model->expiredate);
-        	$model->jobstartdate = BrainHelper::dateEnglishToGerman($model->jobstartdate);
+        	$model->expiredate = BrainHelper::dateAsGerman($model->expiredate);
+        	$model->jobstartdate = BrainHelper::dateAsGerman($model->jobstartdate);
         	 
             return $this->render('update', [
         		'model' 				=> $model,
@@ -361,6 +357,7 @@ class JobposController extends Controller
 				'worktypes'				=> $worktypes,
                 'job2jobComp'			=> $job2jobComp,
                 'skills' 				=> $skills,
+                'companies' 			=> $companies,
             ]);
         }
     }
