@@ -50,12 +50,13 @@ class EventsController extends Controller
 
     public function actionNextlog($lastid)
     {
-        //$searchModel = new FrontlogBaseSearch();
-        //$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
     	$list = EventsController::getLastEvents($lastid);
         
-      	echo json_encode($list);
+    	header('Content-type: application/json');
+    	$this->layout=false;
+    	
+    	echo json_encode($list);
       	exit;
     }
 
@@ -189,7 +190,7 @@ class EventsController extends Controller
     			$desc = 'Register ' . ($logModel->iscandidate == 1 ? 'Berwerber ' . $user . ' am ' . $logdate : 'Unternehmer ' . $user . ' Unternehmer ' . $company . ' am ' . $logdate);
     	
     		}
-    		//Favorite
+    		
     		$list[] = ['desc' => $desc , 'id' => $logModel->id];
     	}
     	

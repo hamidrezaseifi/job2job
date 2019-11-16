@@ -9,69 +9,26 @@ use yii\helpers\Url;
 /* @var $logList array */
 
 $this->registerCssFile("@web/web/css/logs.css");
+$this->registerJsFile("@web/web/js/events.js", [], 'js-events');
 
 $this->title = Yii::t('app', 'Fronend Geschehen ...');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="frontlog-base-index">
+<div class="frontlog-base-index" ng-controller="EventsController">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 style="height: 50px; line-height: 50px;">
+    	<?= Html::encode($this->title) ?> 
+    	<img id="imgloading" ng-show="isloading" width="50" src="<?php echo Yii::getAlias('@web'); ?>/web/images/loading-2.gif">
+    	<button class="reload" ng-show="!isloading" ng-click="loadnext()"><span class="glyphicon glyphicon-refresh"></span></button>
+    </h1>
     
-    <div class="lastlog"><img id="imgloading" style="display: none;" width="30" src="<?php echo Yii::getAlias('@web'); ?>/web/images/loading.gif"></div>
-    
-    <?php 
-    $lastid = 0;
-    	/*foreach ($logList as $log)
-    	{
-    		$lastid = $lastid == 0 ? $log['id'] : $lastid;
-    		echo '<div class="logdiv">' . $log['desc'] . '</div>';
-    	}*/
-    	
-    	
-    ?>
-    
-<script type="text/javascript">
-	var lastlogid = <?php echo $lastid;?>;
+    <div class="lastlog"></div>
+	<div ng-repeat="event in events" class="logdiv" ng-bind-html="event.desc" ></div>
 
-	function loadnext()
-	{
-		$("#imgloading").show();
-
-		/*$.get("nextlog?lastid=" + lastlogid , function( data ){
-			alert(data);
-		});*/
-		
-		$.getJSON( "nextlog?lastid=" + lastlogid , function( data ) {
-
-			$("#imgloading").hide();
-			  $.each( data, function( index, item ) {
-			    	$('<div class="logdiv">' + item.desc + '</div>').insertAfter(".lastlog");
-			    	lastlogid = item.id;
-			  });
-
-			  setTimeout(function(){ loadnext(); }, 3000);
-		});
-		
-	}
-
-	$(document).ready(function(){
-		loadnext();
-	}); 
-</script>
-
-    <?php /*echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'userid',
-            'logdesc',
-            'iscandidate',
-            'logdate',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]);*/ ?>
 </div>
+
+
+        
+<script type="text/javascript">
+	var eventsurl = '<?php echo Yii::getAlias("@web")?>/events/nextlog?lastid=';
+</script>
