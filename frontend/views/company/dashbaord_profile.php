@@ -66,6 +66,10 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item "><?php echo $companyModel->taxid;?></div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Homepage'); ?></div>
 		    	<div class="item "><?php echo $companyModel->homepage;?></div>
+
+		    	<div class="item-title"><?php echo Yii::t('app', 'Adress'); ?></div>
+		    	<div class="item "><?php echo $companyModel->street . ' ' . $companyModel->homenumber. ', ' . $companyModel->pcode . ' ' . $companyModel->city ;?></div>
+
 		    	<div class="item-title"><?php echo Yii::t('app', 'Anzahl der Mitarbeiter'); ?></div>
 		    	<div class="item  top-margin-15"> <?= $employeecountList[$companyModel->employeecountindex]; ?> </div>
 		    	<div class="item-title"><?php echo Yii::t('app', 'Logo'); ?></div>
@@ -103,6 +107,15 @@ $this->registerJsFile("@web/web/js/profileunternehmen.js", [], 'js-profileuntern
 		    	<div class="item">
 		    		<input type="text" name="CompanyBase[homepage]" value="<?php echo $companyModel->homepage;?>" />
 		    	</div>
+
+		    	<div class="item-title"><?php echo Yii::t('app', 'Adresse'); ?></div>
+		    	<div class="item company-address">
+		    		<label>Straße</label> &nbsp; <input type="text" name="CompanyBase[street]" value="<?php echo $companyModel->street;?>" /><br>
+		    		<label>Hausnr.</label> &nbsp; <input type="text" name="CompanyBase[homenumber]" value="<?php echo $companyModel->homenumber;?>" /><br>
+		    		<label>PLZ.</label> &nbsp; <input type="text" name="CompanyBase[pcode]" value="<?php echo $companyModel->pcode;?>" /><br>
+		    		<label>Ort</label> &nbsp; <input type="text" name="CompanyBase[city]" value="<?php echo $companyModel->city;?>" /><br>
+		    	</div>
+
 		    	<div class="item-title"><?php echo Yii::t('app', 'Anzahl der Mitarbeiter'); ?></div>
 		    	<div class="item top-margin-15 company-persons">
 		    	<?= BrainRadioBoxRenderer::widget([

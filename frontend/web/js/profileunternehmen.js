@@ -232,7 +232,7 @@ brainApp.controller('CompanyContentController', ['$scope', '$http', '$element', 
 								return;
 							}
 
-							//upload_files('company_logo' , 'company_logo' , form);
+							window.location = window.location;
 						}
 						else {
 							window.location = window.location;

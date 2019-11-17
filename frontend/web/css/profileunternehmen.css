@@ -704,6 +704,18 @@ input.checkboxstyleone[type=checkbox]:checked ~ label{
 	cursor: pointer;
 }
 
+.company-address{
+	height: auto !important;	
+}
+
+.company-address label{
+	width: 48px !important;	
+}
+
+.company-address input{
+	width: 270px !important;	
+}
+
 @media(max-width: 479px)
 {
 	.register-bewerbung
