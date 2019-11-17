@@ -39,7 +39,7 @@ $formatter = \Yii::$app->formatter;
             //'title',
         	[
         		'label' => Yii::t('app', 'Vollname'),
-        		'value' => $model->title . ' ' . $model->user()->fullname(),
+        	    'value' => $model->title . ' ' . $model->title2 . ' ' . $model->user()->fullname(),
         	],
         	[
         		'label' => Yii::t('app', 'Geburtsdatum'),
@@ -47,9 +47,6 @@ $formatter = \Yii::$app->formatter;
         	],
             //'photo',
             'email:email',
-            'pcode',
-            'city',
-            'country',
             [
                 'label' => 'Adress',
                 'format' => 'html',
@@ -57,7 +54,6 @@ $formatter = \Yii::$app->formatter;
             ],
             'cellphone',
             'tel',
-        	'title2',
             'nationality',
         	'reachability',
             'contacttime',
