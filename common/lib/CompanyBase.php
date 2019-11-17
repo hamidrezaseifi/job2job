@@ -11,7 +11,11 @@ use common\models\Users;
  * @property string $companyname
  * @property integer $companytype
  * @property string $founddate
- * @property string $adress
+ * @property string $homenumber
+ * @property string $street
+ * @property string $city
+ * @property string $pcode
+ * @property string $adress1
  * @property string $taxid
  * @property string $homepage
  * @property string $logo
@@ -38,16 +42,16 @@ class CompanyBase extends \common\models\Company
             'companyname' => Yii::t('app', 'Firmenname'),
             'companytype' => Yii::t('app', 'Unternehmer-Typ'),
             'founddate' => Yii::t('app', 'Gründungsdatum'),
-            'homenumber' => Yii::t('app', 'Homenumber'),
-            'street' => Yii::t('app', 'Street'),
-            'city' => Yii::t('app', 'City'),
-            'postcode' => Yii::t('app', 'Postcode'),
+            'homenumber' => Yii::t('app', 'Hausnr.'),
+            'street' => Yii::t('app', 'Straße'),
+            'city' => Yii::t('app', 'Ort'),
+            'postcode' => Yii::t('app', 'PLZ.'),
             'adress1' => Yii::t('app', 'Adress1'),
             'taxid' => Yii::t('app', 'Steuer-ID'),
             'homepage' => Yii::t('app', 'Homepage'),
             'logo' => Yii::t('app', 'Logo'),
             'employeecountindex' => Yii::t('app', 'Employeecountindex'),
-            'isjob2job' => Yii::t('app', 'Isjob2job'),
+            'isjob2job' => Yii::t('app', 'Job2Job'),
             'status' => Yii::t('app', 'Status'),
             'createdate' => Yii::t('app', 'Createdate'),
             'updatedate' => Yii::t('app', 'Updatedate')

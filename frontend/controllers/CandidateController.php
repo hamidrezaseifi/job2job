@@ -8,13 +8,8 @@ use yii\filters\AccessControl;
 use common\lib\SkillsBase;
 use common\lib\UsersBase;
 use common\lib\CandidateBase;
-use common\lib\NationalityBase;
-use common\lib\CountryBase;
-use common\lib\DistanceBase;
-use common\lib\WorktimemodelBase;
 use common\helper\BrainHelper;
 use common\lib\CandidateskillBase;
-use common\lib\ContantsBase;
 use common\lib\UploadedfilesBase;
 use common\helper\BrainStaticList;
 use common\lib\PostcodeBase;
@@ -210,8 +205,6 @@ class CandidateController extends Controller
                         'countries' => $countries_array,
                         'distances' => $distances_array,
                         'worktypes' => $worktypes_array,
-                        //'cellphoneList' => explode('-', $candidateModel->cellphone),
-                        //'telList' => explode('-', $candidateModel->tel),
                         'reachabilityList' => BrainStaticList::reachabilityList(),
                         'accessableList' => BrainStaticList::accessableList(),
                         'after_verify' => $after_verify,
