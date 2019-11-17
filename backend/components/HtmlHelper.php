@@ -11,6 +11,7 @@ class HtmlHelper extends BaseObject
     public $extraButtons;
     public $template;
     public $buttons;
+    public $header;
     
     public function init()
     {
@@ -26,6 +27,10 @@ class HtmlHelper extends BaseObject
         
         if ($this->extraButtons === null) {
             $this->extraButtons = [];
+        }
+        
+        if ($this->header === null) {
+            $this->header = '';
         }
         
         if ($this->template === null) {
@@ -52,6 +57,7 @@ class HtmlHelper extends BaseObject
     public function render() {
         $actionmenu = [
             'class' => 'yii\grid\ActionColumn',
+            'header' => $this->header,
             'headerOptions' => ['style' => 'width : 50px;'],
             'template' => $this->template,
             'visibleButtons' => $this->visibleButtons,

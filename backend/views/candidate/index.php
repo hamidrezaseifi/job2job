@@ -16,7 +16,7 @@ $helper = new HtmlHelper([
     'template' => '{view} {update} {delete} {password}',
     'extraButtons' => [
         'password' => function ($url, $model, $key) {
-        return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/lock.png" width="20">', $url , ['title' => Yii::t('app', 'Set Password') , 'aria-label' => Yii::t('app', 'Set Password'), ]);
+        return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/lock.png" width="20">', $url , ['title' => Yii::t('app', 'Kennwort ersetzen') , 'aria-label' => Yii::t('app', 'Kennwort ersetzen'), ]);
         }
     ],
     

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\lib\BackMessageBaseSearch */
@@ -9,6 +10,16 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Back Message Bases');
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$helper = new HtmlHelper([
+    'controllerName' => 'upfiles',
+    'template' => '{view} {delete}',
+    
+            
+            ]);
+
+
 ?>
 <div class="back-message-base-index">
 
@@ -30,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'message',
             'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            $helper->render(),
         ],
     ]); ?>
 </div>

@@ -9,13 +9,16 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Callrequest Bases'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$formatter = \Yii::$app->formatter;
+
+
 ?>
 <div class="callrequest-base-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -28,13 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'userid',
+            //'userid',
+            [
+                'label' => Yii::t('app', 'Benuzer'),
+                'value' => $model->userFullName() ,
+            ],
             'tel',
             'name',
             'message',
-            'status',
-            'createdate',
+            //'status',
+            [
+                'label' => Yii::t('app', 'Erstellung'),
+                'value' => $formatter->asDate($model->createdate, 'php:d.m.Y H:n') ,
+            ],
         ],
     ]) ?>
 

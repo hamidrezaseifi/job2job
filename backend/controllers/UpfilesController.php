@@ -105,7 +105,10 @@ class UpfilesController extends Controller
     	
     	$filepath = $_SERVER['DOCUMENT_ROOT'] .  $file->file;
     	$filepath = str_replace('//', '/', $filepath);
-    	unlink($filepath);
+    	if(file_exists($filepath)){
+    	    unlink($filepath);
+    	}
+    	
     	
         $file->delete();        
 
@@ -169,7 +172,9 @@ class UpfilesController extends Controller
      */
     public function actionApprove($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->status = 1;
+        $model->save(false);
 
         return $this->redirect(['index']);
     }

@@ -26,11 +26,11 @@ class CallrequestBase extends \common\models\Callrequest
         return [
             'id' => Yii::t('app', 'ID'),
             'userid' => Yii::t('app', 'Userid'),
-            'tel' => Yii::t('app', 'Tel'),
+            'tel' => Yii::t('app', 'Telefone'),
             'name' => Yii::t('app', 'Name'),
-            'message' => Yii::t('app', 'Message'),
+            'message' => Yii::t('app', 'Nachricht'),
             'status' => Yii::t('app', 'Status'),
-            'createdate' => Yii::t('app', 'Createdate'),
+            'createdate' => Yii::t('app', 'Erstelung'),
         ];
     }
 
@@ -41,5 +41,13 @@ class CallrequestBase extends \common\models\Callrequest
     public static function find()
     {
         return new CallrequestQueryBase(get_called_class());
+    }
+    
+    public function userFullName() {
+        $user = UsersBase::findOne(['id' => $this->userid]);
+        if($user){
+            return $user->fullname();
+        }
+        return '';
     }
 }

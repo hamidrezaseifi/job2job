@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\lib\UploadedfilesBaseSearch */
@@ -9,6 +10,27 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'hochgeladene Dateien');
 $this->params['breadcrumbs'][] = $this->title;
+
+$helper = new HtmlHelper([
+    'controllerName' => 'upfiles',
+    'template' => '{delete} {approve}',
+    'visibleButtons' => [
+        'approve' => function ($model, $key, $index) {
+        return $model->status === 0;
+        },
+        
+        ],
+    'extraButtons' => [
+        'approve' => function ($url, $model, $key) {
+        return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/done.png" width="20">', Yii::getAlias('@web') . '/upfiles/approve?id=' . $key , ['title' => Yii::t('app', 'Genehmigen') , 'aria-label' => Yii::t('app', 'Genehmigen'), ]);
+        },
+        ],
+        
+        ]);
+
+
+?>
+
 ?>
 <div class="uploadedfiles-base-index">
 
@@ -37,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	        	'label' => Yii::t('app', 'Benutzer'),
 	        	'format' => 'html',
 	        	'headerOptions' => ['style' => 'width : 120px;'],
-	        	'value' => function($model){ return $model->getUser()->fullname() ;}
+        	    'value' => function($model){ return $model->getUser() ? $model->getUser()->fullname() : '' ;}
         	],
         	 
             //'id',
@@ -45,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'status',
             //'upload_date',
             //'userid',
-
+        	$helper->render(),
             [
             	'class' => 'yii\grid\ActionColumn', 
             	'headerOptions' => ['style' => 'width : 60px;'],
@@ -55,9 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
             				'approve' => function ($url, $model, $key) {
             					return '<a href="' . Yii::getAlias('@web') . '/upfiles/approve?id=' . $key . '" title="' . Yii::t('app', 'Genehmigen') . '" aria-label="' . Yii::t('app', 'Genehmigen') . '" data-confirm="' . Yii::t('app', 'Sind Sie sicher, dass Sie diesen Artikel genehmigen möchten?') . '" data-method="post" data-pjax="0" ><span class="glyphicon glyphicon-ok"></span></a>';
             				},
-            				'delete' => function ($url, $model, $key) {
-            					return '<a href="' . Yii::getAlias('@web') . '/upfiles/delete?id=' . $key . '" title="' . Yii::t('app', 'Löschen') . '" aria-label="' . Yii::t('app', 'Löschen') . '" data-confirm="' . Yii::t('app', 'Sind Sie sicher, dass Sie diesen Artikel löschen möchten?') . '" data-method="post" data-pjax="0"><span class="glyphicon glyphicon-trash"></span></a>';
-            				},
+            				
             				
             	],
         	],

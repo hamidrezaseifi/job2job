@@ -58,7 +58,6 @@ class CandidateController extends Controller
      */
     public function actionView($id)
     {
-        //        $branchs = BranchBase::allActiveKeyList(false);
         
         return $this->render('view', [
             'model' => $this->findModel($id),
