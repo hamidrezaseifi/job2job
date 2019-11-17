@@ -12,6 +12,7 @@ use common\lib\UsergroupBase;
 use yii\helpers\ArrayHelper;
 use common\lib\UserpermissionBase;
 use common\lib\BackendUserModel;
+use common\helper\BrainHelper;
 
 /**
  * UsersController implements the CRUD actions for UsersBase model.
@@ -80,10 +81,11 @@ class UsersController extends Controller
         if(count($postdata))
         {
         	$postdata['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($postdata['UsersBase']['password_hash']);
-        	$postdata['UsersBase']['bdate'] = isset($postdata['UsersBase']['bdate']) ? $postdata['UsersBase']['bdate'] : '1970-01-01';
         	$postdata['UsersBase']['createdate'] = date('Y-m-d');
         	$postdata['UsersBase']['updatedate'] = date('Y-m-d');
         	$postdata['UsersBase']['usertype'] = UsersBase::UserTypeBackend;
+        	$postdata['UsersBase']['bdate'] = BrainHelper::dateAsEnglish($postdata['UsersBase']['bdate']);
+        	$postdata['UsersBase']['bdate'] = isset($postdata['UsersBase']['bdate']) ? $postdata['UsersBase']['bdate'] : '1970-01-01';
         	
 	        if ($model->load($postdata)) {
 	        	
@@ -147,6 +149,7 @@ class UsersController extends Controller
         {
         	$postdata['UsersBase']['updatedate'] = date('y-m-d H:i:s');
         	$postdata['UsersBase']['usertype'] = UsersBase::UserTypeBackend;
+        	$postdata['UsersBase']['bdate'] = BrainHelper::dateAsEnglish($postdata['UsersBase']['bdate']);
         }
         
         if ($model->load($postdata) && $model->save()) {
@@ -187,12 +190,12 @@ class UsersController extends Controller
      	$model = $this->findModel($id);
         
         $postdata = $_POST;
-        if(count($postdata) && isset($postdata['curpassword']))
+        if(count($postdata))
         {
             $postdata['UsersBase']['updatedate'] = date('y-m-d H:i:s');
             $postdata['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST['UsersBase']['password_hash']);
             if ($model->load($postdata) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }
         }
         

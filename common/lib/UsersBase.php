@@ -3,6 +3,7 @@
 namespace common\lib;
 
 use Yii;
+use common\models\Userpermission;
 
 class UsersBase extends \common\models\Users
 {
@@ -33,7 +34,7 @@ class UsersBase extends \common\models\Users
             'createdate' => Yii::t('app', 'Created'),
             'updatedate' => Yii::t('app', 'Last Update'),
             'group' => Yii::t('app', 'Gruppe'),
-            'permission' => Yii::t('app', 'Permission'),
+            'permission' => Yii::t('app', 'Zugriff'),
             'receive_backend_email' => Yii::t('app', 'E-Mail von job2job erhalten'),
         	'status' => Yii::t('app', 'Status'),
         ];
@@ -116,6 +117,11 @@ class UsersBase extends \common\models\Users
     
     public function personalDecisionMaker()
     {
-    	return PersonaldecisionmakerBase::find()->where(['userid' => $this->id])->one();
+        return PersonaldecisionmakerBase::find()->where(['userid' => $this->id])->one();
+    }
+    
+    public function getPermission()
+    {
+        return Userpermission::find()->where(['id' => $this->permission])->one();
     }
 }

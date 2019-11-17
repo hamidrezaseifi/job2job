@@ -9,8 +9,8 @@ use common\lib\UsersBase;
 /* @var $groups_list array */
 /* @var $message string */
 
-$this->title = Yii::t('app', 'Users');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Kennwort ersetzen');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Benuzer'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->fullname(), 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Kennwort');
 ?>
@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Kennwort');
 	    <?php $form = ActiveForm::begin(['id' => 'mainform' , ]); ?>
 		
 		<?php 
-		
 			echo Html::label(Yii::t('app', 'Password'));
 			echo Html::passwordInput('UsersBase[password_hash]' , '' , [ 'class' => 'form-control' , 'id' => 'usersbase-password_hash' , 'required' => 'required' , 'pattern' => '(?=.*[a-zA-Z]).{4,}'  , 'onchange' => '$("#txtconfirm").attr("pattern" , this.value);', ]) . '<br>';
 				

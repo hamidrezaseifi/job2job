@@ -11,6 +11,7 @@ $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
+$formatter = \Yii::$app->formatter;
 
 ?>
 <div class="users-base-view">
@@ -31,26 +32,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            //'id',
             'uname',
             'fname',
             'lname',
-        	[
+            [
+                'label' => Yii::t('app', 'Geburtsdatum'),
+                'value' => $formatter->asDate($model->bdate, 'php:d.m.Y') ,
+            ],
+            [
         		'label' => Yii::t('app', 'User Type'),
         		'value' => UsersBase::userTypeTitle($model->usertype),
         	],
-            'createdate',
-            'updatedate',
-        	[
-        		'label' => Yii::t('app', 'Group'),
-        		'value' => $model->group0->title,
-        	],
-            'permission',
-        	[
-        		'label' => 	Yii::t('app', 'Status'),
-        		'value' => UsersBase::statusTitle($model->status),
-        	],
-        		
+            //'createdate',
+            //'updatedate',
+            [
+                'label' => Yii::t('app', 'Group'),
+                'value' => $model->group0->title,
+            ],
+            //'permission',
+            [
+                'label' => 	Yii::t('app', 'Zugriff'),
+                'value' => $model->getPermission()->title,
+            ],
+            [
+                'label' => 	Yii::t('app', 'Status'),
+                'value' => UsersBase::statusTitle($model->status),
+            ],
+            
         ],
     ]) ?>
 

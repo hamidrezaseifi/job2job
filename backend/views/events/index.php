@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1 style="height: 50px; line-height: 50px;">
     	<?= Html::encode($this->title) ?> 
     	<img id="imgloading" ng-show="isloading" width="50" src="<?php echo Yii::getAlias('@web'); ?>/web/images/loading-2.gif">
-    	<button class="reload" ng-show="!isloading" ng-click="loadnext()"><span class="glyphicon glyphicon-refresh"></span></button>
+    	<button class="reload" ng-show="!isloading" ng-click="loadnext()"><img alt="" src="<?=Yii::getAlias('@web') ?>/web/images/icons/refresh.png" width="20"></button>
     </h1>
     
     <div class="lastlog"></div>

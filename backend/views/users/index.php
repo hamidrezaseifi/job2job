@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\lib\UsersBase;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\lib\UsersSearchBase */
@@ -10,6 +11,21 @@ use common\lib\UsersBase;
 
 $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$helper = new HtmlHelper([
+    'controllerName' => 'users',
+    'template' => '{view} {update} {delete} {password}',
+    'extraButtons' => [
+        'password' => function ($url, $model, $key) {
+        return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/lock.png" width="20">', $url , ['title' => Yii::t('app', 'Kennwort ersetzen') , 'aria-label' => Yii::t('app', 'Kennwort ersetzen'), ]);
+        }
+        ],
+        
+        ]);
+
+
+
 ?>
 <div class="users-base-index">
 
@@ -55,14 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
         		'value' => function($model){ return UsersBase::statusTitle($model->status);}
         	],
         	 
-            [
-            	'class' => 'yii\grid\ActionColumn' , 
-            	'headerOptions' => ['style' => 'width : 90px;'],
-            	'template' => '{view} {update} {delete} {password}',
-            	'buttons' => ['password' => function ($url, $model, $key) {
-        			return Html::a('<span class="glyphicon glyphicon-lock"></span>', $url , ['title' => Yii::t('app', 'Set Password') , 'aria-label' => Yii::t('app', 'Set Password'), ]);
-    				},],
-        	],
+        	$helper->render()
         ],
     ]); ?>
 </div>

@@ -173,19 +173,31 @@ class EventsController extends Controller
     		if($desc == 'JobFav' || $desc == 'JobApply')
     		{
     			$stelleModel = Jobposition::findOne(['id' => $descparts[1]]);
-    			$stelleurl = Url::to(['jobpos/view' , 'id' => $stelleModel->id]);
-    			$stelle = '<a href="' . $stelleurl . '" target="_blank">' . $stelleModel->title . '</a>';
-    	
-    			$desc = str_replace('JobFav', 'Die Stelle (' . $stelle . ') wurde von (' . $user . ')  am ' . $logdate . ' zum Favorit addiert', $desc);
-    			$desc = str_replace('JobApply', 'Die Stelle (' . $stelle . ') wurde von (' . $user . ') am ' . $logdate . ' beworben', $desc);
+    			if($stelleModel){
+    			    $stelleurl = Url::to(['jobpos/view' , 'id' => $stelleModel->id]);
+    			    $stelle = '<a href="' . $stelleurl . '" target="_blank">' . $stelleModel->title . '</a>';
+    			    
+    			    $desc = str_replace('JobFav', 'Die Stelle (' . $stelle . ') wurde von (' . $user . ')  am ' . $logdate . ' zum Favorit addiert', $desc);
+    			    $desc = str_replace('JobApply', 'Die Stelle (' . $stelle . ') wurde von (' . $user . ') am ' . $logdate . ' beworben', $desc);    			  
+    			}
+    			else {
+    			    $logModel->delete();
+    			    continue;
+    			}
     		}
     		if($desc == 'Register')
     		{
     			if($logModel->iscandidate == 0)
     			{
     				$companyModel = CompanyBase::findOne(['id' => $descparts[2]]);
-    				$companyurl = Url::to(['company/view' , 'id' => $companyModel->id]);
-    				$company = '<a href="' . $companyurl . '" target="_blank">' . $companyModel->companyname . '</a>';
+    				if($companyModel){
+    				    $companyurl = Url::to(['company/view' , 'id' => $companyModel->id]);
+    				    $company = '<a href="' . $companyurl . '" target="_blank">' . $companyModel->companyname . '</a>';
+    				}
+    				else {
+    				    $logModel->delete();
+    				    continue;
+    				}
     			}
     			$desc = 'Register ' . ($logModel->iscandidate == 1 ? 'Berwerber ' . $user . ' am ' . $logdate : 'Unternehmer ' . $user . ' Unternehmer ' . $company . ' am ' . $logdate);
     	

@@ -37,6 +37,8 @@ use common\lib\UsersBase;
 
     <?= $form->field($model, 'lname')->textInput(['maxlength' => true , 'required' => 'required' , 'pattern' => '\w+' , ]) ?>
 
+    <?= $form->field($model, 'bdate')->textInput(['maxlength' => true , 'required' => 'required', 'class' => 'form-control calender-icon'  ]) ?>
+
 	<?= $form->field($model, 'usertype')->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'group')->dropDownList($groups_list) ?>
@@ -95,5 +97,14 @@ function show_password(check)
 	
 }
 
-</script>
 
+	$(document).ready(function(){
+		$.datepicker.setDefaults($.datepicker.regional["de"]);
+		$("input.calender-icon").datepicker({
+		      changeMonth: true,
+		      changeYear: true,
+		      maxDate: "-17Y"
+		    });
+
+	});
+</script>
