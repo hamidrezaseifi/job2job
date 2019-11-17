@@ -15,11 +15,20 @@ use common\lib\BrainSiteUserManager;
 
 AppAsset::register($this);
 
-$drawmenu = !isset($_GET['nomenu']) || $_GET['nomenu'] != "1";
-
 //print_r($this->params['breadcrumbs']); exit;
 
 $this->params['breadcrumbs'] = isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : array();
+
+if (Yii::$app->user->isGuest) {
+    $menuItems = array(array('label' => 'Login', 'url' => ['/site/login'] , 'image'=>'glyphicon glyphicon-log-in'));
+} else {
+    $allowed_nav = BrainSiteUserManager::getAllowedNavigationList();
+    //print_r($allowed_nav);
+    $menuItems = NavigationBase::listNavigation('de', 'backend' , 0 , $allowed_nav);
+    
+    $menuItems[] = array('label' => 'Logout', 'url' => array('/site/logout') , 'image'=>'/web/images/icons/exit.png');
+}
+
 
 ?>
 <?php $this->beginPage() ?>
@@ -40,26 +49,60 @@ $this->params['breadcrumbs'] = isset($this->params['breadcrumbs']) ? $this->para
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
+	<nav class="navbar navbar-expand-lg navbar-brain">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			
+			<?php foreach ($menuItems as $menu){
+			     
+			    
+			    if(isset($menu['childs']) && count($menu['childs']) > 0){
+			        ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?=$menu['label'] ?>
+                <?php if(strlen($menu['image']) > 5 ){?>
+                <img alt="" src="<?=Yii::getAlias('@web') . $menu['image'] ?>" width="20">
+                <?php } ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?php foreach ($menu['childs'] as $submenu){ ?>
+                  <a class="dropdown-item" href="<?=Url::toRoute($submenu['url']) ?>"><?=$submenu['label'] ?>
+                    <?php if(strlen($submenu['image']) > 5 ){?>
+                    <img alt="" src="<?=Yii::getAlias('@web') . $submenu['image'] ?>" width="20">
+                    <?php } ?>
+                    </a>
+                <?php } ?>
+                </div>
+              </li>
+			        
+			        <?php 
+			    }
+			    else{
+			    ?>
+              <li class="nav-item active">
+                <a class="nav-link" href="<?=Url::toRoute($menu['url']) ?>"><?=$menu['label'] ?> 
+                <?php if(strlen($menu['image']) > 5 ){?>
+                <img alt="" src="<?=Yii::getAlias('@web') . $menu['image'] ?>" width="20">
+                <?php } ?>
+                </a>
+              </li>
+              
+              <?php } } ?>
+			
+			</ul>
+		</div>
+	</nav>
+	
     <?php
-    
-    if($drawmenu)
-    {
-	    if (Yii::$app->user->isGuest) {
-	        $menuItems = array(array('label' => 'Login', 'url' => ['/site/login'] , 'image'=>'glyphicon glyphicon-log-in'));
-	    } else {
-	    	$allowed_nav = BrainSiteUserManager::getAllowedNavigationList();
-	    	//print_r($allowed_nav);
-	    	$menuItems = NavigationBase::listNavigation('de', 'backend' , 0 , $allowed_nav);
-	    	
-	        $menuItems[] = array('label' => 'Logout', 'url' => array('/site/logout') , 'image'=>'glyphicon glyphicon-log-out');
-	    }
+    if(false){
 	
 	    echo BrainNavbar::widget(['items' => $menuItems , 'navid' => 'dvleftmenu' , 
 	    		'navclass' => 'navbar-inverse backend-navbar' , 
 	    		 
 	    ]);
     }
-    
     ?>
 
 	
@@ -82,20 +125,15 @@ $this->params['breadcrumbs'] = isset($this->params['breadcrumbs']) ? $this->para
           	        }
           	        
           	    }
-          	    
-          	    
-          	    
           	    ?>
           	    <li class="breadcrumb-item <?php echo $isactive?>" <?php echo $iscurrent?>><?php echo $bcontent?></li>
           	<?php } ?>
           </ol>
         </nav>
 	
-        <?= $drawmenu ? Alert::widget() : '' ?>
         <?= $content ?>
 	</div>
 	<div style="clear: both;"></div>
-	<?php if($drawmenu) {?>
     <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
@@ -103,7 +141,6 @@ $this->params['breadcrumbs'] = isset($this->params['breadcrumbs']) ? $this->para
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
     </footer>
-    <?php } ?>
 </div>
 
 

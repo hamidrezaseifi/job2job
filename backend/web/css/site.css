@@ -16,9 +16,10 @@ body {
 }
 
 .wrap > .container.backend-container {
-    float: left; 
-    width: calc(100vw - 220px) !important; 
-    max-width: calc(100vw - 220px) !important;
+    float: none; 
+    width: calc(100vw - 150px) !important; 
+    max-width: calc(100vw - 150px) !important;
+    min-height: calc(100vh - 95px);
 }
 
 .wrap > .backend-navbar {
@@ -422,3 +423,38 @@ a .fa{
 	font-size: 18px;
     color: #364885;	
 }
+
+.navbar-brain{
+	background-color: #e9ecef;
+	 	
+}
+
+.navbar-brain a{
+	color: #313131;
+	 	
+}
+
+.navbar-brain li{
+	padding-right: 20px;
+	 	
+}
+
+.navbar-brain a.dropdown-item img{
+	float: right;
+}
+
+.navbar-brain .dropdown-menu{
+	width: 250px;
+}
+
+
+.navbar-brain li:hover, 
+.navbar-brain a.dropdown-item:hover{
+	background-color: #d0d7dd;	
+}
+
+.navbar-brain li:hover a{
+	color: #41212d;	
+	
+}
+
