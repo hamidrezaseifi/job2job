@@ -29,7 +29,7 @@ $helper = new HtmlHelper([
 ]);
 
 function getSetPasswordLink($model){
-    return '<a style="margin-left: 10px;" href="' . Yii::getAlias('@web') . '/company/password?id=' . $model->userid . '" title="Set Password" aria-label="Set Password"><span class="glyphicon glyphicon-lock"></span></a>';
+    return '<a style="margin-left: 10px;" href="' . Yii::getAlias('@web') . '/company/password?id=' . $model->userid . '" title="Set Password" aria-label="Set Password"><img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/lock.png" width="20"></a>';
 }
 
 ?>
@@ -86,7 +86,7 @@ function getSetPasswordLink($model){
         		'value' => function($model){ return $model->status ? Yii::t('app', 'Aktiv') : Yii::t('app', 'Inaktiv') ;}
         	],
 
-        	$helper->run(),
+        	$helper->render(),
         ],
     ]); ?>
 </div>

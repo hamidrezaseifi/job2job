@@ -94,6 +94,14 @@ $logochangeurl = Yii::getAlias('@web') . '/company/setlogo';
 
     <?= $form->field($model, 'homepage')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'pcode')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'street')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'homenumber')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'employeecountindex')->dropDownList($employeecountList) ?>
 
     <?= $form->field($model, 'isjob2job')->radioList([0 => Yii::t('app', 'Nein'), 1 => Yii::t('app', 'Ja')], ['class' => 'form-control', ]) ?>

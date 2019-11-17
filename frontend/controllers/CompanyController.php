@@ -11,7 +11,6 @@ use common\lib\CompanyBase;
 use common\lib\WorktimemodelBase;
 use common\helper\BrainHelper;
 use common\lib\BranchBase;
-use common\lib\CandidateskillBase;
 use common\lib\PersonaldecisionmakerBase;
 use common\lib\JobpositionBase;
 use common\lib\UploadedfilesBase;

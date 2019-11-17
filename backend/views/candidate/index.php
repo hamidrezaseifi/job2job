@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\CandidateSearch */
@@ -9,6 +10,17 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Bewerber');
 $this->params['breadcrumbs'][] = $this->title;
+
+$helper = new HtmlHelper([
+    'controllerName' => 'candidate',
+    'template' => '{view} {update} {delete} {password}',
+    'extraButtons' => [
+        'password' => function ($url, $model, $key) {
+        return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/lock.png" width="20">', $url , ['title' => Yii::t('app', 'Set Password') , 'aria-label' => Yii::t('app', 'Set Password'), ]);
+        }
+    ],
+    
+        ]);
 
 
 ?>
@@ -40,14 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
         				'headerOptions' => ['style' => 'width : 130px;'],
         				'value' => function($model){ return $model->user()->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', 'Deaktiv');}
         		],
-        		[
-        		    'class' => 'yii\grid\ActionColumn' ,
-        		    'headerOptions' => ['style' => 'width : 90px;'],
-        		    'template' => '{view} {update} {delete} {password}',
-        		    'buttons' => ['password' => function ($url, $model, $key) {
-        		    return Html::a('<span class="glyphicon glyphicon-lock"></span>', $url , ['title' => Yii::t('app', 'Set Password') , 'aria-label' => Yii::t('app', 'Set Password'), ]);
-        		    },],
-        		],
+        		$helper->render(),
+
         ],
     ]); ?>
 </div>

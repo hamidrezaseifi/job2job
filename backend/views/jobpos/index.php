@@ -72,7 +72,7 @@ $helper = new HtmlHelper(['controllerName' => 'jobpos']);
         			'headerOptions' => ['style' => 'width : 80px;'],
         			'value' => function($model){ return $model->status == 1 ? Yii::t('app', 'bestätigt') : Yii::t('app', 'nicht bestätigt');}
         		],
-        		$helper->run()
+        		$helper->render()
         		
             
         ],

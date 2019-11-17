@@ -14,6 +14,7 @@ use common\helper\BrainStaticList;
 use common\lib\UserpermissionBase;
 use yii\helpers\ArrayHelper;
 use common\lib\BackendUserModel;
+use common\lib\BranchBase;
 
 /**
  * CandidateController implements the CRUD actions for Candidate model.
@@ -57,7 +58,8 @@ class CandidateController extends Controller
      */
     public function actionView($id)
     {
-    	
+        //        $branchs = BranchBase::allActiveKeyList(false);
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
         	'readonly' => isset($_GET['readonly']) && strval($_GET['readonly']) == '1',
@@ -104,6 +106,9 @@ class CandidateController extends Controller
     public function actionCreate()
     {
     	$candidateModel = new CandidateBase();
+    	$candidateModel->desiredjobcountry = 'Deutschland';
+    	$candidateModel->country = 'Deutschland';
+    	
     	$userModel = new UsersBase();
         $userModel->bdate = '1990-01-01';
         $userModel->status = 1;
@@ -116,7 +121,7 @@ class CandidateController extends Controller
         		$_POST['CandidateBase']['reachability'] .= $reach . ', ';
         	}
         
-        	$_POST['UsersBase']['bdate'] = BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']);
+        	$_POST['UsersBase']['bdate'] = BrainHelper::dateAsEnglish($_POST['UsersBase']['bdate']);
         	$_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
         	$_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
         	$_POST['UsersBase']['status'] = UsersBase::UserStatusActive;
@@ -153,41 +158,33 @@ class CandidateController extends Controller
         }
         $candidateModel->reachability = $reachabilityar;
         
-        $jobtypelist = BrainStaticList::jobTypeList(true);
-        $distances_temp = BrainStaticList::distanceList();
-        $distances_array = array();
-        foreach ($distances_temp as $key => $dist)
-        {
-        	if($key == 0 || $key == '') continue;
-        	$distances_array[$dist] = $dist . ' km';
-        }
         $titleList = BrainStaticList::titleList();
         $title2List = BrainStaticList::title2List();
         $nationalityList = BrainStaticList::nationalityList(true);
-        $countryList = BrainStaticList::countryList(true);
         $reachabiltyList = BrainStaticList::reachabilityList();
         $employeementList = BrainStaticList::employeementList();
         $accessableList = BrainStaticList::accessableList();
-        $worktypeList = BrainStaticList::workTypeList();
         $distanceListTemp = BrainStaticList::distanceList();
+        $branchs = BranchBase::allActiveKeyList(false);
         $distanceList = array();
+        
         foreach ($distanceListTemp as $distid => $distance)
         {
         	$distanceList[$distid] = $distance . (($distance == '') ? '' : ' kg');
         }
+        $userModel->bdate = BrainHelper::dateAsGerman($userModel->bdate);
         
         return $this->render('create', [
-        		'userModel' 		=> $userModel,
-        		'candidateModel' 	=> $candidateModel,
-        		'titleList' 		=> $titleList,
-        		'title2List' 		=> $title2List,
-        		'nationalityList' 	=> $nationalityList,
-        		'countryList' 		=> $countryList,
-        		'reachabiltyList' 	=> $reachabiltyList,
-        		'employeementList' 	=> $employeementList,
-        		'accessableList' 	=> $accessableList,
-        		'worktypeList' 		=> $worktypeList,
-        		'distanceList' 		=> $distanceList,
+    		'userModel' 		=> $userModel,
+    		'candidateModel' 	=> $candidateModel,
+    		'titleList' 		=> $titleList,
+    		'title2List' 		=> $title2List,
+    		'nationalityList' 	=> $nationalityList,
+    		'reachabiltyList' 	=> $reachabiltyList,
+    		'employeementList' 	=> $employeementList,
+    		'accessableList' 	=> $accessableList,
+            'distanceList' 		=> $distanceList,
+            'branchs' 		=> $branchs,
         ]);
     }
 
@@ -200,6 +197,9 @@ class CandidateController extends Controller
     public function actionUpdate($id)
     {
     	$candidateModel = $this->findModel($id);
+    	$candidateModel->desiredjobcountry = 'Deutschland';
+    	$candidateModel->country = 'Deutschland';
+    	
     	$userModel = $candidateModel->user();
     	
     	if(count($_POST) > 0) {
@@ -210,11 +210,11 @@ class CandidateController extends Controller
     			$_POST['CandidateBase']['reachability'] .= $reach . ', ';
     		}
     		
-    		$_POST['UsersBase']['bdate'] = BrainHelper::dateGermanToEnglish($_POST['UsersBase']['bdate']);
+    		$_POST['UsersBase']['bdate'] = BrainHelper::dateAsEnglish($_POST['UsersBase']['bdate']);
     		$_POST['UsersBase']['uname'] = $_POST['CandidateBase']['email'];
     		$_POST['UsersBase']['usertype'] = UsersBase::UserTypeCandidate;
     		
-    		//print_r($_POST['UsersBase']); exit;
+    		$_POST['CandidateBase']['availablefrom'] = BrainHelper::dateAsEnglish($_POST['CandidateBase']['availablefrom']);
     		
     		$candidateModel->load($_POST);
     		$candidateModel->save(false);
@@ -244,24 +244,28 @@ class CandidateController extends Controller
         $accessableList = BrainStaticList::accessableList();
         $worktypeList = BrainStaticList::workTypeList();
         $distanceListTemp = BrainStaticList::distanceList();
+        $branchs = BranchBase::allActiveKeyList(false);
         $distanceList = array();
         foreach ($distanceListTemp as $distid => $distance)
         {
         	$distanceList[$distid] = $distance . ' kg';
         }
+        $userModel->bdate = BrainHelper::dateAsGerman($userModel->bdate);
+        $candidateModel->availablefrom = BrainHelper::dateAsGerman($candidateModel->availablefrom);
         
         return $this->render('update', [
-            	'userModel' 		=> $userModel,
-            	'candidateModel' 	=> $candidateModel,
-        		'titleList' 		=> $titleList,
-        		'title2List' 		=> $title2List,
-        		'nationalityList' 	=> $nationalityList,
-        		'countryList' 		=> $countryList,
-        		'reachabiltyList' 	=> $reachabiltyList,
-        		'employeementList' 	=> $employeementList,
-        		'accessableList' 	=> $accessableList,
-        		'worktypeList' 		=> $worktypeList,
-       			'distanceList' 		=> $distanceList,
+        	'userModel' 		=> $userModel,
+        	'candidateModel' 	=> $candidateModel,
+    		'titleList' 		=> $titleList,
+    		'title2List' 		=> $title2List,
+    		'nationalityList' 	=> $nationalityList,
+    		'countryList' 		=> $countryList,
+    		'reachabiltyList' 	=> $reachabiltyList,
+    		'employeementList' 	=> $employeementList,
+    		'accessableList' 	=> $accessableList,
+    		'worktypeList' 		=> $worktypeList,
+   			'distanceList' 		=> $distanceList,
+            'branchs' 		=> $branchs,
         ]);
         
         
@@ -279,7 +283,7 @@ class CandidateController extends Controller
             $postdata['UsersBase']['updatedate'] = date('y-m-d H:i:s');
             $postdata['UsersBase']['password_hash'] = Yii::$app->getSecurity()->generatePasswordHash($_POST['UsersBase']['password_hash']);
             if ($model->load($postdata) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }
         }
         

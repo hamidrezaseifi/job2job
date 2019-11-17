@@ -9,7 +9,7 @@ use common\lib\UsersBase;
 /* @var $groups_list array */
 /* @var $message string */
 
-$this->title = Yii::t('app', 'Users');
+$this->title = Yii::t('app', 'Kennwort ersetzen');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bewerber'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->fullname(), 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Kennwort');

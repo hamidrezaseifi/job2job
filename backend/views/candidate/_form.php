@@ -10,8 +10,15 @@ use yii\base\Widget;
 /* @var $candidateModel \common\lib\CandidateBase */
 /* @var $userModel \common\lib\UsersBase */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $titleList array */
+/* @var $title2List array */
+/* @var $nationalityList array */
+/* @var $reachabiltyList array */
+/* @var $employeementList array */
+/* @var $accessableList array */
+/* @var $distanceList array */
+/* @var $branchs array */
 
-$userModel->bdate = BrainHelper::dateEnglishToGerman($userModel->bdate);
 
 ?>
 
@@ -27,35 +34,29 @@ $userModel->bdate = BrainHelper::dateEnglishToGerman($userModel->bdate);
 
     <?= $form->field($userModel, 'lname')->textInput(['maxlength' => true, ]) ?>
 
+    <?= $userModel->isNewRecord ? $form->field($userModel, 'password_hash')->passwordInput(['maxlength' => true, ]) : ''?>
+
     <?= $form->field($userModel, 'bdate')->textInput(['maxlength' => true, 'class' => 'form-control calender-icon']) ?>
 
     <?= $form->field($candidateModel, 'nationality')->dropDownList($nationalityList) ?>
 
     <?= $form->field($candidateModel, 'email')->textInput(['maxlength' => true, 'type' => 'email']) ?>
 
+    <?= $form->field($candidateModel, 'homenumber')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($candidateModel, 'street')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($candidateModel, 'address1')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($candidateModel, 'pcode')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($candidateModel, 'city')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($candidateModel, 'country')->dropDownList($countryList) ?>
+    <?= $form->field($candidateModel, 'cellphone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($candidateModel, 'address')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($candidateModel, 'tel')->textInput(['maxlength' => true]) ?>
 
-	<?php echo TelephonPreview::widget([
-			'telephone' => $candidateModel->cellphone,
-			'name' 		=> 'CandidateBase[cellphone]',
-			'id' 		=> 'candidcellphone',
-			//'class' 	=> 'mytelclass',
-			'label' 	=> $candidateModel->attributeLabels()['cellphone'],
-	]);?>
-	
-	<?php echo TelephonPreview::widget([
-			'telephone' => $candidateModel->tel,
-			'name' 		=> 'CandidateBase[tel]',
-			'id' 		=> 'candidtel',
-			//'class' 	=> 'mytelclass',
-			'label' 	=> $candidateModel->attributeLabels()['tel'],
-	]);?>
+    <?= $form->field($candidateModel, 'branch')->dropDownList($branchs , ['prompt' => 'Bitte wählen Sie eine Branche aus']) ?>
 
     <?= $form->field($candidateModel, 'reachability')->checkboxList($reachabiltyList , ['name' => 'reachability', ]) ?>
 
@@ -65,15 +66,11 @@ $userModel->bdate = BrainHelper::dateEnglishToGerman($userModel->bdate);
 
     <?= $form->field($candidateModel, 'availability')->dropDownList($accessableList) ?>
 
-    <?= $form->field($candidateModel, 'jobtype')->dropDownList($worktypeList) ?>
-
-    <?= $form->field($candidateModel, 'availablefrom')->textInput() ?>
+    <?= $form->field($candidateModel, 'availablefrom')->textInput(['class' => 'form-control calender-icon']) ?>
 
     <?= $form->field($candidateModel, 'desiredjobpcode')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($candidateModel, 'desiredjobcity')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($candidateModel, 'desiredjobcountry')->dropDownList($countryList) ?>
 
     <?= $form->field($candidateModel, 'desiredjobregion')->dropDownList($distanceList) ?>
 
