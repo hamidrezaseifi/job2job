@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\lib\UsergroupSearchBase */
@@ -9,6 +10,24 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'User Group Bases');
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$helper = new HtmlHelper([
+    'controllerName' => 'usergroup',
+    'visibleButtons' => [
+        'update' => function ($model, $key, $index) {
+        return $model->id > 2;
+        },
+        'delete' => function ($model, $key, $index) {
+        return $model->id > 2;
+        },
+        'view' => function ($model, $key, $index) {
+        return true;
+        },
+        ]
+        ]);
+
+
 ?>
 <div class="user-group-base-index">
 
@@ -20,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'filterModel' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -32,17 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'createdate',
             'updatedate',
 
-            [
-            	'class' => 'yii\grid\ActionColumn',
-            		'visibleButtons' => ['update' => function ($model, $key, $index) {
-            		return $model->id != 1 ? true : false;
-            		},
-            		'delete' => function ($model, $key, $index) {
-            		return $model->id != 1 ? true : false;
-            		},
-            		
-            		]
-    		],
+            $helper->render(),
         ],
     ]); ?>
 </div>
