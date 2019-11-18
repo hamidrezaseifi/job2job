@@ -417,9 +417,10 @@ class JobposController extends Controller
     	$searchModel = new CandidateSearchBase();
     	$dataProvider = $searchModel->searchList($users);
     	
-    	return $this->render('findcandidate', [
+    	
+    	return $this->render('match', [
     			'jobposModel' => $jobposModel,
-    			'dataProvider' => $dataProvider,
+    	    'dataProvider' => $dataProvider
     	]);
     	 
     	 

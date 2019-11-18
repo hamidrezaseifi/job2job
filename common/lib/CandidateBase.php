@@ -2,6 +2,7 @@
 namespace common\lib;
 
 use Yii;
+use common\helper\BrainStaticList;
 
 /**
  * This is the model class for table "j2j_candidate".
@@ -131,5 +132,10 @@ class CandidateBase extends \common\models\Candidate
     public function workPermissionTitle()
     {
         return $this->workPermissionsTitles()[$this->workpermission];
+    }
+    
+    public function availabilityTitle() {
+        $accessableList = BrainStaticList::accessableList();
+        return $accessableList[$this->availability];
     }
 }

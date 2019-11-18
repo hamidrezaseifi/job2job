@@ -3,14 +3,28 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\helper\BrainHelper;
+use backend\components\HtmlHelper;
 
 /* @var $this yii\web\View */
 /* @var $jobposModel common\lib\JobpositionBase */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $accessableList array */
 
 $this->title = Yii::t('app', Yii::t('app', 'Passende Bewerber-Liste für die Stellenanzeige "' . $jobposModel->title . '"'));
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stellenanzeige'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$helper = new HtmlHelper([
+    'template' => '{view}',
+    'extraButtons' => [
+        'view' => function ($url, $model, $key) {
+        return '<a target="_blank" href="' . Yii::getAlias('@web') . '/candidate/view?readonly=1&id=' . $model->userid . '" title="' . Yii::t('app', 'View') . '" ><img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/eye.png" width="20"></a>';
+        }
+        ],
+        
+        ]);
+
+
 ?>
 <div class="candidate-index">
 
@@ -34,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
         		[
         				'label' => Yii::t('app', 'Verfügbarkeit'),
         				'headerOptions' => ['style' => 'width : 130px;'],
-        				'value' => function($model){ return $model->availability . ( $model->availability == 'Verfügber' ? ' ( ab ' . \Yii::$app->formatter->asDate($model->availablefrom , 'php:d.m.Y') . ' )' : '');}
+        		    'value' => function($model){ return $model->availabilityTitle() . ( $model->availablefrom != '' ? ' ( ab ' . \Yii::$app->formatter->asDate($model->availablefrom , 'php:d.m.Y') . ' )' : '');}
         		],
         		[
         				'label' => Yii::t('app', 'Erreichbarkeit'),
@@ -57,17 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
         				'headerOptions' => ['style' => 'width : 100px;'],
         				'value' => function($model){ return $model->user()->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', 'Deaktiv');}
         		],
-        		[
-        		'class' => 'yii\grid\ActionColumn',
-        		'headerOptions' => ['style' => 'width : 40px;'],
-        		'template' => '{view}',
-        		'buttons' => [
-        				'view' => function ($url, $model, $key) {
-        		
-        				return '<a target="_blank" href="' . Yii::getAlias('@web') . '/candidate/view?readonly=1&id=' . $model->userid . '" title="' . Yii::t('app', 'View') . '" ><span class="glyphicon glyphicon-eye-open"></span></a>';
-        				},
-        				],
-        				],
+        		$helper->render(),
  
         		
         ],

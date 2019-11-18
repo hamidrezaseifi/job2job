@@ -18,7 +18,7 @@ class HtmlHelper extends BaseObject
         parent::init();
         
         if ($this->controllerName === null) {
-            $this->controllerName = 'test';
+            $this->controllerName = Yii::$app->controller->id;
         }
         
         if ($this->visibleButtons === null) {
