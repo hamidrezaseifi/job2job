@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property integer $parentid
  * @property string $title
- * @property integer $jobtype
  * @property integer $status
  * @property string $createdate
  * @property string $updatedate
@@ -34,7 +33,7 @@ class Skills extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parentid', 'jobtype', 'status'], 'integer'],
+            [['parentid', 'status'], 'integer'],
             [['title', 'createdate', 'updatedate'], 'required'],
             [['createdate', 'updatedate'], 'safe'],
             [['title'], 'string', 'max' => 80],
@@ -50,7 +49,6 @@ class Skills extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'parentid' => Yii::t('app', 'Parentid'),
             'title' => Yii::t('app', 'Title'),
-            'jobtype' => Yii::t('app', 'Jobtype'),
             'status' => Yii::t('app', 'Status'),
             'createdate' => Yii::t('app', 'Createdate'),
             'updatedate' => Yii::t('app', 'Updatedate'),

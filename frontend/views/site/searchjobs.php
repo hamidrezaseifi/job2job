@@ -47,7 +47,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
 	</div>
 
 	<div class="search-job-searchlists">
-		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'region'}">
+		<div class="dropdown-jobsuche" ng-class="{'Aktiv': currentDropdown == 'region'}">
     		<div class="searchlist-item" ng-click="toggleDropdown('region')">
     			<span>REGION</span>
     			<i class="material-icons" ng-if="currentDropdown != 'region'">expand_more</i>
@@ -56,10 +56,10 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		<div class="list-dropdown-jobsuche" ng-show="currentDropdown == 'region'">   
     			<ul class="list-dropdown-container">
     				<?php foreach ($regins as $country => $cities){?>
-    				<li ng-class="{'active': isRegionSelected('<?php echo $country;?>', 'self')}" ng-click="toggleRegion('<?php echo $country;?>', 'self', $event)"><?php echo $country;?>
+    				<li ng-class="{'Aktiv': isRegionSelected('<?php echo $country;?>', 'self')}" ng-click="toggleRegion('<?php echo $country;?>', 'self', $event)"><?php echo $country;?>
     					<ul>
  							<?php foreach ($cities as $city){?>
-    						<li ng-class="{'active': isRegionSelected('<?php echo $country;?>', '<?php echo $city;?>')}" ng-click="toggleRegion('<?php echo $country;?>', '<?php echo $city;?>', $event)"><?php echo $city;?></li>
+    						<li ng-class="{'Aktiv': isRegionSelected('<?php echo $country;?>', '<?php echo $city;?>')}" ng-click="toggleRegion('<?php echo $country;?>', '<?php echo $city;?>', $event)"><?php echo $city;?></li>
     						<?php } ?>   						
     					</ul>
     				</li>
@@ -70,7 +70,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		</div>	
 		</div>
 		
-		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'branch'}">
+		<div class="dropdown-jobsuche" ng-class="{'Aktiv': currentDropdown == 'branch'}">
     		<div class="searchlist-item" ng-click="toggleDropdown('branch')">
     			<span>BRANCHE</span>
     			<i class="material-icons" ng-if="currentDropdown != 'branch'">expand_more</i>
@@ -79,7 +79,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		<div class="list-dropdown-jobsuche branches" ng-show="currentDropdown == 'branch'">    	
     			<ul class="list-dropdown-container">  
     				<?php foreach ($branches as $branch){?>
-    				<li ng-class="{'active': isBranchSelected(<?php echo $branch->id;?>)}" ng-click="toggleBranch(<?php echo $branch->id;?>, $event)"><?php echo $branch->title;?></li>
+    				<li ng-class="{'Aktiv': isBranchSelected(<?php echo $branch->id;?>)}" ng-click="toggleBranch(<?php echo $branch->id;?>, $event)"><?php echo $branch->title;?></li>
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('branch')">SCHLIEßEN</div> 			
@@ -87,7 +87,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		</div>	
 		</div>
 		
-		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'vacancy'}">
+		<div class="dropdown-jobsuche" ng-class="{'Aktiv': currentDropdown == 'vacancy'}">
     		<div class="searchlist-item" ng-click="toggleDropdown('vacancy')">
     			<span>VAKANZ</span>
     			<i class="material-icons" ng-if="currentDropdown != 'vacancy'">expand_more</i>
@@ -96,7 +96,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		<div class="list-dropdown-jobsuche vacancy" ng-show="currentDropdown == 'vacancy'">   
     			<ul class="list-dropdown-container">  
     				<?php foreach ($vacances as $vacancy){?>
-    				<li ng-class="{'active': isVacancySelected(<?php echo $vacancy->id;?>)}" ng-click="toggleVacancy(<?php echo $vacancy->id;?>, $event)"><?php echo $vacancy->title;?></li>
+    				<li ng-class="{'Aktiv': isVacancySelected(<?php echo $vacancy->id;?>)}" ng-click="toggleVacancy(<?php echo $vacancy->id;?>, $event)"><?php echo $vacancy->title;?></li>
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('vacancy')">SCHLIEßEN</div> 			
@@ -104,7 +104,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		</div>	
 		</div>
 		
-		<div class="dropdown-jobsuche" ng-class="{'active': currentDropdown == 'skills'}">
+		<div class="dropdown-jobsuche" ng-class="{'Aktiv': currentDropdown == 'skills'}">
     		<div class="searchlist-item" ng-click="toggleDropdown('skills')">
     			<span>SKILLS</span>
     			<i class="material-icons" ng-if="currentDropdown != 'skills'">expand_more</i>
@@ -113,7 +113,7 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
     		<div class="list-dropdown-jobsuche skills" ng-show="currentDropdown == 'skills'"> 
     			<ul class="list-dropdown-container">  
     				<?php foreach ($skills as $skill){?>
-    				<li ng-class="{'active': isSkillSelected('<?php echo $skill;?>')}" ng-click="toggleSkill('<?php echo $skill;?>', $event)"><?php echo $skill;?></li>
+    				<li ng-class="{'Aktiv': isSkillSelected('<?php echo $skill;?>')}" ng-click="toggleSkill('<?php echo $skill;?>', $event)"><?php echo $skill;?></li>
     				<?php } ?>
     			</ul>
     			<div class="jobsuche-ajax-btn" ng-click="closeDropdown()" ng-if="!hasTags('skill')">SCHLIEßEN</div> 			

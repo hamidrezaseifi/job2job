@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\lib\EmailtextBase */
 
-$this->title = Yii::t('app', 'Create Emailtext Base');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Emailtext Bases'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Email-Inhalt Erstellen');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Email-Inhalt'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="emailtext-base-create">

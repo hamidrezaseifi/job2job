@@ -1,8 +1,126 @@
 
-$(document).ready(function(){
+brainApp.controller('SkillsController', function ($scope, $http, $sce, $element) {
+
+	$scope.showDisabled = true;
+	$scope.showActived = true;
+
+	$scope.selctedSkill = false;
+	$scope.selctedSkillId = false;
+	$scope.selctedSkillStatus = false;
+
+	$scope.isStatusShowed = function(status){
+		if(status == 0) {
+			return $scope.showDisabled;
+		}
+		
+		return $scope.showActived;
+	};
+
+	$scope.toggleShowed = function(status){
+		if(status == 'all') {
+			$scope.showDisabled = true;
+			$scope.showActived = true;
+		}
+
+		if(status == 'inactive') {
+			$scope.showDisabled = true;
+			$scope.showActived = false;
+		}
+
+		if(status == 'active') {
+			$scope.showDisabled = false;
+			$scope.showActived = true;
+		}
+		
+		//alert(status);
+	};
 	
-	$("#dvdialog").hide();
-	$("#dvdeleteskill").hide();
+	$scope.approveSkill = function(id){
+
+		$http({
+	        method : "GET",
+	       
+	        url : approveUrl + "?id=" + id,
+	        data : $scope.query
+	    }).then(function successCallback(response) {
+	    	
+	    	$("tr[data-skill='" + id + "'] td").removeClass('tree_status_lock');
+	    	$("tr[data-skill='" + id + "'] td:first img.inactived").remove();
+	    	$("tr[data-skill='" + id + "'] td a.approve").remove();
+	    	$("tr[data-skill='" + id + "'] td.statustitle").html("Aktive");
+	    	
+
+	    }, function errorCallback(response) {
+	        
+	        alert("Fehler beim Genehmegien von Skill!");
+	        //$scope.test = response.data;
+	    });
+		
+	}
+	
+	$scope.editSkill = function(id, title, status){
+
+		$scope.selctedSkill = title;
+		$scope.selctedSkillId = id;
+		$scope.selctedSkillStatus = status;
+
+		$("#editSkillDialog").modal();
+		
+	}
+	
+	$scope.test = function(){
+
+		return $("#skillform").serialize();
+		
+	}
+	
+	$scope.saveSelectedSkill = function(){
+
+		var data = [];
+		//data[$("#skillform input").attr('name')] = $("#skillform input").val();
+		data['SkillsBase'] = {};
+		data['SkillsBase']['title'] = $scope.selctedSkill;
+		data['SkillsBase']['status'] = $scope.selctedSkillStatus;
+		
+		//data = [];
+		//data[$("#skillform input").attr('name')] = $("#skillform input").val();
+		//data['title'] = $scope.selctedSkill;
+		//data['status'] = $scope.selctedSkillStatus;
+		//data = "title=" + $scope.selctedSkill +"&status=" + $scope.selctedSkillStatus;
+		
+		data = new FormData();
+		
+		/*$http({
+		    method: 'POST',
+		    url: updateUrl + "?id=" + $scope.selctedSkillId,
+		    data: $.param({SkillsBase: {title: $scope.selctedSkill, status: $scope.selctedSkillStatus}}), //JSON.stringify(data), //$.param({SkillsBase: data}),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+		});*/
+		
+		$http({
+	        method : "POST",
+	        headers: {
+	        	'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+	        },
+	        url : updateUrl + "?id=" + $scope.selctedSkillId ,
+	        data : $.param({SkillsBase: {title: $scope.selctedSkill, status: $scope.selctedSkillStatus}})
+	    }).then(function successCallback(response) {
+	    	
+	    	$("#editSkillDialog").modal('hide');
+	    	location.reload();
+
+	    }, function errorCallback(response) {
+	        
+	        alert("Fehler beim Speichern von Skill!");
+	    });
+		
+		
+		
+	}
+	
+	$('#editSkillDialog').on('shown.bs.modal', function (e) {
+		$('#editSkillInput').focus();
+	})
 	
 });
 

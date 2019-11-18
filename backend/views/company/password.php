@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Kennwort');
 		?>
 	    	
 	    <div class="form-group">
-	        <?= Html::submitButton(Yii::t('app', 'Update'), ['class' => 'btn btn-primary' , 'onclick' => 'checkPasswords(event);']) ?>
+	        <?= Html::submitButton(Yii::t('app', 'Bearbeiten'), ['class' => 'btn btn-primary' , 'onclick' => 'checkPasswords(event);']) ?>
 	    </div>
 	
 	    <?php ActiveForm::end(); ?>

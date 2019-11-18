@@ -12,20 +12,15 @@ use backend\components\HtmlHelper;
 $this->title = Yii::t('app', 'Stellenanzeige');
 $this->params['breadcrumbs'][] = $this->title;
 
-$helper = new HtmlHelper(['controllerName' => 'jobpos']);
-
-
-/*[
-'class' => 'yii\grid\ActionColumn',
-'headerOptions' => ['style' => 'width : 70px;'],
-'template' => '{find} {update} {view} {delete}',
-'buttons' => [
-    'find' => function ($url, $model, $key) {
-    
-    return '<a href="' . Yii::getAlias('@web') . '/jobpos/findcandidate?id=' . $model->id . '" title="' . Yii::t('app', 'Passende Bewerber-Liste') . '" ><span class="glyphicon glyphicon-search"></span></a>';
-    },
-    ],
-    ],*/
+$helper = new HtmlHelper([
+                            'template' => '{view} {update} {delete} {match}',
+                            'extraButtons' => [
+                                'match' => function ($url, $model, $key) {
+                                return Html::a('<img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/search.png" width="20">', $url , ['title' => Yii::t('app', 'Treffer Finden') , 'aria-label' => Yii::t('app', 'Treffer Finden'), ]);
+                                }
+                                ],
+        
+]);
 
 ?>
 <div class="job-position-base-index">

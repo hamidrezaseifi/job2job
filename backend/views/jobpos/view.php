@@ -8,45 +8,38 @@ use common\helper\BrainStaticList;
 /* @var $this yii\web\View */
 /* @var $model common\lib\JobPositionBase */
 
-$fromapply = isset($fromapply) ? $fromapply : false;
+$this->title = Yii::t('app', 'Stellenanzeige Anzeigen');
 
-$this->title = Yii::t('app', 'Stellenanzeige Vorschau');
-if(!$fromapply){
-	$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stellenanzeige'), 'url' => ['index']];
-	$this->params['breadcrumbs'][] = $this->title;
-}
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Stellenanzeige'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+
 
 $formatter = Yii::$app->formatter;
 $formatter->locale = 'de-DE';
-$updateurl = ['update', 'id' => $model->id];
-if($fromcompany)
-{
-	$updateurl['fromcompany'] = $fromcompany;
-}
 ?>
 <div class="job-position-base-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-<?php if(!$fromapply){?>
+
     <p>
-        <?= $fromcompany ? Html::a(Yii::t('app', 'Unternehmen'), Yii::getAlias('@web') . '/company/index', ['class' => 'btn btn-primary']) : '' ?>
-        <?= Html::a(Yii::t('app', 'Bearbeiten'), $updateurl, ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Treffer'), ['match', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Möchten Sie diesen Artikel wirklich löschen?'),
                 'method' => 'post',
             ],
         ]) ?>
     </p>
-<?php } ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
         	[
         		'label' => Yii::t('app', 'Unternehmer'),
         		'format' => 'raw',
-        		'value' => $model->getCompany()->companyname . ' <a target="_blank" href="' . Yii::getAlias('@web') . '/company/view?id=' . $model->companyid . '"><span class="glyphicon glyphicon-new-window"></span></a>',
+        		'value' => $model->getCompany()->companyname . ' <a target="_blank" href="' . Yii::getAlias('@web') . '/company/view?id=' . $model->companyid . '"><img alt="" src="' . Yii::getAlias('@web') . '/web/images/icons/opne-new.png" width="20"></a>',
     		],
         	'title',
         	[

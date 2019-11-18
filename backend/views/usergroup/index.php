@@ -8,12 +8,11 @@ use backend\components\HtmlHelper;
 /* @var $searchModel common\lib\UsergroupSearchBase */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'User Group Bases');
+$this->title = Yii::t('app', 'Benutzergruppen');
 $this->params['breadcrumbs'][] = $this->title;
 
 
 $helper = new HtmlHelper([
-    'controllerName' => 'usergroup',
     'visibleButtons' => [
         'update' => function ($model, $key, $index) {
         return $model->id > 2;
@@ -35,7 +34,7 @@ $helper = new HtmlHelper([
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create User Group Base'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Benutzergruppe Erstellen'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -46,7 +45,7 @@ $helper = new HtmlHelper([
             'title',
         	[
         		'label' => Yii::t('app', 'Status'),
-        		'value' => function($model){ return ($model->status == 1 ? Yii::t('app', 'Active') : Yii::t('app', 'Deactivate'));}
+        		'value' => function($model){ return ($model->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', Inaktiv));}
     		],
             'createdate',
             'updatedate',

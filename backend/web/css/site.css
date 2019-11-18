@@ -415,8 +415,7 @@ span.nav_emptyimage
 
 .has-error input[aria-invalid = 'true'].form-control,
 .has-error select[aria-invalid = 'true']{
-	box-shadow: -1px 0px 9px 0px red;
-	
+	box-shadow: -1px 0px 9px 0px red;	
 }
 
 a .fa{

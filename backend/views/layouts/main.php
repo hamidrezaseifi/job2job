@@ -111,7 +111,7 @@ if (Yii::$app->user->isGuest) {
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
           	<?php foreach ($this->params['breadcrumbs'] as $index => $breadcrumb) { 
-          	    $isactive = $index == count($this->params['breadcrumbs']) - 1 ? 'active' : '';
+          	    $isactive = $index == count($this->params['breadcrumbs']) - 1 ? 'Aktiv' : '';
           	    $iscurrent = $index == count($this->params['breadcrumbs']) - 1 ? 'aria-current="page"' : '';
           	    
           	    $bcontent = '';

@@ -12,7 +12,6 @@ $this->title = Yii::t('app', 'Bewerber');
 $this->params['breadcrumbs'][] = $this->title;
 
 $helper = new HtmlHelper([
-    'controllerName' => 'candidate',
     'template' => '{view} {update} {delete} {password}',
     'extraButtons' => [
         'password' => function ($url, $model, $key) {

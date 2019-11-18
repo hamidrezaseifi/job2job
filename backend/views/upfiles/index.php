@@ -12,7 +12,6 @@ $this->title = Yii::t('app', 'hochgeladene Dateien');
 $this->params['breadcrumbs'][] = $this->title;
 
 $helper = new HtmlHelper([
-    'controllerName' => 'upfiles',
     'template' => '{delete} {approve}',
     'visibleButtons' => [
         'approve' => function ($model, $key, $index) {
@@ -42,12 +41,6 @@ $helper = new HtmlHelper([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
         'columns' => [
-        	[
-        		'header' => '<input id="chkcheckall" type="checkbox" data-id="" />',
-        		'format' => 'raw',
-        		'headerOptions' => ['style' => 'width : 20px;'],
-        		'value' => function($model){ return '<input type="checkbox" class="checksel" data-id="' . $model->id . '" />' ;}
-        	],
         	['class' => 'yii\grid\SerialColumn', 'headerOptions' => ['style' => 'width : 40px;'],],
         	[
         		'label' => Yii::t('app', 'Datei'),
@@ -68,19 +61,6 @@ $helper = new HtmlHelper([
             //'upload_date',
             //'userid',
         	$helper->render(),
-            [
-            	'class' => 'yii\grid\ActionColumn', 
-            	'headerOptions' => ['style' => 'width : 60px;'],
-            	'template' => '{delete} {approve}',
-            	'header' => '<a href="javascript:deleteall()" title="Löschen" ><span class="glyphicon glyphicon-trash"></span></a> <a href="javascript:approveall()" title="Genehmigen" aria-label="Genehmigen"><span class="glyphicon glyphicon-ok"></span></a>',
-            	'buttons' => [
-            				'approve' => function ($url, $model, $key) {
-            					return '<a href="' . Yii::getAlias('@web') . '/upfiles/approve?id=' . $key . '" title="' . Yii::t('app', 'Genehmigen') . '" aria-label="' . Yii::t('app', 'Genehmigen') . '" data-confirm="' . Yii::t('app', 'Sind Sie sicher, dass Sie diesen Artikel genehmigen möchten?') . '" data-method="post" data-pjax="0" ><span class="glyphicon glyphicon-ok"></span></a>';
-            				},
-            				
-            				
-            	],
-        	],
         ],
     ]); ?>
 </div>

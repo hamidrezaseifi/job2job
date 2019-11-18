@@ -6,12 +6,10 @@ use yii\helpers\Html;
 /* @var $model common\lib\TargetMessageUsersBase */
 /* @var $userlist array */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Target Message Users Base',
-]) . $model->userid;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Target Message Users Bases'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Nachricht Benutzer Bearbeiten');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Nachricht Benutzer'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->userid, 'url' => ['view', 'id' => $model->userid]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Bearbeiten');
 ?>
 <div class="target-message-users-base-update">
 

@@ -164,8 +164,8 @@ class Menu extends Widget
      * @see isItemActive()
      */
     public $params;
-
-
+    
+    
     /**
      * Renders the menu.
      */
@@ -181,11 +181,11 @@ class Menu extends Widget
         if (!empty($items)) {
             $options = $this->options;
             $tag = ArrayHelper::remove($options, 'tag', 'ul');
-
+            
             echo Html::tag($tag, $this->renderItems($items), $options);
         }
     }
-
+    
     /**
      * Recursively renders the menu items (without the container tag).
      * @param array $items the menu items to be rendered recursively
@@ -199,7 +199,7 @@ class Menu extends Widget
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
-            if ($item['active']) {
+            if ($item['Aktiv']) {
                 $class[] = $this->activeCssClass;
             }
             if ($i === 0 && $this->firstItemCssClass !== null) {
@@ -209,7 +209,7 @@ class Menu extends Widget
                 $class[] = $this->lastItemCssClass;
             }
             Html::addCssClass($options, $class);
-
+            
             $menu = $this->renderItem($item);
             if (!empty($item['items'])) {
                 $submenuTemplate = ArrayHelper::getValue($item, 'submenuTemplate', $this->submenuTemplate);
@@ -219,10 +219,10 @@ class Menu extends Widget
             }
             $lines[] = Html::tag($tag, $menu, $options);
         }
-
+        
         return implode("\n", $lines);
     }
-
+    
     /**
      * Renders the content of a menu item.
      * Note that the container and the sub-menus are not rendered here.
@@ -233,20 +233,20 @@ class Menu extends Widget
     {
         if (isset($item['url'])) {
             $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
-
+            
             return strtr($template, [
                 '{url}' => Html::encode(Url::to($item['url'])),
                 '{label}' => $item['label'],
             ]);
         }
-
+        
         $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
-
+        
         return strtr($template, [
             '{label}' => $item['label'],
         ]);
     }
-
+    
     /**
      * Normalizes the [[items]] property to remove invisible items and activate certain items.
      * @param array $items the items to be normalized.
@@ -276,22 +276,22 @@ class Menu extends Widget
                     }
                 }
             }
-            if (!isset($item['active'])) {
+            if (!isset($item['Aktiv'])) {
                 if ($this->activateParents && $hasActiveChild || $this->activateItems && $this->isItemActive($item)) {
-                    $active = $items[$i]['active'] = true;
+                    $active = $items[$i]['Aktiv'] = true;
                 } else {
-                    $items[$i]['active'] = false;
+                    $items[$i]['Aktiv'] = false;
                 }
-            } elseif ($item['active'] instanceof Closure) {
-                $active = $items[$i]['active'] = call_user_func($item['active'], $item, $hasActiveChild, $this->isItemActive($item), $this);
-            } elseif ($item['active']) {
+            } elseif ($item['Aktiv'] instanceof Closure) {
+                $active = $items[$i]['Aktiv'] = call_user_func($item['Aktiv'], $item, $hasActiveChild, $this->isItemActive($item), $this);
+            } elseif ($item['Aktiv']) {
                 $active = true;
             }
         }
-
+        
         return array_values($items);
     }
-
+    
     /**
      * Checks whether a menu item is active.
      * This is done by checking if [[route]] and [[params]] match that specified in the `url` option of the menu item.
@@ -322,10 +322,10 @@ class Menu extends Widget
                     }
                 }
             }
-
+            
             return true;
         }
-
+        
         return false;
     }
 }

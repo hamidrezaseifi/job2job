@@ -8,11 +8,10 @@ use backend\components\HtmlHelper;
 /* @var $searchModel common\lib\CallrequestBaseSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Callrequest Bases');
+$this->title = Yii::t('app', 'Rückruf Antrag');
 $this->params['breadcrumbs'][] = $this->title;
 
 $helper = new HtmlHelper([
-    'controllerName' => 'callrequest',
     'template' => '{view} {delete}',
     
 ]);

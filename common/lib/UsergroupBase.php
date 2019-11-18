@@ -46,10 +46,10 @@ class UsergroupBase extends \common\models\Usergroup
     {
     	switch ($status)
     	{
-    		case 1 : return \Yii::t('app', 'Active');
+    		case 1 : return \Yii::t('app', 'Aktiv');
     		case 2 : return \Yii::t('app', 'Deactive');
     		case 3 : return \Yii::t('app', 'Deleted');
-    		//case 1 : return \Yii::t('app', 'active');
+    		//case 1 : return \Yii::t('app', 'Aktiv');
     	}
     	return '';
     }

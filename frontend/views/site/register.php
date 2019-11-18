@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="top-text-form">
 			<div class="buttons-form-select">
-				<div class="register-selectform form1-regis cont_2" ng-class="{'active' : !active_register}" ng-click="active_register=false;">BEREITS REGISTRIERT</div>
-				<div class="register-selectform cont_1" ng-class="{'active' : active_register}" ng-click="active_register=true;">REGISTRIEREN</div>
+				<div class="register-selectform form1-regis cont_2" ng-class="{'Aktiv' : !active_register}" ng-click="active_register=false;">BEREITS REGISTRIERT</div>
+				<div class="register-selectform cont_1" ng-class="{'Aktiv' : active_register}" ng-click="active_register=true;">REGISTRIEREN</div>
 			</div>
 
 			<p class="content1" ng-show="active_register">Erstellen Sie sich Ihr Benutzerkonto und sichern Sie sich alle Vorteile einer <br>Zusammenarbeit.</p>
@@ -77,8 +77,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
        			<div class="register-type-container">
            			<div class="register-type">
-    					<div class="register-type-item" ng-class="{'active' : registerData.regtype == 1}" ng-click="registerData.regtype = 1;">Bewerber</div>
-    					<div class="register-type-item" ng-class="{'active' : registerData.regtype == 2}" ng-click="registerData.regtype = 2;">Unternehmer</div>
+    					<div class="register-type-item" ng-class="{'Aktiv' : registerData.regtype == 1}" ng-click="registerData.regtype = 1;">Bewerber</div>
+    					<div class="register-type-item" ng-class="{'Aktiv' : registerData.regtype == 2}" ng-click="registerData.regtype = 2;">Unternehmer</div>
     					<input type="hidden" id="register-regtype" name="data[regtype]" />
         			</div>
     			</div>
@@ -89,8 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 		<div class="inputform">
                 			<label>*Anrede:</label>
                 			<div class="mr-mrs">
-            					<div class="gender" ng-class="{'active' : registerData.gender == 'f'}" ng-click="registerData.gender = 'f';">Frau</div>
-            					<div class="gender" ng-class="{'active' : registerData.gender == 'm'}" ng-click="registerData.gender = 'm';">Herr</div>
+            					<div class="gender" ng-class="{'Aktiv' : registerData.gender == 'f'}" ng-click="registerData.gender = 'f';">Frau</div>
+            					<div class="gender" ng-class="{'Aktiv' : registerData.gender == 'm'}" ng-click="registerData.gender = 'm';">Herr</div>
             					<input type="hidden" name="data[gender]" id="register-gender" />
                 			</div>
                 		</div>

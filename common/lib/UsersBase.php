@@ -44,7 +44,7 @@ class UsersBase extends \common\models\Users
     {
     	switch ($status)
     	{
-    		case self::UserStatusActive : return \Yii::t('app', 'Active');
+    		case self::UserStatusActive : return \Yii::t('app', 'Aktiv');
     		case self::UserStatusDeactive : return \Yii::t('app', 'Deactive');
     		case self::UserStatusDeleted : return \Yii::t('app', 'Deleted');
     		case self::UserStatusApprove : return \Yii::t('app', 'Approve request');
@@ -59,7 +59,7 @@ class UsersBase extends \common\models\Users
     		case self::UserTypeBackend : return \Yii::t('app', 'Backend');
     		case self::UserTypeCompany : return \Yii::t('app', 'Company');
     		case self::UserTypeCandidate : return \Yii::t('app', 'Job Seeker');
-    		//case 1 : return \Yii::t('app', 'active');
+    		//case 1 : return \Yii::t('app', 'Aktiv');
     	}
     	return '';
     }

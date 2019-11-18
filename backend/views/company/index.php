@@ -13,7 +13,6 @@ $this->title = Yii::t('app', 'Unternehmen');
 $this->params['breadcrumbs'][] = $this->title;
 
 $helper = new HtmlHelper([
-    'controllerName' => 'company', 
     'visibleButtons' => [
         'update' => function ($model, $key, $index) {
         return $model->isjob2job === 0;

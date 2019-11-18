@@ -8,8 +8,8 @@ use yii\base\Widget;
 /* @var $this yii\web\View */
 /* @var $model common\lib\UsergroupBase */ 
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Group'), 'url' => ['index']];
+$this->title = 'Benutzergruppe Anzeigen';
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Benutzergruppen'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-group-base-view">
@@ -18,11 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
     	<?php if($model->id != 1) {
-        echo Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) . ' &nbsp; ';
-        echo Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        echo Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) . ' &nbsp; ';
+        echo Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Möchten Sie diesen Artikel wirklich löschen?'),
                 'method' => 'post',
             ],
         ]);
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
         	[
         		'label' => 	Yii::t('app', 'Status'),
-        		'value' => ($model->status == 1 ? Yii::t('app', 'Active') : Yii::t('app', 'Deactivate')),
+        		'value' => ($model->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', Inaktiv)),
     		],
             'createdate',
             'updatedate',

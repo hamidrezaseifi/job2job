@@ -10,7 +10,7 @@ $this->title = Yii::t('app', 'Update {modelClass}: ', [
 ]) . $model->userid;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Candidatejobapply Bases'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->userid, 'url' => ['view', 'userid' => $model->userid, 'jobposid' => $model->jobposid]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Bearbeiten');
 ?>
 <div class="candidatejobapply-base-update">
 

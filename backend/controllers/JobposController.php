@@ -38,7 +38,7 @@ class JobposController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    //'delete' => ['POST'],
                 ],
             ],
         ];
@@ -380,7 +380,7 @@ class JobposController extends Controller
      * Lists all CompanyBase models.
      * @return mixed
      */
-    public function actionFindcandidate($id)
+    public function actionMatch($id)
     {
     	$jobposModel = $this->findModel($id);
     	$skillsModelList = $jobposModel->getSkills();

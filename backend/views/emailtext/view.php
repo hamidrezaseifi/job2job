@@ -2,24 +2,29 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\lib\EmailtextBase */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Emailtext Bases'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Email Text');
+$this->title = 'Email-Inhalt Anzeigen';
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Email-Inhalt'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Email-Inhalt');
 ?>
 <div class="emailtext-base-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+    	<?php ActiveForm::begin(['action' => Yii::getAlias('@web') . '/emailtext/delete?id=' . $model->id]); ?>
+    		
+    	<?php ActiveForm::end(); ?>     
+    	
+        <?= Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Möchten Sie diesen Artikel wirklich löschen?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -34,7 +39,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Email Text');
             //'texttype',
             [
         		'label' => 	Yii::t('app', 'Status'),
-        		'value' => ($model->status == 1 ? Yii::t('app', 'Active') : Yii::t('app', 'Deactivate')),
+        		'value' => ($model->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', 'Inaktiv')),
         	],
         ],
     ]) ?>

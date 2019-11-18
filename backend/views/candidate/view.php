@@ -8,7 +8,7 @@ use common\helper\BrainStaticList;
 /* @var $model common\models\Candidate */
 
 
-$this->title = Yii::t('app', 'Bewerber Vorschau');
+$this->title = Yii::t('app', 'Bewerber Anzeigen');
 
 	$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bewerber'), 'url' => ['index']];
 	$this->params['breadcrumbs'][] = $this->title;
@@ -26,7 +26,7 @@ $formatter = \Yii::$app->formatter;
         <?= Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->userid], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Möchten Sie diesen Artikel wirklich löschen?'),
                 'method' => 'post',
             ],
         ]) ?>

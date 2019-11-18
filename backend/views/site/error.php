@@ -1,6 +1,5 @@
 <?php
 
-use yii\base\Object;
 
 /* @var $this yii\web\View */
 /* @var $name string */

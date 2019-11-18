@@ -9,9 +9,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\lib\UsersBase;
-use common\lib\BackendUserModel;
-use common\lib\SiteUserModel;
-use yii\helpers\ArrayHelper;
 
 /**
  * TgtmsguserController implements the CRUD actions for TargetmessageusersBase model.
@@ -27,7 +24,7 @@ class TgtmsguserController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    //'delete' => ['POST'],
                 ],
             ],
         ];

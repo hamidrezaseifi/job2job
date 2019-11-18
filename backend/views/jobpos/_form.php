@@ -103,7 +103,7 @@ $this->registerJsFile("@web/web/js/jobpos-form.js", ['position' => \yii\web\View
 		</div>
 	    		        
         <div class="form-group">       
-            <?= Html::button($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary' , 'ng-click' => 'submitForm()']) ?>
+            <?= Html::button($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Bearbeiten'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary' , 'ng-click' => 'submitForm()']) ?>
         </div>
     
     	<input type="hidden" ng-repeat="skill in jobposition.skillList" name="JobpositionSkills[]" value="{{skill}}">

@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->userid], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->userid], [
+        <?= Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->userid], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Löschen'), ['delete', 'id' => $model->userid], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('app', 'Möchten Sie diesen Artikel wirklich löschen?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         	],        		
             [
         		'label' => 	Yii::t('app', 'Status'),
-        		'value' => ($model->status == 1 ? Yii::t('app', 'Active') : Yii::t('app', 'Deactivate')),
+        		'value' => ($model->status == 1 ? Yii::t('app', 'Aktiv') : Yii::t('app', Inaktiv)),
         	],
         ],
     ]) ?>

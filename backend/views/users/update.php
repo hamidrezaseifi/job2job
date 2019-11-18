@@ -10,9 +10,9 @@ use yii\helpers\Html;
 /* @var $usertype_list array */
 /* @var $message string */
 
-$this->title = Yii::t('app', 'Update');
+$this->title = Yii::t('app', 'Bearbeiten');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Bearbeiten');
 ?>
 <div class="users-base-update">
 

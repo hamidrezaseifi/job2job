@@ -7,13 +7,11 @@ use common\helper\BrainStaticList;
 /* @var $this yii\web\View */
 /* @var $model common\lib\CompanyBase */
 
-$fromapply = isset($fromapply) ? $fromapply : false;
+$this->title = Yii::t('app', 'Unternehmer Anzeigen');
 
-$this->title = Yii::t('app', 'Unternehmer Vorschau');
-if(!$fromapply){
-	$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Unternehmen'), 'url' => ['index']];
-	$this->params['breadcrumbs'][] = $this->title;
-}
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Unternehmen'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+
 $formatter = \Yii::$app->formatter;
 $allconnected = $model->connectedCompanies();
 $connected = '';
@@ -52,11 +50,11 @@ foreach ($personal as $ped)
 <div class="company-base-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-<?php if(!$fromapply){?>
+
     <p>
         <?= Html::a(Yii::t('app', 'Bearbeiten'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
-<?php } ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [

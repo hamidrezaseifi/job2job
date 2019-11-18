@@ -6,12 +6,9 @@ use yii\helpers\Html;
 /* @var $model common\lib\UsergroupBase */
 /* @var $status_list array */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'User Group',
-]) . $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Group'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->title = Yii::t('app', 'Benutzergruppe Bearbeiten');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Benutzergruppen'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Bearbeiten');
 ?>
 <div class="user-group-base-update">
 

@@ -30,7 +30,7 @@ class CompanyController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    //'delete' => ['POST'],
                 ],
             ],
         ];
@@ -257,17 +257,8 @@ class CompanyController extends Controller
             
             $postdata['CompanyBase']['updatedate'] = date('Y-m-d H:i:s');
             $postdata['PET']['updatedate'] = date('Y-m-d H:i:s');
-            $postdata['PETUsersBase']['updatedate'] = date('Y-m-d H:i:s');
-            if(isset($postdata['SV'])){
-                $postdata['SV']['updatedate'] = date('Y-m-d H:i:s');
-                $postdata['SVUsersBase']['updatedate'] = date('Y-m-d H:i:s');
-            }
+            $postdata['PETUsersBase']['updatedate'] = date('Y-m-d H:i:s');            
             
-            
-            if(isset($postdata['SVUsersBase']))
-            {
-                $postdata['SVUsersBase']['bdate'] = BrainHelper::dateAsEnglish($postdata['SVUsersBase']['bdate']);
-            }
             //print_r($postdata); exit;
             if ($model->load($postdata) && $model->save(false)) {
                 
@@ -308,6 +299,14 @@ class CompanyController extends Controller
                 
                 if(isset($postdata['SV']['set']) && isset($postdata['SVUsersBase']))
                 {
+                    $postdata['SV']['updatedate'] = date('Y-m-d H:i:s');
+                    $postdata['SVUsersBase']['updatedate'] = date('Y-m-d H:i:s');
+                    
+                    if(isset($postdata['SVUsersBase']['bdate']))
+                    {
+                        $postdata['SVUsersBase']['bdate'] = BrainHelper::dateAsEnglish($postdata['SVUsersBase']['bdate']);
+                    }
+                    
                     unset($postdata['SV']['set']);
                     $data = [];
                     $data['UsersBase'] = $postdata['SVUsersBase'];
@@ -352,6 +351,7 @@ class CompanyController extends Controller
     	$model->founddate = BrainHelper::dateAsGerman($model->founddate);   	
     	$personalEntscheiderUser->bdate = BrainHelper::dateAsGerman($personalEntscheiderUser->bdate);
     	$stellVertreterUser->bdate = BrainHelper::dateAsGerman($stellVertreterUser->bdate);
+
     	$personalEntscheiderModel->reachability = explode(',', $personalEntscheiderModel->reachability);
     	$stellVertreterModel->reachability = explode(',', $stellVertreterModel->reachability);
     	
@@ -525,14 +525,6 @@ class CompanyController extends Controller
         
         $reachability = $model->reachability;
         $reachability = explode(',', $reachability);
-        $reachabilitArray = array();
-        foreach ($reachability as $reach)
-        {
-            $reach = trim($reach);
-            if($reach == '') continue;
-            $reachabilitArray[] = $reach;
-        }
-        $model->reachability = $reachabilitArray;
         
         return $model;
     }

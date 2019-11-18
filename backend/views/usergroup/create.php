@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model common\lib\UsergroupBase */
 /* @var $status_list array */
 
-$this->title = Yii::t('app', 'Create User Group');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'User Group'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Benutzergruppe Erstellen');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Benutzergruppen'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-group-base-create">

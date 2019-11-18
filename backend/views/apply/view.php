@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\lib\CandidatejobapplyBase */
 
-$this->title = Yii::t('app', 'Bewerbung Vorschau');
+$this->title = Yii::t('app', 'Bewerbung Anzeigen');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bewerbungen'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

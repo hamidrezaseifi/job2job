@@ -9,12 +9,11 @@ use backend\components\HtmlHelper;
 /* @var $searchModel common\lib\UsersSearchBase */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Users');
+$this->title = Yii::t('app', 'Benutzer');
 $this->params['breadcrumbs'][] = $this->title;
 
 
 $helper = new HtmlHelper([
-    'controllerName' => 'users',
     'template' => '{view} {update} {delete} {password}',
     'extraButtons' => [
         'password' => function ($url, $model, $key) {
@@ -30,10 +29,8 @@ $helper = new HtmlHelper([
 <div class="users-base-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a(Yii::t('app', 'Create Users'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Benutzer erstellen'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

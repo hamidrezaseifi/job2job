@@ -13,7 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 $helper = new HtmlHelper([
-    'controllerName' => 'upfiles',
     'template' => '{view} {delete}',
     
             

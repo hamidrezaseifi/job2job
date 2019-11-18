@@ -76,7 +76,7 @@ class SkillsBase extends \common\models\Skills
     {
     	switch ($status)
     	{
-    		case self::StatusActive : return Yii::t('app', 'Active');
+    		case self::StatusActive : return Yii::t('app', 'Aktiv');
     		case self::StatusDeactive : return Yii::t('app', 'Deactive');
     		case self::StatusNotApproved : return Yii::t('app', 'Not Approved');
     	}

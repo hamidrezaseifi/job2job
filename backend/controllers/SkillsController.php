@@ -24,7 +24,7 @@ class SkillsController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    //'delete' => ['POST'],
                 ],
             ],
         ];
@@ -113,42 +113,18 @@ class SkillsController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id , $partial = 0)
+    public function actionUpdate($id)
     {
+        //print_r(Yii::$app->request->bodyParams); exit;
+        //print_r($_POST); 
+        //exit;
         $model = $this->findModel($id);
-
-        $parentpath = SkillsBase::skillParentPath($model->parentid);
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	if($partial)
-        	{
-        		echo 'ok';
-        		exit;
-        	}
-        	else 
-        	{
-            	return $this->redirect(['view', 'id' => $model->id]);
-        	}
+            echo 'ok';
+            exit;
         } 
-        else {
-        	if($partial == 0)
-        	{
-	            return $this->render('update', [
-	                'model' => $model,
-	            	'parentpath' => $parentpath,
-	            	'ajax' => false,
-	            ]);
-        	}
-        	else 
-        		{
-        			return $this->renderPartial('update', [
-        				'model' => $model,
-        				'parentpath' => $parentpath,
-        				'ajax' => true,
-        			]);
-        		}
-        		
-        }
+        
     }
 
     /**
@@ -159,25 +135,40 @@ class SkillsController extends Controller
      */
     public function actionDelete($id = 0 , $partial = 0)
     {
-    	if($partial)
-    	{
-    		$id = \Yii::$app->request->pos('id');
-    	}
-    	
-    	$childs = SkillsBase::listChilds($id);
-    	$childs[$id] = $id;
-    	
-    	SkillsBase::deleteAll('id in (' . implode(',', array_values($childs)) . ')');
-    	
-    	if($partial)
-    	{
-    		echo 'ok';
-    		exit;
-    	}
-    	else
-    	{
-    		return $this->redirect(['index']);
-    	}
+        if($partial)
+        {
+            $id = \Yii::$app->request->pos('id');
+        }
+        
+        $childs = SkillsBase::listChilds($id);
+        $childs[$id] = $id;
+        
+        SkillsBase::deleteAll('id in (' . implode(',', array_values($childs)) . ')');
+        
+        if($partial)
+        {
+            echo 'ok';
+            exit;
+        }
+        else
+        {
+            return $this->redirect(['index']);
+        }
+    }
+    
+    public function actionApprove($id)
+    {
+        header('Content-type: application/json');
+        $this->layout=false;
+        
+        $model = $this->findModel($id);
+        $model->status = 1;
+        $model->save(false);
+        
+        $results = ['res' => 'ok'];
+        echo json_encode($results);
+        exit;
+        
     }
     
     public function actionListtree()
