@@ -28,17 +28,23 @@ $helper = new HtmlHelper();
         //'filterModel' => $searchModel,
         'columns' => [
             [
-            	'class' => 'yii\grid\SerialColumn',
-            	'headerOptions' => ['style' => 'width : 50px;'],
+                'class' => 'yii\grid\SerialColumn',
+                'headerOptions' => ['style' => 'width : 50px;'],
             ],
-
+            
             //'id',
             [
-        		'label' => Yii::t('app', 'Title'),
-            	'headerOptions' => ['style' => 'width : 250px;'],
-        		'value' => function($model){ return $model->title;}
-    		],
-        	'text:ntext',
+                'label' => Yii::t('app', 'Titel'),
+                'headerOptions' => ['style' => 'width : 250px;'],
+                'value' => function($model){ return $model->title;}
+            ],
+            [
+                'label' => Yii::t('app', 'Inhalt'),
+                'headerOptions' => ['style' => 'width : auto;'],
+                'format' =>'html',
+                'value' => function($model){ return \Yii::$app->formatter->asNtext($model->text) ;}
+            ],
+            //'text:ntext',
            // 'texttype',
             [
         		'label' => Yii::t('app', 'Status'),

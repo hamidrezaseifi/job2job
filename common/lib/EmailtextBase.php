@@ -23,8 +23,8 @@ class EmailtextBase extends \common\models\Emailtext
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-        	'text' => Yii::t('app', 'Text'),
+            'title' => Yii::t('app', 'Titel'),
+        	'text' => Yii::t('app', 'Inhalt'),
             'texttype' => Yii::t('app', 'Texttype'),
             'status' => Yii::t('app', 'Status'),
         ];
