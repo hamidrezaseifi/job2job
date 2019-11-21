@@ -40,7 +40,7 @@ class UsersBase extends \common\models\Users
         ];
     }
 
-    public static function statusTitle($status)
+    public static function statusTitleByStatus($status)
     {
     	switch ($status)
     	{
@@ -72,11 +72,17 @@ class UsersBase extends \common\models\Users
     		$this->updatedate = date("Y-m-d H:i:s");
     	return $res;
     }
-
+    
     public function fullname()
     {
+        
+        return $this->lname . ', ' . $this->fname;
+    }
     
-    	return $this->lname . ', ' . $this->fname;
+    public function statusTitle()
+    {
+        
+        return UsersBase::statusTitleByStatus($this->status);
     }
     
     public static function allActiveBackend()

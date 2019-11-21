@@ -1,0 +1,99 @@
+
+button.browse-receiver,
+button.browse-title{
+	float: right;
+    width: 30px;
+    /* border-left: navajowhite; */
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-image: url(../images/icons/search.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+input.receiver,
+input.title{
+	float: left;
+    width: calc(100% - 30px) !important;
+    border-right: none;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.users-dialog{
+	width: 800px !important; 
+	max-width: inherit !important;
+}
+
+.users-dialog .modal-content{
+	min-height: calc(100vh - 200px);	
+	max-height: calc(100vh - 200px);	
+	height: calc(100vh - 200px);	
+}
+
+.users-dialog .modal-header{
+	padding: 3px 20px;
+    background-color: #363f6f;
+    color: #f8f8d3;
+}
+
+.users-dialog .modal-content .modal-body{
+	height: calc(100% - 80px);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.users-dialog  .modal-footer{
+	padding: 5px 20px; 
+}
+
+.users-dialog .select-all-email {
+    margin-bottom: 20px;
+}
+
+.users-item:nth-child(even) {
+	background: #e1f0ff;
+}
+
+.users-item:nth-child(odd) {
+	background: #fffff4;
+}
+
+.users-item:hover{
+	background: #ffe8e8!important;
+}
+
+.users-item .company {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.users-item .companyuser {
+    margin-bottom: 5px;
+}
+
+.text-title-list{
+	height: 250px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	margin-bottom: 10px;
+}
+
+.text-content{
+	height: calc(100% - 280px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid gray;
+	border-radius: 5px;
+    padding: 6px;
+}
+
+.form-group{
+	clear: both;
+    padding-top: 10px;
+}

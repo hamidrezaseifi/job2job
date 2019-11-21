@@ -95,4 +95,11 @@ class CompanyBase extends \common\models\Company
             'id' => $this->companytype
         ]);
     }
+        
+    public function statusTitle()
+    {
+        
+        return UsersBase::statusTitleByStatus($this->status);
+    }
+    
 }

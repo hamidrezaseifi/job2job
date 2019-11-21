@@ -39,5 +39,13 @@ class EmailForm extends Model
             
         ];
     }
+    
+    public function sendMail() {
+        $headers = array();
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        
+        return mail($this->receiver, $this->title, \Yii::$app->formatter->asNtext($this->body), implode("\r\n", $headers));
+    }
 
 }
