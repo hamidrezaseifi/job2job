@@ -138,4 +138,19 @@ class CandidateBase extends \common\models\Candidate
         $accessableList = BrainStaticList::accessableList();
         return $accessableList[$this->availability];
     }
+    
+    public function skills() {
+        
+        return CandidateskillBase::findAll(['candidateid' => $this->userid]);
+    }
+    
+    public function skillsAsStringArray() {
+        
+        $models = CandidateskillBase::findAll(['candidateid' => $this->userid]);
+        $skills = [];
+        foreach ($models as $skill){
+            $skills[] = $skill->skill;
+        }
+        return $skills;
+    }
 }

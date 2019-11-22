@@ -15,6 +15,7 @@ use common\lib\UserpermissionBase;
 use yii\helpers\ArrayHelper;
 use common\lib\BackendUserModel;
 use common\lib\BranchBase;
+use common\lib\CandidateskillBase;
 
 /**
  * CandidateController implements the CRUD actions for Candidate model.
@@ -112,7 +113,14 @@ class CandidateController extends Controller
         $userModel->bdate = '1990-01-01';
         $userModel->status = 1;
         
+        $skills = [];
+        
         if(count($_POST) > 0) {
+            if(isset($_POST['skills'])){
+                echo $_POST['skills'];
+                exit;
+            }
+            
         	$_POST['CandidateBase']['reachability'] = '';
         	$_POST['reachability'] = isset($_POST['reachability']) && is_array($_POST['reachability']) ? $_POST['reachability'] : array();
         	foreach ($_POST['reachability'] as $reach)
@@ -139,6 +147,8 @@ class CandidateController extends Controller
         	$userModel->save(false);
         
         	$_POST['CandidateBase']['userid'] = $userModel->id;
+        	
+        	
         	
         	$candidateModel->load($_POST);
         	$candidateModel->save(false);
@@ -183,7 +193,8 @@ class CandidateController extends Controller
     		'employeementList' 	=> $employeementList,
     		'accessableList' 	=> $accessableList,
             'distanceList' 		=> $distanceList,
-            'branchs' 		=> $branchs,
+            'branchs' 		    => $branchs,
+            'skills' 		    => $skills,
         ]);
     }
 
@@ -201,7 +212,12 @@ class CandidateController extends Controller
     	
     	$userModel = $candidateModel->user();
     	
+    	$skills = $candidateModel->skillsAsStringArray();
+    	
+    	
     	if(count($_POST) > 0) {
+    	    
+    	    
     		$_POST['CandidateBase']['reachability'] = '';
     		$_POST['reachability'] = isset($_POST['reachability']) && is_array($_POST['reachability']) ? $_POST['reachability'] : array();
     		foreach ($_POST['reachability'] as $reach)
@@ -220,6 +236,26 @@ class CandidateController extends Controller
     		
     		$userModel->load($_POST);
     		$userModel->save(false);
+    		
+    		if(isset($_POST['skills'])){
+    		    $skills = json_decode($_POST['skills']);
+    		    //print_r($skills);
+    		    //echo $_POST['skills'];
+    		    //exit;
+    		    
+    		    CandidateskillBase::deleteAll(['candidateid' => $candidateModel->userid]);
+    		    $data = ['CandidateskillBase' => ['skill' => '', 'candidateid' => $candidateModel->userid]];
+    		    
+    		    
+    		    foreach ($skills as $skill){
+    		        $skillModel = new CandidateskillBase();
+    		        $data['CandidateskillBase']['created'] = date('Y-m-d H:i:s');
+    		        $data['CandidateskillBase']['skill'] = $skill;
+    		        $skillModel->load($data);
+    		        $skillModel->save(false);
+    		    }
+    		    
+    		}
     		
     		return $this->redirect(['index']);
         } 
@@ -264,7 +300,8 @@ class CandidateController extends Controller
     		'accessableList' 	=> $accessableList,
     		'worktypeList' 		=> $worktypeList,
    			'distanceList' 		=> $distanceList,
-            'branchs' 		=> $branchs,
+            'branchs' 		    => $branchs,
+            'skills' 		    => $skills,
         ]);
         
         

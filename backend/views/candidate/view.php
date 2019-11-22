@@ -74,6 +74,10 @@ $formatter = \Yii::$app->formatter;
         		'value' => $model->desiredjobregion > 0 ? $model->desiredjobregion . ' km' : '',
         	],
         	'coverletter:ntext',
+            [
+                'label' => Yii::t('app', 'Fähigkeiten'),
+                'value' => implode(', ', $model->skillsAsStringArray()),
+            ],
             //'createdate',
             //'updatedate',
         ],

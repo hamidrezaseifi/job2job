@@ -18,11 +18,14 @@ use yii\base\Widget;
 /* @var $accessableList array */
 /* @var $distanceList array */
 /* @var $branchs array */
+/* @var $skills array */
 
+$this->registerCssFile("@web/web/css/candidate-form.css", [], 'css-candidate-form');
+$this->registerJsFile("@web/web/js/candidate-form.js", [], 'js-candidate-form');
 
 ?>
 
-<div class="candidate-form">
+<div class="candidate-form" ng-controller="CandidateController">
 
     <?php $form = ActiveForm::begin(); ?>
 	
@@ -78,6 +81,22 @@ use yii\base\Widget;
 
     <?= $form->field($candidateModel, 'coverletter')->textarea(['rows' => 6]) ?>
 
+	<input type="hidden" id="skillhidden" name="skills">
+	
+    <div class="form-group field-candidatebase-skills">
+        <label class="control-label" for="candidatebase-coverletter">Fähigkeiten</label>
+        <input type="text" id="skilltext" ng-keypress="enterSkill($event)" class="form-control skilltext">
+        <button type="button" ng-click="addSkillButton()" class="skill-add"></button>
+        <div class="skill-group">
+            <ul class="list-group">
+              <li ng-repeat="skill in skills" class="list-group-item">
+              	<span>{{skill}}</span> 
+              	<button type="button" ng-click="deleteSkill(skill)" class="skill-delete"></button>
+              </li>
+            </ul>        
+        </div>
+    </div>
+    
     <div class="form-group">
         <?= Html::submitButton($candidateModel->isNewRecord ? Yii::t('app', 'Erstellen') : Yii::t('app', 'Speichern'), ['class' => $candidateModel->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
@@ -87,13 +106,5 @@ use yii\base\Widget;
 </div>
 
 <script>
-	$(document).ready(function(){
-		$.datepicker.setDefaults($.datepicker.regional["de"]);
-		$("input.calender-icon").datepicker({
-		      changeMonth: true,
-		      changeYear: true,
-		      //maxDate: "-17Y"
-		    });
-
-	});
+	var skills = [<?=count($skills) > 0 ? "'" .  implode("','", $skills) . "'" : '' ?>];
 </script>

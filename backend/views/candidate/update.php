@@ -13,6 +13,7 @@ use yii\helpers\Html;
 /* @var $accessableList array */
 /* @var $distanceList array */
 /* @var $branchs array */
+/* @var $skills array */
 
 $this->title = Yii::t('app', 'Bewerber bearbeiten');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bewerber'), 'url' => ['index']];
@@ -33,6 +34,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Bewerber Bearbeiten');
         'accessableList' 	=> $accessableList,
         'distanceList' 		=> $distanceList,
         'branchs' 		    => $branchs,
+        'skills' 		    => $skills,
     ]) ?>
 
 </div>
