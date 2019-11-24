@@ -77,23 +77,27 @@ $isCandidate = $identity ? $identity->isCandidate() : false;
            		<div><span>Beschäftigungsbeginn: </span> <?php echo $startDate;?></div>
            		<div><span>Dauer: </span> <?php echo $duration;?></div>
             </div>
-            
-           	<div class="jobview-twinbox jobview-tasks">
-           		<div class="tasks-title">Ihre Aufgaben:</div>
-           		<ul style="height: 220px; overflow-y: hidden; margin-left: -10px;">
-           			<?php foreach($tasks as $task){?>
-           			<li style="margin-left: 20px;"><?php echo $task->task?></li>
-           			<?php } ?>
-           		</ul>
-            </div>
-            
-           	<div class="jobview-twinbox jobview-skills">
-           		<div class="skills-title">Ihre Qualifikationen:</div>
-           		<ul style="height: 220px; overflow-y: hidden; margin-left: -10px;">
-           			<?php foreach($skills as $skill){?>
-           			<li style="margin-left: 20px;"><?php echo $skill->skill?></li>
-           			<?php } ?>
-           		</ul>
+            <div class="jobview-second-part-container">
+               	<div class="jobview-twinbox jobview-tasks">
+               		<div class="tasks-title">Ihre Aufgaben:</div>
+               		<ul class="job-subitems">
+               			<?php foreach($tasks as $task){?>
+               			<li style="margin-left: 20px;"><?php echo $task->task?></li>
+               			<?php } ?>
+               		</ul>
+                </div>
+                
+                <div class="jobview-twinbox-sep">
+                </div>
+                
+               	<div class="jobview-twinbox jobview-skills">
+               		<div class="skills-title">Ihre Qualifikationen:</div>
+               		<ul class="job-subitems">
+               			<?php foreach($skills as $skill){?>
+               			<li style="margin-left: 20px;"><?php echo $skill->skill?></li>
+               			<?php } ?>
+               		</ul>
+                </div>
             </div>
             <div class="clear"></div>
         </div>

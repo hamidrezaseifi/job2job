@@ -241,8 +241,16 @@
     width: 46%;
     padding: 20px;
     float: left;
-    height: 300px;
     overflow: hidden;
+    flex-grow: 8px;
+}
+
+.jobview-twinbox-sep
+{
+    width: 8%;
+    padding: 20px;
+    float: left;
+    flex-grow: 1px;
 }
 
 .jobview-tasks
@@ -283,6 +291,16 @@
 	cursor: pointer;
 }
 
+ul.job-subitems{
+	/*height: 220px; 
+	overflow-y: hidden;*/ 
+	margin-left: -10px;	
+}
+
+.jobview-second-part-container{
+	display: flex; 	
+}
+
 @media(max-width: 479px)
 {
 
@@ -316,12 +334,25 @@
 	{
 		float: none !important;
 	    padding: 20px;
-	    height: 300px;
+	    height: auto;
 	    overflow: hidden;
 	    width: calc(100%);
 	    margin-top: 20px;
 	}
 	
+	ul.job-subitems{
+		height: auto; 
+		overflow: visible; 
+	}
 	
+	.jobview-twinbox-sep{
+		display: none;
+	}
+
+
+	.jobview-second-part-container{
+		display: block; 	
+	}
+
 }
 
