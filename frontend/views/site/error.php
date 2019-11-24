@@ -8,16 +8,22 @@
 
 use yii\helpers\Html;
 
+$name = $name == 'Not Found (#404)' ? '#404' : $name;
+
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="site-error" style="margin: 40px 20px">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
 	<?php 
 	$exception = Yii::$app->errorHandler->exception;
 	if ($exception !== null) {
-	    //print_r($exception);
+	    
+	    if(isset($exception->statusCode) && $exception->statusCode == 404){
+	        $message = '#404: Seite nicht gefunden.';
+	    }
+	    
 	}
 	?>
     <div class="alert alert-danger">
@@ -25,10 +31,10 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+        Der Fehler trat auf, während der Webserver Ihre Anforderung verarbeitete.
     </p>
     <p>
-        Please contact us if you think this is a server error. Thank you.
+        Bitte kontaktieren Sie uns, wenn Sie glauben, dass dies ein Serverfehler ist. Vielen Dank.
     </p>
 
 </div>

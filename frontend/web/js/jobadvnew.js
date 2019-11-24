@@ -34,9 +34,9 @@ brainApp.controller('NewAdvController', ['$scope', '$http', '$sce', '$element', 
 
 	
 	$scope.setJobstartNow = function(){
-		$scope.jobposition.jobStartMonth = "1";
 		var d = new Date();
 		$scope.jobposition.jobStartYear = d.getFullYear() + "";
+		$scope.jobposition.jobStartMonth = (d.getMonth() + 1) + "";
 	}
 	
 	$scope.addTask = function(){

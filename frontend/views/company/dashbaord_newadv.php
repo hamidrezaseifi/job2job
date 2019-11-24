@@ -154,7 +154,7 @@ $currentYear = date('Y');
 	    		<div class="" style="padding-top: 5px; margin-bottom: 10px;">
 	    			<div class="custom-control custom-control-inline deadline-item">
 		    			<label style="width:50px;"><?php echo Yii::t('app', 'Start'); ?></label>&nbsp;
-		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartMonth">
+		    			<select style="height: 26px;" class="custom-select custom-select-sm brain-select-month" ng-model="jobposition.jobStartMonth">
 		    				<option value="0">Monat</option>
 		    				<option value="1">Januar</option>
 		    				<option value="2">Februar</option>
@@ -169,7 +169,7 @@ $currentYear = date('Y');
 		    				<option value="11">November</option>
 		    				<option value="12">Dezember</option>
 		    			</select>
-		    			<select style="height: 26px;" class="custom-select custom-select-sm" ng-model="jobposition.jobStartYear">
+		    			<select style="height: 26px;" class="custom-select custom-select-sm brain-select-year" ng-model="jobposition.jobStartYear">
 		    				<option value="0">Jahr</option>
 		    				<?php for($year=$currentYear; $year < $currentYear + 11; $year++){?>
 		    				<option value="<?=$year ?>"><?=$year ?></option>
