@@ -493,7 +493,7 @@ class JobpositionBaseSearch extends JobpositionBase {
 	        case "branch": $order = ["branch" => SORT_ASC]; break;
 	    }
 
-	    $query = $this->createSearchQuery($params, ['j2j_jobposition.id', 'j2j_jobposition.title', 'j2j_jobposition.city', 'j2j_jobposition.country', 'j2j_jobposition.postcode']);
+	    $query = $this->createSearchQuery($params, ['j2j_jobposition.id', 'j2j_jobposition.title', 'j2j_jobposition.city', 'j2j_jobposition.country', 'j2j_jobposition.postcode', 'j2j_jobposition.createdate', 'j2j_jobposition.vacancy', 'j2j_jobposition.jobstartdate', 'j2j_jobposition.branch']);
 	    
 	    if($order){
 	        $query->orderBy($order);

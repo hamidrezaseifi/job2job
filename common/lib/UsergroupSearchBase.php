@@ -5,12 +5,11 @@ namespace common\lib;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\lib\UserGroupBase;
 
 /**
  * UserGroupSearchBase represents the model behind the search form about `common\lib\UserGroupBase`.
  */
-class UsergroupSearchBase extends UserGroupBase
+class UsergroupSearchBase extends UsergroupBase
 {
     /**
      * @inheritdoc

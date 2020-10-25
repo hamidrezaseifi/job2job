@@ -35,7 +35,7 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
     		<div class="site-contact-detail-top" ng-if="branch == 'hameln'">
                 <div class="site-contact-top-left">
                     Job2Job GmbH<br>
-                	Hefehof 20<br>
+                	Wendenstraße 4<br>
                 	31785 Hameln<br>
             	</div>
                 <div class="site-contact-top-right">
@@ -49,7 +49,7 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
     		<div class="site-contact-detail-top" ng-if="branch == 'minden'">
                 <div class="site-contact-top-left">
                     Job2Job GmbH<br>
-                	Lindenstraße 5 (am ZOB)<br>
+                	Karolingerring 62<br>
                 	32423 Minden<br>
             	</div>
                 <div class="site-contact-top-right">
@@ -93,7 +93,7 @@ $this->registerJsFile("@web/web/js/contact.js", [], 'js-contact');
 		
 		<div class="site-contact-map">
 			<iframe id="googlemap" height="350"
-				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDiTNNWMEMkS_pNc0OxdVGKjfVIPnxyLKE&q=Job2Job+GmbH" >
+				  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.71684400714!2d9.353286351957733!3d52.10308467963807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba8ef1e11ac88b%3A0xbd8b0f01b0414903!2sWendenstra%C3%9Fe%204%2C%2031785%20Hameln!5e0!3m2!1sde!2sde!4v1603635537856!5m2!1sde!2sde&q=Job2Job+GmbH" >
 				</iframe>
 		
 		</div>	

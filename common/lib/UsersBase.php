@@ -85,6 +85,13 @@ class UsersBase extends \common\models\Users
         return UsersBase::statusTitleByStatus($this->status);
     }
     
+    
+    public static function statusTitleStatic($sts)
+    {
+        
+        return UsersBase::statusTitleByStatus($sts);
+    }
+    
     public static function allActiveBackend()
     {
     	$userdatalist = UsersBase::find()->where(['status' => self::UserStatusActive , 'usertype' => self::UserTypeBackend])->all();

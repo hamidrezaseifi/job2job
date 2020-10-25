@@ -592,7 +592,7 @@ class SiteController extends Controller
         }
 
         if (count($_POST) > 0) {
-
+            
             $model = new UsersBase();
             $model->bdate = '1980-01-01';
 

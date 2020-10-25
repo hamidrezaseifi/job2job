@@ -65,7 +65,7 @@ $helper = new HtmlHelper([
         	[
         		'label' => Yii::t('app', 'Status'),
         		'headerOptions' => ['style' => 'width : 60px;'],
-        		'value' => function($model){ return UsersBase::statusTitle($model->status);}
+        	    'value' => function($model){ return UsersBase::statusTitleStatic($model->status);}
         	],
         	 
         	$helper->render()

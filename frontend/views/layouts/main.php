@@ -475,13 +475,13 @@ $this->beginPage ()?>
 <div class="bottom-footer no-print">
 	<div class="footer-child padding-rl-50px">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
-        Hefehof 20<br>
+        Wendenstraße 4<br>
         31785 Hameln<br>
 		<a href="tel:+4951515569430">+49 5151/55694-30</a><br>
 	</div>
 	<div class="footer-child padding-rl-50px">
         <div style="font-size:12px; line-height: 20px;"><b>Job2Job GmbH</b></div>
-        Lindenstraße 5 (am ZOB)<br>
+        Karolingerring 62<br>
         32423 Minden<br>
 		<a href="tel:+4957140493170">+49 571/40493170</a><br>
 	</div>
